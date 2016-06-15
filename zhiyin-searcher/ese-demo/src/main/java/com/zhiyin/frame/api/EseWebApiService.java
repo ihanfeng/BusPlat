@@ -39,10 +39,11 @@ public class EseWebApiService {
     }
 
     @HystrixCommand
-    public String version( ) {
+    public String hello( ) {
 
         String accounts = null;
         try {
+//            restTemplate
             accounts = restTemplate.getForObject(serviceUrl
                     + "/hello", String.class );
         } catch (HttpClientErrorException e) {

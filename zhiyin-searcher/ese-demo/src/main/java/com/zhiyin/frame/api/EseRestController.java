@@ -14,11 +14,11 @@ public class EseRestController {
     @Autowired
     private EseWebApiService notificationService;
 
-    @RequestMapping("/version")
+    @RequestMapping("/ese-hello")
     public String version() {
-        log.info("call version");
+        log.info("call ese");
 
-        return notificationService.version();
+        return notificationService.hello();
     }
 
 }
