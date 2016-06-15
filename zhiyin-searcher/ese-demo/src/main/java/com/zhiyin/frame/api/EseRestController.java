@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/api/")
-public class NotificationStatusRestController {
+public class EseRestController {
 
     @Autowired
-    private NotificationService notificationService;
+    private EseWebApiService notificationService;
 
     @RequestMapping("/version")
     public String version() {

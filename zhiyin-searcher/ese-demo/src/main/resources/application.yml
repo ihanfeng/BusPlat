@@ -9,7 +9,7 @@ spring:
 
 server:
   contextPath: /${spring.application.name}
-  port: 10010
+  port: 8080
 
 
 eureka:

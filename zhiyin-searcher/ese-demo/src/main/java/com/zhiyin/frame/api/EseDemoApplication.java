@@ -10,15 +10,14 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@EnableAsync
 @EnableEurekaClient
 @EnableCircuitBreaker
 @EnableHystrixDashboard
 @EnableFeignClients
-public class ApiServiceApplication {
+public class EseDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication springApplication = new SpringApplication(ApiServiceApplication.class);
+        SpringApplication springApplication = new SpringApplication(EseDemoApplication.class);
         springApplication.addListeners(new ApplicationPidFileWriter());
         springApplication.run(args);
     }

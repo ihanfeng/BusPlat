@@ -18,12 +18,12 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class NotificationService {
+public class EseWebApiService {
 
     @Autowired
     protected RestTemplate restTemplate;
 
-    protected String serviceUrl = "http://DEMO-PROVIDER";
+    protected String serviceUrl = "http://ZHIYIN-SEARCHER/zhiyin-searcher";
 
     /**
      * The RestTemplate works because it uses a custom request-factory that uses
@@ -44,7 +44,7 @@ public class NotificationService {
         String accounts = null;
         try {
             accounts = restTemplate.getForObject(serviceUrl
-                    + "/demo-provider/version", String.class );
+                    + "/hello", String.class );
         } catch (HttpClientErrorException e) {
             e.printStackTrace();
         }
