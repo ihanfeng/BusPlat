@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:elasticsearch="http://www.springframework.org/schema/data/elasticsearch"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/data/elasticsearch 
+	http://www.springframework.org/schema/data/elasticsearch/spring-elasticsearch.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 下面的属性多个之间要逗号分隔 -->
+    <context:property-placeholder location="classpath:config/redis.properties"/>
+
+    <!-- 	<import resource="classpath:search-context/spring-redis.xml" /> -->
+
+    <!-- Spring Data ElasticSearch -->
+    <elasticsearch:repositories base-package="com.zhiyin.search.es.repository"/>
+
+    <!-- 虚拟本地ES -->
+    <!-- 	<elasticsearch:node-client id="client" local="true" /> -->
+
+    <!-- 服务器的，未开通端口 不能使用 -->
+    <!-- 	<elasticsearch:transport-client id="client" -->
+    <!-- 	cluster-nodes="123.57.230.238:9300" cluster-name="elasticsearch" /> -->
+
+    <elasticsearch:transport-client id="client"
+                                    cluster-nodes="127.0.0.1:9300" cluster-name="elasticsearch"/>
+
+    <bean name="elasticsearchTemplate"
+          class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
+        <constructor-arg name="client" ref="client"/>
+    </bean>
+</beans>
