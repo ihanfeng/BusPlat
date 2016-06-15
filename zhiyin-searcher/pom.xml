@@ -29,10 +29,10 @@
 
 
     <modules>
+        <module>ese-core</module>
         <module>ese-web</module>
-
+        <module>ese-demo</module>
     </modules>
-
 
     <repositories>
         <repository>
