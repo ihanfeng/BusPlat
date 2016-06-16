@@ -6,6 +6,7 @@ import com.zhiyin.search.es.module.test.entity.Book;
 import com.zhiyin.search.es.module.test.service.BookService;
 import com.zhiyin.search.es.util.EsUtil;
 import com.zhiyin.search.es.web.WebResponse;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
@@ -55,12 +56,7 @@ public class BookRestController {
         return "ini succ!";
     }
 
-    /**
-     * 添加book
-     *
-     * @param book
-     * @return
-     */
+    @ApiOperation(value="添加book", notes="添加book索引，POST方法")
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@RequestBody Book book) {
         log.info("add book request body:{}", JSON.toJSONString(book));

@@ -2,11 +2,7 @@ package com.zhiyin.search.es.module.content.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
-import com.zhiyin.app.api.common.module.IdC2s;
-import com.zhiyin.app.api.common.module.S2cObj;
-import com.zhiyin.app.api.common.module.WebResponse;
-import com.zhiyin.app.api.content.module.BasicContentS2c;
-import com.zhiyin.http.factory.HttpRequestFactory;
+
 import com.zhiyin.search.es.config.HttpUrlConfig;
 import com.zhiyin.search.es.module.C2sSearchParm;
 import com.zhiyin.search.es.module.ContentCommonC2s;
@@ -15,11 +11,16 @@ import com.zhiyin.search.es.module.S2cContentSearchResult;
 import com.zhiyin.search.es.module.content.entity.ContentInfoMapping;
 import com.zhiyin.search.es.module.content.model.DeleteAllContentIndexC2s;
 import com.zhiyin.search.es.module.content.service.IContentInfoService;
-import com.zhiyin.utils.bean.BeanMapper;
+
+
+import com.zhiyin.search.es.util.BeanMapper;
+import com.zhiyin.search.es.web.BasicContentS2c;
+import com.zhiyin.search.es.web.IdC2s;
+import com.zhiyin.search.es.web.S2cObj;
+import com.zhiyin.search.es.web.WebResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.elasticsearch.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -192,9 +193,10 @@ public class ContentController extends BaseController {
             Map<String,Long> map = Maps.newHashMap();
             map.put("id",reqContent.getId());
 
-            basicContent = HttpRequestFactory.post(httpUrlConfig.getContentsSelById(), map, BasicContentS2c.class);
+//            basicContent = HttpRequestFactory.post(httpUrlConfig.getContentsSelById(), map, BasicContentS2c.class);
 
             if(basicContent == null){
+				log.error("index content is null.");
                 return failReqRet();
             }
         } catch (Exception e) {

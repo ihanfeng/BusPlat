@@ -1,6 +1,6 @@
 
-elastic search engine 
-ese
+ese(elastic search engine) 
+
 
 
 
@@ -37,3 +37,10 @@ https://github.com/SpringDataElasticsearchDevs/spring-data-elasticsearch-sample-
 http://my.oschina.net/shawnplaying/blog/650712?fromerr=WVQdE5E6
 
 https://www.elastic.co/guide/en/kibana/3.0/snippets/shakespeare.json#
+
+
+非常好的入门资料
+http://www.baeldung.com/spring-data-elasticsearch-tutorial
+
+
+

@@ -1,13 +1,20 @@
 # Spring properties
 spring:
   application:
-     name: msg-provider  # Service registers under this name
+     name: mseckill  # Service registers under this name
   freemarker:
     enabled: false           # Ignore Eureka dashboard FreeMarker templates
   thymeleaf:
     cache: false             # Allow Thymeleaf templates to be reloaded at runtime
     prefix: classpath:/accounts-server/templates/    # Trailing / mandatory
                              # Template location for this application only
+
+
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
 
   boot:
     admin:
@@ -64,7 +71,7 @@ eureka:
 # HTTP Server
 server:
   port: 8080
-  context-path: /mseckill
+  context-path: /${spring.application.name}
 
 
 ## acutor 设置
@@ -81,7 +88,4 @@ security:
   user:
     name: admin
     password: admin
-
-
-
 

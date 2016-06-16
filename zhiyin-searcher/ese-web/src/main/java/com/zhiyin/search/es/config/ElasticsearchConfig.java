@@ -1,5 +1,6 @@
 package com.zhiyin.search.es.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.node.NodeClient;
 import org.elasticsearch.client.transport.TransportClient;
@@ -18,10 +19,14 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.UUID;
 
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
+@Slf4j
 @Configuration
 @PropertySource(value = "classpath:/config/es.properties")
 @EnableElasticsearchRepositories(basePackages = "com.zhiyin.search.es")
@@ -31,7 +36,7 @@ public class ElasticsearchConfig {
     private Environment environment;
 
     @Bean
-    @Profile({ "product" })
+    @Profile({"product"})
     public Client client() {
         Settings settings = ImmutableSettings.settingsBuilder()
                 .put("cluster.name", "elasticsearch")
@@ -44,7 +49,7 @@ public class ElasticsearchConfig {
     }
 
     @Bean
-    @Profile({ "product" })
+    @Profile({"product"})
     ElasticsearchOperations elasticsearchTemplate() throws IOException {
         System.out.println("ElasticsearchConfig start");
         return new ElasticsearchTemplate(client());
@@ -53,23 +58,37 @@ public class ElasticsearchConfig {
     /**
      * 本地启动ES
      * http://localhost:9200/
+     *
      * @return
      */
     @Bean
-    @Profile({ "test","default" })
+    @Profile({"test", "default"})
     public Client localClient() {
-        Settings settings = ImmutableSettings.settingsBuilder()
-                .put("cluster.name", "elasticsearch")
-                .put("http.enabled", "true")
-                .build();
-        String clusterName = UUID.randomUUID().toString();
-        clusterName = "elasticsearch";
-        NodeClient nodeClient = (NodeClient) nodeBuilder().settings(settings).clusterName(clusterName).local(true).node()
-                .client();
-        return nodeClient;
+        try {
+            final Path tmpDir = Files.createTempDirectory(Paths.get(System.getProperty("java.io.tmpdir")), "elasticsearch_data");
+
+            Settings settings = ImmutableSettings.settingsBuilder()
+                    .put("cluster.name", "elasticsearch")
+                    .put("http.enabled", "true") // 可以通过 http://localhost:9200/_search 访问ES
+                    .put("path.data", tmpDir.toAbsolutePath().toString()) // 2
+//                    .put("path.home", "/tmp") // 3
+                    .build();
+
+            log.info("es data path:" + tmpDir.toAbsolutePath().toString());
+
+            String clusterName = UUID.randomUUID().toString();
+            clusterName = "elasticsearch";
+            NodeClient nodeClient = (NodeClient) nodeBuilder().settings(settings).clusterName(clusterName).local(true).node()
+                    .client();
+            return nodeClient;
+        } catch (final IOException ioex) {
+            log.error("Cannot create temp dir", ioex);
+            throw new RuntimeException();
+        }
     }
+
     @Bean
-    @Profile({ "test","default" })
+    @Profile({"test", "default"})
     ElasticsearchOperations testElasticsearchTemplate() throws IOException {
         System.out.println("ElasticsearchConfig start");
         return new ElasticsearchTemplate(localClient());

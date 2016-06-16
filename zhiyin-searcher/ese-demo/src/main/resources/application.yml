@@ -8,7 +8,7 @@ spring:
     active: test
 
 server:
-  contextPath: /${spring.application.name}
+#  contextPath: /${spring.application.name}
   port: 8080
 
 

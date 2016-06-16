@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/")
 public class EseRestController {
 
     @Autowired
@@ -17,8 +17,7 @@ public class EseRestController {
     @RequestMapping("/ese-hello")
     public String version() {
         log.info("call ese");
-
-        return notificationService.hello();
+        return notificationService.helloEse();
     }
 
 }

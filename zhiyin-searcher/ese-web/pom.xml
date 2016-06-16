@@ -42,22 +42,13 @@
 
     <dependencies>
 
-
         <dependency>
-            <groupId>com.zhiyin</groupId>
-            <artifactId>zhiyin-utils</artifactId>
-            <version>4.3.0-SNAPSHOT</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.zhiyin.app</groupId>
-            <artifactId>api-domain</artifactId>
-            <version>4.0.3-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zhiyin</groupId>
-            <artifactId>zhiyin-http</artifactId>
-            <version>4.3.0-SNAPSHOT</version>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
         </dependency>
 
         <dependency>

@@ -1,7 +1,7 @@
 package com.zhiyin.search.es.module.content.controller;
 
-import com.zhiyin.app.api.common.module.S2cObj;
-import com.zhiyin.app.api.common.module.WebResponse;
+import com.zhiyin.search.es.web.S2cObj;
+import com.zhiyin.search.es.web.WebResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 

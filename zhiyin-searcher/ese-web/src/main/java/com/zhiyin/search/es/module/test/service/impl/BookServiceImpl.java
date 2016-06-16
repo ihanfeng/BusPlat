@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by wangqinghui on 2016/4/11.
+ * Created by hg on 2016/4/11.
  */
 @Service
 public class BookServiceImpl implements BookService {
@@ -42,4 +42,5 @@ public class BookServiceImpl implements BookService {
     public Page<Book> findByName(String tagName, Pageable pageRequest) {
         return bookRepository.findByName(tagName, pageRequest);
     }
+
 }

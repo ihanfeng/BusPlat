@@ -4,9 +4,9 @@ package com.zhiyin.search.es.config.swagger;
  * Created by hg on 2016/4/2.
  */
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.request.async.DeferredResult;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
@@ -14,25 +14,28 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static springfox.documentation.builders.PathSelectors.regex;
-
-/**
- * Created by wangqinghui on 2016/2/4.
- */
+import static com.google.common.base.Predicates.or;
 
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
-    // 内容API Doc
+    // Book API
     @Bean
-    public Docket contentsApi() {
+    public Docket bookApi() {
+
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("BookApi")
+                .genericModelSubstitutes(DeferredResult.class)
+//                .genericModelSubstitutes(ResponseEntity.class)
                 .useDefaultResponseMessages(false)
-                .groupName("内容API")
-                .apiInfo(apiInfo())
+                .forCodeGeneration(true)
+                .pathMapping("/")// base，最终调用接口后会和paths拼接在一起
                 .select()
-                .paths(regex("/contents.*"))
-                .build();
+                .paths(or(regex("/books/.*")))//过滤的接口
+                .build()
+                .apiInfo(bookApiInfo());
+
     }
 
     // 测试API Doc
@@ -46,6 +49,20 @@ public class SwaggerConfig {
                 .paths(regex("/test.*"))
                 .build();
     }
+
+    private ApiInfo bookApiInfo() {
+        ApiInfo apiInfo = new ApiInfo("Book Index Api",//大标题
+                "Book Index Api, for rest invoke.",//小标题
+                "1.0",//版本
+                "NO terms of service",
+                "hg",//作者
+                "The Apache License, Version 2.0",//链接显示文字
+                "http://www.apache.org/licenses/LICENSE-2.0.html"//网站链接
+        );
+
+        return apiInfo;
+    }
+
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
