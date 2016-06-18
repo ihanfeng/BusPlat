@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="log.base.path" value="demo"/>
+    <property name="log.project" value="zhiyin-searcher"/>
+    <property name="log.history.maxday" value="3"/>
+
+    <include>logback-basiclog.xml</include>
+
+    <root level="INFO" >
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="all_info" level="INFO"/>
+        <appender-ref ref="all_error"/>
+    </root>
+
+</configuration>

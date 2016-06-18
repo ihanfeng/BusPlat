@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="log.base" value="${log.base.path}/${log.project}/log"/>
+
+    <!--日志格式-->
+    <property name="log.pattern" value="%X{request_id} %date [%thread] %-5level %logger{80} - %msg%n"/>
+
+    <property name="console.log.pattern"
+              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%logger][%level] %msg%n" />
+
+    <property name="file.log.pattern"
+              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][thread:%thread][%level] %msg%n" />
+
+
+    <!-- 控制台日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${console.log.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 所有info日志 -->
+    <appender name="all_info"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <File>${log.base}/all_info.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${log.base}/all_info.%d{yyyy-MM-dd}.log.gz</FileNamePattern>
+            <MaxHistory>${log.history.maxday}</MaxHistory>
+        </rollingPolicy>
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">-->
+        <!--<FileNamePattern>${log.base}/all_info.%i.log</FileNamePattern>-->
+        <!--<MinIndex>1</MinIndex>-->
+        <!--<MaxIndex>5</MaxIndex>-->
+        <!--</rollingPolicy>-->
+        <!--<triggeringPolicy-->
+        <!--class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+        <!--<MaxFileSize>5MB</MaxFileSize>-->
+        <!--</triggeringPolicy>-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${log.pattern}</Pattern>
+        </layout>
+    </appender>
+
+    <appender name="all_error"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <File>${log.base}/all_error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${log.base}/all_error.%d{yyyy-MM-dd}.log.gz</FileNamePattern>
+            <MaxHistory>${log.history.maxday}</MaxHistory>
+        </rollingPolicy>
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">-->
+        <!--<FileNamePattern>${log.base}/all_error.%i.log-->
+        <!--</FileNamePattern>-->
+        <!--<MinIndex>1</MinIndex>-->
+        <!--<MaxIndex>5</MaxIndex>-->
+        <!--</rollingPolicy>-->
+        <!--<triggeringPolicy-->
+        <!--class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+        <!--<MaxFileSize>5MB</MaxFileSize>-->
+        <!--</triggeringPolicy>-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${log.pattern}</Pattern>
+        </layout>
+    </appender>
+
+</configuration>
