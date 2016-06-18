@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/data/jpa 
+		http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+
+	<!-- 数据库配置文件位置 -->
+	<context:property-placeholder location="classpath:/config.properties" />
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maxActive" value="${jdbc.maxActive}" />
+		<property name="maxIdle" value="${jdbc.maxIdle}" />
+		<property name="maxWait" value="${jdbc.maxWait}" />
+		<property name="initialSize" value="${jdbc.initialSize}"/>
+		<property name="minIdle" value="${jdbc.minIdle}"/>
+		<property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>
+		<property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>
+		<property name="numTestsPerEvictionRun" value="${jdbc.numTestsPerEvictionRun}" />
+    </bean>
+
+
+	
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- <property name="dataSource_refundorder" ref="dataSource_refundorder"></property> -->
+    </bean>
+    
+    <!-- 事务配置 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- <tx:method name="*" propagation="REQUIRED" /> -->
+            <!-- 所有以add|insert|delete|update|modify开头的方法做事务控制  -->
+        	<tx:method name = "add*" propagation = "REQUIRED" />
+			<tx:method name = "insert*" propagation = "REQUIRED" />
+			<tx:method name = "delete*" propagation = "REQUIRED" />
+			<tx:method name = "update*" propagation = "REQUIRED" />
+			<tx:method name = "modify*" propagation = "REQUIRED" />
+        </tx:attributes>
+    </tx:advice>
+    <!-- 定义AOP配置 -->
+    <aop:config>
+    	<!-- 定义一个切入点 -->
+        <aop:pointcut id="interceptorPointCuts"  expression="execution(* com.bfa.sbgl.api.service.*.*(..))" />
+        <!-- 对切入点和事务的通知，进行适配 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />
+    </aop:config>
+    
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations">
+			<list>
+				<value>classpath*:sqlmap/*/*.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置SQLSession模板 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" >
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- 设置使用注解的类所在的jar包 -->
+	<context:component-scan base-package="com.bfa.sbgl.api">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />  
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+	
+		<!-- Activates annotation-based bean configuration -->
+	<context:annotation-config />
+
+	<!-- Scans for application @Components to deploy -->
+	<context:component-scan base-package="com.bfa.sbgl.api" >
+<context:exclude-filter type="annotation"  expression="org.springframework.stereotype.Controller"/>   
+	</context:component-scan> 
+	
+</beans>

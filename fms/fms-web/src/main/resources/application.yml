@@ -1,0 +1,29 @@
+
+spring:
+  application:
+    name: zhiyin-sms
+    version: 0.0.1
+  profiles:
+#    active: product
+    active: default
+
+server:
+  contextPath: /${spring.application.name}
+  port: 10010
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+    home-page-url-path: ${server.contextPath}/
+    statusPageUrlPath: ${server.contextPath}/info
+    healthCheckUrlPath: ${server.contextPath}/health
+
+#logging:
+#  file: logs/${spring.application.name}.log
+
+
+#management.security.enabled=false
+#security.basic.enabled=false
