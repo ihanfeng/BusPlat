@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
 
+<included>
+
+    <!-- 日志保存路径 -->
     <property name="log.base" value="${log.base.path}/${log.project}/log"/>
 
     <!--日志格式-->
@@ -72,4 +74,4 @@
         </layout>
     </appender>
 
-</configuration>
+</included>

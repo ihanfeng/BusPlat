@@ -1,3 +1,4 @@
+
 <included>
     <logger name="jdbc.sqlonly" level="WARN"/>
     <logger name="jdbc.resultsettable" level="WARN"/>

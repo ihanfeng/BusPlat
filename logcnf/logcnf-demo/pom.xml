@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhiyin.frame</groupId>
-    <artifactId>log-common</artifactId>
+    <artifactId>logcnf-demo</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
 
@@ -13,6 +13,13 @@
     </parent>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.zhiyin.frame</groupId>
+            <artifactId>logcnf-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -24,7 +31,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.6.6</version>
         </dependency>
-
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -35,7 +41,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>

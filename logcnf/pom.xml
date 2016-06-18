@@ -16,7 +16,8 @@
     </properties>
 
     <modules>
-        <module>log-common</module>
+        <module>logcnf-base</module>
+        <module>logcnf-demo</module>
     </modules>
 
 
