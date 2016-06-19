@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <!--<include resource="org/springframework/boot/logging/logback/base.xml" />-->
 
-    <property name="log.base.path" value="demo"/>
     <property name="log.project" value="logcnf-demo"/>
-    <property name="log.history.maxday" value="3"/>
+    <include resource="com/zhiyin/logcnf/logback/base-default.xml"/>
 
-   <include resource="com/zhiyin/logcnf/logback/base.xml" />
-
-    <root level="INFO" >
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="all_info" level="INFO"/>
         <appender-ref ref="all_error"/>
     </root>
 
-    <!--<include resource="com/zhiyin/logcnf/logback/boot.xml" />-->
+
+
+
 
 </configuration>
