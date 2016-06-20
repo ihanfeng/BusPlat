@@ -1,4 +1,21 @@
 
+## logback 引入配置文件
+
+http://logback.qos.ch/manual/configuration.html#configFileProperty
+http://blog.arganzheng.me/posts/logback-study.html
+
+需要引入Jar
+
+```
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>2.7.8</version>
+        </dependency>
+```
+
+
+
 ## springboot logback Profile配置
 http://blog.csdn.net/catoop/article/details/50588851
 http://blog.csdn.net/yingxiake/article/details/51276671

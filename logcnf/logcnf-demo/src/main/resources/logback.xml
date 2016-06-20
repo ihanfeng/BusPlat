@@ -3,16 +3,11 @@
     <!--<include resource="org/springframework/boot/logging/logback/base.xml" />-->
 
     <property name="log.project" value="logcnf-demo"/>
-    <include resource="com/zhiyin/logcnf/logback/base-default.xml"/>
-
-    <root level="INFO">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="all_info" level="INFO"/>
-        <appender-ref ref="all_error"/>
-    </root>
-
-
-
-
-
+    <include resource="com/zhiyin/logcnf/logback/base-conf-default.xml"/>
+    <!--<include resource="com/zhiyin/logcnf/logback/base-default.xml"/>-->
+    <!--<root level="INFO">-->
+        <!--<appender-ref ref="STDOUT"/>-->
+        <!--<appender-ref ref="all_info" level="INFO"/>-->
+        <!--<appender-ref ref="all_error"/>-->
+    <!--</root>-->
 </configuration>
