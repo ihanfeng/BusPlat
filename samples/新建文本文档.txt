@@ -1,0 +1,4 @@
+让SpringMVC支持可版本管理的Restful接口
+
+http://www.cnblogs.com/jcli/p/springmvc_restful_version.html
+https://github.com/hongfuli/study_notes
