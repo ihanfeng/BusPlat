@@ -1,0 +1,13 @@
+
+spring:
+  application:
+#    name: zhiyin-filter
+    version: 0.0.1
+  profiles:
+#    active: product
+    active: default
+
+server:
+#  contextPath: /${spring.application.name}
+  port: 8080
+
