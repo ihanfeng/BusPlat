@@ -20,6 +20,24 @@ import static com.google.common.base.Predicates.or;
 @EnableSwagger2
 public class SwaggerConfig {
 
+
+    @Bean
+    public Docket contentApi() {
+
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("ContentApi")
+                .genericModelSubstitutes(DeferredResult.class)
+//                .genericModelSubstitutes(ResponseEntity.class)
+                .useDefaultResponseMessages(false)
+                .forCodeGeneration(true)
+                .pathMapping("/")// base，最终调用接口后会和paths拼接在一起
+                .select()
+                .paths(or(regex("/contents/.*")))//过滤的接口
+                .build()
+                .apiInfo(apiInfo());
+
+    }
+
     // Book API
     @Bean
     public Docket bookApi() {

@@ -11,7 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
+
+import static org.elasticsearch.index.query.QueryBuilders.regexpQuery;
 
 /**
  * Created by wangqinghui on 2016/4/11.
@@ -55,7 +59,12 @@ public class ContentInfoServiceImpl implements IContentInfoService {
 
     @Override
     public Page<ContentInfoMapping> search(Long roleId , String query, Pageable pageable) {
-        return contentInfoRepository.findByRoleIdAndTitle(roleId,query,pageable);
+//        SearchQuery searchQuery = new NativeSearchQueryBuilder()
+//                .withFilter(regexpQuery("title", ".*data.*"))
+//                .build();
+//        List<Article> articles = elasticsearchTemplate.queryForList(searchQuery, Article.class);
+
+        return contentInfoRepository.findByRoleIdAndTitleUsingCustomQuery(roleId,query,pageable);
     }
 
     @Override

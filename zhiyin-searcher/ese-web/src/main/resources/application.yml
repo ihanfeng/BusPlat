@@ -4,8 +4,8 @@ spring:
     name: zhiyin-searcher
     version: 0.0.1
   profiles:
-#    active: product
-    active: test
+    active: product
+#    active: test
 
 server:
   contextPath: /${spring.application.name}
@@ -21,10 +21,6 @@ eureka:
     home-page-url-path: ${server.contextPath}/
     statusPageUrlPath: ${server.contextPath}/info
     healthCheckUrlPath: ${server.contextPath}/health
-
-logging:
-  file: logs/${spring.application.name}.log
-
 
 #management.security.enabled=false
 #security.basic.enabled=false
