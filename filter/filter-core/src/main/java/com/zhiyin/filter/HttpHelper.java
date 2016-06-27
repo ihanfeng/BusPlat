@@ -1,4 +1,4 @@
-package com.zhiyin.filter.sender;
+package com.zhiyin.filter;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;

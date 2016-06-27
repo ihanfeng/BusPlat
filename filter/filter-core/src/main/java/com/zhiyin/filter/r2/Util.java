@@ -2,7 +2,7 @@
  * Created by yurtozc on 3/24/15 1:12 PM.
  */
 
-package com.zhiyin.filter.sender.r2;
+package com.zhiyin.filter.r2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
