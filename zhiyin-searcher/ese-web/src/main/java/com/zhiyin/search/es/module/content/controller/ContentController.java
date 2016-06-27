@@ -72,11 +72,7 @@ public class ContentController extends BaseController {
 		return getProcess(req);
 	}
 
-	/**
-	 * post请求内容查询
-	 * @param searchParm
-	 * @return
-	 */
+	@ApiOperation( value = "内容搜索", notes = "POST请求内容搜索", response = S2cContentSearchResult.class )
 	@RequestMapping(value = "/search", method = RequestMethod.POST ,  produces = MediaType.APPLICATION_JSON_UTF8_VALUE )
 	public WebResponse<S2cContentSearchResult> search(@RequestBody C2sSearchParm searchParm) {
 		log.info("search content: {}", JSON.toJSONString(searchParm));

@@ -42,7 +42,14 @@ https://www.elastic.co/guide/en/kibana/3.0/snippets/shakespeare.json#
 非常好的入门资料
 http://www.baeldung.com/spring-data-elasticsearch-tutorial
 
+elasticsearch 查询
+详细讲解elasticsearch的查询写法
+http://www.cnblogs.com/yjf512/p/4897294.html
 
+http://eggtwo.com/news/detail/147
 
+http://es.yemengying.com/5/5.2/5.2.3.html
 
+http://blog.csdn.net/u014201191/article/details/46508311
 
+http://my.oschina.net/qiangzigege/blog/275369
