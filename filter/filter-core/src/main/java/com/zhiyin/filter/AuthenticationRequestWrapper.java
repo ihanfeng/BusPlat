@@ -12,17 +12,9 @@ import java.util.Arrays;
 
 public class AuthenticationRequestWrapper extends HttpServletRequestWrapper {
 
-    // tag::variables[]
     private byte[] requestBody = new byte[0];
     private boolean bufferFilled = false;
-    // end::variables[]
 
-    /**
-     - Constructs a request object wrapping the given request.
-     *
-     - @param request The request to wrap
-     - @throws IllegalArgumentException if the request is null
-     */
     public AuthenticationRequestWrapper(HttpServletRequest request) {
         super(request);
     }
@@ -47,14 +39,11 @@ public class AuthenticationRequestWrapper extends HttpServletRequestWrapper {
 
         return requestBody;
     }
-    // end::getRequestBody[]
 
-    // tag::getInputStream[]
     @Override
     public ServletInputStream getInputStream() throws IOException {
         return new CustomServletInputStream(getRequestBody()); // <1>
     }
-    // end::getInputStream[]
 
     private static class CustomServletInputStream extends ServletInputStream {
 

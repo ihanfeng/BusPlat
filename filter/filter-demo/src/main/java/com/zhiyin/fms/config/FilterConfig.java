@@ -1,6 +1,6 @@
 package com.zhiyin.fms.config;
 
-import com.zhiyin.filter.sender.r2.LoggerFilter;
+import com.zhiyin.filter.r2.LoggerFilter;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
