@@ -28,6 +28,7 @@
 
 
     <modules>
+        <module>filter-low-core</module>
         <module>filter-core</module>
         <module>filter-demo</module>
     </modules>

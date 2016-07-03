@@ -2,7 +2,7 @@
  * Created by yurtozc on 3/24/15 1:09 PM.
  */
 
-package com.zhiyin.filter.sender.r2.wrapper;
+package com.zhiyin.filter.r2.wrapper;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;

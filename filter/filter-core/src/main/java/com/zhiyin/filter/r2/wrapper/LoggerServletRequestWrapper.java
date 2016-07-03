@@ -2,11 +2,9 @@
  * Created by yurtozc on 3/24/15 1:08 PM.
  */
 
-package com.zhiyin.filter.sender.r2.wrapper;
+package com.zhiyin.filter.r2.wrapper;
 
-
-
-import com.zhiyin.filter.sender.r2.Util;
+import com.zhiyin.filter.r2.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

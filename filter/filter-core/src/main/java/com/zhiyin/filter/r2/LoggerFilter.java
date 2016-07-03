@@ -4,15 +4,14 @@
  * https://github.com/cyurtoz/loggerfilter
  */
 
-package com.zhiyin.filter.sender.r2;
+package com.zhiyin.filter.r2;
 
 
-import com.zhiyin.filter.sender.AuthenticationRequestWrapper;
-import com.zhiyin.filter.sender.BodyReaderHttpServletRequestWrapper;
-import com.zhiyin.filter.sender.HttpHelper;
-import com.zhiyin.filter.sender.r2.wrapper.LoggerServletRequestWrapper;
-import com.zhiyin.filter.sender.r2.wrapper.LoggerServletResponseWrapper;
-import com.zhiyin.filter.sender.r2.wrapper.ServletWrapperOutputStream;
+import com.zhiyin.filter.HttpHelper;
+import com.zhiyin.filter.r2.wrapper.LoggerServletResponseWrapper;
+import com.zhiyin.filter.r2.wrapper.ServletWrapperOutputStream;
+import com.zhiyin.filter.AuthenticationRequestWrapper;
+import com.zhiyin.filter.r2.wrapper.LoggerServletRequestWrapper;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
