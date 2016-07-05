@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+<property name="log.base" value="/opt/data/tomcat/appapi"/>
+<property name="log.history.maxday" value="3"/>
+
+
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%X{ip} %X{request_id} %d{HH:mm:ss.SSS} %-5level %logger{80} - %msg%n</Pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>D:/logs/debug.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%X{ip} %X{request_id} %date [%thread] %-5level %logger{80} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+
+	<root level="INFO" >
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
