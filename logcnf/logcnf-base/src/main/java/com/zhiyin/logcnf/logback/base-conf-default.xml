@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- 使用配置文件进行配置 -->
 <included>
 
     <property resource="logback.properties" />
@@ -8,6 +9,8 @@
     <property name = "log.base.path" value="/opt/data/" />
 
     <property name="log.history.maxday" value="3"/>
+
+    <property name="log.project" value="${appName}"/>
 
     <property name="log.base" value="${log.base.path}/${log.project}/log"/>
 

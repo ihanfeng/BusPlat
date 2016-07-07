@@ -2,7 +2,6 @@
 <configuration>
     <!--<include resource="org/springframework/boot/logging/logback/base.xml" />-->
 
-    <property name="log.project" value="logcnf-demo"/>
     <include resource="com/zhiyin/logcnf/logback/base-conf-default.xml"/>
     <!--<include resource="com/zhiyin/logcnf/logback/base-default.xml"/>-->
     <!--<root level="INFO">-->
