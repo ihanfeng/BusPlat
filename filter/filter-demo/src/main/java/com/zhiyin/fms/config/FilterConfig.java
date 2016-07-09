@@ -1,5 +1,6 @@
 package com.zhiyin.fms.config;
 
+import com.zhiyin.filter.parm.AddParameterByNewMapFilter;
 import com.zhiyin.filter.r2.LoggerFilter;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
@@ -15,6 +16,19 @@ import java.util.List;
  */
 @Configuration
 public class FilterConfig    {
+
+    @Bean
+    public FilterRegistrationBean addParm(){
+        AddParameterByNewMapFilter demoFilter=new AddParameterByNewMapFilter();
+        FilterRegistrationBean registrationBean=new FilterRegistrationBean();
+        registrationBean.setFilter(demoFilter);
+        List<String> urlPatterns=new ArrayList<String>();
+        urlPatterns.add("/*");//拦截路径，可以添加多个
+        registrationBean.setUrlPatterns(urlPatterns);
+        registrationBean.setOrder(10001);
+        return registrationBean;
+    }
+
     @Bean
     public FilterRegistrationBean getDemoFilter(){
         LoggerFilter demoFilter=new LoggerFilter();
@@ -23,7 +37,7 @@ public class FilterConfig    {
         List<String> urlPatterns=new ArrayList<String>();
         urlPatterns.add("/*");//拦截路径，可以添加多个
         registrationBean.setUrlPatterns(urlPatterns);
-        registrationBean.setOrder(1);
+        registrationBean.setOrder(1000);
         return registrationBean;
     }
 //    @Bean

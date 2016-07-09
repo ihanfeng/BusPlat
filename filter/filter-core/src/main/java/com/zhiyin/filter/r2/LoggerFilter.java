@@ -31,8 +31,11 @@ public class LoggerFilter implements Filter {
 
 //                if ("POST".equalsIgnoreCase(httpServletRequest.getMethod())) {
         // 防止流读取一次后就没有了, 所以需要将流继续写出去
-        ServletRequest requestWrapper =
+        LoggerServletRequestWrapper requestWrapper =
                 new LoggerServletRequestWrapper(Util.convertWithCastCheck(HttpServletRequest.class, request));
+
+        log.info(createRequestInfoString(requestWrapper));
+
 
         String body = HttpHelper.getBodyString(requestWrapper);
 
@@ -80,6 +83,33 @@ public class LoggerFilter implements Filter {
      */
     private String extractResponseBody(final ServletWrapperOutputStream servletWrapperOutputStream) {
         return new String(servletWrapperOutputStream.toByteArray(), Charset.forName(Util.ENC_UTF8));
+    }
+    public String createRequestInfoString(final LoggerServletRequestWrapper request) {
+        StringBuilder sb = new StringBuilder();
+        Enumeration<String> headerNames = request.getHeaderNames();
+
+        sb.append(LOG_BORDER);
+        sb.append("\npath: ").append(request.getServletPath());
+        sb.append("\nquery string: ").append(request.getQueryString());
+        sb.append("\nmethod: ").append(request.getMethod().toUpperCase(Locale.getDefault()));
+
+        while (headerNames.hasMoreElements()) {
+
+            String headerName = headerNames.nextElement();
+
+            Enumeration<String> headers = request.getHeaders(headerName);
+
+            while (headers.hasMoreElements()) {
+                String v = headers.nextElement();
+                sb.append("\n").append(headerName).append(": ").append(v);
+
+            }
+        }
+
+        sb.append("\nbody: ").append(request.getBody());
+        sb.append(LOG_BORDER);
+
+        return sb.toString();
     }
 
 
