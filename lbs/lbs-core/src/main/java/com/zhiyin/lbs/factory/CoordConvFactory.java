@@ -6,7 +6,6 @@ import com.zhiyin.lbs.coord.CoordCovert;
 import com.zhiyin.lbs.entity.CoordPoint;
 import lombok.extern.slf4j.Slf4j;
 
-
 /**
  * Created by hg on 2016/1/1.
  */
@@ -16,33 +15,46 @@ public class CoordConvFactory {
     /**
      * 默认转到GPS
      */
-    public static CoordPoint convTo(Double lon, Double lat, Integer fromCoord){
-        if(lon == null || lat == null || fromCoord==null){
-            return  new CoordPoint();
-        }
-        return  convTo( lon,  lat,  fromCoord, CoordinateSystem.WGS84.getType());
+    public static CoordPoint convTo(Double lon, Double lat, Integer fromCoord ){
+        return convTo(lon,lat,fromCoord,CoordinateSystem.WGS84.getType());
     }
 
-    /**
-     * 从其他坐标系转目标坐标系
-     */
-    // TODO add cache
-    public static CoordPoint convTo(double lon, double lat, int fromCoord, int toCoord){
-
-        if(fromCoord <=0){
-            log.error("fromCoord {} not valid , set default value.",fromCoord);
+    public static CoordPoint convToDefault(Double lon, Double lat, Integer fromCoord ) {
+       return convToDefault(lon,lat,fromCoord,CoordinateSystem.WGS84.getType());
+    }
+        /**
+         * 带默认值转化
+         */
+    public static CoordPoint convToDefault(Double lon, Double lat, Integer fromCoord,Integer toCoord ){
+        if( lon == null ){
+            lon = 0D;
+        }
+        if( lat == null ){
+            lat = 0D;
+        }
+        if( fromCoord == null ){
             fromCoord = CoordinateSystem.WGS84.getType();
         }
+        if( toCoord == null ){
+            toCoord = CoordinateSystem.WGS84.getType();
+        }
+        return convTo(lon,lat,fromCoord,toCoord);
+    }
 
-        if(fromCoord == toCoord){
-            log.debug(" req coord is equal target coord.");
-            return new CoordPoint(lon,  lat,  fromCoord,toCoord);
+    public static CoordPoint convTo(Double lon, Double lat, Integer fromCoord,Integer toCoord){
+        if(lon == null || lat == null || fromCoord==null || toCoord==null){
+            log.error("coord conv error. {} {} {} {}",lon,lat,fromCoord,toCoord);
+            throw new RuntimeException("coord conv error.");
         }
 
-        String key = lon+"_"+lat+"_"+fromCoord+"_"+toCoord;
-        CoordPoint requestRet = CoordCovert.conv(lon, lat, fromCoord, toCoord);
-        return requestRet;
+        if (fromCoord <= 0 || toCoord<=0) {
+            log.error("fromCoord {} not valid  toCoord {}", fromCoord,toCoord);
+            throw new RuntimeException("coord conv error.");
+        }
+
+        return  CoordCovert.convTo( lon,  lat,  fromCoord, toCoord);
     }
+
 
     /**
      * 判断是否是GPS坐标系
