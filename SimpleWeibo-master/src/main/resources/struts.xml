@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.i18n.encoding" value="utf-8" />
+    <!--<constant name="struts.action.extension" value=","/>-->
+
+    <package name="struts-baseEx" namespace="/" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="auth" class="me.vliupro.smb.interceptor.AuthInterceptor" />
+            <interceptor-stack name="auth-stack">
+                <interceptor-ref name="auth" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="auth-stack" />
+
+        <global-results>
+            <result name="noLogin" type="redirect">/toindex.jsp</result>
+        </global-results>
+
+    </package>
+
+
+    <package name="sm" namespace="/" extends="struts-baseEx">
+
+        <!--noLoginIndex-->
+        <action name="index" class="me.vliupro.smb.action.IndexAction" method="noLoginIndex">
+            <result name="success">/index.jsp</result>
+            <interceptor-ref name="defaultStack" />
+        </action>
+
+        <!--loginIndex-->
+        <action name="loginIndex" class="me.vliupro.smb.action.IndexAction" method="loginIndex">
+            <result name="success">/main/index.jsp</result>
+        </action>
+
+        <!--搜索-->
+        <action name="search" class="me.vliupro.smb.action.IndexAction" method="search">
+            <result name="success">/main/index.jsp</result>
+        </action>
+
+        <!--发表微博-->
+        <action name="publish" class="me.vliupro.smb.action.WeiboAction" method="publish">
+            <result name="success" type="redirectAction">loginIndex?begin=1&amp;total=10</result>
+            <result name="error" type="redirect">/main/index.jsp</result>
+        </action>
+
+        <!--转发微博-->
+        <action name="forward" class="me.vliupro.smb.action.WeiboAction" method="forward">
+            <result name="success" type="redirectAction">loginIndex?begin=1&amp;total=10</result>
+            <result name="error" type="redirect">/main/index.jsp</result>
+        </action>
+
+        <!--登录-->
+        <action name="login" class="me.vliupro.smb.action.UserAction" method="login">
+            <result name="success" type="redirectAction">loginIndex?begin=1&amp;total=10</result>
+            <result name="error">/toindex.jsp</result>
+            <interceptor-ref name="defaultStack" />
+        </action>
+
+        <!--注册-->
+        <action name="register" class="me.vliupro.smb.action.UserAction" method="register">
+            <result name="success" type="redirect">/toindex.jsp</result>
+            <result name="error">/main/register.jsp</result>
+            <interceptor-ref name="defaultStack" />
+        </action>
+
+        <!--登出-->
+        <action name="logout" class="me.vliupro.smb.action.UserAction" method="logout">
+            <result name="success" type="redirect">/toindex.jsp</result>
+        </action>
+
+        <!--查看他人的主页-->
+        <action name="others" class="me.vliupro.smb.action.OthersAction" method="others">
+            <result name="success">/main/other.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="security" extends="struts-default" namespace="/security">
+        <action name="securityImage" class="me.vliupro.smb.action.SecurityAction">
+            <result name="success" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">imageStream</param>
+                <param name="bufferSize">2048</param>
+            </result>
+        </action>
+    </package>
+
+    <!--json action-->
+    <package name="json" namespace="/check" extends="json-default">
+
+        <!--check email-->
+        <action name="email" class="me.vliupro.smb.action.CheckAction" method="checkEmail">
+            <result type="json" name="success">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+        <!--check username-->
+        <action name="user" class="me.vliupro.smb.action.CheckAction" method="checkUsername">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+        <!--check securityCode-->
+        <action name="security" class="me.vliupro.smb.action.CheckAction" method="checkSecurityCode">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+        <!--点赞-->
+        <action name="thumbing" class="me.vliupro.smb.action.ThumbAction" method="thumbing">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+        <!--取消点赞-->
+        <action name="unThumb" class="me.vliupro.smb.action.ThumbAction" method="unThumb">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+        <!--查询是否已关注-->
+        <action name="isFollow" class="me.vliupro.smb.action.FollowAction" method="checkFollow">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+    </package>
+
+    <!--json action-->
+    <package name="thumbJson" namespace="/api" extends="json-default">
+
+        <!--点赞-->
+        <action name="thumbing" class="me.vliupro.smb.action.ThumbAction" method="thumbing">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+        <!--取消点赞-->
+        <action name="unThumb" class="me.vliupro.smb.action.ThumbAction" method="unThumb">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+        <!--发表评论-->
+        <action name="comment" class="me.vliupro.smb.action.CommentAction" method="addComment">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+        <action name="follow" class="me.vliupro.smb.action.FollowAction" method="following">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+        <action name="unfollow" class="me.vliupro.smb.action.FollowAction" method="unfollow">
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+        </action>
+
+    </package>
+
+</struts>

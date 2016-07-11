@@ -1,0 +1,774 @@
+@charset "utf-8";
+
+/* CSS Document 用于未登录页面首页效果 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    /*使内容高度和body一样*/
+    min_width: 1000px;
+}
+
+a {
+    color: #333;
+}
+
+a:hover {
+    color: #459DF5;
+}
+
+textarea {
+    resize: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.ab {
+    /*用于浮动框*/
+    position: fixed;
+    float: right;
+    width: 270px;
+    top: 70px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+hr {
+    color: #459DF5;
+}
+
+.index_header {
+    color: #FFF;
+}
+
+
+/*表单中总体文字颜色*/
+
+.txt1 {
+    font-size: 12px;
+}
+
+
+/*表单和main右侧栏小字格式*/
+
+.txt2 {
+    color: red;
+}
+
+.txt2 a:visited {
+    color: red;
+}
+
+.header_bg {
+    background-image: url(../images/bg_nologin5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+}
+
+
+/*背景图片的格式设置*/
+
+.header_logo {
+    margin-left: 180px;
+    height: 100px;
+}
+
+.header_logo img {
+    height: 100px;
+    float: left;
+}
+
+.header_logo p {
+    padding-top: 35px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#login_form {
+    position: relative;
+    width: 300px;
+    height: 290px;
+    background-color: #333;
+    float: right;
+    margin-right: 150px;
+    opacity: 0.8;
+    filter: alpha(opacity=57);
+    /*设置表单背景色半透明*/
+}
+
+.login_box_title {
+    font-size: 20px;
+    color: #FFF;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.box_content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.input_wrap {
+    position: relative;
+    margin-top: 10px;
+    background-color: #FFF;
+}
+
+.input_wrap img {
+    height: 20px;
+    width: 7%;
+    margin-left: 8px;
+    margin-top: 6px;
+    float: left;
+}
+
+.input_wrap input {
+    height: 30px;
+    width: 84%;
+    margin-left: 15px;
+    border: hidden;
+    line-height: 100%;
+    border: none;
+    background-color: #FFF;
+}
+
+.remember {
+    float: left;
+}
+
+.right_forget {
+    float: right;
+}
+
+.loginbox_line {
+    height: 30px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.Sub {
+    width: 270px;
+    height: 35px;
+    font-size: 20px;
+    color: #FFF;
+    background-color: #459DF5;
+    border: none;
+}
+
+.Sub.hover {
+    background-color: #338CE6
+}
+
+
+/*登录表单结束*/
+
+
+/**中部主体内容*/
+
+.WB_main {
+    width: 100%;
+    height: auto;
+    max-height: 5000px;
+    position: relative;
+    background-color: #CBCEDD;
+}
+
+.main_frame {
+    margin: 0 auto;
+    position: relative;
+    width: 940px;
+    padding-top: 15px;
+    display: block;
+}
+
+
+/*左边WB  a 微博内容*/
+
+.WB_frame_a {
+    width: 630px;
+    height: auto;
+    background-color: #CBCEDD;
+    float: left;
+    position: relative;
+}
+
+.WB_frame_content {
+    width: 600px;
+    margin: 15px 15px;
+    position: relative;
+    background-color: #FFF;
+    border-radius: 3px;
+}
+
+.content_detail {
+    margin: 10px 15px;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+/*保证每条微博内容不会溢出*/
+
+.user_info {
+    height: 80px;
+    width: 580px;
+    position: relative;
+}
+
+.userPic {
+    float: left;
+}
+
+.userPic img {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.userName {
+    float: left;
+    padding-top: 20px;
+    margin-left: 10px;
+    color: #000;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.userName p {
+    font-size: 15px;
+    color: #666;
+    padding-top: 5px;
+}
+
+.WB_text {
+    margin-top: 30px;
+    font-size: 14px;
+    padding-bottom: 3px;
+    line-height: 25px;
+    font-family: Arial;
+}
+
+.WB_media {
+    margin-top: 10px;
+    float: left;
+    width: 40%;
+}
+
+.mediabox img {
+    max-width: 250px;
+}
+
+.mediabox {
+    margin: 3px;
+    height: auto;
+    width: auto;
+    text-align: center;
+}
+
+.mediabox img {
+    display: inline;
+    margin: 3px;
+    border: 1px solid #bebebe;
+    float: left;
+}
+
+.mediabox a:hover img {
+    border: 1px solid #333333;
+}
+
+
+/**点赞评论转发*/
+
+.WB_handle {
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    color: #666;
+    text-align: center;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-color: #CCC;
+    position: relative;
+    /*用于评论区域对其相对定位*/
+}
+
+.WB_handle_in {
+    height: 24px;
+    font-size: 12px;
+    line-height: 100%;
+    margin-top: 8px;
+}
+
+.WB_handle ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+.WB_handle li {
+    display: block;
+    float: left;
+    width: 33%;
+    margin: 0 auto;
+    padding-top: 5px;
+}
+
+.WB_handle li {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-color: #CCC;
+}
+
+.spa {
+    display: block;
+}
+
+.WB_handle a {
+    color: #666;
+}
+
+.WB_handle a:hover {
+    color: #338CE6;
+}
+
+.WB_handle img {
+    height: 12px;
+}
+
+.handtxt {
+    padding-left: 5px;
+}
+
+
+/*评论区域的隐藏显示开始*/
+
+.handle_comt {
+    width: 99.7%;
+    background-color: #F2F2F2;
+    margin-bottom: 10px;
+    border: 1px solid #FFF;
+    position: relative;
+}
+
+.comt_list {
+    margin: 20px 15px 15px 15px;
+}
+
+.WB_face {
+    width: 30px;
+    height: 30px;
+    float: left;
+    position: relative;
+}
+
+.WB_face img {
+    width: 30px;
+    height: 30px;
+}
+
+
+/*发布评论的文字框效果*/
+
+.WB_publish {
+    width: 555px;
+}
+
+.W_input {
+    width: 100%;
+}
+
+.p_input textarea {
+    margin: 0px;
+    padding: 5px 2px 0px 6px;
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    font-size: 12px;
+    word-wrap: break-word;
+    line-height: 18px;
+    outline: none;
+    height: 23px;
+}
+
+.p_opt {
+    float: right;
+}
+
+.p_opt input {
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    display: block;
+    font-size: 12px;
+    color: #FFF;
+    background-color: #338CE6;
+    border: none;
+}
+
+.list_box {
+    width: 100%;
+    margin-top: 15px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-color: #D8D8D8;
+}
+
+.list_li {
+    margin-top: 15px;
+}
+
+.list_con {
+    width: 500px;
+    line-height: 15px;
+    float: left;
+    margin-left: 15px;
+    font-family: 'Arial', 'Microsoft YaHei';
+}
+
+.WB_username {
+    font: 16px 'Arial', 'Microsoft YaHei';
+    color: #338CE6;
+    float: left;
+    position: relative;
+}
+
+.repeat_text {
+    padding-top: 15px;
+    font-size: 14px;
+    padding-bottom: 3px;
+    line-height: 23px;
+    font-family: Arial;
+}
+
+
+/**主体内容左边栏WB_frame_a结束*/
+
+
+/***
+-----------------分页效果
+*/
+
+
+/*分页的效果*/
+
+.change_pages {
+    margin-bottom: 25px;
+    float: right;
+}
+
+.change_pages span {
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 5px 5px;
+}
+
+.change_pages a {
+    color: #000;
+}
+
+.change_pages span.enabled:hover {
+    background-color: #459DF5;
+}
+
+
+/**主体内容右边栏WB_frame_b开始*/
+
+.WB_frame_b {
+    float: left;
+    width: 200px;
+    padding-top: 15px;
+    display: block;
+}
+
+.WB_frameb {
+    background-color: #FFF;
+    /*padding: 15px 15px;*/
+    /*margin-bottom: 20px;*/
+    border-radius: 3px;
+}
+
+.tuijian_title h4 {
+    color: #666;
+    font-size: 15px;
+}
+
+.tuijian_inner ul {
+    text-decoration: none;
+    list-style: none;
+    float: none
+}
+
+.tuijian_cont {
+    border-top-width: 1px;
+    border-top-style: solid;
+    margin-top: 10px;
+    border-color: #666;
+    padding: 0;
+    border-color: #666;
+}
+
+.tuijian_inner li {
+    line-height: 20px;
+    padding-top: 5px;
+}
+
+.tuijian_inner a {
+    color: #666;
+}
+
+.tuijian_inner a:hover {
+    color: #338CE6;
+}
+
+
+/**主体内容右边栏WB_frame_b结束*/
+
+#backtop {
+    position: fixed;
+    bottom: 5%;
+    right: 0px;
+    cursor: pointer;
+}
+
+#backtop a {
+    display: block;
+    height: 50px;
+    width: 50px;
+    background: url(../images/icon_Top.png) no-repeat center #459DF5;
+    margin-bottom: 5px;
+}
+
+#backtop a:hover {
+    background-color: #338CE6;
+}
+
+#b_foot {
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+}
+
+
+/*footer效果*/
+
+.footer {
+    height: auto;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-color: #FFF;
+}
+
+.footer a {
+    color: #666;
+}
+
+.footer a:hover {
+    color: red;
+}
+
+.footer a:visited {
+    color: #666;
+}
+
+.footer dt {
+    font: 16px 'Arial', 'Microsoft YaHei';
+    color: #4B4B4B
+}
+
+.footer dd {
+    font: 12px 'Arial', 'Microsoft YaHei';
+    color: #666;
+    line-height: 10px;
+    padding-top: 15px;
+    display: block;
+}
+
+.footer_link {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.list {
+    float: left;
+    margin: 0 50px 0 0;
+}
+
+.footer_link2 {
+    text-align: center;
+    padding-top: 20px;
+    font: 12px 'Arial', 'Microsoft YaHei';
+}
+
+.footer_link2 span {
+    padding-right: 25px;
+    color: #666;
+}
+
+/*分页的效果*/
+
+.change_pages {
+    margin-bottom: 25px;
+    float: right;
+}
+
+.change_pages span {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.change_pages a {
+    color: #000;
+}
+
+.change_pages a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+
+.resend {
+    width: 100%;
+    padding-top: 5px;
+    background: #eee;
+}
+
+.discuss {
+    font-size: 15px;
+    line-height: 25px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.re_userName {
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.re_userName a {
+    font-size: 16px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+}
+
+.box-forward {
+    display: none;
+    margin: 10px auto;
+    /* margin: auto; */
+    position: absolute;
+    /* position: fixed; */
+    top: 200px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    height: 30%;
+    background: #fff;
+    z-index: 10;
+}
+
+.box-forward .forward-header {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    height: 10%;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.box-forward .forward-header h3 {
+    float: left;
+}
+
+.box-forward .forward-header .box-close {
+    color: #000000;
+    float: right;
+}
+
+.box-forward .forward-content {
+    height: 55%;
+}
+
+.box-forward .forward-content textarea {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    height: 80%;
+    resize: none;
+}
+
+.box-forward .forward-footer {
+    height: 18%;
+    line-height: 18%;
+}
+
+.box-forward .forward-footer button {
+    float: right;
+    margin: 0 20px;
+    width: 50px;
+    background-color: #b4daf0;
+}
+
+/*右侧tool样式*/
+.tools_right {
+    display: block;
+    width: 100%;
+    height: 40px;
+}
+
+.tools_right li.to_myindex {
+    text-align: center;
+    border: 1px solid #ccc;
+    height: 100%;
+    line-height: 40px;
+}
+
+.tools_right li.to_myindex:hover {
+    background: #ace;
+}
+
+.tools_right li.to_myindex a {
+    padding: 12px 62px;
+}
+
+.tools_right li.logout {
+    text-align: center;
+    border: 1px solid #ccc;
+    height: 100%;
+    line-height: 40px;
+    background: #fff;
+}
+
+.tools_right li.logout:hover {
+    background: #ace;
+}
+
+.tools_right li.logout a {
+    padding: 12px 62px;
+}

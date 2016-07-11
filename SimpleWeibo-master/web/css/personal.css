@@ -1,0 +1,200 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+
+/*个人中心的css效果
+*主要是主体内容的效果
+*/
+
+#personal {
+	background: url(../images/body_bg_page.jpg) no-repeat top center;
+	font-family: 'Arial', 'Microsoft YaHei';
+	background-color: #b4daf0;
+}
+
+.per_main {
+	height: auto;
+	width: 900px;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 150px;
+}
+
+
+/*上半部分开始*/
+
+.per_main_head {
+	height: atuo;
+	position: relative;
+}
+
+.per_userPic {
+	width: 50%;
+	height: 110px;
+	float: left;
+	position: relative;
+}
+
+.per_userPic img {
+	max-width: 100px;
+	float: left;
+	border: solid;
+	border-width: 2px;
+	border-color: #FFF;
+	box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.3), 0 0 6px 2px rgba(0, 0, 0, 0.15);
+	/*添加阴影*/
+}
+
+.per_userPic p {
+	font-size: 24px;
+	color: #000;
+	float: left;
+	margin-left: 15px;
+	position: relative;
+}
+
+.menu_box {
+	width: 50%;
+	height: 30px;
+	float: left;
+	margin-top: 80px;
+}
+
+.menu {
+	float: right;
+}
+
+.menu li {
+	float: left;
+	font-size: 18px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.menu a:hover {
+	text-decoration: underline;
+}
+
+
+/*中间主体内容部分*/
+
+.per_main_content {
+	margin-top: 30px;
+	width: 900px;
+}
+
+
+/**总体左边的效果
+**/
+
+.per_left {
+	width: 250px;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.perinfo_detail {
+	width: 250px;
+	background-color: #FFF;
+	border: solid #CCC 1px;
+}
+
+.perinfo_detail li {
+	float: left;
+	width: 33%;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.perinfo_txt1 {
+	border-color: #999;
+	border-right-width: 1px;
+	border-right-style: solid;
+}
+
+.infomation {
+	width: 250px;
+	background-color: #FFF;
+	border: solid #CCC 1px;
+	margin-top: 20px;
+}
+
+.hd {
+	height: auto;
+	border-bottom: solid #CCC 1px;
+	background-color: #f2f2f5
+}
+
+.hd h4 {
+	padding: 10px 5px;
+}
+
+.bd {
+	padding: 10px 15px;
+}
+
+.bd li {
+	line-height: 40px;
+	border-bottom: solid #CCC 1px;
+}
+
+.ll {
+	float: left;
+	width: auto;
+}
+
+
+/*总体右边 的效果*/
+
+.per_right {
+	width: 600px;
+;
+	float: right;
+	margin-bottom: 15px;
+	position: relative;
+	border-radius: 3px;
+}
+
+
+/*2016.06.02*/
+
+.WB_per_content {
+	float: right;
+	width: 600px;
+	margin-bottom: 15px;
+	position: relative;
+	background-color: #FFF;
+	border-radius: 3px;
+}
+
+.delete {
+	float: right;
+	font-size: 14px;
+}
+
+.delete a {
+	color: #000;
+}
+
+.delete a:hover {
+	text-decoration: underline;
+	color: blue;
+}
+
+
+/*others的关注按钮*/
+
+.follow {
+	float: left;
+	width: auto;
+}
+
+.foll {
+	padding: 5px 20px;
+	margin-top: 30px;
+	color: #FFF;
+	background-color: #1B5FDC;
+	border: none;
+}

@@ -1,0 +1,286 @@
+@charset "utf-8";
+
+/* CSS Document 用于注册 找回密码页面效果*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #BEE1F5;
+}
+
+a {
+    color: #338CE6;
+    font-size: 13px;
+    text-decoration: none;
+    line-height: 30px;
+    font-family: 'Arial', 'Microsoft YaHei';
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+/*保证每条微博内容不会溢出*/
+
+.W_login {
+    background-color: #39F;
+    background-color: #BEE1F5;
+    height: 100%;
+}
+
+.W_reg_header {
+    background: url(../images/bg_reg_wave.png) no-repeat;
+    background-size: cover;
+    height: 186px;
+    margin-left: 180px;
+}
+
+.W_reg_header img {
+    height: 100px;
+    float: left;
+}
+
+.W_reg_header p {
+    padding-top: 35px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.main_tab_line {
+    border-bottom-width: 1px;
+    border-color: #CCC;
+    border-bottom-style: solid;
+    margin-bottom: 10px;
+}
+
+.W_login_main {
+    width: 900px;
+    margin: 0 auto;
+    background-color: #FFF;
+    padding-bottom: 50px;
+    border-radius: 8px;
+}
+
+.login_cont {
+    padding: 25px 45px;
+}
+
+.main_tab_line {
+    width: 100%;
+    height: 60px;
+    font-size: 30px;
+    font-family: 'Arial', 'Microsoft YaHei';
+}
+
+.W_reg_info {
+    width: 480px;
+    float: left;
+}
+
+
+/*左侧表单验证*/
+
+.W_reg_form {
+    float: left;
+    width: 480px;
+}
+
+.loginTable {
+    width: 500px;
+    line-height: 40px;
+}
+
+.one {
+    width: 100px;
+    text-align: right;
+}
+
+.W_reg_form i {
+    padding-right: 6px;
+    color: red;
+}
+
+.W_input {
+    width: 200px;
+    height: 25px;
+}
+
+.yan {
+    width: 60px;
+    height: 25px;
+}
+
+.input_yan {
+    width: 60px;
+    height: 25px;
+}
+
+.yan_img {
+    height: 25px;
+    width: 25px;
+    vertical-align: middle;
+    /*实现图片的垂直居中显示*/
+}
+
+#submit {
+    background-color: #459DF5;
+    height: auto;
+    width: 200px;
+    margin-top: 20px;
+    border: none;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#check_use {
+    color: red
+}
+
+
+/*右侧格式*/
+
+.W_reg_sidebar {
+    width: auto;
+    float: right;
+    padding-bottom: 50px;
+    border-left-width: 1px;
+    border-color: #CCC;
+    border-left-style: solid;
+}
+
+.W_reg_sidebar ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+.W_reg_sidebar p {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.p1_line {
+    margin-left: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #CCC;
+}
+
+.p1_line a {
+    font-family: 'Arial', 'Microsoft YaHei';
+    font-size: 20px;
+}
+
+.reg_help {
+    padding-left: 20px;
+}
+
+.reg_help i {
+    padding-right: 10px;
+    color: #666
+}
+
+.help_more {
+    font-size: 18px;
+}
+
+
+/*注册页面底部*/
+
+.login_footer {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+    font-size: 14px;
+    font-family: 'Arial', 'Microsoft YaHei';
+}
+
+
+/*两个页面的错误信息格式*/
+
+.wrong {
+    font-size: 12px;
+    color: red;
+}
+
+
+/*********注册页面效果结束********
+**
+*忘记密码，找回密码页面开始
+***/
+
+.forget_text {
+    text-align: center;
+}
+
+.forget_main {
+    width: 800px;
+    padding-top: 50px;
+    border-radius: 8px;
+}
+
+.forget_main table {
+    width: auto;
+    margin: 0 auto;
+}
+
+.forget_main td {
+    height: 30px;
+    padding-bottom: 10px;
+}
+
+.line_1 {
+    width: 80px;
+    text-align: right;
+}
+
+.line_2 {
+    width: 200px;
+}
+
+.forget_input {
+    width: 200px;
+    height: 25px;
+}
+
+.wrong {
+    width: 100px;
+}
+
+.button_get {
+    height: 25px;
+    background-color: #459DF5;
+    border: none;
+}
+
+
+/*效果与注册页面确认按钮一样*/
+
+.forget_submit {
+    background-color: #459DF5;
+    height: auto;
+    width: 200px;
+    margin-top: 20px;
+    border: none;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

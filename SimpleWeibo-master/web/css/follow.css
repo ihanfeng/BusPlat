@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*用于我的关注的主体右边的效果*/
+
+.per_right_main {
+    width: 600px;
+    background-color: #FFF;
+    position: relative;
+    max-height: 1000px;
+}
+
+.personal_main_title {
+    height: auto;
+    font-size: 18px;
+    padding: 10px 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+/*针对关注、消息和个人资料主体内容的标题*/
+
+.follow_list {
+    height: auto;
+    position: relative;
+    margin-top: 5px;
+}
+
+.follow_list li {
+    list-style: none;
+    float: left;
+}
+
+.follow_li {
+    width: 290px;
+    background-color: #F2F2F5;
+    margin: 5px 5px;
+    position: relative;
+}
+
+.follow_detail {
+    width: auto;
+    height: auto;
+    background-color: #F2F2F5;
+    margin: 20px 20px;
+}
+
+.follow_detail_left {
+    width: 25%;
+    height: 100px;
+    float: left;
+    vertical-align: center;
+}
+
+.follow_detail_left img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.follow_detail_right {
+    width: 70%;
+    height: 100px;
+    float: left;
+    padding-left: 10px;
+    border-left: 1px solid #CCC;
+}
+
+.fol_name {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 0;
+}
+
+
+/*personal板块中较小的用户名效果*/
+
+.state {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.do_unfollow {
+    margin: 10px 0;
+}
+
+.do_unfollow_button {
+    border: none;
+    padding: 5px 10px;
+    background-color: #459DF5;
+    color: #FFF;
+}
+
+
+/*messages主体效果*/
+
+.messages_detail {
+    padding: 5px 10px;
+}
+
+.messages_detail_left img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 15px 10px;
+}
+
+.messages_detail_left {
+    width: 10%;
+    float: left;
+}
+
+.messages_detail_right {
+    width: 85%;
+    float: right;
+    height: auto;
+    position: relative;
+    border-bottom: 1px solid #CCC;
+}
+
+.mess_name {
+    width: auto;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 0;
+    float: left;
+}
+
+.mess_time {
+    float: right;
+    font-size: 12px;
+    color: #666;
+}
+
+.cont_bottom {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.cont_bottom_mess {
+    width: 80%;
+    height: auto;
+    font-size: 14px;
+    color: #333;
+    padding: 10px 0;
+}
+
+.cont_reply {
+    width: 10%;
+    float: right;
+    color: #666;
+    font-size: 14px;
+}
+
+.cont_reply a {
+    color: #338CE6;
+}
+
+.cont_reply a:hover {
+    color: #338CE6;
+    text-decoration: underline;
+}
+
+
+/*information个人信息的css*/
+
+.information_list {
+    margin: 10px 10px;
+}
+
+.infor_table {
+    width: 500px;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border-color: rgb(224, 224, 224);
+}
+
+.infor_table tr {
+    height: 56px;
+    border-bottom: solid 1px;
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.td {
+    width: 70px;
+}
+
+.info_input {
+    width: 200px;
+}
+
+.info_input2 {
+    width: 95px;
+}
+
+.info_button {
+    text-align: center;
+}
+
+.info_button input {
+    border: none;
+    padding: 5px 30px;
+    background-color: #459DF5;
+    font-size: 15px;
+    color: #FFF;
+    margin: 20px;
+    text-align: center;
+}
