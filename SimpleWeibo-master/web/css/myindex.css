@@ -1,0 +1,356 @@
+@charset "utf-8";
+
+/* CSS Document
+**
+*myindex页面的格式
+ */
+
+body {
+    font-family: 'Arial', 'Microsoft YaHei';
+    background-color: #b4daf0;
+    background-image: url("../images/body_repeat.png");
+    background-repeat: repeat-x;
+    background-position: center 0;
+}
+
+div {
+    display: block;
+}
+
+.clearfix {
+    display: block;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+/*顶部导航栏 搜索框效果*/
+
+.blog_top li {
+    float: left
+}
+
+.blog_top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    /*z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面*/
+    width: 100%;
+    height: 60px;
+    border-top: 2px solid #459DF5;
+    box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.3), 0 0 6px 2px rgba(0, 0, 0, 0.15);
+    /*顶部导航栏添加阴影*/
+}
+
+.top_inner {
+    position: relative;
+    width: 1080px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.top_logo {
+    float: left;
+    position: relative;
+    width: 150px;
+    height: 60px;
+}
+
+.top_logo img {
+    height: 60px;
+    float: left;
+    vertical-align: middle;
+}
+
+.top_logo a {
+    color: #000
+}
+
+.top_logo a:visited {
+    color: #000
+}
+
+.logo_t {
+    padding-top: 18px;
+    font-size: 22px;
+}
+
+.search {
+    width: 530px;
+    margin-left: 0;
+    position: relative;
+    float: left;
+    height: 35px;
+    margin: 10px 0 0 9px;
+    background-color: #f2f2f5;
+    border: 1px solid #ccc;
+}
+
+
+/*搜索区域*/
+
+.search_input {
+    width: 452px;
+    height: 35px;
+    background-color: #f2f2f5;
+    border: none;
+    float: left;
+}
+
+
+/*搜索框*/
+
+.ficon_search {
+    width: 78px;
+    height: 35px;
+    border: none;
+    background-color: #459DF5;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.ficon_search a:hover {
+    background-color: #338CE6
+}
+
+.top_nav {}
+
+.nav_list {
+    font-size: 16px;
+    color: #333;
+}
+
+.nav_list li {
+    margin-left: 30px;
+    padding-top: 20px;
+}
+
+.nav_list a {
+    color: #333;
+}
+
+.nav_list a:hover {
+    color: #459DF5;
+}
+
+.list_img {
+    height: 25px;
+    vertical-align: middle;
+}
+
+.nav_span1 {
+    color: #459DF5;
+}
+
+
+/*顶部导航栏结束*/
+
+
+/*主体blog_main开始*/
+
+.blog_main {
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+}
+
+.WB_mymain {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/*主体微博格式与index.css中的一致*/
+
+.WB_frame_c {
+    float: left;
+    width: 630px;
+}
+
+.content_publish {
+    margin: 0;
+    padding: 15px;
+    display: block;
+    width: 600px;
+}
+
+.content_publish_in {
+    background-color: #FFF;
+    margin: 0 0 10px 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    padding: 15px 10px 10px;
+    _position: relative;
+    height: 140px;
+    overflow: hidden;
+}
+
+.title {
+    height: 21px;
+}
+
+.title img {
+    height: 21px;
+}
+
+.input {
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CCC;
+    height: 68px;
+    margin: 4px 0 0;
+    padding: 5px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.W_input_in {
+    height: 68px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border-style: none;
+    border-width: 0px;
+    font-size: 14px;
+    word-wrap: break-word;
+    line-height: 18px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    outline: none;
+}
+
+
+/*index 主体右边*/
+
+.WB_frame_d {
+    float: left;
+    width: 300px;
+    margin-top: 15px;
+}
+
+.person_info {
+    background-color: #FFF;
+    margin-bottom: 20px;
+    height: 220px;
+    position: relative
+}
+
+.cover {
+    height: 90px;
+    background: url(../images/016_s.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.head_pic img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    margin-left: -40px;
+}
+
+.log_userName {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+    font-family: 'Arial', 'Microsoft YaHei';
+}
+
+.person_info a {
+    color: #333;
+}
+
+.person_info a:hover {
+    color: #338CE6;
+}
+
+.WB_innerwrap {
+    height: 110px;
+    width: 300px;
+    position: relative
+}
+
+
+/*用户名   与数量*/
+
+.info_detail {
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.info_detail li {
+    float: left;
+    width: 80px;
+    text-align: center;
+}
+
+.info_txt1 {
+    border-color: #999;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+.info_txt2 {
+    font-size: 14px;
+}
+
+.resend {
+    width: 100%;
+    padding-top: 5px;
+    background: #eee;
+}
+
+.discuss {
+    font-size: 15px;
+    line-height: 25px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.re_userName {
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.re_userName a {
+    font-size: 16px;
+}
+
+
+/***
+-----------------分页效果
+*/
+
+
+/*分页的效果*/
+
+.change_pages {
+    margin-bottom: 25px;
+    float: right;
+}
+
+.change_pages span {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.change_pages a {
+    color: #000;
+}
+
+.change_pages a:hover {
+    text-decoration: underline;
+    color: blue;
+}

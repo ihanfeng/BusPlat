@@ -1,0 +1,8 @@
+*.class
+*.iml
+*.log
+
+.idea/
+out/
+src/test/
+target/
