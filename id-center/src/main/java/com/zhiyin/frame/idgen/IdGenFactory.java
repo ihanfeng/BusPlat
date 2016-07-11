@@ -11,6 +11,7 @@ import org.predictor.idgenerator.InvalidSystemClockException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//@Deprecated
 @Slf4j
 public class IdGenFactory {
 
