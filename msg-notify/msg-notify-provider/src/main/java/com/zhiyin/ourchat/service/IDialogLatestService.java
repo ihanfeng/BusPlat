@@ -9,11 +9,13 @@ import java.util.List;
  */
 public interface IDialogLatestService {
 
-    List<DialogLatest> selectAlllLatest(Long userId);
+    List<DialogLatest> selectByUid(Long userId);
 
     List<DialogLatest> selectLatest(Long userId, Long partnerId);
 
     public  Long insertSelective(DialogLatest record);
+
+//    public Long deleteIn
 
 }
 

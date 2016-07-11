@@ -24,4 +24,6 @@ public interface DialogLatestMapper {
 
 
     int deleteOldLatest(@Param("userId") Long userId, @Param("partnerId") Long partnerId);
+
+
 }

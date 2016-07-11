@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2016-07-11 21:31:16
+Date: 2016-07-11 21:41:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -362,6 +362,7 @@ CREATE TABLE `zy_ourchat_dialog_info` (
 -- ----------------------------
 INSERT INTO `zy_ourchat_dialog_info` VALUES ('36589008052224', '1', '2', 'hello, user1 talk to user2.', null, null, null, null);
 INSERT INTO `zy_ourchat_dialog_info` VALUES ('36589593636864', '1', '2', 'hello, user1 talk to user2.', null, null, null, null);
+INSERT INTO `zy_ourchat_dialog_info` VALUES ('36592091504640', '1', '2', 'hello, user1 talk to user2.', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for zy_ourchat_dialog_latest
@@ -369,6 +370,9 @@ INSERT INTO `zy_ourchat_dialog_info` VALUES ('36589593636864', '1', '2', 'hello,
 DROP TABLE IF EXISTS `zy_ourchat_dialog_latest`;
 CREATE TABLE `zy_ourchat_dialog_latest` (
   `id` bigint(20) NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL COMMENT '消息所属用户编号',
+  `partner_id` bigint(20) DEFAULT NULL COMMENT '聊天对象',
+  `partner_name` varchar(100) DEFAULT NULL,
   `sender` bigint(20) DEFAULT NULL,
   `receiver` bigint(20) DEFAULT NULL,
   `content` varchar(1000) DEFAULT NULL,
@@ -377,17 +381,14 @@ CREATE TABLE `zy_ourchat_dialog_latest` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_status` int(11) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL COMMENT '消息所属用户编号',
-  `partner_id` bigint(20) DEFAULT NULL COMMENT '聊天对象',
-  `partner_name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zy_ourchat_dialog_latest
 -- ----------------------------
-INSERT INTO `zy_ourchat_dialog_latest` VALUES ('36589592485888', '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null, '1', '2', null);
-INSERT INTO `zy_ourchat_dialog_latest` VALUES ('36589593063424', '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null, '2', '1', null);
+INSERT INTO `zy_ourchat_dialog_latest` VALUES ('36592090583040', '1', '2', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null);
+INSERT INTO `zy_ourchat_dialog_latest` VALUES ('36592091025408', '2', '1', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for zy_ourchat_dialog_record
@@ -411,7 +412,5 @@ CREATE TABLE `zy_ourchat_dialog_record` (
 -- ----------------------------
 -- Records of zy_ourchat_dialog_record
 -- ----------------------------
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36589007519744', '2', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null);
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36589007781888', '1', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null);
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36589593341952', '2', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null);
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36589593518080', '1', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null);
+INSERT INTO `zy_ourchat_dialog_record` VALUES ('36592091193344', '2', '1', '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null);
+INSERT INTO `zy_ourchat_dialog_record` VALUES ('36592091340800', '1', '2', '1', '2', 'hello, user1 talk to user2.', null, null, null, null, null);

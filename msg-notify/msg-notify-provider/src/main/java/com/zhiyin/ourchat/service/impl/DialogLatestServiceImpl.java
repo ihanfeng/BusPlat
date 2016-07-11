@@ -21,7 +21,7 @@ public class DialogLatestServiceImpl implements IDialogLatestService {
     DialogLatestMapper dialogLatestMapper;
 
     @Override
-    public List<DialogLatest> selectAlllLatest(Long userId ) {
+    public List<DialogLatest> selectByUid(Long userId ) {
         List<DialogLatest> list = dialogLatestMapper.selectAlllLatest(userId);
         return list;
     }
