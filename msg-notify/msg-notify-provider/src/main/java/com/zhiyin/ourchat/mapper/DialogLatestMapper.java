@@ -18,12 +18,16 @@ public interface DialogLatestMapper {
 
     int updateByPrimaryKey(DialogLatest record);
 
-    List<DialogLatest> selectAlllLatest( @Param("userId") Long userId);
+    List<DialogLatest> selectByUid( @Param("userId") Long userId);
 
     List<DialogLatest> selectLatest(@Param("userId") Long userId,@Param("partnerId") Long partnerId);
 
 
-    int deleteOldLatest(@Param("userId") Long userId, @Param("partnerId") Long partnerId);
+//    int deleteOldLatest(@Param("userId") Long userId, @Param("partnerId") Long partnerId);
 
 
+    Integer deleteByPartner(@Param("userId") Long userId, @Param("partnerId") Long partnerId);
+
+
+    Integer deleteByUid(Long userId);
 }

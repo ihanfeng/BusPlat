@@ -15,6 +15,11 @@ public interface IDialogLatestService {
 
     public  Long insertSelective(DialogLatest record);
 
+
+    public  Integer deleteByUid( Long userId );
+
+    public  Integer deleteByPartner(Long userId, Long partnerId);
+
 //    public Long deleteIn
 
 }

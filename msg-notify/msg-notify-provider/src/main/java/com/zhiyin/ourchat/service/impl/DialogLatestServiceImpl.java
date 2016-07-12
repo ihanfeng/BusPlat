@@ -22,7 +22,7 @@ public class DialogLatestServiceImpl implements IDialogLatestService {
 
     @Override
     public List<DialogLatest> selectByUid(Long userId ) {
-        List<DialogLatest> list = dialogLatestMapper.selectAlllLatest(userId);
+        List<DialogLatest> list = dialogLatestMapper.selectByUid(userId);
         return list;
     }
 
@@ -38,12 +38,21 @@ public class DialogLatestServiceImpl implements IDialogLatestService {
     public Long insertSelective(DialogLatest record) {
 
         // 先把旧的信息删除
-        dialogLatestMapper.deleteOldLatest(record.getUserId(),record.getPartnerId());
-
+        dialogLatestMapper.deleteByPartner(record.getUserId(),record.getPartnerId());
 
         record.setId( IdGenFactory.genTableId() );
         dialogLatestMapper.insertSelective(record);
         return 1L;
+    }
+
+    @Override
+    public Integer deleteByUid(Long userId) {
+        return dialogLatestMapper.deleteByUid(userId);
+    }
+
+    @Override
+    public Integer deleteByPartner(Long userId, Long partnerId) {
+        return dialogLatestMapper.deleteByPartner(userId,partnerId);
     }
 
 

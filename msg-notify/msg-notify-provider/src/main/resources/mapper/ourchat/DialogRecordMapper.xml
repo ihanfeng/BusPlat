@@ -24,10 +24,24 @@
     from zy_ourchat_dialog_record
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+
+  <select id="selectByPartner" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from zy_ourchat_dialog_record
+    where user_id = #{userId,jdbcType=BIGINT}
+    AND  partner_id =  #{partnerId,jdbcType=BIGINT}
+    AND del_status = 0
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from zy_ourchat_dialog_record
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
+
 
   <delete id="deleteByUid" parameterType="java.lang.Long" >
     delete from zy_ourchat_dialog_record

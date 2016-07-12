@@ -11,7 +11,6 @@ import com.zhiyin.ourchat.entity.DialogRecord;
 import com.zhiyin.ourchat.mapper.DialogInfoMapper;
 import com.zhiyin.ourchat.service.IDialogInfoService;
 import com.zhiyin.ourchat.service.IDialogLatestService;
-import com.zhiyin.ourchat.service.IDialogListService;
 import com.zhiyin.ourchat.service.IDialogRecordService;
 import lombok.extern.slf4j.Slf4j;
 import org.dozer.DozerBeanMapper;

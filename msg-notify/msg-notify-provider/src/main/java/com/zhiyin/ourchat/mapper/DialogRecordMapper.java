@@ -1,6 +1,7 @@
 package com.zhiyin.ourchat.mapper;
 
 import com.zhiyin.ourchat.entity.DialogRecord;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,5 +20,5 @@ public interface DialogRecordMapper {
 
     Integer deleteByUid(Long userId);
 
-    List<DialogRecord> selectByPartner(Long userId, Long partnerId);
+    List<DialogRecord> selectByPartner(@Param("userId") Long userId, @Param("partnerId") Long partnerId);
 }
