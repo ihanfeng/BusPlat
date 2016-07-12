@@ -17,7 +17,7 @@ public class MybatisGen{
         try {
             List<String> warnings = new ArrayList<String>();
             boolean overwrite = false;
-            File configFile = new File(MybatisGen.class.getResource("/").getPath() + "generatorConfig-ourchat.xml");
+            File configFile = new File(MybatisGen.class.getResource("/").getPath() + "generatorConfig-ad.xml");
             ConfigurationParser cp = new ConfigurationParser(warnings);
             Configuration config = cp.parseConfiguration(configFile);
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);
