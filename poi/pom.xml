@@ -103,6 +103,12 @@
                     <include>**/*.xlsx</include>
                 </includes>
             </testResource>
+			<testResource>
+				<directory>src/test/resource</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</testResource>
         </testResources>
 
         <plugins>

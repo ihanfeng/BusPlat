@@ -9,7 +9,7 @@ import org.jeecgframework.poi.excel.annotation.Excel;
  */
 @Getter
 @Setter
-public class ReadEquipEntity {
+public class ReadEquipEntity implements java.io.Serializable {
 
     @Excel(name = "资产编号")
     private String id;

@@ -12,18 +12,18 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/7/8.
+ * Created by hg on 2016/7/8.
  */
 public class ExcelRead {
 
     public static void main(String[] args) throws Exception {
         try {
             ImportParams params = new ImportParams();
-            params.setTitleRows(1);
+//            params.setTitleRows(1);
             long start = new Date().getTime();
             List<ReadEquipEntity> list = ExcelImportUtil.importExcel(
                     new FileInputStream(
-                            new File(PoiPublicUtil.getWebRootPath("bb.xls"))),
+                            new File(PoiPublicUtil.getWebRootPath("doc/bb.xls"))),
                     ReadEquipEntity.class, params);
             //        List<StatisticEntity> list = ExcelImportUtil.importExcelBySax(new File(PoiPublicUtil.getWebRootPath("import/ExcelExportMsgClient.xlsx"),
             //            StatisticEntity.class, params);
