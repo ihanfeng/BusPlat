@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: micro-user
+  dubbo:
+    application:
+      name : ${spring.application.name}
+    registry:
+      address : zookeeper://127.0.0.1:2181
+    scan: com.vcg
+    protocol:
+      name: dubbo
+      port: 20880
+      serialization: kryo
+
+#    providerConfig:
+#      charset: utf-8
+#      isDefault: true
+#    moduleConfig:
+#      module: ssss
+#      isDefault: true
+#    monitorConfig:
+#      isDefault: true
+
+  datasource:
+    name: masterDataSource
+    url: jdbc:mysql://localhost/test?useSSL=true
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations:
+    - classpath:com/vcg/micro/user/dao/*.xml
+  type-aliases-package: com.vcg.micro.user.dao.model
+
+logging:
+  file: micro-user.log
+
+
