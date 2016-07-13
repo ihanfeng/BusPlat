@@ -1,8 +1,8 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.zhiyin.frame</groupId>
-    <artifactId>dbs-parent</artifactId>
+    <groupId>com.zhiyin.dbs</groupId>
+    <artifactId>dbs-ad</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>${project.artifactId}</name>
@@ -29,9 +29,9 @@
 
 
     <modules>
-        <module>dbs-core</module>
-        <!--<module>dbs-demo</module>-->
+        <module>ad-provider</module>
     </modules>
+
 
     <repositories>
         <repository>
@@ -96,12 +96,6 @@
                 <version>1.2.7</version>
             </dependency>
 
-            <dependency>
-                <groupId>net.sf.dozer</groupId>
-                <artifactId>dozer</artifactId>
-                <version>5.5.1</version>
-            </dependency>
-
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -116,17 +110,10 @@
                 <artifactId>spring-cloud-starter-parent</artifactId>
                 <version>Angel.SR3</version>
                 <!--<spring-cloud.version>Brixton.RC1</spring-cloud.version>-->
+                <!--<version>Brixton.RC1</version>-->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-dependencies</artifactId>
-                    <version>Brixton.SR2</version>
-                    <type>pom</type>
-                    <scope>import</scope>
-                </dependency>
 
             <!--<dependency>-->
             <!--<groupId>org.springframework.cloud</groupId>-->
