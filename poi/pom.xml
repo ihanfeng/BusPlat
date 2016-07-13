@@ -92,7 +92,14 @@
                         <include>**/*.xlsx</include>
                     </includes>
                 </resource>
-
+			 <resource>
+				 <directory>src/main/resources</directory>
+				 <includes>
+					 <include>**/*.xml</include>
+					 <include>**/*.xls</include>
+					 <include>**/*.xlsx</include>
+				 </includes>
+			 </resource>
             </resources>
         <testResources>
             <testResource>
