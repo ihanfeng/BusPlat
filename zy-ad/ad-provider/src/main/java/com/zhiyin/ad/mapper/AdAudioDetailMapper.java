@@ -1,17 +1,8 @@
 package com.zhiyin.ad.mapper;
 
+import com.zhiyin.ad.entity.AdAllowSite;
 import com.zhiyin.ad.entity.AdAudioDetail;
+import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 
-public interface AdAudioDetailMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(AdAudioDetail record);
-
-    int insertSelective(AdAudioDetail record);
-
-    AdAudioDetail selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(AdAudioDetail record);
-
-    int updateByPrimaryKey(AdAudioDetail record);
+public interface AdAudioDetailMapper  extends BaseMapper<AdAudioDetail> {
 }

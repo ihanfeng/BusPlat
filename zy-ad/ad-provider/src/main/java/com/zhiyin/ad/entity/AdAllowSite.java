@@ -1,8 +1,10 @@
 package com.zhiyin.ad.entity;
 
+import com.zhiyin.dbs.module.common.entity.BaseEntity;
+
 import java.util.Date;
 
-public class AdAllowSite extends BaseEntity{
+public class AdAllowSite extends BaseEntity {
     private Long id;
 
     private Long adId;

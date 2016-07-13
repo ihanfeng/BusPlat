@@ -1,8 +1,10 @@
 package com.zhiyin.ad.entity;
 
+import com.zhiyin.dbs.module.common.entity.BaseEntity;
+
 import java.util.Date;
 
-public class AdBasicInfo {
+public class AdBasicInfo extends BaseEntity {
     private Long id;
 
     private Long companyId;

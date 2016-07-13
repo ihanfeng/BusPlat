@@ -1,17 +1,8 @@
 package com.zhiyin.ad.mapper;
 
 import com.zhiyin.ad.entity.AdAllowSite;
+import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 
-public interface AdAllowSiteMapper {
-    int deleteByPrimaryKey(Long id);
+public interface AdAllowSiteMapper extends BaseMapper<AdAllowSite> {
 
-    int insert(AdAllowSite record);
-
-    int insertSelective(AdAllowSite record);
-
-    AdAllowSite selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(AdAllowSite record);
-
-    int updateByPrimaryKey(AdAllowSite record);
 }

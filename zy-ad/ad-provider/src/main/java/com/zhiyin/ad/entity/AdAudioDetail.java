@@ -1,8 +1,10 @@
 package com.zhiyin.ad.entity;
 
+import com.zhiyin.dbs.module.common.entity.BaseEntity;
+
 import java.util.Date;
 
-public class AdAudioDetail {
+public class AdAudioDetail extends BaseEntity {
     private Long id;
 
     private Long roleId;
