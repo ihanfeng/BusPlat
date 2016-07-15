@@ -74,4 +74,9 @@ public class AdAllowSiteServiceImplTest  {
         List<AdAllowSite> sites = adAllowSiteService.selectByAd(adId);
         Assert.assertTrue( sites.size()== 3);
     }
+
+    @Test
+    public void testDate(){
+        System.out.println( DateTime.now().toString("yyyy-MM-dd HH:mm:ss"));
+    }
 }

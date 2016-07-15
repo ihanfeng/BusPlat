@@ -31,7 +31,7 @@
     from zy_ad_baisc_info
     where shelf_on_time &gt; #{startDate} AND shelf_on_time &lt; #{endDate}
     AND shelf_status = #{shelfStatus}
-    AND del_status = 1
+    AND del_status = 0
   </select>
 
   <select id="selectWillShelfOff" resultMap="BaseResultMap" parameterType="java.util.Map" >
@@ -40,7 +40,7 @@
     from zy_ad_baisc_info
     where shelf_off_time &gt; #{startDate} AND shelf_off_time &lt; #{endDate}
     AND shelf_status = #{shelfStatus}
-    AND del_status = 1
+    AND del_status = 0
   </select>
 
 

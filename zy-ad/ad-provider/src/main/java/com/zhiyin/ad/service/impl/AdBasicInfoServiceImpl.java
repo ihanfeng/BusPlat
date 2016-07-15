@@ -1,5 +1,6 @@
 package com.zhiyin.ad.service.impl;
 
+import com.google.common.base.Optional;
 import com.zhiyin.ad.config.AdShelfStatus;
 import com.zhiyin.ad.config.AdTimerConfig;
 import com.zhiyin.ad.entity.AdBasicInfo;
@@ -9,9 +10,11 @@ import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
+import org.junit.Test;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -59,8 +62,9 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
         DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerIntervalTolerant);
         DateTime end = DateTime.now().plusMinutes(AdTimerConfig.TimerInterval);
 
-        log.info("sel will shelf on, start:{},end:{}",start.toString("YYYMMDDHHmmss"),end);
+        log.info("sel will shelf on, start:{},end:{}",start.toString("yyyy-MM-dd HH:mm:ss"),end.toString("yyyy-MM-dd HH:mm:ss"));
         List<AdBasicInfo> list = adBasicInfoMapper.selectWillShelfOn(start.toDate(), end.toDate(), AdShelfStatus.ShelfNot);
+        list = Optional.fromNullable(list).or(new ArrayList<AdBasicInfo>());
         return list;
     }
 
@@ -75,9 +79,13 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
 
         DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerInterval + AdTimerConfig.TimerIntervalTolerant);
         DateTime end = DateTime.now();
-        log.info("sel will shelf off, start:{},end:{}",start,end);
+        log.info("sel will shelf on, start:{},end:{}",start.toString("yyyy-MM-dd HH:mm:ss"),end.toString("yyyy-MM-dd HH:mm:ss"));
         List<AdBasicInfo> list = adBasicInfoMapper.selectWillShelfOff(start.toDate(), end.toDate(), AdShelfStatus.ShelfOn);
+        list = Optional.fromNullable(list).or(new ArrayList<AdBasicInfo>());
         return list;
     }
+
+
+
 
 }

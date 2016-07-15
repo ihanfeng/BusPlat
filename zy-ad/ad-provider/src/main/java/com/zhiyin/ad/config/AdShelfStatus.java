@@ -5,8 +5,8 @@ package com.zhiyin.ad.config;
  */
 public class AdShelfStatus {
 
-   public static Integer ShelfNot = 1;
-    public static Integer  ShelfOn = 2;
-    public static Integer  ShelfOff =3;
+   public static Integer ShelfNot = 1; // 未上架
+    public static Integer  ShelfOn = 2; // 已上架
+    public static Integer  ShelfOff =3; // 已下架
 
 }
