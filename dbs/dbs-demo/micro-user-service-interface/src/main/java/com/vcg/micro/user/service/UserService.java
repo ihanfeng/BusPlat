@@ -3,10 +3,7 @@ package com.vcg.micro.user.service;
 import com.vcg.micro.user.model.User;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.Example;
-import io.swagger.annotations.ExampleProperty;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +18,7 @@ import java.util.List;
 @FeignClient("micro-user")
 public interface UserService {
 
-    @ApiOperation(value = "根据主键id获取对象!",notes = "这个方法的主要作用是通过id获取对象,例子; http://localhost:8080/user/1",httpMethod = "GET", response = User.class)
+    @ApiOperation(value = "根据主键id获取对象!", notes = "这个方法的主要作用是通过id获取对象,例子; http://localhost:8080/user/1", httpMethod = "GET", response = User.class)
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     User selectByPrimaryKey(
             @ApiParam(name = "id", value = "用户id", required = true, example = "http://localhost/user/1")
@@ -35,14 +32,13 @@ public interface UserService {
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
     int deleteByPrimaryKey(@PathVariable("id") Integer id);
 
-    @ApiOperation(value = "插入对象", httpMethod = "POST", response = Integer.class,consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @RequestMapping(value = "/user",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiOperation(value = "插入对象", httpMethod = "POST", response = Integer.class, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/user", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     int insert(@RequestBody User user);
 
-    @RequestMapping(value = "/user",method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/user", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "根据主键删除对象", httpMethod = "PUT", response = Integer.class)
     int updateByPrimaryKey(@RequestBody User user);
-
 
 
 }

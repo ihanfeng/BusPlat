@@ -4,7 +4,6 @@ import com.alibaba.dubbo.config.ServiceConfig;
 import com.alibaba.dubbo.config.spring.AnnotationBean;
 import com.alibaba.dubbo.config.spring.ServiceBean;
 import com.vcg.micro.user.service.UserService;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
@@ -15,7 +14,7 @@ import java.util.Set;
 
 /**
  * Created by wuyu on 2016/7/5.
- * <p>
+ * <p/>
  * 导出服务
  */
 @Configuration
@@ -23,13 +22,12 @@ import java.util.Set;
 public class DubboServiceExport {
 
 
+    private AnnotationBean annotationBean;
+
     @Bean
     public ServiceBean<UserService> userServiceBean(UserService userService) {
         return export(userService, UserService.class);
     }
-
-
-    private AnnotationBean annotationBean;
 
     @Bean
     public AnnotationBean annotationBean() {

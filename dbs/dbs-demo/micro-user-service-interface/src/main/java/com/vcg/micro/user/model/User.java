@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 /**
  * Created on 2016/7/05 11:44.
- * 
- * id 	INTEGER 	10 	
- * username 	VARCHAR 	32 	
- * password 	VARCHAR 	32 	
+ * <p/>
+ * id 	INTEGER 	10
+ * username 	VARCHAR 	32
+ * password 	VARCHAR 	32
  */
 
 public class User implements Serializable {
@@ -25,7 +25,7 @@ public class User implements Serializable {
 
     public User setId(Integer id) {
         this.id = id;
-		return this;
+        return this;
     }
 
     public String getUsername() {
@@ -34,7 +34,7 @@ public class User implements Serializable {
 
     public User setUsername(String username) {
         this.username = username == null ? null : username.trim();
-		return this;
+        return this;
     }
 
     public String getPassword() {
@@ -43,6 +43,6 @@ public class User implements Serializable {
 
     public User setPassword(String password) {
         this.password = password == null ? null : password.trim();
-		return this;
+        return this;
     }
 }

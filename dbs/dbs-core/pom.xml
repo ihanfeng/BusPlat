@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhiyin.frame</groupId>
     <artifactId>dbs-core</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <java.version>1.7</java.version>
         <druid.version>1.0.11</druid.version>
         <mybatis.version>3.3.0</mybatis.version>
@@ -65,23 +65,23 @@
             <version>2.8.0</version>
         </dependency>
 
-
-
     </dependencies>
 
 
     <build>
-<plugins>
+        <plugins>
 
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-<version>2.6</version>
-        <configuration>
-<excludes><exclude>logback.*</exclude></excludes>
-</configuration>
-    </plugin>
-</plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <excludes>
+                        <exclude>logback.*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
 
     </build>
 

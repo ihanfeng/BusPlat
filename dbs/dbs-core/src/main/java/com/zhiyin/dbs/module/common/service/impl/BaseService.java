@@ -17,8 +17,7 @@ public abstract class BaseService<V extends BaseEntity> {
     public abstract BaseMapper<V> getBaseMapper();
 
 
-
-    public int deleteByPrimaryKey(Long id){
+    public int deleteByPrimaryKey(Long id) {
         return getBaseMapper().deleteByPrimaryKey(id);
     }
 
@@ -27,17 +26,17 @@ public abstract class BaseService<V extends BaseEntity> {
     }
 
     public int insertSelective(V bo) {
-		bo.setId( IdGenFactory.genTableId() );
-		bo.setCreateTime(DateTime.now().toDate());
-		bo.setUpdateTime(DateTime.now().toDate());
-		bo.setDelStatus(0);
+        bo.setId(IdGenFactory.genTableId());
+        bo.setCreateTime(DateTime.now().toDate());
+        bo.setUpdateTime(DateTime.now().toDate());
+        bo.setDelStatus(0);
 
         postInsertBefore(bo);
-		return getBaseMapper().insertSelective(bo);
-	}
+        return getBaseMapper().insertSelective(bo);
+    }
 
     public Long insertSelectiveGet(V bo) {
-        bo.setId( IdGenFactory.genTableId() );
+        bo.setId(IdGenFactory.genTableId());
         bo.setCreateTime(DateTime.now().toDate());
         bo.setUpdateTime(DateTime.now().toDate());
         bo.setDelStatus(0);
@@ -45,7 +44,7 @@ public abstract class BaseService<V extends BaseEntity> {
         postInsertBefore(bo);
 
         int insert = getBaseMapper().insertSelective(bo);
-        if( insert <= 0){
+        if (insert <= 0) {
             throw new RuntimeException();
         }
 
@@ -55,20 +54,20 @@ public abstract class BaseService<V extends BaseEntity> {
 
     public Integer insertSelective(List<V> list) {
 
-        for(int i=0; i<list.size();i++ ){
+        for (int i = 0; i < list.size(); i++) {
             insertSelective(list.get(i));
         }
 
         return 1;
     }
 
-    public void postInsertBefore(V bo){
+    public void postInsertBefore(V bo) {
 
     }
 
-	public int updateByPrimaryKeySelective(V bo) {
-		return getBaseMapper().updateByPrimaryKeySelective(bo);
-	}
+    public int updateByPrimaryKeySelective(V bo) {
+        return getBaseMapper().updateByPrimaryKeySelective(bo);
+    }
 
 
     public V selectByPrimaryKey(Long id) {
@@ -79,9 +78,9 @@ public abstract class BaseService<V extends BaseEntity> {
         return getBaseMapper().selectByPrimaryKey(id);
     }
 
-//    @Cacheable(value = "commonCache")
+    //    @Cacheable(value = "commonCache")
     public PageInfo selectByPage(int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         List<V> list = getBaseMapper().selectAll();
         PageInfo<V> page = new PageInfo(list);
 
@@ -89,12 +88,9 @@ public abstract class BaseService<V extends BaseEntity> {
     }
 
 
-
-    public List<V> selectAll(){
+    public List<V> selectAll() {
         return getBaseMapper().selectAll();
     }
-
-
 
 
 //    @Override
