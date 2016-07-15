@@ -1,22 +1,12 @@
 package com.zhiyin.ourchat.mapper;
 
+import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.ourchat.entity.DialogLatest;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface DialogLatestMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(DialogLatest record);
-
-    int insertSelective(DialogLatest record);
-
-    DialogLatest selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(DialogLatest record);
-
-    int updateByPrimaryKey(DialogLatest record);
+public interface DialogLatestMapper extends BaseMapper<DialogLatest> {
 
     List<DialogLatest> selectByUid(@Param("userId") Long userId);
 

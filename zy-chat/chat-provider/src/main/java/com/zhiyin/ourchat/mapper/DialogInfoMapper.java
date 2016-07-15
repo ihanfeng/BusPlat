@@ -1,17 +1,8 @@
 package com.zhiyin.ourchat.mapper;
 
+import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.ourchat.entity.DialogInfo;
 
-public interface DialogInfoMapper {
-    int deleteByPrimaryKey(Long id);
+public interface DialogInfoMapper extends BaseMapper<DialogInfo> {
 
-    int insert(DialogInfo record);
-
-    int insertSelective(DialogInfo record);
-
-    DialogInfo selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(DialogInfo record);
-
-    int updateByPrimaryKey(DialogInfo record);
 }

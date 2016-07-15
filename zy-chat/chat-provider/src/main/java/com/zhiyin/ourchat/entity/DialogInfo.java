@@ -1,8 +1,13 @@
 package com.zhiyin.ourchat.entity;
 
+import com.zhiyin.dbs.module.common.entity.BaseEntity;
+
 import java.util.Date;
 
-public class DialogInfo {
+public class DialogInfo  extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
     private Long id;
 
     private Long sender;

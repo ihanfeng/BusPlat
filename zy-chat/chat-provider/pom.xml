@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>chat-provider</artifactId>
@@ -100,7 +100,6 @@
             <version>${logback.version}</version>
         </dependency>
         <!-- end common -->
-
 
 
         <!-- springboot -->
@@ -247,7 +246,6 @@
         <!-- end test -->
 
 
-
     </dependencies>
 
     <build>
@@ -260,11 +258,11 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.3.3.RELEASE</version>
                 <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.springframework</groupId>-->
-                        <!--<artifactId>springloaded</artifactId>-->
-                        <!--<version>1.2.5.RELEASE</version>-->
-                    <!--</dependency>-->
+                <!--<dependency>-->
+                <!--<groupId>org.springframework</groupId>-->
+                <!--<artifactId>springloaded</artifactId>-->
+                <!--<version>1.2.5.RELEASE</version>-->
+                <!--</dependency>-->
                 <!--</dependencies>-->
             </plugin>
             <plugin>

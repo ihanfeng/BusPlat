@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhiyin.dbs</groupId>
@@ -52,8 +52,8 @@
         </repository>
 
         <!--<repository>-->
-            <!--<id>zhiyin-maven-repo</id>-->
-            <!--<url>https://raw.githubusercontent.com/huiwq1990/MavenRepository/master/repository</url>-->
+        <!--<id>zhiyin-maven-repo</id>-->
+        <!--<url>https://raw.githubusercontent.com/huiwq1990/MavenRepository/master/repository</url>-->
         <!--</repository>-->
 
     </repositories>

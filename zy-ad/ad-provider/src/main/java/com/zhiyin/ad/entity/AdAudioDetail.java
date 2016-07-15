@@ -5,6 +5,10 @@ import com.zhiyin.dbs.module.common.entity.BaseEntity;
 import java.util.Date;
 
 public class AdAudioDetail extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
+
     private Long id;
 
     private String title;

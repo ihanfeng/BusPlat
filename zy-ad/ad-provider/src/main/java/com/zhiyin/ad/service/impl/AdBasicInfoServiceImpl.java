@@ -79,7 +79,7 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
 
         DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerInterval + AdTimerConfig.TimerIntervalTolerant);
         DateTime end = DateTime.now();
-        log.info("sel will shelf on, start:{},end:{}",start.toString("yyyy-MM-dd HH:mm:ss"),end.toString("yyyy-MM-dd HH:mm:ss"));
+        log.info("sel will shelf off, start:{},end:{}",start.toString("yyyy-MM-dd HH:mm:ss"),end.toString("yyyy-MM-dd HH:mm:ss"));
         List<AdBasicInfo> list = adBasicInfoMapper.selectWillShelfOff(start.toDate(), end.toDate(), AdShelfStatus.ShelfOn);
         list = Optional.fromNullable(list).or(new ArrayList<AdBasicInfo>());
         return list;

@@ -1,18 +1,14 @@
 package com.zhiyin.ourchat.service;
 
-import com.zhiyin.ad.entity.AudioBoard;
+import com.zhiyin.dbs.module.common.service.IBaseService;
 import com.zhiyin.ourchat.entity.DialogInfo;
 
-import java.util.List;
-
 /**
- * Created by wangqinghui on 2016/7/11.
+ * Created by hg on 2016/7/11.
  */
-public interface IDialogInfoService {
+public interface IDialogInfoService extends IBaseService<DialogInfo> {
 
+    Integer insertDialog(DialogInfo dialogInfo);
 
-//    public Long insertSelective(DialogInfo record) ;
-
-    List<AudioBoard> insertDialog(DialogInfo dialogInfo);
 }
 

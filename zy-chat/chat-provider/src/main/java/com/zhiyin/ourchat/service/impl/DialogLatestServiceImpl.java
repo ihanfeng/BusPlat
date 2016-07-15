@@ -1,5 +1,7 @@
 package com.zhiyin.ourchat.service.impl;
 
+import com.zhiyin.dbs.module.common.mapper.BaseMapper;
+import com.zhiyin.dbs.module.common.service.impl.BaseService;
 import com.zhiyin.frame.idgen.IdGenFactory;
 import com.zhiyin.ourchat.entity.DialogLatest;
 import com.zhiyin.ourchat.mapper.DialogLatestMapper;
@@ -15,34 +17,39 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class DialogLatestServiceImpl implements IDialogLatestService {
+@com.alibaba.dubbo.config.annotation.Service
+public class DialogLatestServiceImpl extends BaseService<DialogLatest> implements IDialogLatestService {
 
     @Autowired
     DialogLatestMapper dialogLatestMapper;
 
     @Override
-    public List<DialogLatest> selectByUid(Long userId ) {
+    public List<DialogLatest> selectByUid(Long userId) {
         List<DialogLatest> list = dialogLatestMapper.selectByUid(userId);
         return list;
     }
 
     @Override
-    public List<DialogLatest> selectLatest(Long userId, Long partnerId ) {
-        List<DialogLatest> list = dialogLatestMapper.selectLatest(userId , partnerId );
+    public List<DialogLatest> selectLatest(Long userId, Long partnerId) {
+        List<DialogLatest> list = dialogLatestMapper.selectLatest(userId, partnerId);
         return list;
     }
 
 
+    @Override
+    public BaseMapper<DialogLatest> getBaseMapper() {
+        return dialogLatestMapper;
+    }
 
     @Override
-    public Long insertSelective(DialogLatest record) {
+    public int insertSelective(DialogLatest record) {
 
         // 先把旧的信息删除
-        dialogLatestMapper.deleteByPartner(record.getUserId(),record.getPartnerId());
+        dialogLatestMapper.deleteByPartner(record.getUserId(), record.getPartnerId());
 
-        record.setId( IdGenFactory.genTableId() );
+        record.setId(IdGenFactory.genTableId());
         dialogLatestMapper.insertSelective(record);
-        return 1L;
+        return 1;
     }
 
     @Override
@@ -52,7 +59,7 @@ public class DialogLatestServiceImpl implements IDialogLatestService {
 
     @Override
     public Integer deleteByPartner(Long userId, Long partnerId) {
-        return dialogLatestMapper.deleteByPartner(userId,partnerId);
+        return dialogLatestMapper.deleteByPartner(userId, partnerId);
     }
 
 

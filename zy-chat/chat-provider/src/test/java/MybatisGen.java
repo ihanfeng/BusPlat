@@ -10,9 +10,9 @@ import java.util.List;
 /**
  * Created by wangqinghui on 2016/3/4.
  */
-public class MybatisGen{
+public class MybatisGen {
 
-    public static void main(String[] args)   {
+    public static void main(String[] args) {
         try {
             List<String> warnings = new ArrayList<String>();
             boolean overwrite = false;
@@ -22,7 +22,7 @@ public class MybatisGen{
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);
             MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
             myBatisGenerator.generate(null);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
