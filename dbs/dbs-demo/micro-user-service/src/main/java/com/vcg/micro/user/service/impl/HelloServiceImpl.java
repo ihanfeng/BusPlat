@@ -8,7 +8,7 @@ import com.vcg.micro.user.service.IHelloService;
  * Created by hg on 2016/7/13.
  */
 //@org.springframework.stereotype.Service
-@Service()
+@Service
 public class HelloServiceImpl implements IHelloService {
 
     @Override

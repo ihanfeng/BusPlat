@@ -4,24 +4,21 @@ package com.zhiyin.dbs.module.common.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zhiyin.dbs.module.common.entity.BaseEntity;
-import com.zhiyin.dbs.module.common.mapper.BaseMapper;
+import com.zhiyin.dbs.module.common.mapper.BaseMapper2;
 import com.zhiyin.frame.idgen.IdGenFactory;
 import org.joda.time.DateTime;
 
 import java.util.List;
 
-public abstract class BaseService<V extends BaseEntity> {
+public abstract class BaseService2 <KEY, V extends BaseEntity> {
 
-//	public abstract IBaseService<V> getManage();
+    public abstract BaseMapper2<KEY,V> getBaseMapper();
 
-    public abstract BaseMapper<V> getBaseMapper();
-
-
-    public int deleteByPrimaryKey(Long id){
+    public int deleteByPrimaryKey(KEY id){
         return getBaseMapper().deleteByPrimaryKey(id);
     }
 
-    public int deleteRealByPrimaryKey(Long id) {
+    public int deleteRealByPrimaryKey(KEY id) {
         return getBaseMapper().deleteByPrimaryKey(id);
     }
 
@@ -70,11 +67,11 @@ public abstract class BaseService<V extends BaseEntity> {
 	}
 
 
-    public V selectByPrimaryKey(Long id) {
+    public V selectByPrimaryKey(KEY id) {
         return getBaseMapper().selectByPrimaryKey(id);
     }
 
-    public V selectById(Long id) {
+    public V selectById(KEY id) {
         return getBaseMapper().selectByPrimaryKey(id);
     }
 

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 器材租赁清单打印
  * Created by hg on 2016/7/8.
  */
 public class RentListProcessor {
