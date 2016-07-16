@@ -4,7 +4,10 @@ import com.zhiyin.dbs.module.common.entity.BaseEntity;
 
 import java.util.Date;
 
-public class AdBasicInfo extends BaseEntity {
+public class AdBasicInfo  extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
     private Long id;
 
     private Long companyId;

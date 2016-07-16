@@ -5,13 +5,19 @@ import com.zhiyin.dbs.module.common.entity.BaseEntity;
 import java.util.Date;
 
 public class AdAudioDetail extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
+
     private Long id;
+
+    private String title;
+
+    private Long adId;
 
     private Long roleId;
 
     private String savePath;
-
-    private String title;
 
     private Date createTime;
 
@@ -29,6 +35,22 @@ public class AdAudioDetail extends BaseEntity {
         this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public Long getAdId() {
+        return adId;
+    }
+
+    public void setAdId(Long adId) {
+        this.adId = adId;
+    }
+
     public Long getRoleId() {
         return roleId;
     }
@@ -43,14 +65,6 @@ public class AdAudioDetail extends BaseEntity {
 
     public void setSavePath(String savePath) {
         this.savePath = savePath == null ? null : savePath.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
     }
 
     public Date getCreateTime() {

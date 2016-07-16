@@ -72,8 +72,6 @@
     <logger name="jdbc.resultset" level="WARN"/>
     <logger name="jdbc.connection" level="WARN"/>
     <logger name="jdbc.audit" level="WARN"/>
-
-
     <logger name="org.quartz.core" level="WARN"/>
     <logger name="org.mybatis.spring" level="WARN"/>
     <logger name="org.dozer" level="WARN"/>

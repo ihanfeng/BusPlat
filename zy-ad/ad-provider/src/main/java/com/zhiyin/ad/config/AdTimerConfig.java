@@ -5,9 +5,9 @@ package com.zhiyin.ad.config;
  */
 public class AdTimerConfig {
 
-    public static final int TimerInterval = 30; // 定时任务时间间隔
+    public static final int TimerInterval = 3; // 定时任务时间间隔
 
-    public static final int TimerIntervalTolerant = 20; // 定时任务时间间隔
+    public static final int TimerIntervalTolerant = TimerInterval/3; // 定时任务时间间隔
 
 
 }

@@ -11,7 +11,7 @@ public interface IBaseService<V extends BaseEntity> {
 
     public V selectByPrimaryKey(Long id);
 
-	public int deleteByPrimaryKey(Long id);
+    public int deleteByPrimaryKey(Long id);
 
     // 真删除
     public int deleteRealByPrimaryKey(Long id);
@@ -26,8 +26,8 @@ public interface IBaseService<V extends BaseEntity> {
 
     public int updateByPrimaryKeySelective(V tmp);
 
-    public PageInfo selectByPage(int pageNum, int pageSize) ;
+    public PageInfo selectByPage(int pageNum, int pageSize);
 
     public List<V> selectAll();
 
-    }
+}

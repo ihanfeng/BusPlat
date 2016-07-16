@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class C2sBasicInfo {
 
-	 String access_token;
-     String subjectId; // 用户id
-     int subjectType; //用户类型
+    String access_token;
+    String subjectId; // 用户id
+    int subjectType; //用户类型
 
     public String getAccess_token() {
         return access_token;

@@ -1,12 +1,12 @@
 package com.zhiyin.ad.config;
 
 /**
- * Created by wangqinghui on 2016/7/11.
+ * Created by hg on 2016/7/11.
  */
-public enum AdShelfStatus {
+public class AdShelfStatus {
 
-    ShelfNot,
-    ShelfOn,
-    ShelfOff;
+   public static Integer ShelfNot = 1; // 未上架
+    public static Integer  ShelfOn = 2; // 已上架
+    public static Integer  ShelfOff =3; // 已下架
 
 }

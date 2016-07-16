@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2016-07-13 22:35:04
+Date: 2016-07-16 11:49:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,6 +32,12 @@ CREATE TABLE `zy_ad_allowe_site` (
 -- ----------------------------
 -- Records of zy_ad_allowe_site
 -- ----------------------------
+INSERT INTO `zy_ad_allowe_site` VALUES ('38022797864960', '38022794207232', '1', '2016-07-15 22:35:10', '2016-07-15 22:35:10', '0');
+INSERT INTO `zy_ad_allowe_site` VALUES ('38022798106624', '38022794207232', '2', '2016-07-15 22:35:10', '2016-07-15 22:35:10', '0');
+INSERT INTO `zy_ad_allowe_site` VALUES ('38022798376960', '38022794207232', '3', '2016-07-15 22:35:10', '2016-07-15 22:35:10', '0');
+INSERT INTO `zy_ad_allowe_site` VALUES ('38024003334144', '38023999201280', '1', '2016-07-15 22:40:04', '2016-07-15 22:40:04', '0');
+INSERT INTO `zy_ad_allowe_site` VALUES ('38024003485696', '38023999201280', '2', '2016-07-15 22:40:04', '2016-07-15 22:40:04', '0');
+INSERT INTO `zy_ad_allowe_site` VALUES ('38024003620864', '38023999201280', '3', '2016-07-15 22:40:04', '2016-07-15 22:40:04', '0');
 
 -- ----------------------------
 -- Table structure for zy_ad_audio_detail
@@ -39,9 +45,10 @@ CREATE TABLE `zy_ad_allowe_site` (
 DROP TABLE IF EXISTS `zy_ad_audio_detail`;
 CREATE TABLE `zy_ad_audio_detail` (
   `id` bigint(20) NOT NULL COMMENT '音频广告',
+  `title` varchar(1000) DEFAULT NULL COMMENT '音频标题',
+  `ad_id` bigint(20) DEFAULT NULL,
   `role_id` bigint(20) DEFAULT NULL,
   `save_path` varchar(1000) DEFAULT NULL COMMENT '音频路径',
-  `title` varchar(1000) DEFAULT NULL COMMENT '音频标题',
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_status` int(11) DEFAULT NULL,
@@ -52,6 +59,10 @@ CREATE TABLE `zy_ad_audio_detail` (
 -- ----------------------------
 -- Records of zy_ad_audio_detail
 -- ----------------------------
+INSERT INTO `zy_ad_audio_detail` VALUES ('38022797520896', 'test1', '38022794207232', '1', null, '2016-07-15 22:35:10', '2016-07-15 22:35:10', '0', null);
+INSERT INTO `zy_ad_audio_detail` VALUES ('38022797697024', 'test1', '38022794207232', '2', null, '2016-07-15 22:35:10', '2016-07-15 22:35:10', '0', null);
+INSERT INTO `zy_ad_audio_detail` VALUES ('38024001818624', 'test1', '38023999201280', '1', null, '2016-07-15 22:40:04', '2016-07-15 22:40:04', '0', null);
+INSERT INTO `zy_ad_audio_detail` VALUES ('38024003031040', 'test1', '38023999201280', '2', null, '2016-07-15 22:40:04', '2016-07-15 22:40:04', '0', null);
 
 -- ----------------------------
 -- Table structure for zy_ad_baisc_info
@@ -74,6 +85,8 @@ CREATE TABLE `zy_ad_baisc_info` (
 -- ----------------------------
 -- Records of zy_ad_baisc_info
 -- ----------------------------
+INSERT INTO `zy_ad_baisc_info` VALUES ('38022794207232', '1', null, '2016-07-15 22:35:09', '2016-07-15 22:38:09', '2016-07-15 22:35:09', '2016-07-15 22:35:09', null, '1', '0');
+INSERT INTO `zy_ad_baisc_info` VALUES ('38023999201280', '1', null, '2016-07-15 22:40:03', '2016-07-15 22:43:03', '2016-07-15 22:40:03', '2016-07-15 22:40:03', null, '1', '0');
 
 -- ----------------------------
 -- Table structure for zy_ourchat_broder_dialog
@@ -135,9 +148,12 @@ CREATE TABLE `zy_ourchat_dialog_info` (
 -- ----------------------------
 -- Records of zy_ourchat_dialog_info
 -- ----------------------------
-INSERT INTO `zy_ourchat_dialog_info` VALUES ('36796134776832', '1', '2', 'hello, user1 talk to user2.', null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_info` VALUES ('36796135723008', '1', '3', 'hello, user1 talk to user3.', null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_info` VALUES ('36796137082880', '3', '1', 'hello, user3 talk to user1.', null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_info` VALUES ('38033017032704', '1', '2', 'hello, user1 talk to user2.', null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_info` VALUES ('38033017987072', '1', '3', 'hello, user1 talk to user3.', null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_info` VALUES ('38033021476864', '3', '1', 'hello, user3 talk to user1.', null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_info` VALUES ('38034166738944', '1', '2', 'hello, user1 talk to user2.', null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_info` VALUES ('38034167607296', '1', '3', 'hello, user1 talk to user3.', null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_info` VALUES ('38034171678720', '3', '1', 'hello, user3 talk to user1.', null, null, null, '0');
 
 -- ----------------------------
 -- Table structure for zy_ourchat_dialog_latest
@@ -162,10 +178,10 @@ CREATE TABLE `zy_ourchat_dialog_latest` (
 -- ----------------------------
 -- Records of zy_ourchat_dialog_latest
 -- ----------------------------
-INSERT INTO `zy_ourchat_dialog_latest` VALUES ('36796133486592', '1', '2', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_latest` VALUES ('36796134043648', '2', '1', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_latest` VALUES ('36796136087552', '3', '1', null, '3', '1', 'hello, user3 talk to user1.', null, null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_latest` VALUES ('36796136398848', '1', '3', null, '3', '1', 'hello, user3 talk to user1.', null, null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_latest` VALUES ('38034163064832', '1', '2', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_latest` VALUES ('38034166108160', '2', '1', null, '1', '2', 'hello, user1 talk to user2.', null, null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_latest` VALUES ('38034168012800', '3', '1', null, '3', '1', 'hello, user3 talk to user1.', null, null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_latest` VALUES ('38034168647680', '1', '3', null, '3', '1', 'hello, user3 talk to user1.', null, null, null, null, '0');
 
 -- ----------------------------
 -- Table structure for zy_ourchat_dialog_record
@@ -189,9 +205,9 @@ CREATE TABLE `zy_ourchat_dialog_record` (
 -- ----------------------------
 -- Records of zy_ourchat_dialog_record
 -- ----------------------------
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36796134244352', '2', '1', '1', '2', 'hello, user1 talk to user2.', null, null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36796134502400', '1', '2', '1', '2', 'hello, user1 talk to user2.', null, null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36796135366656', '3', '1', '1', '3', 'hello, user1 talk to user3.', null, null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36796135542784', '1', '3', '1', '3', 'hello, user1 talk to user3.', null, null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36796136677376', '1', '3', '3', '1', 'hello, user3 talk to user1.', null, null, null, null, '0');
-INSERT INTO `zy_ourchat_dialog_record` VALUES ('36796136898560', '3', '1', '3', '1', 'hello, user3 talk to user1.', null, null, null, null, '0');
+INSERT INTO `zy_ourchat_dialog_record` VALUES ('38034166243328', '2', '1', '1', '2', 'hello, user1 talk to user2.', null, null, '2016-07-15 23:21:25', '2016-07-15 23:21:25', '0');
+INSERT INTO `zy_ourchat_dialog_record` VALUES ('38034166607872', '1', '2', '1', '2', 'hello, user1 talk to user2.', null, null, '2016-07-15 23:21:25', '2016-07-15 23:21:25', '0');
+INSERT INTO `zy_ourchat_dialog_record` VALUES ('38034167336960', '3', '1', '1', '3', 'hello, user1 talk to user3.', null, null, '2016-07-15 23:21:25', '2016-07-15 23:21:25', '0');
+INSERT INTO `zy_ourchat_dialog_record` VALUES ('38034167468032', '1', '3', '1', '3', 'hello, user1 talk to user3.', null, null, '2016-07-15 23:21:25', '2016-07-15 23:21:25', '0');
+INSERT INTO `zy_ourchat_dialog_record` VALUES ('38034171076608', '1', '3', '3', '1', 'hello, user3 talk to user1.', null, null, '2016-07-15 23:21:26', '2016-07-15 23:21:26', '0');
+INSERT INTO `zy_ourchat_dialog_record` VALUES ('38034171547648', '3', '1', '3', '1', 'hello, user3 talk to user1.', null, null, '2016-07-15 23:21:26', '2016-07-15 23:21:26', '0');
