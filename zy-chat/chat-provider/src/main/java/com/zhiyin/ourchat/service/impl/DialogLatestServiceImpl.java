@@ -34,8 +34,7 @@ public class DialogLatestServiceImpl extends BaseService<DialogLatest> implement
         List<DialogLatest> list = dialogLatestMapper.selectLatest(userId, partnerId);
         return list;
     }
-
-
+    
     @Override
     public BaseMapper<DialogLatest> getBaseMapper() {
         return dialogLatestMapper;
