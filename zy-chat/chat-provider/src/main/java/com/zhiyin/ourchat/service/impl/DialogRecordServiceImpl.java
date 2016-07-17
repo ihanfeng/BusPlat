@@ -38,4 +38,5 @@ public class DialogRecordServiceImpl extends BaseService<DialogRecord> implement
     public BaseMapper<DialogRecord> getBaseMapper() {
         return dialogRecordMapper;
     }
+
 }
