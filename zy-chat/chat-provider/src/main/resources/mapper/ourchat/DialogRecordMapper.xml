@@ -33,6 +33,7 @@
     where user_id = #{userId,jdbcType=BIGINT}
     AND  partner_id =  #{partnerId,jdbcType=BIGINT}
     AND del_status = 0
+    order by create_time desc
   </select>
 
 

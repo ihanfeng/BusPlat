@@ -1,8 +1,9 @@
 package com.zhiyin.ourchat.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
-import com.zhiyin.frame.idgen.IdGenFactory;
 import com.zhiyin.ourchat.entity.DialogRecord;
 import com.zhiyin.ourchat.mapper.DialogRecordMapper;
 import com.zhiyin.ourchat.service.IDialogRecordService;
@@ -27,6 +28,14 @@ public class DialogRecordServiceImpl extends BaseService<DialogRecord> implement
     @Override
     public List<DialogRecord> selectByPartner(Long userId, Long partnerId) {
         return dialogRecordMapper.selectByPartner(userId, partnerId);
+    }
+
+    @Override
+    public PageInfo<DialogRecord> selectByPartner(Long userId, Long partnerId, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<DialogRecord> list = dialogRecordMapper.selectByPartner(userId, partnerId);
+        PageInfo<DialogRecord> page = new PageInfo(list);
+        return page;
     }
 
     @Override

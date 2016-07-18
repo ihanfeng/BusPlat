@@ -1,6 +1,7 @@
 package com.zhiyin.ourchat.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageInfo;
 import com.zhiyin.ourchat.OurChatApplication;
 import com.zhiyin.ourchat.entity.DialogInfo;
 import com.zhiyin.ourchat.entity.DialogLatest;
@@ -87,5 +88,25 @@ public class DialogInfoServiceImplTest {
 
 
     }
+
+    @Test
+    public void selectByPartner() throws Exception {
+        List<DialogRecord> recordList = dialogRecordService.selectByPartner(1L, 3L);
+        log.info(JSON.toJSONString(recordList));
+
+        PageInfo<DialogRecord> records = dialogRecordService.selectByPartner(1L, 3L, 1, 1);
+        log.info(JSON.toJSONString( records ));
+    }
+
+    @Test
+    public void selectByUid() throws Exception {
+
+        PageInfo<DialogLatest> list = dialogLatestService.selectByUid(1L, 1, 2);
+        for(DialogLatest tmp : list.getList()){
+            log.info(JSON.toJSONString(tmp));
+        }
+
+    }
+
 
 }
