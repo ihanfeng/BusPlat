@@ -40,7 +40,7 @@ export JAVA_OPTS="$JAVA_OPTS
 -XX:GCLogFileSize=100M
 "
 
-export JAVA_OPTS="$JAVA_OPTS -DLOG_DIR=${LOG_DIR} -Denv=idc"
+export JAVA_OPTS="$JAVA_OPTS -DLOG_DIR=${LOG_DIR} "
 
 export CATALINA_OPTS="$CATALINA_OPTS 
 -Dcom.sun.management.jmxremote.port=8901

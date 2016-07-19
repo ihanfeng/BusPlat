@@ -35,7 +35,6 @@ public class DialogLatestServiceImpl extends BaseService<DialogLatest> implement
         return list;
     }
 
-
     @Override
     public BaseMapper<DialogLatest> getBaseMapper() {
         return dialogLatestMapper;
