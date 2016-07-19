@@ -4,7 +4,7 @@ import com.zhiyin.dbs.module.common.entity.BaseEntity;
 
 import java.util.Date;
 
-public class AdAllowSite   extends BaseEntity {
+public class AdAllowSite extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
     private Long id;
