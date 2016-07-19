@@ -9,6 +9,7 @@ import com.zhiyin.ad.service.IAdAllowSiteService;
 import com.zhiyin.ad.service.IAdAudioDetailService;
 import com.zhiyin.ad.service.IAdBasicInfoService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Before;
@@ -78,5 +79,26 @@ public class AdAllowSiteServiceImplTest  {
     @Test
     public void testDate(){
         System.out.println( DateTime.now().toString("yyyy-MM-dd HH:mm:ss"));
+    }
+
+    @Test
+    public void tt() throws Exception {
+        int codePoint = 128149;
+
+//        char c = 0x2202;//aka 8706 in decimal.  codepoints are in hex.
+        char[] c = Character.toChars(codePoint);
+
+        String s = String.valueOf(c);
+        log.info(s);
+//
+        AdBasicInfo ad = new AdBasicInfo();
+        ad.setCompanyId(1L);
+         s = StringEscapeUtils.unescapeJava("\u20ac\n"); // s contains the euro symbol followed by newline
+
+        ad.setTitle("\u2202" +"sss" + s);
+        ad.setShelfOnTime(DateTime.now().toDate());
+        ad.setShelfOffTime(DateTime.now().plusMinutes(AdTimerConfig.TimerInterval).toDate());
+        Long adId = adBasicInfoService.insertSelectiveGet(ad);
+
     }
 }
