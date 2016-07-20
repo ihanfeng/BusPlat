@@ -3,8 +3,10 @@ package com.zhiyin.ad.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.zhiyin.ad.entity.AdAudioDetail;
 import com.zhiyin.ad.entity.AdBasicInfo;
+import com.zhiyin.ad.entity.AdCgMap;
 import com.zhiyin.ad.service.IAdAudioDetailService;
 import com.zhiyin.ad.service.IAdBasicInfoService;
+import com.zhiyin.ad.service.IAdCgMapService;
 import com.zhiyin.ad.service.IAdContentConvService;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
 import com.zhiyin.dbs.module.content.entity.BasicContent;
@@ -31,6 +33,9 @@ public class AdContentConvServiceImpl implements IAdContentConvService {
     IAdBasicInfoService adBasicInfoService;
     IContentGroupService contentGroupService;
     IBasicContentService basicContentService;
+
+    IAdCgMapService adCgMapService;
+
     public void shelfOnAddContent(Long adId){
 
         AdBasicInfo ad = adBasicInfoService.selectById(adId);
@@ -54,11 +59,14 @@ public class AdContentConvServiceImpl implements IAdContentConvService {
             BasicContent bc = new BasicContent();
             bc.setTitle( tmp.getTitle() );
             bc.setArticleId(cgId);
-//            ci.setDuration(  );
             bc.setSavePath(tmp.getSavePath() );
             basicContentService.insertSelectiveGet(bc);
 
-
+            // 添加广告音频和内容组映射关系
+            AdCgMap adCgMap = new AdCgMap();
+            adCgMap.setAdAudioId( tmp.getId() );
+            adCgMap.setCgId( cg.getId() );
+            adCgMapService.insertSelectiveGet(adCgMap);
 
 
         }

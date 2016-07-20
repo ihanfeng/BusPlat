@@ -48,7 +48,7 @@ spring:
       name : ${spring.application.name}
     registry:
       address : zookeeper://127.0.0.1:2181
-    scan: com.zhiyin
+    scan: com.zhiyin.task
     protocol:
       name: dubbo
       port: 20880

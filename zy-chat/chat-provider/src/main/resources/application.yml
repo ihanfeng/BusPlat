@@ -43,16 +43,19 @@ spring:
 # 合并多个DruidDataSource的监控数据
 ##    useGlobalDataSourceStat: true
 
-  dubbo:
-    application:
-      name : ${spring.application.name}
-    registry:
-      address : zookeeper://127.0.0.1:2181
-    scan: com.zhiyin
-    protocol:
-      name: dubbo
-      port: 20880
-      serialization: kryo
+#  dubbo:
+#    application:
+#      name : ${spring.application.name}
+#    registry:
+#      address : zookeeper://101.200.185.137:2181
+#
+#    scan: com.zhiyin.ourchat
+#    protocol:
+#      name: dubbo
+#      port: 20880
+#      serialization: kryo
+#    provider-config:
+#      version: RELEASE
 
 
 
@@ -71,12 +74,12 @@ spring:
 # HTTP Server
 server:
   port: 28081
-  context-path: /msg-provider
+  context-path: /zy-chat
 
 
 ## acutor 设置
 management:
-  port: 8081
+  port: 18081
   address: 127.0.0.1
   security:
     enabled: false
