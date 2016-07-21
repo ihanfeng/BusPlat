@@ -67,8 +67,6 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-dubbo</artifactId>
@@ -306,7 +304,7 @@
                     <excludes>
                         <exclude>mapper/**</exclude>
                         <exclude>config/**</exclude>
-                        <exclude>application.*</exclude>
+                        <exclude>application*</exclude>
                         <exclude>logback.*</exclude>
                     </excludes>
                 </configuration>
