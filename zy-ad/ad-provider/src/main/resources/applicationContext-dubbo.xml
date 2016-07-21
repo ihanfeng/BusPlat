@@ -20,6 +20,6 @@
     <dubbo:consumer check = "false" version="${dubbo.comsumer.version}" />
 
     <!--通过扫描暴露服务-->
-    <dubbo:annotation package="com.zhiyin.ad.service"/>
+    <dubbo:annotation package="${dubbo.annotation.package}"/>
 
 </beans>

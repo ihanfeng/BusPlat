@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.demo;
+package com.zhiyin.consu.demo;
 
 import com.alibaba.boot.dubbo.DubboAutoConfiguration;
 import org.springframework.boot.SpringApplication;

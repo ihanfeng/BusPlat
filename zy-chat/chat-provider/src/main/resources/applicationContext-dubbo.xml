@@ -18,6 +18,6 @@
     <dubbo:provider version="${dubbo.provider.version}" delay="-1" timeout="6000" retries="0"/>
 
     <!--通过扫描暴露服务-->
-    <dubbo:annotation package="com.zhiyin.ourchat"/>
+    <dubbo:annotation package="${dubbo.annotation.package}"/>
 
 </beans>

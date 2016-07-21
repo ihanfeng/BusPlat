@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.demo.config;
+package com.zhiyin.consu.demo.config;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;

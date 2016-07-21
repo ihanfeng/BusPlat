@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.demo.config;
+package com.zhiyin.consu.demo.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
