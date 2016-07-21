@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="log.project" value="zhiyin-searcher"/>
-    <property name="log.base" value="/opt/data/zhiyin-searcher/log"/>
+    <property name="log.project" value="zy-ad"/>
+    <property name="log.base" value="/opt/data/zy-ad/log"/>
     <property name="log.history.maxday" value="3"/>
     <property name="log.pattern" value="%X{request_id} %date [%thread] %-5level %logger{80} - %msg%n"/>
 

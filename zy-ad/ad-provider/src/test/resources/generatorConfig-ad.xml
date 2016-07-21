@@ -2,7 +2,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!-- 数据库的JDBC驱动的jar包地址 -->
-    <classPathEntry location="E:\MavenRepository\mysql\mysql-connector-java\5.1.22\mysql-connector-java-5.1.22.jar"/>
+    <classPathEntry location="lib\mysql-connector-java-5.1.22.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <!-- 是否去除自动生成的注释 -->
@@ -44,14 +44,17 @@
                <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false"/>-->
 
-        <table tableName="zy_ad_audio_detail" domainObjectName="AdAudioDetail" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false"/>
+        <!--<table tableName="zy_ad_audio_detail" domainObjectName="AdAudioDetail" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false"/>-->
 
         <!--<table tableName="zy_ad_baisc_info" domainObjectName="AdBasicInfo" enableCountByExample="false"-->
                <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false"/>-->
 
+        <table tableName="zy_ad_cg_map" domainObjectName="AdCgMap" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
 
     </context>
 </generatorConfiguration>

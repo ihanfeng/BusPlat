@@ -4,18 +4,20 @@ import com.zhiyin.dbs.module.common.entity.BaseEntity;
 
 import java.util.Date;
 
-public class AdAllowSite extends BaseEntity {
+public class AdCgMap  extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
     private Long id;
 
-    private Long adId;
+    private Long adAudioId;
 
-    private Long addrId;
+    private Long cgId;
 
     private Date createTime;
 
     private Date updateTime;
+
+    private String remark;
 
     private Integer delStatus;
 
@@ -27,20 +29,20 @@ public class AdAllowSite extends BaseEntity {
         this.id = id;
     }
 
-    public Long getAdId() {
-        return adId;
+    public Long getAdAudioId() {
+        return adAudioId;
     }
 
-    public void setAdId(Long adId) {
-        this.adId = adId;
+    public void setAdAudioId(Long adAudioId) {
+        this.adAudioId = adAudioId;
     }
 
-    public Long getAddrId() {
-        return addrId;
+    public Long getCgId() {
+        return cgId;
     }
 
-    public void setAddrId(Long addrId) {
-        this.addrId = addrId;
+    public void setCgId(Long cgId) {
+        this.cgId = cgId;
     }
 
     public Date getCreateTime() {
@@ -59,6 +61,14 @@ public class AdAllowSite extends BaseEntity {
         this.updateTime = updateTime;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
     public Integer getDelStatus() {
         return delStatus;
     }
@@ -66,4 +76,5 @@ public class AdAllowSite extends BaseEntity {
     public void setDelStatus(Integer delStatus) {
         this.delStatus = delStatus;
     }
+
 }

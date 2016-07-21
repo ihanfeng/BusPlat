@@ -8,4 +8,5 @@ import java.util.List;
 public interface AdAllowSiteMapper extends BaseMapper<AdAllowSite> {
 
     List<AdAllowSite> selectByAd(Long adId);
+
 }

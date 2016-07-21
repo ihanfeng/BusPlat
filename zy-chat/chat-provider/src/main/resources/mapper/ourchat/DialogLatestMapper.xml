@@ -33,10 +33,21 @@
     from zy_ourchat_dialog_latest
     where user_id = #{userId,jdbcType=BIGINT}
     AND del_status = 0
+    order by send_time DESC
+  </select>
+
+  <select id="selectLatest" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    <include refid="Base_Column_List" />
+    from zy_ourchat_dialog_latest
+    where user_id = #{userId,jdbcType=BIGINT}
+    and partner_id = #{partnerId,jdbcType=BIGINT}
+    AND del_status = 0
   </select>
 
 
-   <!--<delete id="deleteOldLatest" parameterType="java.util.Map" >-->
+
+  <!--<delete id="deleteOldLatest" parameterType="java.util.Map" >-->
     <!--delete from zy_ourchat_dialog_latest-->
     <!--where user_id = #{userId,jdbcType=BIGINT}-->
     <!--AND partner_id = #{partnerId,jdbcType=BIGINT}-->

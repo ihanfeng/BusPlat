@@ -47,6 +47,10 @@ public class AdAllowSiteServiceImplTest  {
 
     }
 
+    /**
+     * 添加一个广告，并且添加2个音频，并投放到3个热点
+     * @throws Exception
+     */
     @Test
     public void testDeleteByPrimaryKey() throws Exception {
 

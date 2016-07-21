@@ -3,6 +3,7 @@ package com.zhiyin.ad.service;
 import com.zhiyin.ad.entity.AdBasicInfo;
 import com.zhiyin.dbs.module.common.service.IBaseService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,5 +14,9 @@ public interface IAdBasicInfoService extends IBaseService<AdBasicInfo> {
 
     List<AdBasicInfo> selectWillShelfOn();
 
+    List<AdBasicInfo> selectWillShelfOn(Date startDate, Date endDate);
+
     List<AdBasicInfo> selectWillShelfOff();
+
+    List<AdBasicInfo> selectWillShelfOff(Date startDate, Date endDate);
 }

@@ -13,6 +13,7 @@ import com.zhiyin.ourchat.service.IDialogRecordService;
 import lombok.extern.slf4j.Slf4j;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,10 @@ public class DialogInfoServiceImpl extends BaseService<DialogInfo> implements ID
     @Override
     public Integer insertDialog(DialogInfo dialogInfo) {
 
+        dialogInfo.setSendTime(DateTime.now().toDate());
+        dialogInfo.setCreateTime(DateTime.now().toDate());
+        dialogInfo.setUpdateTime(DateTime.now().toDate());
+
         // 设置最新信息
         DialogLatest latest = mapper.map(dialogInfo, DialogLatest.class);
         latest.setUserId(dialogInfo.getSender());
@@ -51,7 +56,7 @@ public class DialogInfoServiceImpl extends BaseService<DialogInfo> implements ID
         dialogLatestService.insertSelective(latest);
 
 
-        // 消息列表
+        // 消息历史记录
         DialogRecord record = mapper.map(dialogInfo, DialogRecord.class);
 
         record.setUserId(dialogInfo.getReceiver());

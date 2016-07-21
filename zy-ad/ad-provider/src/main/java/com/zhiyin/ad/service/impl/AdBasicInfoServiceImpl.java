@@ -9,11 +9,13 @@ import com.zhiyin.ad.service.IAdBasicInfoService;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.time.DateUtils;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +27,9 @@ import java.util.List;
 @Service
 @com.alibaba.dubbo.config.annotation.Service
 public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements IAdBasicInfoService {
+
+    SimpleDateFormat myFmt2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//等价于now.toLocaleString()
+
 
     @Resource
     private AdBasicInfoMapper adBasicInfoMapper;
@@ -50,7 +55,7 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
     }
 
     /**
-     * 查询即将上架的广告
+     * 查询即将上架的广告，默认为当前时间
      * 状态为:not
      *
      * @return
@@ -58,19 +63,24 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
     @Override
     public List<AdBasicInfo> selectWillShelfOn( ){
 
-
         DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerIntervalTolerant);
         DateTime end = DateTime.now().plusMinutes(AdTimerConfig.TimerInterval);
 
-        log.info("sel will shelf on, start:{},end:{}",start.toString("yyyy-MM-dd HH:mm:ss"),end.toString("yyyy-MM-dd HH:mm:ss"));
-        List<AdBasicInfo> list = adBasicInfoMapper.selectWillShelfOn(start.toDate(), end.toDate(), AdShelfStatus.ShelfNot);
+        return selectWillShelfOn(start.toDate(), end.toDate() );
+    }
+
+    @Override
+    public List<AdBasicInfo> selectWillShelfOn( Date startDate,Date endDate ){
+
+        log.info("sel will shelf on, start:{},end:{}",myFmt2.format(startDate), myFmt2.format(endDate));
+        List<AdBasicInfo> list = adBasicInfoMapper.selectWillShelfOn(startDate, endDate, AdShelfStatus.ShelfNot);
         list = Optional.fromNullable(list).or(new ArrayList<AdBasicInfo>());
         return list;
     }
 
 
     /**
-     * 查询即将下架的广告
+     * 查询即将下架的广告，为了效率，限定一下时间
      *
      * @return
      */
@@ -79,12 +89,17 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
 
         DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerInterval + AdTimerConfig.TimerIntervalTolerant);
         DateTime end = DateTime.now();
-        log.info("sel will shelf off, start:{},end:{}",start.toString("yyyy-MM-dd HH:mm:ss"),end.toString("yyyy-MM-dd HH:mm:ss"));
-        List<AdBasicInfo> list = adBasicInfoMapper.selectWillShelfOff(start.toDate(), end.toDate(), AdShelfStatus.ShelfOn);
+
+        return selectWillShelfOff( start.toDate(), end.toDate() );
+    }
+
+    @Override
+    public List<AdBasicInfo> selectWillShelfOff(Date startDate, Date endDate){
+        log.info("sel will shelf off, start:{},end:{}", myFmt2.format(startDate), myFmt2.format(endDate));
+        List<AdBasicInfo> list = adBasicInfoMapper.selectWillShelfOff(startDate , endDate, AdShelfStatus.ShelfOn);
         list = Optional.fromNullable(list).or(new ArrayList<AdBasicInfo>());
         return list;
     }
-
 
 
 
