@@ -9,4 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 @ImportResource("classpath:applicationContext-dubbo.xml")
 public class DubboConfig {
 
+
+//    @Be
+
 }

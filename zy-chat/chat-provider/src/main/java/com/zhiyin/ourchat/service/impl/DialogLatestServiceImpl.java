@@ -6,7 +6,6 @@ import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
 import com.zhiyin.frame.idgen.IdGenFactory;
 import com.zhiyin.ourchat.entity.DialogLatest;
-import com.zhiyin.ourchat.entity.DialogRecord;
 import com.zhiyin.ourchat.mapper.DialogLatestMapper;
 import com.zhiyin.ourchat.service.IDialogLatestService;
 import lombok.extern.slf4j.Slf4j;

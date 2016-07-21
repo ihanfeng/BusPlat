@@ -73,13 +73,12 @@ spring:
 
 # HTTP Server
 server:
-  port: 28081
+  port: 12331
   context-path: /zy-chat
 
 
 ## acutor 设置
 management:
-  port: 18081
   address: 127.0.0.1
   security:
     enabled: false

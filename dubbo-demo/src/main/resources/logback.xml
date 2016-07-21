@@ -104,10 +104,6 @@
     <!-- system  -->
 
 
-    <logger name="com.alibaba.dubbo" level="DEBUG">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="all_info" level="INFO"/>

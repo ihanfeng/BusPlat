@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat;
+package com.zhiyin.ourchat.demo;
 
 import com.alibaba.boot.dubbo.DubboAutoConfiguration;
 import org.springframework.boot.SpringApplication;
@@ -11,15 +11,15 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 //@EnableEurekaClient
 @EnableAutoConfiguration(exclude={DubboAutoConfiguration.class})
 @SpringBootApplication
-public class OurChatApplication extends SpringBootServletInitializer {
+public class OurChatDemoApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(OurChatApplication.class, args);
+        SpringApplication.run(OurChatDemoApplication.class, args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(OurChatApplication.class);
+        return application.sources(OurChatDemoApplication.class);
     }
 
 }
