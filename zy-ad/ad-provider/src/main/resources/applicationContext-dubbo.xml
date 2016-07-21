@@ -6,7 +6,6 @@
 
     <!-- 提供方应用信息，用于计算依赖关系 -->
     <dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}" organization="redcocoon" />
-    <!--<dubbo:application name="zhiyin-dbs" owner="zhiyin" organization="redcocoon" />-->
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" host="${dubbo.protocol.host}" serialization="kryo" />
@@ -16,8 +15,6 @@
 
     <!-- 延迟到Spring初始化完成后，再暴露服务,服务调用超时设置为6秒,超时不重试-->
     <dubbo:provider version="${dubbo.provider.version}" delay="-1" timeout="6000" retries="0"/>
-
-    <dubbo:consumer check = "false" version="${dubbo.comsumer.version}" />
 
     <!--通过扫描暴露服务-->
     <dubbo:annotation package="${dubbo.annotation.package}"/>

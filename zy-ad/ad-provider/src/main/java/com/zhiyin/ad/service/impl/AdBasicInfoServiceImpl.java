@@ -56,14 +56,15 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
 
     /**
      * 查询即将上架的广告，默认为当前时间
-     * 状态为:not
-     *
+     * 设置开始结束时间方便限定结果集，提高性能。
+     * 如果定时程序不工作，会出现不能上架问题。
      * @return
      */
     @Override
     public List<AdBasicInfo> selectWillShelfOn( ){
-
-        DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerIntervalTolerant);
+        // 扩大结果集
+        DateTime start = DateTime.now().minusMonths(1);
+//        DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerIntervalTolerant);
         DateTime end = DateTime.now().plusMinutes(AdTimerConfig.TimerInterval);
 
         return selectWillShelfOn(start.toDate(), end.toDate() );
@@ -87,7 +88,8 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
     @Override
     public List<AdBasicInfo> selectWillShelfOff(){
 
-        DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerInterval + AdTimerConfig.TimerIntervalTolerant);
+        DateTime start = DateTime.now().minusMonths(1);
+//        DateTime start = DateTime.now().minusMinutes(AdTimerConfig.TimerInterval + AdTimerConfig.TimerIntervalTolerant);
         DateTime end = DateTime.now();
 
         return selectWillShelfOff( start.toDate(), end.toDate() );
