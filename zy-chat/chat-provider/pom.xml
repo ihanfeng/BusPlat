@@ -310,10 +310,21 @@
                         <exclude>logback.*</exclude>
                         <exclude>config/**</exclude>
                         <exclude>mapper/**</exclude>
+                        <exclude>dubbo*</exclude>
+                        <exclude>com/zhiyin/ourchat/OurChatApplication.*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <warName>${project.artifactId}-${profiles.active}</warName>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>
@@ -321,13 +332,32 @@
     <profiles>
 
         <profile>
-            <id>develop</id>
+            <id>loc</id>
             <properties>
-                <env>develop</env>
+                <env>loc</env>
+                <profiles.active>loc</profiles.active>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>deploy/loc</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+                <env>dev</env>
+                <profiles.active>dev</profiles.active>
+            </properties>
             <build>
                 <resources>
                     <resource>
@@ -342,9 +372,10 @@
 
 
         <profile>
-            <id>product</id>
+            <id>prod</id>
             <properties>
-                <env>product</env>
+                <env>prod</env>
+                <profiles.active>prod</profiles.active>
             </properties>
             <build>
                 <resources>

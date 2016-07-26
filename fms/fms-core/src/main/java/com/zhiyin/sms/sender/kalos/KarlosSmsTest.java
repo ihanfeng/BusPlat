@@ -11,7 +11,6 @@ import com.ruanwei.interfacej.SmsClientKeyword;
 import com.ruanwei.interfacej.SmsClientOverage;
 import com.ruanwei.tool.SmsClientAccessTool;
 
-
 public class KarlosSmsTest {
 
 	public static String url = "http://121.199.50.122:8888/sms.aspx";
