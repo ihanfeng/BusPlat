@@ -1,5 +1,6 @@
 package com.zhiyin.ad.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.zhiyin.ad.AdApplication;
 import com.zhiyin.ad.config.AdTimerConfig;
 import com.zhiyin.ad.entity.AdAllowSite;
@@ -55,6 +56,7 @@ public class AdAllowSiteServiceImplTest  {
     public void testDeleteByPrimaryKey() throws Exception {
 
         AdBasicInfo ad = new AdBasicInfo();
+        ad.setTitle("AdTest");
         ad.setCompanyId(1L);
         ad.setShelfOnTime(DateTime.now().toDate());
         ad.setShelfOffTime(DateTime.now().plusMinutes(AdTimerConfig.TimerInterval).toDate());
@@ -64,7 +66,8 @@ public class AdAllowSiteServiceImplTest  {
             AdAudioDetail detail = new AdAudioDetail();
             detail.setAdId(adId);
             detail.setRoleId((long)i);
-            detail.setTitle("test1");
+            detail.setTitle("Ad_"+i);
+            detail.setDuration(10);
             adAudioDetailService.insertSelectiveGet(detail);
         }
         List<AdAudioDetail> list = adAudioDetailService.selectByAd(adId);
@@ -78,6 +81,12 @@ public class AdAllowSiteServiceImplTest  {
         }
         List<AdAllowSite> sites = adAllowSiteService.selectByAd(adId);
         Assert.assertTrue( sites.size()== 3);
+    }
+
+    @Test
+    public void test() throws Exception {
+        List<AdBasicInfo> sel = adBasicInfoService.selectWillShelfOn();
+        log.info(JSON.toJSONString(sel));
     }
 
     @Test
