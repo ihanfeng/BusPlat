@@ -30,6 +30,7 @@
 
     <modules>
         <module>chat-provider</module>
+        <module>demo-consumer</module>
         <!--<module>chat-demo</module>-->
     </modules>
 
