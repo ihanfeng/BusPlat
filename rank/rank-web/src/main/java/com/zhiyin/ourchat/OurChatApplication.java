@@ -8,18 +8,17 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 //@EnableDiscoveryClient
 //@EnableEurekaClient
-@SpringBootApplication
 //@EnableAutoConfiguration(exclude={DubboAutoConfiguration.class})
+@SpringBootApplication
 public class OurChatApplication extends SpringBootServletInitializer {
+
+    public static void main(String[] args) {
+        SpringApplication.run(OurChatApplication.class, args);
+    }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(OurChatApplication.class);
     }
 
-    public static void main(String[] args) {
-        SpringApplication.run(OurChatApplication.class, args);
-    }
-
 }
-

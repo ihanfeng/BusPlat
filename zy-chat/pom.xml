@@ -52,10 +52,10 @@
             </snapshots>
         </repository>
 
-        <!--<repository>-->
-        <!--<id>zhiyin-maven-repo</id>-->
-        <!--<url>https://raw.githubusercontent.com/huiwq1990/MavenRepository/master/repository</url>-->
-        <!--</repository>-->
+        <repository>
+        <id>zhiyin-maven-repo</id>
+        <url>https://raw.githubusercontent.com/huiwq1990/MavenRepository/master/repository</url>
+        </repository>
 
     </repositories>
 
