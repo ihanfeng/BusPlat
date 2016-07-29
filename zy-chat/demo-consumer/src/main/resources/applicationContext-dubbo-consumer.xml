@@ -7,7 +7,7 @@
     <!-- 提供方应用信息，用于计算依赖关系 -->
     <dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}" organization="redcocoon"/>
     <!--<dubbo:application name="zhiyin-dbs" owner="zhiyin" organization="redcocoon" />-->
-    <!--<dubbo:protocol name="dubbo" serialization="kryo"/>-->
+    <dubbo:protocol name="dubbo" serialization="kryo"/>
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <!--<dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" host="${dubbo.protocol.host}" serialization="kryo" />-->

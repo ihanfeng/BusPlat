@@ -224,6 +224,11 @@
 
         <!-- swagger -->
         <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox.version}</version>
@@ -417,7 +422,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/develop</directory>
+                        <directory>deploy/dev</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -436,7 +441,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/product</directory>
+                        <directory>deploy/prod</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>

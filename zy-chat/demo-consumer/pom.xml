@@ -14,11 +14,7 @@
 
     <dependencies>
 
-        <!--<dependency>-->
-        <!--<groupId>com.zhiyin.frame</groupId>-->
-        <!--<artifactId>micro-user-service-interface</artifactId>-->
-        <!--<version>0.0.1-SNAPSHOT</version>-->
-        <!--</dependency>-->
+
         <dependency>
             <groupId>com.zhiyin.dbs</groupId>
             <artifactId>chat-provider</artifactId>
@@ -221,7 +217,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/develop</directory>
+                        <directory>deploy/dev</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -240,7 +236,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/product</directory>
+                        <directory>deploy/prod</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
