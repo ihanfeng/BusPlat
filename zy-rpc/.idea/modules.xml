@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/rpc-dubbo/rpc-dubbo.iml" filepath="$PROJECT_DIR$/rpc-dubbo/rpc-dubbo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rpc-dubbo/rpc-dubbo.iml" filepath="$PROJECT_DIR$/rpc-dubbo/rpc-dubbo.iml" />
       <module fileurl="file://$PROJECT_DIR$/zy-rpc.iml" filepath="$PROJECT_DIR$/zy-rpc.iml" />
     </modules>
   </component>

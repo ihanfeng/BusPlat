@@ -14,8 +14,6 @@
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry address="${dubbo.registry.address}" check="false"/>
-    <!--<dubbo:registry address="zookeeper://101.200.185.137:2181" check="false" />-->
-
 
     <!-- 延迟到Spring初始化完成后，再暴露服务,服务调用超时设置为6秒,超时不重试-->
     <!--<dubbo:provider version="${dubbo.provider.version}" delay="-1" timeout="6000" retries="0"/>-->

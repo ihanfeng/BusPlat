@@ -1,5 +1,10 @@
 package com.zhiyin.ourchat.common;
 
+import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
+import com.zhiyin.ourchat.common.ranker.ContentListenNumRankData;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.math.RandomUtils;
 import org.hq.rank.core.RankData;
 import org.hq.rank.service.IRankService;
 import org.hq.rank.service.RankService;
@@ -9,25 +14,53 @@ import java.util.List;
 /**
  * Created by hg on 2016/7/27.
  */
+@Slf4j
 public class RankServerFactory {
     public static IRankService rankService = new RankService();
 
-    public static final String ContentListenRank = "ContentListenRank";
+    // 按照收听内容量排名
+    public static final String ContentListenNumRank = "ContentListenNumRank";
+
+    // 初始化
     public static void build(){
-        rankService.deleteRank( ContentListenRank );
-        rankService.createRank(ContentListenRank ,1);
+        rankService.deleteRank( ContentListenNumRank );
+        rankService.createRank(ContentListenNumRank ,1);
+//        return this;
     }
 
-    public static  void add(List<ContentListenRankData> list){
+    public static  void add(List<ContentListenNumRankData> list){
         for (int i=0 ;i< list.size();i++) {
-            rankService.put(ContentListenRank, list.get(i));
+            rankService.put(ContentListenNumRank, list.get(i).getUgid(),list.get(i).getLisNum());
+
         }
-        int testId=30;
-        RankData rankData1 = rankService.getRankDataById("rank_a", testId);
-        rankService.put("rank_a", testId, 6,6,6);
-        RankData rankData2 = rankService.getRankDataById("rank_a", testId);
-        rankService.putByField("rank_a", testId, 1, 8);
-        RankData rankData3 = rankService.getRankDataById("rank_a", testId);
+    }
+
+
+
+    public static void main(String[] args){
+
+        List<ContentListenNumRankData> listenNumRankDatas = Lists.newArrayList();
+
+        for(int i = 0; i<10;i++){
+            listenNumRankDatas.add(new ContentListenNumRankData(i, RandomUtils.nextInt()));
+        }
+        RankServerFactory.build();
+        RankServerFactory.add(listenNumRankDatas);
+
+        List<RankData> res = RankServerFactory.rankService.getRankDatasAroundId(ContentListenNumRank, 0, 2, 2);
+        log.info(JSON.toJSONString(res));
+
+
+        for(int i = 0; i<10;i++){
+            listenNumRankDatas.add(new ContentListenNumRankData(i, i));
+        }
+        RankServerFactory.build();
+        RankServerFactory.add(listenNumRankDatas);
+
+        res = RankServerFactory.rankService.getRankDatasAroundId(ContentListenNumRank, 0, 2, 2);
+        log.info(JSON.toJSONString(res));
+
+        System.out.println("succ end.");
     }
 
 }
