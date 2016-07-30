@@ -5,14 +5,17 @@ import com.google.common.collect.Lists;
 import com.zhiyin.dbs.module.user.entity.UserInfo;
 import com.zhiyin.dbs.module.user.service.IUserInfoService;
 import com.zhiyin.ranker.api.common.RankServerFactory;
+import com.zhiyin.ranker.api.service.ILoadRankDataService;
 import com.zhiyin.ranker.api.vo.ContentListenNumRankC2s;
 import com.zhiyin.ranker.api.vo.ContentListenNumRankS2c;
 import com.zhiyin.ranker.api.vo.RankDataS2c;
+import com.zhiyin.ranker.api.web.C2sObj;
 import com.zhiyin.ranker.api.web.S2cObj;
 import com.zhiyin.ranker.api.web.WebResp;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.hq.rank.core.RankData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
@@ -30,13 +33,24 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/contents/rank")
-public class DialogController {
+public class ContentRankController {
 
     @com.alibaba.dubbo.config.annotation.Reference
     IUserInfoService userInfoService;
 
-//    @Autowired
-//    private ILoadRankDataService loadRankDataService;
+    @Autowired
+    private ILoadRankDataService loadRankDataService;
+
+
+    @ApiOperation(value = "init", nickname = "初始化排名数据", response = S2cObj.class)
+    @RequestMapping(value = "/init", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String iniData(
+            @Valid @RequestBody C2sObj c2s,
+            BindingResult bindingResult) {
+        loadRankDataService.loadContentStat();
+
+        return "succ";
+    }
 
     @ApiOperation(value = " ", nickname = "", response = S2cObj.class)
     @RequestMapping(value = "/cnum", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

@@ -6,8 +6,8 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource("classpath:config/dubbo-config.properties")
-@ImportResource("classpath:applicationContext-dubbo.xml")
-public class DubboConfig {
+@ImportResource("classpath:applicationContext-dubbo-consumer.xml")
+public class DubboConsumerConfig {
 
 
 //    @Be

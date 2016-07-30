@@ -1,10 +1,10 @@
 
 spring:
   application:
-    name: captcha
+    name: zhiyin-ranker
     version: 0.0.1
-  profiles:
-    active: product
+#  profiles:
+#    active: product
 #    active: test
 
 server:

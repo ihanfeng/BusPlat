@@ -9,15 +9,15 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 //@EnableEurekaClient
 //@EnableAutoConfiguration(exclude={DubboAutoConfiguration.class})
 @SpringBootApplication
-public class OurChatApplication extends SpringBootServletInitializer {
+public class RankerApplication  extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(OurChatApplication.class, args);
+        SpringApplication.run(RankerApplication.class, args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(OurChatApplication.class);
+        return application.sources(RankerApplication.class);
     }
 
 }
