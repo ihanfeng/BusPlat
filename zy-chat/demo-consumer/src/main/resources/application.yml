@@ -37,7 +37,7 @@ eureka:
 
 # HTTP Server
 server:
-  port: 18088   # HTTP (Tomcat) port
+  port: 8088   # HTTP (Tomcat) port
 #  context-path: /msg-comsumer
 
 

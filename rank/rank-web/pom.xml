@@ -41,8 +41,21 @@
 
         <dependency>
             <groupId>com.zhiyin.frame</groupId>
+            <artifactId>rpc-dubbo</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zhiyin.frame</groupId>
             <artifactId>rank-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zhiyin</groupId>
+            <artifactId>zhiyin-dbs</artifactId>
+            <version>0.0.4-SNAPSHOT</version>
+            <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
 
         <dependency>
