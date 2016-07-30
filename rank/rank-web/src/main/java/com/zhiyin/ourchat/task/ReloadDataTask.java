@@ -1,9 +1,21 @@
 package com.zhiyin.ourchat.task;
 
+import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
+import com.zhiyin.dbs.module.content.entity.SubjectAddrListenStat;
+import com.zhiyin.dbs.module.content.service.ISubjectAddrListenStatService;
+import com.zhiyin.dbs.module.user.entity.UserInfo;
+import com.zhiyin.dbs.module.user.service.IUserInfoService;
+import com.zhiyin.ourchat.common.RankServerFactory;
+import com.zhiyin.ourchat.common.ranker.ContentListenNumRankData;
+import com.zhiyin.ourchat.service.ILoadRankDataService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * Created by hg on 2016/7/30.
@@ -13,17 +25,12 @@ import org.springframework.stereotype.Component;
 @Component()
 public class ReloadDataTask {
 
-    @com.alibaba.dubbo.config.annotation.Reference
-    ICustomAddressService customAddressService;
+    @Autowired
+    private ILoadRankDataService loadRankDataService;
 
-    //	@Scheduled(cron = "0 0 0/1 * * ?")
-    @Scheduled(fixedRate=1000 * 60 * 60 ,initialDelay=1000 * 20)
-    public void loadAllAddress() {
-        log.info("reload content rank data start");
-        // customAddressService.selectAllByByPage(pageNum, pageSize)
-
-        job();
-        logger.info("reload content rank data end");
-
+    @Scheduled(fixedRate=1000 * 60 * 60 * 3 ,initialDelay=1000 * 20)
+    public void timer() {
+        loadRankDataService.loadContentStat();
     }
+
 }

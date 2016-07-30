@@ -14,7 +14,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ContentListenNumRankData {
 
-    private Integer ugid;
+
+    private Integer userGid;
 
     private Integer lisNum;
 

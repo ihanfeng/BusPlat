@@ -28,10 +28,15 @@ public class RankServerFactory {
 //        return this;
     }
 
+    public static  void add(ContentListenNumRankData tmp){
+
+            rankService.put(ContentListenNumRank, tmp.getUserGid(),tmp.getLisNum());
+
+    }
+
     public static  void add(List<ContentListenNumRankData> list){
         for (int i=0 ;i< list.size();i++) {
-            rankService.put(ContentListenNumRank, list.get(i).getUgid(),list.get(i).getLisNum());
-
+            add(list.get(i));
         }
     }
 

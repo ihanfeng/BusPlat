@@ -190,7 +190,11 @@
             <artifactId>classmate</artifactId>
             <version>1.2.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
 
         <!-- spring fox end -->
 
