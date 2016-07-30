@@ -235,11 +235,14 @@
         </plugins>
     </build>
 
+
     <profiles>
+
         <profile>
-            <id>dev</id>
+            <id>loc</id>
             <properties>
-                <env>dev</env>
+                <env>loc</env>
+                <profiles.active>loc</profiles.active>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -247,7 +250,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/test</directory>
+                        <directory>deploy/loc</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -255,15 +258,17 @@
                 </resources>
             </build>
         </profile>
+
         <profile>
-            <id>product</id>
+            <id>dev</id>
             <properties>
-                <env>product</env>
+                <env>dev</env>
+                <profiles.active>dev</profiles.active>
             </properties>
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/product</directory>
+                        <directory>deploy/dev</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -271,5 +276,26 @@
                 </resources>
             </build>
         </profile>
+
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <env>prod</env>
+                <profiles.active>prod</profiles.active>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>deploy/prod</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
     </profiles>
+
 </project>
