@@ -19,11 +19,11 @@ public class ReloadDataTask {
     //	@Scheduled(cron = "0 0 0/1 * * ?")
     @Scheduled(fixedRate=1000 * 60 * 60 ,initialDelay=1000 * 20)
     public void loadAllAddress() {
-        logger.info("reload CustomAddressInfo start");
+        log.info("reload content rank data start");
         // customAddressService.selectAllByByPage(pageNum, pageSize)
 
         job();
-        logger.info("reload CustomAddressInfo end");
+        logger.info("reload content rank data end");
 
     }
 }
