@@ -45,7 +45,9 @@
     AND del_status = 0
   </select>
 
-
+  <update id="deleteByIdOwner" parameterType="java.util.Map" >
+    update zy_ourchat_dialog_latest set del_status = 1 where id =#{id} and user_id = #{userId}
+  </update>
 
   <!--<delete id="deleteOldLatest" parameterType="java.util.Map" >-->
     <!--delete from zy_ourchat_dialog_latest-->

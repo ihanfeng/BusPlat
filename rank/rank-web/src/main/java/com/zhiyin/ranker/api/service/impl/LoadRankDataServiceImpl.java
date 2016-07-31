@@ -38,7 +38,7 @@ public class LoadRankDataServiceImpl implements ILoadRankDataService {
         while(true){
             PageInfo<SubjectAddrListenStat> sel = subjectAddrListenStatService.selectByAddrRole(0L, 0L, pageInfo);
 
-            log.info("content list num, process page {}",pageInfo.getPageNum());
+            log.info("content list num {}, process page {}.",sel.getSize(),sel.getPageNum());
             for(SubjectAddrListenStat tmp : sel.getList()){
                 UserInfo user = userInfoService.selectById(tmp.getUserId());
                 if(user == null){
@@ -46,6 +46,7 @@ public class LoadRankDataServiceImpl implements ILoadRankDataService {
                     continue;
                 }
                 ContentListenNumRankData data = new ContentListenNumRankData( user.getGid(),tmp.getContentNum());
+                log.info("rank data info:{} {}",user.getGid(), tmp.getContentNum() );
                 RankServerFactory.add(data);
             }
 

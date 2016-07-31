@@ -29,5 +29,5 @@ public interface IBaseService2<KEY,V extends BaseEntity> {
     public PageInfo selectByPage(int pageNum, int pageSize) ;
 
     public List<V> selectAll();
-
+    public int deleteByIdOwner(Long id, Long userId ) ;
     }

@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
 import com.zhiyin.frame.idgen.IdGenFactory;
+import com.zhiyin.ourchat.entity.DialogInfo;
 import com.zhiyin.ourchat.entity.DialogLatest;
 import com.zhiyin.ourchat.mapper.DialogLatestMapper;
 import com.zhiyin.ourchat.service.IDialogLatestService;
@@ -82,6 +83,5 @@ public class DialogLatestServiceImpl extends BaseService<DialogLatest> implement
     public Integer deleteByPartner(Long userId, Long partnerId) {
         return dialogLatestMapper.deleteByPartner(userId, partnerId);
     }
-
 
 }

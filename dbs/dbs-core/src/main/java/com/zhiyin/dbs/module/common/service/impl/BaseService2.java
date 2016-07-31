@@ -92,6 +92,11 @@ public abstract class BaseService2 <KEY, V extends BaseEntity> {
 
 
 
+    public int deleteByIdOwner(Long id, Long userId ) {
+        int re = getBaseMapper().deleteByIdOwner(id,userId);
+        return re;
+    }
+
 
 //    @Override
 //    public int deleteByPrimaryKey(Long id) {

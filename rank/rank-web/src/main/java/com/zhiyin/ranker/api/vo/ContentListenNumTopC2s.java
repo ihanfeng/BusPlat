@@ -5,11 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * 排行榜Top
  * Created by hg on 2016/7/28.
  */
 @Getter
 @Setter
-public class ContentListenNumRankC2s extends C2sObj {
-    private Long userId;
-    private Integer around; // 周围数量
+public class ContentListenNumTopC2s extends C2sObj {
+    private Integer top; // 排行榜数量
 }
