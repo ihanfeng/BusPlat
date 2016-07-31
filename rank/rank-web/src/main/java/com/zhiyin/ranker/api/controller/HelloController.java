@@ -17,8 +17,12 @@ public class HelloController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/hello")
     public String greeting() {
-
         return "hello";
+    }
+
+    @RequestMapping(value = "/ok")
+    public String ok() {
+        return "ok";
     }
 
 }

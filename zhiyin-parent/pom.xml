@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.zhiyin</groupId>
 	<artifactId>zhiyin-parent</artifactId>
-	<version>4.3.0-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>Zhiyin :: Module :: Parent</name>
 	<packaging>pom</packaging>
 
@@ -67,6 +67,26 @@
 	<prerequisites>
 		<maven>3.0.0</maven>
 	</prerequisites>
+	
+	
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/libs-milestone-local</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>http://repo.spring.io/release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 	<!-- 设定除中央仓库 (repo1.maven.org/maven2/)外的其他仓库,按设定顺序进行查询，如有Nexus私服, 取消注释并指向正确的服务器地址 
 	<repositories>
@@ -978,6 +998,22 @@
                 <artifactId>commons-dbcp</artifactId>
                 <version>1.4</version>
             </dependency>
+			
+			  <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>1.3.5.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Brixton.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
 			
 		</dependencies>
 	</dependencyManagement>

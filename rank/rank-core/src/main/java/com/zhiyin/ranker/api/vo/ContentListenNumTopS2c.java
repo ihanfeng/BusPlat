@@ -1,6 +1,5 @@
 package com.zhiyin.ranker.api.vo;
 
-import com.zhiyin.ranker.api.web.C2sObj;
 import com.zhiyin.ranker.api.web.S2cObj;
 import lombok.Getter;
 import lombok.Setter;

@@ -16,6 +16,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://101.200.185.137:8761/eureka/
   instance:
     preferIpAddress: true
     home-page-url-path: ${server.contextPath}/
