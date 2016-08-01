@@ -5,5 +5,4 @@ package com.zhiyin.ranker.api;
  */
 public class RankerApiConst {
 
-
 }
