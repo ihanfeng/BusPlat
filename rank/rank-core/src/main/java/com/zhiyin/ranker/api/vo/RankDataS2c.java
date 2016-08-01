@@ -17,7 +17,7 @@ public class RankDataS2c extends S2cObj {
     private Integer rankNum;
 
     // 由于使用排名是从0开始，所以需要加1
-    public void setRankNum(Integer rankNum){
-        this.rankNum = rankNum +1 ;
-    }
+//    public void setRankNum(Integer rankNum){
+//        this.rankNum = rankNum +1 ;
+//    }
 }
