@@ -72,6 +72,8 @@
     <logger name="jdbc.resultset" level="WARN"/>
     <logger name="jdbc.connection" level="WARN"/>
     <logger name="jdbc.audit" level="WARN"/>
+
+
     <logger name="org.quartz.core" level="WARN"/>
     <logger name="org.mybatis.spring" level="WARN"/>
     <logger name="org.dozer" level="WARN"/>
@@ -91,8 +93,8 @@
     <logger name="org.hibernate.validator" level="WARN"/>
     <logger name="org.hibernate" level="WARN"/>
     <logger name="org.hibernate.ejb.HibernatePersistence" level="OFF"/>
-    <!--<logger name="org.springframework" level="WARN"/>-->
-    <!--<logger name="org.springframework.web" level="WARN"/>-->
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.web" level="WARN"/>
     <logger name="org.springframework.security" level="WARN"/>
     <logger name="org.springframework.cache" level="WARN"/>
     <logger name="org.thymeleaf" level="WARN"/>
@@ -104,11 +106,7 @@
     <!-- system  -->
 
 
-    <logger name="com.alibaba.dubbo" level="DEBUG">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-
-    <root level="INFO">
+    <root level="INFO" >
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="all_info" level="INFO"/>
         <appender-ref ref="all_error"/>
