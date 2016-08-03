@@ -57,6 +57,9 @@
 
         <geo.version>0.7.1</geo.version>
         <geohash.version>1.0.10</geohash.version>
+		
+		        <pagehelper.version>4.1.1</pagehelper.version>
+
 
         <!-- Plugin的属性 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -1017,6 +1020,28 @@
                 <scope>import</scope>
             </dependency>
 
+			
+				
+		  <!-- 请求数据验证 -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.1.0.Final</version>
+        </dependency>
+  <!-- 请求数据验证 -->
+  
+  
+  <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+		
 
         </dependencies>
     </dependencyManagement>
@@ -1077,6 +1102,27 @@
         </dependency>
         <!-- swagger -->
 
+		
+		
+		  <!-- 请求数据验证 -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.1.0.Final</version>
+        </dependency>
+  <!-- 请求数据验证 -->
+		
+		
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+			                <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
