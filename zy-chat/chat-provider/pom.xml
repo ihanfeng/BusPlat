@@ -125,6 +125,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -162,10 +163,7 @@
         <!-- oauth -->
 
         <!-- cloud -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
@@ -174,9 +172,12 @@
                     <artifactId>log4j</artifactId>
                     <groupId>log4j</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
             </exclusions>
             <optional>true</optional>
-
         </dependency>
         <!-- end cloud -->
 
@@ -277,9 +278,7 @@
     </dependencies>
 
     <build>
-        <!--<filters>-->
-        <!--<filter>profile-${env}.properties</filter>-->
-        <!--</filters>-->
+
         <plugins>
 
             <plugin>
@@ -294,8 +293,7 @@
                 <configuration>
                     <excludes>
                         <exclude>application*</exclude>
-                        <exclude>application.*</exclude>
-                        <exclude>logback.*</exclude>
+                        <exclude>logback.xml</exclude>
                         <exclude>config/**</exclude>
                         <exclude>mapper/**</exclude>
                         <exclude>dubbo*</exclude>
