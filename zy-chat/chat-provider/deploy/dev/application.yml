@@ -8,7 +8,8 @@ spring:
     cache: false             # Allow Thymeleaf templates to be reloaded at runtime
     prefix: classpath:/accounts-server/templates/    # Trailing / mandatory
                              # Template location for this application only
-
+  jmx:
+    default-domain: ${spring.application.name}
 #  boot:
 #    admin:
 #      url: http://101.200.185.137:10008
@@ -93,5 +94,8 @@ security:
     password: admin
 
 
-
+endpoints:
+  jmx:
+    domain:
+    unique-names: true
 

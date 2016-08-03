@@ -16,15 +16,13 @@ import com.zhiyin.ranker.api.web.S2cObj;
 import com.zhiyin.ranker.api.web.WebResp;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.beanutils.BeanMap;
 import org.hq.rank.core.RankData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -34,7 +32,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/contents/rank")
+@RequestMapping("/conts/lisnum/rank")
 public class ContentRankController {
 
     @com.alibaba.dubbo.config.annotation.Reference
@@ -53,7 +51,25 @@ public class ContentRankController {
         return "succ";
     }
 
+
     @ApiOperation(value = " ", nickname = "", response = S2cObj.class)
+    @RequestMapping(value = "/{uid}", method = RequestMethod.GET )
+    public WebResp<S2cObj> rank(@PathVariable("uid") Long uid) {
+
+        UserInfo user = userInfoService.selectById( uid );
+        if(user== null){
+            log.error("user not exist.");
+            return succRet(null);
+        }
+        RankData tmp = RankServerFactory.rankService.getRankDataById(RankServerFactory.ContentListenNumRank, user.getGid() );
+
+        RankDataS2c s2c = new RankDataS2c();
+        s2c.setRankNum(tmp.getRankNum());
+        s2c.setUserId( uid );
+        return succRet(s2c);
+    }
+
+        @ApiOperation(value = " ", nickname = "", response = S2cObj.class)
     @RequestMapping(value = "/top", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public WebResp<S2cObj> list(
             @Valid @RequestBody ContentListenNumTopC2s c2s,
@@ -86,7 +102,7 @@ public class ContentRankController {
     }
 
     @ApiOperation(value = " ", nickname = "", response = S2cObj.class)
-    @RequestMapping(value = "/cnum", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/around", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public WebResp<S2cObj> list(
             @Valid @RequestBody ContentListenNumRankC2s c2s,
             BindingResult bindingResult) {

@@ -6,17 +6,18 @@ spring:
 #  profiles:
 #    active: product
 #    active: test
+  jmx:
+    default-domain: ${spring.application.name}
 
 server:
-#  contextPath: /${spring.application.name}
+  contextPath: /${spring.application.name}
   port: 8080
-
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-#      defaultZone: http://101.200.185.137:8761/eureka/
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://10.44.145.103:8761/eureka/
   instance:
     preferIpAddress: true
     home-page-url-path: ${server.contextPath}/
@@ -33,6 +34,10 @@ captcha:
     static/app/dist/img/
   destination:
     src/main/resources/static/app/dist/img
+
+endpoints:
+  jmx:
+    unique-names: true
 
 ## acutor 设置
 management:
