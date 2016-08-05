@@ -1,19 +1,24 @@
 # Spring properties
 spring:
+  application:
+     name: msg-provider  # Service registers under this name
   freemarker:
     enabled: false           # Ignore Eureka dashboard FreeMarker templates
   thymeleaf:
     cache: false             # Allow Thymeleaf templates to be reloaded at runtime
     prefix: classpath:/accounts-server/templates/    # Trailing / mandatory
                              # Template location for this application only
+  jmx:
+    default-domain: ${spring.application.name}
 
-  boot:
-    admin:
-      url: http://101.200.185.137:10008
+#  boot:
+#    admin:
+#      url: http://101.200.185.137:10008
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://127.0.0.1:3306/zhiyin?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://127.0.0.1:3306/zhiyin?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
@@ -67,4 +72,31 @@ spring:
 #    home-page-url-path: ${server.contextPath}/
 #    statusPageUrlPath: ${server.contextPath}/info
 #    healthCheckUrlPath: ${server.contextPath}/health
+
+
+# HTTP Server
+server:
+  port: 12331
+  context-path: /zy-chat
+
+
+## acutor 设置
+management:
+  address: 127.0.0.1
+  security:
+    enabled: false
+    role: SUPERUSER
+
+security:
+  basic:
+    enabled: false
+  user:
+    name: admin
+    password: admin
+
+endpoints:
+  jmx:
+    unique-names: true
+
+
 
