@@ -23,6 +23,12 @@
 
         <dependency>
             <groupId>com.zhiyin.dbs</groupId>
+            <artifactId>chat-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zhiyin.dbs</groupId>
             <artifactId>chat-provider</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -31,7 +37,7 @@
             <groupId>net.dubboclub</groupId>
             <artifactId>dubbo-hystrix</artifactId>
             <version>0.0.6</version>
-    </dependency>
+        </dependency>
         <!-- end biz -->
 
         <!-- dubbo cache -->
@@ -105,23 +111,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
         <!-- end cloud -->
 
-
-        <!-- swagger -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.2.2</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.2.2</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- end swagger -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

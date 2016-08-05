@@ -330,7 +330,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/local</directory>
+                        <directory>deploy/loc</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -350,7 +350,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/develop</directory>
+                        <directory>deploy/dev</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -368,7 +368,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/product</directory>
+                        <directory>deploy/prod</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
