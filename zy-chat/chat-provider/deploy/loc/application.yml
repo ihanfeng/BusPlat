@@ -1,15 +1,9 @@
 # Spring properties
 spring:
-  freemarker:
-    enabled: false           # Ignore Eureka dashboard FreeMarker templates
-  thymeleaf:
-    cache: false             # Allow Thymeleaf templates to be reloaded at runtime
-    prefix: classpath:/accounts-server/templates/    # Trailing / mandatory
-                             # Template location for this application only
 
   boot:
     admin:
-      url: http://localhost:10008
+      url: http://101.200.185.137:10008
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -68,10 +62,4 @@ eureka:
     home-page-url-path: ${server.contextPath}/
     statusPageUrlPath: ${server.contextPath}/info
     healthCheckUrlPath: ${server.contextPath}/health
-
-
-
-
-
-
 

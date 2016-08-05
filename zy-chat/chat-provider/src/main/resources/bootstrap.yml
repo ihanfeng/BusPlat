@@ -3,6 +3,12 @@ spring:
   application:
      name: zhiyin-chat  # Service registers under this name
 
+  jmx:
+    default-domain: ${spring.application.name}
+
+endpoints:
+  jmx:
+    unique-names: true
 
 # HTTP Server
 server:
