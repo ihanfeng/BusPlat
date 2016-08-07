@@ -68,6 +68,7 @@ public class AdAllowSiteServiceImplTest  {
             detail.setRoleId((long)i);
             detail.setTitle("Ad_"+i);
             detail.setDuration(10);
+            detail.setSavePath("a.mp3");
             adAudioDetailService.insertSelectiveGet(detail);
         }
         List<AdAudioDetail> list = adAudioDetailService.selectByAd(adId);

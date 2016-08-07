@@ -15,31 +15,22 @@
     id, ad_audio_id, ad_id, cg_id, create_time, update_time, remark, del_status
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select
+    select 
     <include refid="Base_Column_List" />
     from zy_ad_cg_map
     where id = #{id,jdbcType=BIGINT}
   </select>
-
-  <select id="selectByAd" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select
-    <include refid="Base_Column_List" />
-    from zy_ad_cg_map
-    where ad_id = #{adId,jdbcType=BIGINT}
-    and del_status = 0
-  </select>
-
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from zy_ad_cg_map
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.zhiyin.ad.entity.AdCgMap" >
-    insert into zy_ad_cg_map (id, ad_audio_id, ad_id,
-    cg_id, create_time, update_time,
-    remark, del_status)
-    values (#{id,jdbcType=BIGINT}, #{adAudioId,jdbcType=BIGINT}, #{adId,jdbcType=BIGINT},
-    #{cgId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
-    #{remark,jdbcType=VARCHAR}, #{delStatus,jdbcType=INTEGER})
+    insert into zy_ad_cg_map (id, ad_audio_id, ad_id, 
+      cg_id, create_time, update_time, 
+      remark, del_status)
+    values (#{id,jdbcType=BIGINT}, #{adAudioId,jdbcType=BIGINT}, #{adId,jdbcType=BIGINT}, 
+      #{cgId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{delStatus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zhiyin.ad.entity.AdCgMap" >
     insert into zy_ad_cg_map

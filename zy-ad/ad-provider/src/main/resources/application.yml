@@ -8,6 +8,8 @@ spring:
     cache: false             # Allow Thymeleaf templates to be reloaded at runtime
     prefix: classpath:/accounts-server/templates/    # Trailing / mandatory
                              # Template location for this application only
+  jmx:
+    default-domain: ${spring.application.name}
 
 #  boot:
 #    admin:
@@ -43,16 +45,16 @@ spring:
 # 合并多个DruidDataSource的监控数据
 ##    useGlobalDataSourceStat: true
 
-  dubbo:
-    application:
-      name : ${spring.application.name}
-    registry:
-      address : zookeeper://127.0.0.1:2181
-    scan: com.zhiyin.task
-    protocol:
-      name: dubbo
-      port: 20880
-      serialization: kryo
+#  dubbo:
+#    application:
+#      name : ${spring.application.name}
+#    registry:
+#      address : zookeeper://127.0.0.1:2181
+#    scan: com.zhiyin.task
+#    protocol:
+#      name: dubbo
+#      port: 20880
+#      serialization: kryo
 
 
 
@@ -90,5 +92,7 @@ security:
     password: admin
 
 
-
+endpoints:
+  jmx:
+    unique-names: true
 

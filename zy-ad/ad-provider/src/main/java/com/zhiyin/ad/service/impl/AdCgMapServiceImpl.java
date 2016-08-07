@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by hg on 2016/7/19.
@@ -28,5 +29,14 @@ public class AdCgMapServiceImpl  extends BaseService<AdCgMap> implements IAdCgMa
         return adCgMapMapper;
     }
 
+    /**
+     * 根据广告编号查询广告映射
+     * @param adId
+     * @return
+     */
+    @Override
+    public List<AdCgMap> selectByAd(Long adId){
 
+        return adCgMapMapper.selectByAd( adId);
+    }
 }
