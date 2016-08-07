@@ -17,8 +17,10 @@
 
 
     <modules>
+        <module>chat-core</module>
         <module>chat-provider</module>
         <module>demo-consumer</module>
+        <module>demo-http</module>
         <!--<module>chat-demo</module>-->
     </modules>
 

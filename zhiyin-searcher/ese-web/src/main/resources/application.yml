@@ -11,7 +11,6 @@ server:
   contextPath: /${spring.application.name}
   port: 10010
 
-
 eureka:
   client:
     serviceUrl:

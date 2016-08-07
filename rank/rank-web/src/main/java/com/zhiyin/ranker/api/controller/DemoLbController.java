@@ -17,10 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -49,6 +46,28 @@ public class DemoLbController {
         }
 
         return "succ";
+    }
+
+    @ApiOperation(value = " ", nickname = "", response = S2cObj.class)
+    @RequestMapping(value = "/top/{top}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public WebResp<S2cObj> list(@PathVariable("top") Integer top) {
+
+        top = Optional.fromNullable(top).or(20);
+
+        List<RankDataS2c> list = Lists.newArrayList();
+
+        ArrayList<String> tmp = demoLb.top(top);
+
+
+        for(String name : tmp){
+            RankDataS2c rd  = new RankDataS2c();
+            rd.setUserId(Long.valueOf(name));
+        }
+
+        ContentListenNumRankS2c s2c = new ContentListenNumRankS2c();
+        s2c.setList(list);
+
+        return succRet(s2c);
     }
 
     @ApiOperation(value = " ", nickname = "", response = S2cObj.class)
