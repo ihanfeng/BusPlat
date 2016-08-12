@@ -7,9 +7,12 @@ import java.util.Date;
 public class AdCgMap  extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
+
     private Long id;
 
     private Long adAudioId;
+
+    private Long adId;
 
     private Long cgId;
 
@@ -35,6 +38,14 @@ public class AdCgMap  extends BaseEntity {
 
     public void setAdAudioId(Long adAudioId) {
         this.adAudioId = adAudioId;
+    }
+
+    public Long getAdId() {
+        return adId;
+    }
+
+    public void setAdId(Long adId) {
+        this.adId = adId;
     }
 
     public Long getCgId() {
@@ -76,5 +87,4 @@ public class AdCgMap  extends BaseEntity {
     public void setDelStatus(Integer delStatus) {
         this.delStatus = delStatus;
     }
-
 }
