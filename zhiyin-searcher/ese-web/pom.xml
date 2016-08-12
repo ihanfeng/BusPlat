@@ -130,7 +130,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/test</directory>
+                        <directory>deploy/dev</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -139,14 +139,14 @@
             </build>
         </profile>
         <profile>
-            <id>product</id>
+            <id>prod</id>
             <properties>
-                <env>product</env>
+                <env>prod</env>
             </properties>
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/product</directory>
+                        <directory>deploy/prod</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>

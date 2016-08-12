@@ -274,6 +274,11 @@
         <!-- end test -->
 
 
+        <dependency>
+            <groupId>com.vdurmont</groupId>
+            <artifactId>emoji-java</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 
