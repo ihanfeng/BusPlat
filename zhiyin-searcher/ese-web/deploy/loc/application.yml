@@ -1,0 +1,21 @@
+
+# Spring properties
+spring:
+  profiles:
+#    active: product
+    active: test
+  boot:
+    admin:
+      url: http://101.200.185.137:10008
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+  instance:
+    home-page-url-path: ${server.contextPath}/
+    statusPageUrlPath: ${server.contextPath}/info
+    healthCheckUrlPath: ${server.contextPath}/health
+

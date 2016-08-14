@@ -8,6 +8,7 @@ import com.zhiyin.ad.mapper.AdBasicInfoMapper;
 import com.zhiyin.ad.service.IAdBasicInfoService;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
+import com.zhiyin.frame.idgen.IdGenFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DateUtils;
 import org.joda.time.DateTime;
@@ -101,6 +102,24 @@ public class AdBasicInfoServiceImpl extends BaseService<AdBasicInfo> implements 
         List<AdBasicInfo> list = adBasicInfoMapper.selectWillShelfOff(startDate , endDate, AdShelfStatus.ShelfOn);
         list = Optional.fromNullable(list).or(new ArrayList<AdBasicInfo>());
         return list;
+    }
+
+
+    public Long insertSelectiveGet(AdBasicInfo bo) {
+
+        adBasicInfoMapper.setCharsetToUtf8mb4();
+
+        bo.setId(Long.valueOf(IdGenFactory.genTableId()));
+        bo.setCreateTime(DateTime.now().toDate());
+        bo.setUpdateTime(DateTime.now().toDate());
+        bo.setDelStatus(Integer.valueOf(0));
+        this.postInsertBefore(bo);
+        int insert = this.getBaseMapper().insertSelective(bo);
+        if(insert <= 0) {
+            throw new RuntimeException();
+        } else {
+            return bo.getId();
+        }
     }
 
 

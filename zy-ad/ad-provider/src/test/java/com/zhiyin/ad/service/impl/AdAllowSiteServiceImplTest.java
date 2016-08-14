@@ -104,15 +104,22 @@ public class AdAllowSiteServiceImplTest  {
 
         String s = String.valueOf(c);
         log.info(s);
+        StringBuffer sb = new StringBuffer();
+        sb.append(Character.toChars(127467));
+        sb.append(Character.toChars(127479));
+        System.out.println(sb);
 //
         AdBasicInfo ad = new AdBasicInfo();
         ad.setCompanyId(1L);
-         s = StringEscapeUtils.unescapeJava("\u20ac\n"); // s contains the euro symbol followed by newline
+         s = StringEscapeUtils.unescapeJava("\uF09F9294\n"); // s contains the euro symbol followed by newline
 
-        ad.setTitle("\u2202" +"sss" + s);
+        ad.setTitle("\u2202" +"sss" + sb + "sd");
         ad.setShelfOnTime(DateTime.now().toDate());
         ad.setShelfOffTime(DateTime.now().plusMinutes(AdTimerConfig.TimerInterval).toDate());
         Long adId = adBasicInfoService.insertSelectiveGet(ad);
+
+        AdBasicInfo sel = adBasicInfoService.selectById(adId);
+        log.info(JSON.toJSONString(sel));
 
     }
 }

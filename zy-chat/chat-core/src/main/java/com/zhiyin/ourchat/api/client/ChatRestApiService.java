@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.aip.client;
+package com.zhiyin.ourchat.api.client;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.MediaType;
