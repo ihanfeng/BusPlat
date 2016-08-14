@@ -5,4 +5,5 @@ import com.zhiyin.ourchat.entity.DialogInfo;
 
 public interface DialogInfoMapper extends BaseMapper<DialogInfo> {
 
+
 }

@@ -7,8 +7,8 @@ spring:
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
-#    url: jdbc:mysql://127.0.0.1:3306/zhiyin?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://127.0.0.1:3306/zhiyin?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
@@ -56,7 +56,8 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://10.44.145.103:8761/eureka/
 
   instance:
     home-page-url-path: ${server.contextPath}/

@@ -24,5 +24,4 @@ public interface BaseMapper<E extends BaseEntity> {
 
     int deleteByIdOwner(@Param("id")Long id, @Param("userId") Long userId);
 
-
 }
