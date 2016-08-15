@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 /**
- * Created by wangqinghui on 2016/4/8.
+ * Created by hg on 2016/4/8.
  */
 
 @Slf4j

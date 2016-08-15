@@ -7,7 +7,7 @@ import com.zhiyin.ourchat.entity.DialogLatest;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/7/11.
+ * Created by hg on 2016/7/11.
  */
 public interface IDialogInfoService {
 

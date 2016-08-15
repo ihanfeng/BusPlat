@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/3/22.
+ * Created by hg on 2016/3/22.
  */
 @Slf4j
 @Service
@@ -93,7 +93,8 @@ public class MsgNotifyServiceImpl implements IMsgNotifyService {
             // 如果为null,说明用户没有公告信息，用户可能为新用户
             // 拉取公告的起始时间应为为用户注册日
             //TODO 公告数量可能很大，比如：用户注册后没有登录过，一年以后登录。
-            latestTime = DateTime.parse("2016-03-31").toDate();
+//            latestTime = DateTime.parse("2016-03-31").toDate();
+            latestTime = DateTime.now().minusDays(10).toDate();
         } else {
             latestTime = latestAnnounce.getNotifyTime();
         }

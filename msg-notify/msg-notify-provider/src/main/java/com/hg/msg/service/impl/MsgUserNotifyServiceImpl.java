@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/3/31.
+ * Created by hg on 2016/3/31.
  */
 @Service
 public class MsgUserNotifyServiceImpl implements IMsgUserNotifyService {

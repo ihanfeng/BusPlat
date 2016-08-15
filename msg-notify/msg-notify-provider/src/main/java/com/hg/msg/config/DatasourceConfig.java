@@ -3,7 +3,7 @@ package com.hg.msg.config;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by wangqinghui on 2016/4/12.
+ * Created by hg on 2016/4/12.
  */
 @Configuration
 public class DatasourceConfig {

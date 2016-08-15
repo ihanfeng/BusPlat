@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/3/4.
+ * Created by hg on 2016/3/4.
  */
 public class MybatisGen{
 
@@ -17,7 +17,7 @@ public class MybatisGen{
         try {
             List<String> warnings = new ArrayList<String>();
             boolean overwrite = false;
-            File configFile = new File(MybatisGen.class.getResource("/").getPath() + "generatorConfig-ad.xml");
+            File configFile = new File(MybatisGen.class.getResource("/").getPath() + "generatorConfig-msg.xml");
             ConfigurationParser cp = new ConfigurationParser(warnings);
             Configuration config = cp.parseConfiguration(configFile);
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);

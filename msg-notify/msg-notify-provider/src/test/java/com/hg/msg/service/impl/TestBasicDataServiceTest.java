@@ -37,7 +37,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Created by wangqinghui on 2016/3/29.
+ * Created by hg on 2016/3/29.
  */
 
 @Slf4j

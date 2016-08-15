@@ -3,7 +3,7 @@ package com.hg.msg.service;
 import com.hg.msg.entity.MsgSubscription;
 
 /**
- * Created by wangqinghui on 2016/3/22.
+ * Created by hg on 2016/3/22.
  */
 public interface IMsgSubService {
     MsgSubscription selectUserSub(Long target, String targetType, String action, Long userId);

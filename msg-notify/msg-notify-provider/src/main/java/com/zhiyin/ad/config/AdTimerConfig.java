@@ -1,7 +1,7 @@
 package com.zhiyin.ad.config;
 
 /**
- * Created by wangqinghui on 2016/7/11.
+ * Created by hg on 2016/7/11.
  */
 public class AdTimerConfig {
 

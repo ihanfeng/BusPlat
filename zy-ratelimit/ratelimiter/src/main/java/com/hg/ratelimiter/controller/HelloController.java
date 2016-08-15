@@ -13,7 +13,6 @@ public class HelloController {
 //	 static Logger logger = LoggerFactory.getLogger(HelloController.class);
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
-
 		System.out.println("hello");
 		model.addAttribute("message", "Spring 3 MVC Hello World");
 		return "hello";

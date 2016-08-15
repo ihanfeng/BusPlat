@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by wangqinghui on 2016/4/19.
+ * Created by hg on 2016/4/19.
  */
 public class BaseEntity implements Serializable {
 

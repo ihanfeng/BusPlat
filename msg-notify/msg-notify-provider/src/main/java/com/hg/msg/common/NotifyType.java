@@ -1,7 +1,7 @@
 package com.hg.msg.common;
 
 /**
- * Created by wangqinghui on 2016/3/29.
+ * Created by hg on 2016/3/29.
  */
 public class NotifyType {
 

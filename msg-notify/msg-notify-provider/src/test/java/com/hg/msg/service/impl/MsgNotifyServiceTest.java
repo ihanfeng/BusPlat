@@ -19,7 +19,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/3/29.
+ * Created by hg on 2016/3/29.
  */
 
 @Slf4j

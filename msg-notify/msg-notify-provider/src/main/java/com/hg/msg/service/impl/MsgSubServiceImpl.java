@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by wangqinghui on 2016/3/31.
+ * Created by hg on 2016/3/31.
  */
 @Service
 public class MsgSubServiceImpl implements IMsgSubService {

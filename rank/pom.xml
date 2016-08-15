@@ -22,6 +22,8 @@
     <modules>
         <module>rank-core</module>
         <module>rank-web</module>
+        <!--<module>rank-redis-web</module>-->
+        <module>rank-demo</module>
 	<!--<module>redislb</module>-->
     </modules>
 

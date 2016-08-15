@@ -5,7 +5,7 @@ import com.github.pagehelper.PageInfo;
 import java.util.Date;
 
 /**
- * Created by wangqinghui on 2016/4/7.
+ * Created by hg on 2016/4/7.
  */
 public interface ITestBasicDataService {
 

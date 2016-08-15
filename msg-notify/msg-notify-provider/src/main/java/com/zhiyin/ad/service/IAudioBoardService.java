@@ -5,7 +5,7 @@ import com.zhiyin.ad.entity.AudioBoard;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/7/11.
+ * Created by hg on 2016/7/11.
  */
 public interface IAudioBoardService {
     List<AudioBoard> selectShelfOn();

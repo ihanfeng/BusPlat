@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.util.Date;
 
 /**
- * Created by wangqinghui on 2016/5/18.
+ * Created by hg on 2016/5/18.
  */
 @Getter
 @Setter

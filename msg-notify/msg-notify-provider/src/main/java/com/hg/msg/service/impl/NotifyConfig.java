@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by wangqinghui on 2016/3/31.
+ * Created by hg on 2016/3/31.
  */
 public class NotifyConfig {
 

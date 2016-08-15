@@ -409,6 +409,10 @@ public class LeaderboardTemplate {
         return aroundMeIn(_leaderboardName, member, false, _pageSize);
     }
 
+    public List<LeaderData> aroundMe(String member, int pageSize) {
+        return aroundMeIn(_leaderboardName, member, false,pageSize);
+    }
+
     /**
      * Retrieve leaders around a given member in the named leaderboard as a list of LeaderData
      *
@@ -436,7 +440,9 @@ public class LeaderboardTemplate {
         }
         int endingOffset = (startingOffset + pageSize) - 1;
 
-        Set<ZSetOperations.TypedTuple<String>> rawLeaderData = template.opsForZSet().reverseRangeByScoreWithScores(leaderboardName, startingOffset, endingOffset);
+        System.out.println(reverseRankForMember + " " + startingOffset + " " + endingOffset);
+
+        Set<ZSetOperations.TypedTuple<String>> rawLeaderData = template.opsForZSet().reverseRangeWithScores(leaderboardName, startingOffset, endingOffset);
         return massageLeaderData(leaderboardName, rawLeaderData, useZeroIndexForRank);
     }
 

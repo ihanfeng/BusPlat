@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by wangqinghui on 2016/3/29.
+ * Created by hg on 2016/3/29.
  */
 @RestController
 public class TestokController {

@@ -1,5 +1,7 @@
 package com.zhiyin.ranker.api;
 
+import org.aspectj.lang.JoinPoint;
+
 public class JoinPointToStringHelper {
  
     public static String toString(JoinPoint jp) {

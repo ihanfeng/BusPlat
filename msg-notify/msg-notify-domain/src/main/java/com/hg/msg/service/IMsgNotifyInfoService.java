@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/4/7.
+ * Created by hg on 2016/4/7.
  */
 public interface IMsgNotifyInfoService {
 

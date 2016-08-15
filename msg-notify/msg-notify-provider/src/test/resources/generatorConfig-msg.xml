@@ -39,10 +39,14 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-
-        <table tableName="msg_basic_data" domainObjectName="BasicData" enableCountByExample="false"
+        <table tableName="msg_notify_read_mark" domainObjectName="NotifyReadMark" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
+
+
+        <!--<table tableName="msg_basic_data" domainObjectName="BasicData" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false"/>-->
         <!-- tableName：数据库表 -->
         <!-- domainObjectName：对应于数据库表的javaBean类名 -->
         <!--<table tableName="msg_notify" domainObjectName="MsgNotify" enableCountByExample="false"-->
