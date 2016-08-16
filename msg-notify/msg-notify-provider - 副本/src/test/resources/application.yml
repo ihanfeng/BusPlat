@@ -2,16 +2,14 @@
 spring:
   application:
      name: msg-provider  # Service registers under this name
+  profiles:
+    active: default
   freemarker:
     enabled: false           # Ignore Eureka dashboard FreeMarker templates
   thymeleaf:
     cache: false             # Allow Thymeleaf templates to be reloaded at runtime
     prefix: classpath:/accounts-server/templates/    # Trailing / mandatory
                              # Template location for this application only
-
-  boot:
-    admin:
-      url: http://101.200.185.137:10008
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -52,9 +50,7 @@ error:
 eureka:
   client:
     serviceUrl:
-#      defaultZone: http://101.200.185.137:8761/eureka/
       defaultZone: http://localhost:8761/eureka/
-
   instance:
     home-page-url-path: ${server.contextPath}/
     statusPageUrlPath: ${server.contextPath}/info
@@ -63,8 +59,9 @@ eureka:
 
 # HTTP Server
 server:
-  port: 28081
+  port: 8081   # HTTP (Tomcat) port
   context-path: /msg-provider
+#  servlet-path: /msg-provider
 
 
 ## acutor 设置
@@ -81,7 +78,4 @@ security:
   user:
     name: admin
     password: admin
-
-
-
 

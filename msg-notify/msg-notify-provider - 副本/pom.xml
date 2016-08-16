@@ -290,15 +290,6 @@
     </dependencies>
 
     <build>
-
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-
-
         <!--<filters>-->
         <!--<filter>profile-${env}.properties</filter>-->
         <!--</filters>-->
@@ -322,14 +313,12 @@
         </plugins>
     </build>
 
-
     <profiles>
 
         <profile>
-            <id>loc</id>
+            <id>dev</id>
             <properties>
-                <env>loc</env>
-                <profiles.active>loc</profiles.active>
+                <env>dev</env>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -337,25 +326,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/loc</directory>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-        <profile>
-            <id>dev</id>
-            <properties>
-                <env>dev</env>
-                <profiles.active>dev</profiles.active>
-            </properties>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>deploy/dev</directory>
+                        <directory>deploy/develop</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -369,12 +340,11 @@
             <id>prod</id>
             <properties>
                 <env>prod</env>
-                <profiles.active>prod</profiles.active>
             </properties>
             <build>
                 <resources>
                     <resource>
-                        <directory>deploy/prod</directory>
+                        <directory>deploy/product</directory>
                     </resource>
                     <resource>
                         <directory>src/main/resources</directory>

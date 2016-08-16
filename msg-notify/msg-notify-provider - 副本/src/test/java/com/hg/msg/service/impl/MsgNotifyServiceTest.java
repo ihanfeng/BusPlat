@@ -61,7 +61,6 @@ public class MsgNotifyServiceTest {
 
 
         // 创建公告
-
         msgNotifyService.createAnnounce("anno1", adminId);
         msgNotifyService.createAnnounce("anno2", adminId);
 

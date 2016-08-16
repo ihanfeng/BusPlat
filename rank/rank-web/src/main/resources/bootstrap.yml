@@ -1,23 +1,21 @@
 
-
 spring:
-  application:
-     name: zhiyin-notify
+
   jmx:
     default-domain: ${spring.application.name}
+
+server:
+  contextPath: /${spring.application.name}
+#  port: 8080
+
 
 endpoints:
   jmx:
     unique-names: true
 
-# HTTP Server
-server:
-  port: 12331
-  context-path: /${spring.application.name}
-
-
 ## acutor 设置
 management:
+  port: 18081
   address: 127.0.0.1
   security:
     enabled: false

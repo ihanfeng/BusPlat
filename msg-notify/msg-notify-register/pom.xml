@@ -245,46 +245,6 @@
         </plugins>
     </build>
 
-    <profiles>
 
-        <profile>
-            <id>prov-develop</id>
-            <properties>
-                <env>develop</env>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>deploy/develop</directory>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-
-        <profile>
-            <id>prov-product</id>
-            <properties>
-                <env>product</env>
-            </properties>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>deploy/product</directory>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-    </profiles>
 
 </project>
