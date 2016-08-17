@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
-public class AuthenticationRequestWrapper extends HttpServletRequestWrapper {
+public class  AuthenticationRequestWrapper extends HttpServletRequestWrapper {
 
     private byte[] requestBody = new byte[0];
     private boolean bufferFilled = false;
