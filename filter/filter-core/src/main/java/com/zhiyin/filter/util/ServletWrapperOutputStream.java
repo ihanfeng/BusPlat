@@ -2,7 +2,7 @@
  * Created by yurtozc on 3/24/15 1:09 PM.
  */
 
-package com.zhiyin.filter.r2.wrapper;
+package com.zhiyin.filter.util;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;
@@ -26,6 +26,7 @@ public class ServletWrapperOutputStream extends ServletOutputStream {
     public void setWriteListener(WriteListener listener) {
 
     }
+
     public void write(int b) throws IOException {
         baos.write(b);
     }
@@ -41,6 +42,7 @@ public class ServletWrapperOutputStream extends ServletOutputStream {
     public void flush() throws IOException {
         baos.flush();
     }
+
     public void close() throws IOException {
         baos.close();
     }

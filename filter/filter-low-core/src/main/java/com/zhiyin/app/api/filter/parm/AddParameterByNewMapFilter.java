@@ -21,47 +21,6 @@ public class AddParameterByNewMapFilter implements Filter {
     public AddParameterByNewMapFilter() {
     }
 
-
-    public void doFilter(ServletRequest request, ServletResponse response,
-                         FilterChain chain) throws IOException, ServletException {
-
-        AddParameterByNewMapRequestWrapper requestWrapper = new AddParameterByNewMapRequestWrapper(
-                (HttpServletRequest) request);
-
-        String method = ((HttpServletRequest) request).getMethod();
-
-        if (method.toLowerCase().equals("post")) {
-            request.setCharacterEncoding("UTF-8");
-            int size = request.getContentLength();
-
-            InputStream is = request.getInputStream();
-            byte[] reqBodyBytes = readBytes(is, size);
-
-            String requestBodyStr = new String(reqBodyBytes);
-            log.debug("before add param, req content len:{}, req body str:{}, request body str:{}", size, reqBodyBytes.length, requestBodyStr);
-
-            String trimData = requestBodyStr.trim();
-
-            if (requestBodyStr != null && requestBodyStr.length() > 0) {
-
-                C2sBasicInfo tmp = JSON.parseObject( trimData , C2sBasicInfo.class );
-                if (tmp != null && tmp.getAccess_token() != null && tmp.getAccess_token().length() > 0) {
-                    requestWrapper.addParameter("access_token", tmp.getAccess_token());
-                    log.debug("add request paramter, {}", tmp.getAccess_token());
-                }
-            }
-        }
-
-        // 使用方法
-        requestWrapper.addParameter("fuch", "you");
-        for (Map.Entry<String, String[]> entry : requestWrapper
-                .getParameterMap().entrySet()) {
-            log.debug("request parameter, key={}, value={}", entry.getKey(), entry.getValue()[0]);
-        }
-
-        chain.doFilter(requestWrapper, response);
-    }
-
     public static final byte[] readBytes(InputStream is, int contentLen) {
         if (contentLen > 0) {
             int readLen = 0;
@@ -90,6 +49,45 @@ public class AddParameterByNewMapFilter implements Filter {
         return new byte[]{};
     }
 
+    public void doFilter(ServletRequest request, ServletResponse response,
+                         FilterChain chain) throws IOException, ServletException {
+
+        AddParameterByNewMapRequestWrapper requestWrapper = new AddParameterByNewMapRequestWrapper(
+                (HttpServletRequest) request);
+
+        String method = ((HttpServletRequest) request).getMethod();
+
+        if (method.toLowerCase().equals("post")) {
+            request.setCharacterEncoding("UTF-8");
+            int size = request.getContentLength();
+
+            InputStream is = request.getInputStream();
+            byte[] reqBodyBytes = readBytes(is, size);
+
+            String requestBodyStr = new String(reqBodyBytes);
+            log.debug("before add param, req content len:{}, req body str:{}, request body str:{}", size, reqBodyBytes.length, requestBodyStr);
+
+            String trimData = requestBodyStr.trim();
+
+            if (requestBodyStr != null && requestBodyStr.length() > 0) {
+
+                C2sBasicInfo tmp = JSON.parseObject(trimData, C2sBasicInfo.class);
+                if (tmp != null && tmp.getAccess_token() != null && tmp.getAccess_token().length() > 0) {
+                    requestWrapper.addParameter("access_token", tmp.getAccess_token());
+                    log.debug("add request paramter, {}", tmp.getAccess_token());
+                }
+            }
+        }
+
+        // 使用方法
+        requestWrapper.addParameter("fuch", "you");
+        for (Map.Entry<String, String[]> entry : requestWrapper
+                .getParameterMap().entrySet()) {
+            log.debug("request parameter, key={}, value={}", entry.getKey(), entry.getValue()[0]);
+        }
+
+        chain.doFilter(requestWrapper, response);
+    }
 
     public void destroy() {
     }

@@ -1,13 +1,13 @@
 package com.zhiyin.fms.config;
 
-import com.zhiyin.filter.parm.AddParameterByNewMapFilter;
-import com.zhiyin.filter.r2.LoggerFilter;
+import com.zhiyin.filter.encry.DecryptRequestFilter;
+import com.zhiyin.filter.module.log.LoggerFilter;
+import com.zhiyin.filter.module.stream.RepeatReadFilter;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
-import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.servlet.Filter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,31 +15,68 @@ import java.util.List;
  * Created by hg on 2016/6/23.
  */
 @Configuration
-public class FilterConfig    {
+public class FilterConfig {
+
+//    @Bean
+//    public FilterRegistrationBean addParm(){
+//        AddParameterByNewMapFilter demoFilter=new AddParameterByNewMapFilter();
+//        FilterRegistrationBean registrationBean=new FilterRegistrationBean();
+//        registrationBean.setFilter(demoFilter);
+//        List<String> urlPatterns=new ArrayList<String>();
+//        urlPatterns.add("/*");//拦截路径，可以添加多个
+//        registrationBean.setUrlPatterns(urlPatterns);
+//        registrationBean.setOrder(10001);
+//        return registrationBean;
+//    }
 
     @Bean
-    public FilterRegistrationBean addParm(){
-        AddParameterByNewMapFilter demoFilter=new AddParameterByNewMapFilter();
-        FilterRegistrationBean registrationBean=new FilterRegistrationBean();
+    public FilterRegistrationBean getRepeateFilter() {
+        Filter demoFilter = new RepeatReadFilter();
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(demoFilter);
-        List<String> urlPatterns=new ArrayList<String>();
+        List<String> urlPatterns = new ArrayList<String>();
         urlPatterns.add("/*");//拦截路径，可以添加多个
         registrationBean.setUrlPatterns(urlPatterns);
-        registrationBean.setOrder(10001);
+        registrationBean.setOrder(121);
+        return registrationBean;
+    }
+    @Bean
+    public FilterRegistrationBean deCr() {
+        Filter demoFilter = new DecryptRequestFilter();
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        registrationBean.setFilter(demoFilter);
+        List<String> urlPatterns = new ArrayList<String>();
+        urlPatterns.add("/*");//拦截路径，可以添加多个
+        registrationBean.setUrlPatterns(urlPatterns);
+        registrationBean.setOrder(122);
         return registrationBean;
     }
 
+
     @Bean
-    public FilterRegistrationBean getDemoFilter(){
-        LoggerFilter demoFilter=new LoggerFilter();
-        FilterRegistrationBean registrationBean=new FilterRegistrationBean();
+    public FilterRegistrationBean log() {
+        LoggerFilter demoFilter = new LoggerFilter();
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(demoFilter);
-        List<String> urlPatterns=new ArrayList<String>();
+        List<String> urlPatterns = new ArrayList<String>();
         urlPatterns.add("/*");//拦截路径，可以添加多个
         registrationBean.setUrlPatterns(urlPatterns);
         registrationBean.setOrder(1000);
         return registrationBean;
     }
+
+//    @Bean
+//    public FilterRegistrationBean unityFilter(){
+//        Filter demoFilter=new UnityAccessFilter();
+//        FilterRegistrationBean registrationBean=new FilterRegistrationBean();
+//        registrationBean.setFilter(demoFilter);
+//        List<String> urlPatterns=new ArrayList<String>();
+//        urlPatterns.add("/*");//拦截路径，可以添加多个
+//        registrationBean.setUrlPatterns(urlPatterns);
+//        registrationBean.setOrder(100);
+//        return registrationBean;
+//    }
+
 //    @Bean
 //    public ServletRegistrationBean getDemoServlet(){
 //        LoggerFilter demoServlet=new LoggerFilter();

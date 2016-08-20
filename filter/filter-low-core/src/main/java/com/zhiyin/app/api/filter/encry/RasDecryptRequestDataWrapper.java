@@ -24,8 +24,8 @@ import java.util.Set;
  */
 public class RasDecryptRequestDataWrapper extends HttpServletRequestWrapper {
 
-     private static final Logger log =
-     LoggerFactory.getLogger("appapi.access");
+    private static final Logger log =
+            LoggerFactory.getLogger("appapi.access");
 
     private final String requestData;
 
@@ -99,13 +99,13 @@ public class RasDecryptRequestDataWrapper extends HttpServletRequestWrapper {
 
         // 验签通过
         if (passSign) {
-            if(Strings.isNullOrEmpty(req.data)){
+            if (Strings.isNullOrEmpty(req.data)) {
                 return "";
             }
 
             String deData = RSA.decrypt(req.data, SecurityKeyConfig.serverPrivateKey);
 
-            log.info("decry data:{}",deData);
+            log.info("decry data:{}", deData);
             return deData;
         } else {
             log.error("not pass data sign.");

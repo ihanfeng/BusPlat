@@ -1,8 +1,13 @@
 package com.zhiyin.filter.encry;
 
-//(C) 1998-2015 Information Desire Software GmbH
-//www.infodesire.com
-
+import com.wustrive.aesrsa.util.AES;
+import com.zhiyin.filter.config.FilterInfoConfig;
+import com.zhiyin.filter.config.SecurityKeyConfig;
+import com.zhiyin.filter.module.log.LoggerServletResponseWrapper;
+import com.zhiyin.filter.util.HttpHelper;
+import com.zhiyin.filter.util.ServletWrapperOutputStream;
+import com.zhiyin.filter.util.Util;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -15,23 +20,14 @@ import java.util.UUID;
 
 /**
  * 解密过滤器
- *
- * @author eugen
  */
+@Slf4j
 public class DecryptRequestFilter implements Filter {
 
-    private static final Logger log = LoggerFactory
-            .getLogger(DecryptRequestFilter.class);
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 
-    private static final Logger accessLogger = LoggerFactory
-            .getLogger("appapi.access");
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
-     * javax.servlet.ServletResponse, javax.servlet.FilterChain)
-     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
@@ -41,13 +37,13 @@ public class DecryptRequestFilter implements Filter {
         String uri = ((HttpServletRequest) request).getRequestURI();
 
         // 对于解密数据错误，会重定向错误处理URL，跳过解密。
-        if( uri.startsWith("/appapi/error/")){
+        if (uri.startsWith("/appapi/error/")) {
             NoneDecryptRequestDataWrapper myRequestWrapper = null;
             try {
                 myRequestWrapper = new NoneDecryptRequestDataWrapper(
                         (HttpServletRequest) request);
             } catch (Exception e) {
-                log.error("should not happen, e:",e);
+                log.error("should not happen, e:", e);
             }
             chain.doFilter(myRequestWrapper, response);
             return;
@@ -56,7 +52,7 @@ public class DecryptRequestFilter implements Filter {
 
         if (request instanceof HttpServletRequest) {
             // 判断客户端是否加密
-            String entry = ((HttpServletRequest) request).getHeader("entry");
+            String entry = ((HttpServletRequest) request).getHeader(FilterInfoConfig.EncryptTypeHeaderName );
             try {
                 if ("rsa".equals(entry)) {
                     log.info("entry ras");
@@ -64,42 +60,49 @@ public class DecryptRequestFilter implements Filter {
                             (HttpServletRequest) request);
                     chain.doFilter(myRequestWrapper, response);
                 } else if ("aes".equals(entry)) {
-                    log.info("entry aes");
-                    AesDecryptRequestDataWrapper myRequestWrapper = new AesDecryptRequestDataWrapper(
+                    log.info("entry by aes");
+                    AesDecryptRequestDataWrapper requestWrapper = new AesDecryptRequestDataWrapper(
                             (HttpServletRequest) request);
-                    chain.doFilter(myRequestWrapper, response);
+
+                    ServletWrapperOutputStream servletOutputStream = new ServletWrapperOutputStream();
+                    EncryptServletResponseWrapper wrapper =
+                            new EncryptServletResponseWrapper(
+                                    Util.convertWithCastCheck(HttpServletResponse.class, response),
+                                    servletOutputStream);
+
+
+                    chain.doFilter(requestWrapper, wrapper);
+
+                    String responseBody = HttpHelper.extractResponseBody(servletOutputStream);
+
+                    String encryptBody = AES.encryptToBase64(responseBody, SecurityKeyConfig.AesKey);
+
+                    response.getWriter().print(encryptBody);
+
                 } else {
                     log.info("entry none");
-                    NoneDecryptRequestDataWrapper myRequestWrapper = new NoneDecryptRequestDataWrapper(
-                            (HttpServletRequest) request);
-                    chain.doFilter(myRequestWrapper, response);
+//                    NoneDecryptRequestDataWrapper myRequestWrapper = new NoneDecryptRequestDataWrapper(
+//                            (HttpServletRequest) request);
+                    chain.doFilter(request, response);
                 }
 
             } catch (Exception e) {
                 String redir = "/appapi/error/encrypt400";
-                log.error("decry data error, redirect to:{}, e:",redir,e);
-                ((HttpServletResponse)response).sendRedirect( redir);
+                log.error("decry data error, redirect to:{}, e:", redir, e);
+                ((HttpServletResponse) response).sendRedirect(redir);
                 return;
             }
 
-        } else {
-
-            // non http request, can not create wrapper
-
+        }else{
+            chain.doFilter(request,response);
         }
 
-    }
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        // TODO Auto-generated method stub
 
     }
+
 
     @Override
     public void destroy() {
-        // TODO Auto-generated method stub
-
     }
 
 

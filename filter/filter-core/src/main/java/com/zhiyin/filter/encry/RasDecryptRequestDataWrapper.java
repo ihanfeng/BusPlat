@@ -4,12 +4,13 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Strings;
 import com.wustrive.aesrsa.util.RSA;
-import com.zhiyin.app.api.encry.module.C2sRequest;
-import com.zhiyin.app.api.system.config.SecurityKeyConfig;
-import com.zhiyin.app.logger.LoggerUtil;
+import com.zhiyin.filter.config.SecurityKeyConfig;
+import com.zhiyin.filter.vo.C2sRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -22,10 +23,11 @@ import java.util.Set;
  *
  * @author eugen
  */
+@Slf4j
 public class RasDecryptRequestDataWrapper extends HttpServletRequestWrapper {
 
-     private static final Logger log =
-     LoggerFactory.getLogger("appapi.access");
+    private static final Logger log =
+            LoggerFactory.getLogger("appapi.access");
 
     private final String requestData;
 
@@ -84,7 +86,7 @@ public class RasDecryptRequestDataWrapper extends HttpServletRequestWrapper {
 
         Set<Entry<String, String[]>> paramMap = request
                 .getParameterMap().entrySet();
-        LoggerUtil.logRequestAccess("accessinfo:" + clientIP + ";" + method
+        log.info("accessinfo:" + clientIP + ";" + method
                 + ";" + uri + ";" + data.trim() + ";" + JSON.toJSONString(paramMap));
 
         // requestDate = requestData+"fuck!!!";
@@ -99,13 +101,13 @@ public class RasDecryptRequestDataWrapper extends HttpServletRequestWrapper {
 
         // 验签通过
         if (passSign) {
-            if(Strings.isNullOrEmpty(req.data)){
+            if (Strings.isNullOrEmpty(req.data)) {
                 return "";
             }
 
             String deData = RSA.decrypt(req.data, SecurityKeyConfig.serverPrivateKey);
 
-            log.info("decry data:{}",deData);
+            log.info("decry data:{}", deData);
             return deData;
         } else {
             log.error("not pass data sign.");
@@ -120,6 +122,21 @@ public class RasDecryptRequestDataWrapper extends HttpServletRequestWrapper {
                 requestData.getBytes());
 
         ServletInputStream servletInputStream = new ServletInputStream() {
+
+            @Override
+            public boolean isFinished() {
+                return false;
+            }
+
+            @Override
+            public boolean isReady() {
+                return false;
+            }
+
+            @Override
+            public void setReadListener(ReadListener readListener) {
+
+            }
 
             public int read() throws IOException {
                 return byteArrayInputStream.read();

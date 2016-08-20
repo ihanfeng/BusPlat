@@ -35,7 +35,6 @@ public class Util {
      * @param in The input stream which will be read.
      * @return The String that created with input stream.
      * @throws java.io.IOException
-     *
      */
     public static String readInputStream(final InputStream in) throws IOException {
 

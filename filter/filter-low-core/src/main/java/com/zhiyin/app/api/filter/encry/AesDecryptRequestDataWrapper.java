@@ -95,7 +95,7 @@ public class AesDecryptRequestDataWrapper extends HttpServletRequestWrapper {
 
         if (passSign) {
 
-            if(Strings.isNullOrEmpty(req.data)){
+            if (Strings.isNullOrEmpty(req.data)) {
                 return "";
             }
 

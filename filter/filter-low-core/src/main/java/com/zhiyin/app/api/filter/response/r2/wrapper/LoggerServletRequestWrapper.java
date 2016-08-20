@@ -37,9 +37,11 @@ public class LoggerServletRequestWrapper extends HttpServletRequestWrapper {
             LOGGER.warn(ex, ex);
         }
     }
+
     /**
      * Converts the body String bytes to a utf-8 byte array stream and returns
      * it in a wrapper which has a type of ConcreteServletInputstream
+     *
      * @return ServletInputStream data of this request
      */
     @Override
@@ -56,6 +58,7 @@ public class LoggerServletRequestWrapper extends HttpServletRequestWrapper {
 
     /**
      * Returns the request body of the servlet request as a String.
+     *
      * @return String request body
      */
     public String getBody() {
@@ -71,9 +74,8 @@ public class LoggerServletRequestWrapper extends HttpServletRequestWrapper {
         /**
          * Creates the ConcreteServletInputstream which is a wrapper to a byte array stream.
          *
-         *  @param byteArrayInputStream
-         *  @see javax.servlet.ServletInputStream
-         *
+         * @param byteArrayInputStream
+         * @see javax.servlet.ServletInputStream
          */
         public ConcreteServletInputstream(final ByteArrayInputStream byteArrayInputStream) {
             this.byteArrayInputStream = byteArrayInputStream;

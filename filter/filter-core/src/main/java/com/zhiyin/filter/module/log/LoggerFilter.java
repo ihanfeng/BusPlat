@@ -1,9 +1,8 @@
-package com.zhiyin.filter.r2;
+package com.zhiyin.filter.module.log;
 
-import com.zhiyin.filter.HttpHelper;
-import com.zhiyin.filter.r2.wrapper.LoggerServletRequestWrapper;
-import com.zhiyin.filter.r2.wrapper.LoggerServletResponseWrapper;
-import com.zhiyin.filter.r2.wrapper.ServletWrapperOutputStream;
+import com.zhiyin.filter.util.HttpHelper;
+import com.zhiyin.filter.util.ServletWrapperOutputStream;
+import com.zhiyin.filter.util.Util;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.*;
@@ -21,7 +20,7 @@ public class LoggerFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        log.info("log filter ini.");
+        log.info("{} filter ini.", this.getClass().getName());
     }
 
     @Override
@@ -29,17 +28,11 @@ public class LoggerFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 
-//                if ("POST".equalsIgnoreCase(httpServletRequest.getMethod())) {
         // 防止流读取一次后就没有了, 所以需要将流继续写出去
         LoggerServletRequestWrapper requestWrapper =
                 new LoggerServletRequestWrapper(Util.convertWithCastCheck(HttpServletRequest.class, request));
 
-        log.info(createRequestInfoString(requestWrapper));
-
-
-        String body = HttpHelper.getBodyString(requestWrapper);
-
-        log.info("req body:{}",body);
+        log.info(createRequestInfoString(httpServletRequest));
 
         ServletWrapperOutputStream servletOutputStream = new ServletWrapperOutputStream();
         LoggerServletResponseWrapper wrapper =
@@ -54,7 +47,6 @@ public class LoggerFilter implements Filter {
         response.getWriter().print(responseBody);
 
         log.info(createResponseInfoString(responseBody));
-
 
     }
 
@@ -84,7 +76,8 @@ public class LoggerFilter implements Filter {
     private String extractResponseBody(final ServletWrapperOutputStream servletWrapperOutputStream) {
         return new String(servletWrapperOutputStream.toByteArray(), Charset.forName(Util.ENC_UTF8));
     }
-    public String createRequestInfoString(final LoggerServletRequestWrapper request) {
+
+    public String createRequestInfoString(final HttpServletRequest request) {
         StringBuilder sb = new StringBuilder();
         Enumeration<String> headerNames = request.getHeaderNames();
 
@@ -102,11 +95,13 @@ public class LoggerFilter implements Filter {
             while (headers.hasMoreElements()) {
                 String v = headers.nextElement();
                 sb.append("\n").append(headerName).append(": ").append(v);
-
             }
         }
 
-        sb.append("\nbody: ").append(request.getBody());
+        if( HttpHelper.isPost(request) ){
+            String body = HttpHelper.getBodyString(request);
+            sb.append("\nbody: ").append(body);
+        }
         sb.append(LOG_BORDER);
 
         return sb.toString();

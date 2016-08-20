@@ -12,12 +12,13 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
+    public static void main(String[] args) throws Exception {
+        System.out.println();
+        SpringApplication.run(Application.class, args);
+    }
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Application.class);
-    }
-
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class, args);
     }
 }

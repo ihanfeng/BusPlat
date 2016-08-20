@@ -12,9 +12,11 @@ import java.io.IOException;
 public class LoggerServletResponseWrapper extends HttpServletResponseWrapper {
 
     private final ServletWrapperOutputStream servletWrapperOutputStream;
+
     /**
      * Constructs a wrapper object wrapping the given response and servlet output stream in the constructor.
      * If the response data directly used
+     *
      * @param response
      * @param servletWrapperOutputStream
      * @see javax.servlet.http.HttpServletResponseWrapper

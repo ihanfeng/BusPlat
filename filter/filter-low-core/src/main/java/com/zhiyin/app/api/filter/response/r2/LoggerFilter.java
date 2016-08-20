@@ -20,13 +20,13 @@ import java.util.Enumeration;
 import java.util.Locale;
 
 /**
- *  This filter provides request and response logging.
- *  The request path, query string, request method, all request headers, request body and the response body are logged.
- *  To prevent request and response streams to be exhausted, request and response wrappers are created and
- *  copied data of them are logged instead of the actual data.
- *  To activate the logging, a sample filter declaration in web.xml which logs requests to all paths is
- *  as follows:
- *  <pre>
+ * This filter provides request and response logging.
+ * The request path, query string, request method, all request headers, request body and the response body are logged.
+ * To prevent request and response streams to be exhausted, request and response wrappers are created and
+ * copied data of them are logged instead of the actual data.
+ * To activate the logging, a sample filter declaration in web.xml which logs requests to all paths is
+ * as follows:
+ * <pre>
  * {@code
  *  <filter>
  *      <filter-name>LoggerInterceptor</filter-name>
@@ -91,9 +91,9 @@ public class LoggerFilter implements Filter {
      * Main behaviour of the filter; reads the servlet request, prints request info and body,
      * delegates the request to the filter chain, and prints the response body.
      *
-     * @param request A request that was delegated to this filter.
+     * @param request  A request that was delegated to this filter.
      * @param response A response that was delegated to this filter.
-     * @param chain Servlet filter chain which delegates request to the next filter.
+     * @param chain    Servlet filter chain which delegates request to the next filter.
      * @see javax.servlet.FilterChain
      * @see javax.servlet.ServletRequest
      * @see javax.servlet.ServletResponse
@@ -116,7 +116,7 @@ public class LoggerFilter implements Filter {
         String responseBody = extractResponseBody(servletOutputStream);
         response.getWriter().print(responseBody);
 
-        LoggerUtil.logRequestAccess("response body:"+responseBody);
+        LoggerUtil.logRequestAccess("response body:" + responseBody);
 //        System.out.println(createResponseInfoString(responseBody));
 //        LOGGER.trace(createResponseInfoString(responseBody));
     }
@@ -125,8 +125,7 @@ public class LoggerFilter implements Filter {
      * Returns the response body string between * border.
      *
      * @param response The response whose body will be used to create the response body String.
-     * @return  String response body between * borders.
-     *
+     * @return String response body between * borders.
      */
     private String createResponseInfoString(final String response) {
         StringBuilder sb = new StringBuilder();

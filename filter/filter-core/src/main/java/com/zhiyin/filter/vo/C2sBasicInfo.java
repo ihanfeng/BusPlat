@@ -1,4 +1,4 @@
-package com.zhiyin.filter.parm;
+package com.zhiyin.filter.vo;
 
 
 import lombok.Getter;

@@ -41,13 +41,13 @@ public class DecryptRequestFilter implements Filter {
         String uri = ((HttpServletRequest) request).getRequestURI();
 
         // 对于解密数据错误，会重定向错误处理URL，跳过解密。
-        if( uri.startsWith("/appapi/error/")){
+        if (uri.startsWith("/appapi/error/")) {
             NoneDecryptRequestDataWrapper myRequestWrapper = null;
             try {
                 myRequestWrapper = new NoneDecryptRequestDataWrapper(
                         (HttpServletRequest) request);
             } catch (Exception e) {
-                log.error("should not happen, e:",e);
+                log.error("should not happen, e:", e);
             }
             chain.doFilter(myRequestWrapper, response);
             return;
@@ -77,8 +77,8 @@ public class DecryptRequestFilter implements Filter {
 
             } catch (Exception e) {
                 String redir = "/appapi/error/encrypt400";
-                log.error("decry data error, redirect to:{}, e:",redir,e);
-                ((HttpServletResponse)response).sendRedirect( redir);
+                log.error("decry data error, redirect to:{}, e:", redir, e);
+                ((HttpServletResponse) response).sendRedirect(redir);
                 return;
             }
 

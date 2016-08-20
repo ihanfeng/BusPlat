@@ -1,6 +1,7 @@
-package com.zhiyin.filter;
+package com.zhiyin.filter.util;
 
 import com.google.common.primitives.Bytes;
+
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
-public class  AuthenticationRequestWrapper extends HttpServletRequestWrapper {
+public class AuthenticationRequestWrapper extends HttpServletRequestWrapper {
 
     private byte[] requestBody = new byte[0];
     private boolean bufferFilled = false;

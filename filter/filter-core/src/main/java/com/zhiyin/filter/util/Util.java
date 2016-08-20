@@ -2,7 +2,7 @@
  * Created by yurtozc on 3/24/15 1:12 PM.
  */
 
-package com.zhiyin.filter.r2;
+package com.zhiyin.filter.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,7 +35,6 @@ public class Util {
      * @param in The input stream which will be read.
      * @return The String that created with input stream.
      * @throws IOException
-     *
      */
     public static String readInputStream(final InputStream in) throws IOException {
 
