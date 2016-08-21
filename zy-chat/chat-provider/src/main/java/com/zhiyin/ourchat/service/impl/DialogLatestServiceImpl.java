@@ -35,14 +35,10 @@ public class DialogLatestServiceImpl extends BaseService<DialogLatest> implement
 
     /**
      * 按照时间降序排列
-     * @param userId
-     * @param pageNum
-     * @param pageSize
-     * @return
      */
     @Override
-    public PageInfo<DialogLatest> selectByUid(Long userId, Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
+    public PageInfo<DialogLatest> selectByUid(Long userId, PageInfo pageInfo) {
+        PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(),"send_time desc");
         List<DialogLatest> list = dialogLatestMapper.selectByUid(userId);
         PageInfo<DialogLatest> page = new PageInfo(list);
         return page;

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(value = SearcherClientApiInfo.WebProj)
-public interface ContentRestApiService {
+public interface SearchContentRestApiService {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/"+SearcherClientApiInfo.WebProj+"/hello/{name}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String hello(@PathVariable("name") String name);

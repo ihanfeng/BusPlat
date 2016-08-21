@@ -27,10 +27,10 @@ public class RemoteDialogInfoServiceImplTest {
     @Test
     public void selectByUid() throws Exception {
 
-        PageInfo<DialogLatest> list = dialogLatestService.selectByUid(1L, 1, 2);
-        for(DialogLatest tmp : list.getList()){
-            log.info(JSON.toJSONString(tmp));
-        }
+//        PageInfo<DialogLatest> list = dialogLatestService.selectByUid(1L, 1, 2);
+//        for(DialogLatest tmp : list.getList()){
+//            log.info(JSON.toJSONString(tmp));
+//        }
 
     }
 

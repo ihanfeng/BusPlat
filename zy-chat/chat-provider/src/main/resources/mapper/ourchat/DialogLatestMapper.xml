@@ -33,7 +33,6 @@
     from zy_ourchat_dialog_latest
     where user_id = #{userId,jdbcType=BIGINT}
     AND del_status = 0
-    order by send_time DESC
   </select>
 
   <select id="selectLatest" resultMap="BaseResultMap" parameterType="java.util.Map" >

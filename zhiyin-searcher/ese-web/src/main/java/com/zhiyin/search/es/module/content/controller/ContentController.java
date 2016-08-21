@@ -21,7 +21,6 @@ import com.zhiyin.search.es.web.WebResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -69,12 +68,24 @@ public class ContentController extends BaseController {
 		req.setS(size);
 		req.setQuery(query);
 
-		return getProcess(req);
+		S2cContentSearchResult result = getProcess(req);
+		return new WebResponse<S2cContentSearchResult>(HttpStatus.OK.value(),"",result);
 	}
 
 	@ApiOperation( value = "内容搜索", notes = "POST请求内容搜索", response = S2cContentSearchResult.class )
 	@RequestMapping(value = "/search", method = RequestMethod.POST ,  produces = MediaType.APPLICATION_JSON_UTF8_VALUE )
 	public WebResponse<S2cContentSearchResult> search(@RequestBody C2sSearchParm searchParm) {
+		log.info("search content: {}", JSON.toJSONString(searchParm));
+
+		S2cContentSearchResult result = getProcess(searchParm);
+
+		return new WebResponse<S2cContentSearchResult>(HttpStatus.OK.value(),"",result);
+
+	}
+
+	@ApiOperation( value = "内容搜索", notes = "POST请求内容搜索", response = S2cContentSearchResult.class )
+	@RequestMapping(value = "/api/search", method = RequestMethod.POST ,  produces = MediaType.APPLICATION_JSON_UTF8_VALUE )
+	public S2cContentSearchResult apiSearch(@RequestBody C2sSearchParm searchParm) {
 		log.info("search content: {}", JSON.toJSONString(searchParm));
 		return getProcess(searchParm);
 	}
@@ -115,7 +126,7 @@ public class ContentController extends BaseController {
 	}
     */
 
-	public WebResponse<S2cContentSearchResult> getProcess(C2sSearchParm searchParm){
+	public S2cContentSearchResult getProcess(C2sSearchParm searchParm){
 		//对于客户端来说，默认的页数是第一页;对于es，默认页数是0
 		int page = searchParm.getP() - 1;
 		if(page<0){
@@ -153,7 +164,7 @@ public class ContentController extends BaseController {
 		result.setContents(contentConvList);
 		log.info("search result size:{}",contentConvList.size());
 
-		return new WebResponse<S2cContentSearchResult>(HttpStatus.OK.value(),"",result);
+		return result;
 	}
 
 	/**

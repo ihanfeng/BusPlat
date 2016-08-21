@@ -10,6 +10,8 @@ import com.zhiyin.sms.sender.kalos.KarlosSMS;
 public class SmsSender {
 
     public static boolean send(String tel,String msg){
+        msg += "【语程】";
+        log.info("send msg to {}, content is {}",tel,msg);
         KarlosSMS.sendSMS(tel, msg);
         // TODO add sms send succ check.
         return true;

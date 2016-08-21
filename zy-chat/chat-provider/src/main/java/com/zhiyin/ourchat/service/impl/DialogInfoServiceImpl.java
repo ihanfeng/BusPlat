@@ -73,9 +73,6 @@ public class DialogInfoServiceImpl extends BaseService<DialogInfo> implements ID
         return 1;
     }
 
-
-
-
     @Override
     public BaseMapper<DialogInfo> getBaseMapper() {
         return dialogInfoMapper;

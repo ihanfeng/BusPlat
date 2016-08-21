@@ -13,7 +13,8 @@ public interface IDialogLatestService extends IBaseService<DialogLatest> {
 
     List<DialogLatest> selectByUid(Long userId);
 
-    PageInfo<DialogLatest> selectByUid(Long userId, Integer pageNum, Integer pageSize);
+
+    PageInfo<DialogLatest> selectByUid(Long userId, PageInfo pageInfo);
 
     List<DialogLatest> selectLatest(Long userId, Long partnerId);
 
