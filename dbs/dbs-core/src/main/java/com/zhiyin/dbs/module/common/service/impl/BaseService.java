@@ -26,7 +26,9 @@ public abstract class BaseService<V extends BaseEntity> {
     }
 
     public int insertSelective(V bo) {
-		bo.setId( IdGenFactory.genTableId() );
+        this.getBaseMapper().setCharsetToUtf8mb4();
+
+        bo.setId( IdGenFactory.genTableId() );
 		bo.setCreateTime(DateTime.now().toDate());
 		bo.setUpdateTime(DateTime.now().toDate());
 		bo.setDelStatus(0);
@@ -36,6 +38,7 @@ public abstract class BaseService<V extends BaseEntity> {
 	}
 
     public Long insertSelectiveGet(V bo) {
+        this.getBaseMapper().setCharsetToUtf8mb4();
         bo.setId( IdGenFactory.genTableId() );
         bo.setCreateTime(DateTime.now().toDate());
         bo.setUpdateTime(DateTime.now().toDate());
@@ -66,7 +69,8 @@ public abstract class BaseService<V extends BaseEntity> {
     }
 
 	public int updateByPrimaryKeySelective(V bo) {
-		return getBaseMapper().updateByPrimaryKeySelective(bo);
+        this.getBaseMapper().setCharsetToUtf8mb4();
+        return getBaseMapper().updateByPrimaryKeySelective(bo);
 	}
 
 
