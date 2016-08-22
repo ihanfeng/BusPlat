@@ -3,6 +3,7 @@ package com.zhiyin.fms.config;
 import com.zhiyin.filter.encry.DecryptRequestFilter;
 import com.zhiyin.filter.module.log.LoggerFilter;
 import com.zhiyin.filter.module.stream.RepeatReadFilter;
+import com.zhiyin.filter.unity.UnityAccessFilter;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -65,17 +66,18 @@ public class FilterConfig {
         return registrationBean;
     }
 
-//    @Bean
-//    public FilterRegistrationBean unityFilter(){
-//        Filter demoFilter=new UnityAccessFilter();
-//        FilterRegistrationBean registrationBean=new FilterRegistrationBean();
-//        registrationBean.setFilter(demoFilter);
-//        List<String> urlPatterns=new ArrayList<String>();
-//        urlPatterns.add("/*");//拦截路径，可以添加多个
-//        registrationBean.setUrlPatterns(urlPatterns);
-//        registrationBean.setOrder(100);
-//        return registrationBean;
-//    }
+    // 统一配置filter
+    @Bean
+    public FilterRegistrationBean unityFilter(){
+        Filter demoFilter=new UnityAccessFilter();
+        FilterRegistrationBean registrationBean=new FilterRegistrationBean();
+        registrationBean.setFilter(demoFilter);
+        List<String> urlPatterns=new ArrayList<String>();
+        urlPatterns.add("/*");//拦截路径，可以添加多个
+        registrationBean.setUrlPatterns(urlPatterns);
+        registrationBean.setOrder(100);
+        return registrationBean;
+    }
 
 //    @Bean
 //    public ServletRegistrationBean getDemoServlet(){

@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Slf4j
-@Service
+//@Service
 public class EseWebApiService {
 
     @Autowired

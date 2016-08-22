@@ -10,7 +10,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-//@EnableEurekaClient
+@EnableEurekaClient
 @EnableAutoConfiguration
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {

@@ -22,17 +22,16 @@ public class GodFilterChain implements FilterChain {
             iterator = filters.iterator();
         }
 
-        while (iterator.hasNext()) {
-            iterator.next().doFilter(request, response, this);
-        }
-
-        chain.doFilter(request, response);
-
-//        if (iterator.hasNext()) {
+//        while (iterator.hasNext()) {
 //            iterator.next().doFilter(request, response, this);
-//        } else {
-//            chain.doFilter(request, response);
 //        }
+//        chain.doFilter(request, response);
+
+        if (iterator.hasNext()) {
+            iterator.next().doFilter(request, response, this);
+        } else {
+            chain.doFilter(request, response);
+        }
     }
 
     public void addFilter(Filter filter) {

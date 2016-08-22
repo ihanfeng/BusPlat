@@ -126,13 +126,31 @@
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>loc</id>
             <properties>
-                <env>dev</env>
+                <env>loc</env>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>deploy/loc</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+                <env>dev</env>
+            </properties>
+
             <build>
                 <resources>
                     <resource>

@@ -3,13 +3,10 @@ spring:
   application:
     name: ese-demo
     version: 0.0.1
-  profiles:
-#    active: product
-    active: test
 
 server:
 #  contextPath: /${spring.application.name}
-  port: 8080
+  port: 8180
 
 
 eureka:

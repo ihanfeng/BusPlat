@@ -9,6 +9,7 @@ import com.zhiyin.ourchat.entity.DialogLatest;
 import com.zhiyin.ourchat.entity.DialogRecord;
 import com.zhiyin.ourchat.service.IDialogInfoService;
 import com.zhiyin.ourchat.service.IDialogLatestService;
+import com.zhiyin.ourchat.service.IDialogStatusService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -37,6 +38,9 @@ public class DialogInfoServiceImplTest {
 
     @Resource
     IDialogLatestService dialogLatestService;
+
+    @Resource
+    IDialogStatusService dialogStatusService;
 
 
     @Test
@@ -85,6 +89,8 @@ public class DialogInfoServiceImplTest {
         Assert.assertTrue(records.size() == 2);
 
 //        dialogRecordService.selectByPartner()
+
+        dialogStatusService.updateReaded(1L,3L);
 
 
     }

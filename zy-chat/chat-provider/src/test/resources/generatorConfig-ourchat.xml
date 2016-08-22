@@ -22,7 +22,7 @@
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置 -->
-        <javaModelGenerator targetPackage="com.zhiyin.ourchat.entity" targetProject="msg-notify-provider/src/main/java">
+        <javaModelGenerator targetPackage="com.zhiyin.ourchat.entity" targetProject="chat-provider/src/main/java">
             <!-- 是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="true"/>
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -30,12 +30,12 @@
         </javaModelGenerator>
 
         <!-- 生成映射文件的包名和位置 -->
-        <sqlMapGenerator targetPackage="ourchat" targetProject="msg-notify-provider/src/main/resources/mapper">
+        <sqlMapGenerator targetPackage="ourchat" targetProject="chat-provider/src/main/resources/mapper">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- 生成DAO的包名和位置 -->
-        <javaClientGenerator targetPackage="com.zhiyin.ourchat.mapper" type="XMLMAPPER" targetProject="msg-notify-provider/src/main/java">
+        <javaClientGenerator targetPackage="com.zhiyin.ourchat.mapper" type="XMLMAPPER" targetProject="chat-provider/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
@@ -50,7 +50,11 @@
                <!--selectByExampleQueryId="false"/>-->
 
 
-        <table tableName="zy_ourchat_dialog_record" domainObjectName="DialogRecord" enableCountByExample="false"
+        <!--<table tableName="zy_ourchat_dialog_record" domainObjectName="DialogRecord" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false"/>-->
+
+        <table tableName="zy_ourchat_dialog_status" domainObjectName="DialogStatus" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 

@@ -1,5 +1,6 @@
 package com.zhiyin.frame.api;
 
+import com.zhiyin.ese.api.client.SearcherClientApiInfo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.system.ApplicationPidFileWriter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +12,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableCircuitBreaker
-@EnableHystrixDashboard
-@EnableFeignClients
+@EnableFeignClients(SearcherClientApiInfo.ScanPack)
 public class EseDemoApplication {
 
     public static void main(String[] args) {

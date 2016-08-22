@@ -19,6 +19,8 @@ public class DemoFilter1 implements NamedFilter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         log.info("demo filter 1.");
+        chain.doFilter(request,response);
+
     }
 
     @Override

@@ -26,7 +26,7 @@
   </select>
 
 
-  <select id="selectByPartner" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPartner" resultMap="BaseResultMap" parameterType="java.util.Map" >
     select
     <include refid="Base_Column_List" />
     from zy_ourchat_dialog_record

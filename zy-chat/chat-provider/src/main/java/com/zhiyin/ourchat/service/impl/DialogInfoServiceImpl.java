@@ -10,6 +10,7 @@ import com.zhiyin.ourchat.mapper.DialogInfoMapper;
 import com.zhiyin.ourchat.service.IDialogInfoService;
 import com.zhiyin.ourchat.service.IDialogLatestService;
 import com.zhiyin.ourchat.service.IDialogRecordService;
+import com.zhiyin.ourchat.service.IDialogStatusService;
 import lombok.extern.slf4j.Slf4j;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
@@ -37,6 +38,9 @@ public class DialogInfoServiceImpl extends BaseService<DialogInfo> implements ID
 
     @Resource
     IDialogRecordService dialogRecordService;
+
+    @Resource
+    IDialogStatusService dialogStatusService;
 
     @Override
     public Integer insertDialog(DialogInfo dialogInfo) {
@@ -69,6 +73,9 @@ public class DialogInfoServiceImpl extends BaseService<DialogInfo> implements ID
 
         dialogInfo.setId(IdGenFactory.genTableId());
         dialogInfoMapper.insertSelective(dialogInfo);
+
+        // A给B发消息，设置B的红点
+        dialogStatusService.updateReadNum(dialogInfo.getReceiver(),dialogInfo.getSender());
 
         return 1;
     }
