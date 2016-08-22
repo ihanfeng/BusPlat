@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.content.mapper.ContentSubjectListenMapper" >
+    <resultMap id="BaseResultMap" type="com.zhiyin.dbs.module.content.entity.ContentSubjectListen" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="subject_id" property="subjectId" jdbcType="VARCHAR" />
+        <result column="content_id" property="contentId" jdbcType="BIGINT" />
+        <result column="content_gid" property="contentGid" jdbcType="INTEGER" />
+        <result column="subject_type" property="subjectType" jdbcType="INTEGER" />
+        <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+        <result column="addr_longitude" property="addrLongitude" jdbcType="DOUBLE" />
+        <result column="addr_latitude" property="addrLatitude" jdbcType="DOUBLE" />
+        <result column="addr_coord" property="addrCoord" jdbcType="INTEGER" />
+        <result column="addr_id" property="addrId" jdbcType="BIGINT" />
+        <result column="role_id" property="roleId" jdbcType="BIGINT" />
+        <result column="relisten" property="relisten" jdbcType="INTEGER" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id, subject_id, content_id, content_gid, subject_type, add_time, update_time, del_status,
+    addr_longitude, addr_latitude, addr_coord, addr_id, role_id, relisten, user_id
+  </sql>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_content_subject_listen
+        where id = #{id,jdbcType=BIGINT}
+        AND del_status=0
+    </select>
+
+    <select id="selectContentBySubject" resultType="java.lang.Long" parameterType="java.util.Map" >
+        select
+        content_id
+        from zhiyin_content_subject_listen
+        where
+        subject_id = #{subjectId}
+        and
+        subject_type = #{subjectType}
+        AND del_status=0
+    </select>
+
+
+    <!-- 根据复合主键查询 -->
+    <select id="selectBySubjectContent" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_content_subject_listen
+        where
+        subject_id = #{subjectId}
+        and
+        subject_type = #{subjectType}
+        and
+        content_id=#{contentId}
+        AND del_status=0
+    </select>
+
+
+    <!--查询用户在热点下收听过的内容-->
+    <select id="selectBySubjectAddr" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_content_subject_listen
+        where
+        subject_id = #{subjectId}
+        and
+        subject_type = #{subjectType}
+        and
+        addr_id =#{addrId}
+        and
+        role_id = #{roleId}
+        and
+        relisten = 0
+
+        AND del_status=0
+    </select>
+
+
+    <!-- 所有用户统计-->
+    <select id="selectAllStat" resultType="java.util.Map" parameterType="java.util.Map" >
+select subject_id,subject_type,addr_id,role_id,count(distinct content_id) as content_num from zhiyin_content_subject_listen
+where addr_id > 0 and del_status = 0 and role_id > 0
+group by addr_id,role_id,subject_id,subject_type
+    </select>
+
+<!-- 用户统计-->
+    <select id="selectStatByUser" resultType="java.util.Map" parameterType="java.util.Map" >
+        select subject_id,subject_type,addr_id,role_id,count(distinct content_id) as content_num from zhiyin_content_subject_listen
+        where addr_id > 0 and del_status = 0 and role_id > 0
+        group by addr_id,role_id,subject_id,subject_type
+    </select>
+
+
+    <update id="deleteBySubjectAddr" parameterType="java.util.Map" >
+       update zhiyin_content_subject_listen set del_status = 1
+        where
+        subject_id = #{subjectId}
+        and
+        subject_type = #{subjectType}
+        and
+        addr_id =#{addrId}
+        and
+        role_id = #{roleId}
+
+        AND del_status=0
+    </update>
+
+    <!-- 更新时间 -->
+    <update id="updateUpdateTime" parameterType="java.util.Map" >
+        update zhiyin_content_subject_listen
+        set update_time = #{updateTime} , del_status=0
+        where
+        id = #{id}
+    </update>
+
+
+    <!-- 假删除，更新删除状态 -->
+    <update id="deleteBySubject" parameterType="java.util.Map" >
+        update zhiyin_content_subject_listen
+        set del_status=1
+        where
+        subject_id = #{subjectId}
+        and
+        subject_type = #{subjectType}
+    </update>
+
+    <update id="deleteBySubjectAddrRole" parameterType="java.util.Map" >
+        update zhiyin_content_subject_listen
+        set del_status=1
+        where
+        subject_id = #{subjectId}
+        and
+        subject_type = #{subjectType}
+        and
+        addr_id = #{addrId}
+        and
+        role_id = #{roleId}
+    </update>
+
+    <!-- 真删除，更新删除状态 -->
+    <delete id="deleteRealBySubject" parameterType="java.util.Map" >
+        delete from zhiyin_content_subject_listen
+        where
+        subject_id = #{subjectId}
+        and
+        subject_type = #{subjectType}
+    </delete>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_content_subject_listen
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+
+    <insert id="insert" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListen" >
+        insert into zhiyin_content_subject_listen (id, subject_id, content_id,
+        content_gid, subject_type, add_time,
+        update_time, del_status, addr_longitude,
+        addr_latitude, addr_coord, addr_id,
+        role_id, relisten, user_id
+        )
+        values (#{id,jdbcType=BIGINT}, #{subjectId,jdbcType=VARCHAR}, #{contentId,jdbcType=BIGINT},
+        #{contentGid,jdbcType=INTEGER}, #{subjectType,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=TIMESTAMP}, #{delStatus,jdbcType=INTEGER}, #{addrLongitude,jdbcType=DOUBLE},
+        #{addrLatitude,jdbcType=DOUBLE}, #{addrCoord,jdbcType=INTEGER}, #{addrId,jdbcType=BIGINT},
+        #{roleId,jdbcType=BIGINT}, #{relisten,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListen" >
+        insert into zhiyin_content_subject_listen
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="subjectId != null" >
+                subject_id,
+            </if>
+            <if test="contentId != null" >
+                content_id,
+            </if>
+            <if test="contentGid != null" >
+                content_gid,
+            </if>
+            <if test="subjectType != null" >
+                subject_type,
+            </if>
+            <if test="addTime != null" >
+                add_time,
+            </if>
+            <if test="updateTime != null" >
+                update_time,
+            </if>
+            <if test="delStatus != null" >
+                del_status,
+            </if>
+            <if test="addrLongitude != null" >
+                addr_longitude,
+            </if>
+            <if test="addrLatitude != null" >
+                addr_latitude,
+            </if>
+            <if test="addrCoord != null" >
+                addr_coord,
+            </if>
+            <if test="addrId != null" >
+                addr_id,
+            </if>
+            <if test="roleId != null" >
+                role_id,
+            </if>
+            <if test="relisten != null" >
+                relisten,
+            </if>
+            <if test="userId != null" >
+                user_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectId != null" >
+                #{subjectId,jdbcType=VARCHAR},
+            </if>
+            <if test="contentId != null" >
+                #{contentId,jdbcType=BIGINT},
+            </if>
+            <if test="contentGid != null" >
+                #{contentGid,jdbcType=INTEGER},
+            </if>
+            <if test="subjectType != null" >
+                #{subjectType,jdbcType=INTEGER},
+            </if>
+            <if test="addTime != null" >
+                #{addTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null" >
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delStatus != null" >
+                #{delStatus,jdbcType=INTEGER},
+            </if>
+            <if test="addrLongitude != null" >
+                #{addrLongitude,jdbcType=DOUBLE},
+            </if>
+            <if test="addrLatitude != null" >
+                #{addrLatitude,jdbcType=DOUBLE},
+            </if>
+            <if test="addrCoord != null" >
+                #{addrCoord,jdbcType=INTEGER},
+            </if>
+            <if test="addrId != null" >
+                #{addrId,jdbcType=BIGINT},
+            </if>
+            <if test="roleId != null" >
+                #{roleId,jdbcType=BIGINT},
+            </if>
+            <if test="relisten != null" >
+                #{relisten,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null" >
+                #{userId,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListen" >
+        update zhiyin_content_subject_listen
+        <set >
+            <if test="subjectId != null" >
+                subject_id = #{subjectId,jdbcType=VARCHAR},
+            </if>
+            <if test="contentId != null" >
+                content_id = #{contentId,jdbcType=BIGINT},
+            </if>
+            <if test="contentGid != null" >
+                content_gid = #{contentGid,jdbcType=INTEGER},
+            </if>
+            <if test="subjectType != null" >
+                subject_type = #{subjectType,jdbcType=INTEGER},
+            </if>
+            <if test="addTime != null" >
+                add_time = #{addTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null" >
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delStatus != null" >
+                del_status = #{delStatus,jdbcType=INTEGER},
+            </if>
+            <if test="addrLongitude != null" >
+                addr_longitude = #{addrLongitude,jdbcType=DOUBLE},
+            </if>
+            <if test="addrLatitude != null" >
+                addr_latitude = #{addrLatitude,jdbcType=DOUBLE},
+            </if>
+            <if test="addrCoord != null" >
+                addr_coord = #{addrCoord,jdbcType=INTEGER},
+            </if>
+            <if test="addrId != null" >
+                addr_id = #{addrId,jdbcType=BIGINT},
+            </if>
+            <if test="roleId != null" >
+                role_id = #{roleId,jdbcType=BIGINT},
+            </if>
+            <if test="relisten != null" >
+                relisten = #{relisten,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListen" >
+        update zhiyin_content_subject_listen
+        set subject_id = #{subjectId,jdbcType=VARCHAR},
+        content_id = #{contentId,jdbcType=BIGINT},
+        content_gid = #{contentGid,jdbcType=INTEGER},
+        subject_type = #{subjectType,jdbcType=INTEGER},
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        del_status = #{delStatus,jdbcType=INTEGER},
+        addr_longitude = #{addrLongitude,jdbcType=DOUBLE},
+        addr_latitude = #{addrLatitude,jdbcType=DOUBLE},
+        addr_coord = #{addrCoord,jdbcType=INTEGER},
+        addr_id = #{addrId,jdbcType=BIGINT},
+        role_id = #{roleId,jdbcType=BIGINT},
+        relisten = #{relisten,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

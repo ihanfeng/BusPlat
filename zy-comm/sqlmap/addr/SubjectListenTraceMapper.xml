@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.address.mapper.SubjectListenTraceMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.dbs.module.address.entity.SubjectListenTrace" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="subject_id" property="subjectId" jdbcType="VARCHAR" />
+    <result column="addr_id" property="addrId" jdbcType="BIGINT" />
+    <result column="addr_parent_id" property="addrParentId" jdbcType="BIGINT" />
+    <result column="addr_degree" property="addrDegree" jdbcType="INTEGER" />
+    <result column="subject_type" property="subjectType" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="frequency" property="frequency" jdbcType="INTEGER" />
+    <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, subject_id, addr_id, addr_parent_id, addr_degree, subject_type, add_time, 
+    update_time, frequency, del_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_addr_subject_listen_trace
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+
+
+  <!-- 根据用户查 -->
+  <select id="selectBySubject" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from zhiyin_addr_subject_listen_trace
+    where
+    subject_id = #{subjectId}
+    and
+    subject_type = #{subjectType}
+    AND del_status=0
+  </select>
+
+  <!-- 根据热点id查 -->
+  <select id="selectByAddrId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select
+    <include refid="Base_Column_List"/>
+    from zhiyin_addr_subject_listen_trace
+    where
+      addr_id = #{addrId}
+      AND del_status=0
+  </select>
+
+  <!-- 根据用户和热点查 -->
+  <select id="selectBySubjectAddr" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from zhiyin_addr_subject_listen_trace
+    where
+    subject_id = #{subjectId}
+    and
+    subject_type = #{subjectType}
+    and
+    addr_id=#{addrId}
+    and
+    del_status=0
+  </select>
+
+
+    <!--<select id="selectByAddrDegree" resultMap="BaseResultMap" parameterType="java.util.Map">-->
+        <!--select-->
+        <!--<include refid="Base_Column_List"/>-->
+        <!--from zhiyin_addr_subject_listen_trace-->
+        <!--where-->
+        <!--subject_id = #{subjectId}-->
+        <!--and-->
+        <!--subject_type = #{subjectType}-->
+        <!--and-->
+        <!--addr_degree = #{addrDegree}-->
+        <!--and-->
+        <!--del_status=0-->
+    <!--</select>-->
+
+    <select id="selectByAddrParentId" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from zhiyin_addr_subject_listen_trace
+        where
+        subject_id = #{subjectId}
+        and
+        subject_type = #{subjectType}
+        and
+        addr_parent_id = #{addrParentId}
+        and
+        del_status=0
+    </select>
+
+
+
+  <!-- 根据用户删除 -->
+  <update id="deleteBySubject" parameterType="java.util.Map">
+    update zhiyin_addr_subject_listen_trace
+    set del_status=1
+    where subject_id = #{subjectId}
+    and subject_type = #{subjectType}
+  </update>
+
+  <!-- 真删除 -->
+  <delete id="deleteRealBySubject" parameterType="java.util.Map">
+    delete from zhiyin_addr_subject_listen_trace
+    where
+    subject_id = #{subjectId}
+    and
+    subject_type = #{subjectType}
+  </delete>
+
+
+
+
+
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_addr_subject_listen_trace
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhiyin.dbs.module.address.entity.SubjectListenTrace" >
+    insert into zhiyin_addr_subject_listen_trace (id, subject_id, addr_id, 
+      addr_parent_id, addr_degree, subject_type, 
+      add_time, update_time, frequency, 
+      del_status)
+    values (#{id,jdbcType=BIGINT}, #{subjectId,jdbcType=VARCHAR}, #{addrId,jdbcType=BIGINT}, 
+      #{addrParentId,jdbcType=BIGINT}, #{addrDegree,jdbcType=INTEGER}, #{subjectType,jdbcType=INTEGER}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{frequency,jdbcType=INTEGER}, 
+      #{delStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiyin.dbs.module.address.entity.SubjectListenTrace" >
+    insert into zhiyin_addr_subject_listen_trace
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="addrId != null" >
+        addr_id,
+      </if>
+      <if test="addrParentId != null" >
+        addr_parent_id,
+      </if>
+      <if test="addrDegree != null" >
+        addr_degree,
+      </if>
+      <if test="subjectType != null" >
+        subject_type,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="frequency != null" >
+        frequency,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="addrId != null" >
+        #{addrId,jdbcType=BIGINT},
+      </if>
+      <if test="addrParentId != null" >
+        #{addrParentId,jdbcType=BIGINT},
+      </if>
+      <if test="addrDegree != null" >
+        #{addrDegree,jdbcType=INTEGER},
+      </if>
+      <if test="subjectType != null" >
+        #{subjectType,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="frequency != null" >
+        #{frequency,jdbcType=INTEGER},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.dbs.module.address.entity.SubjectListenTrace" >
+    update zhiyin_addr_subject_listen_trace
+    <set >
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="addrId != null" >
+        addr_id = #{addrId,jdbcType=BIGINT},
+      </if>
+      <if test="addrParentId != null" >
+        addr_parent_id = #{addrParentId,jdbcType=BIGINT},
+      </if>
+      <if test="addrDegree != null" >
+        addr_degree = #{addrDegree,jdbcType=INTEGER},
+      </if>
+      <if test="subjectType != null" >
+        subject_type = #{subjectType,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="frequency != null" >
+        frequency = #{frequency,jdbcType=INTEGER},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.dbs.module.address.entity.SubjectListenTrace" >
+    update zhiyin_addr_subject_listen_trace
+    set subject_id = #{subjectId,jdbcType=VARCHAR},
+      addr_id = #{addrId,jdbcType=BIGINT},
+      addr_parent_id = #{addrParentId,jdbcType=BIGINT},
+      addr_degree = #{addrDegree,jdbcType=INTEGER},
+      subject_type = #{subjectType,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      frequency = #{frequency,jdbcType=INTEGER},
+      del_status = #{delStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

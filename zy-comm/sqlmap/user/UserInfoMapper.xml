@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.user.mapper.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="UserInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+ 
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="default_user" property="defaultUser" jdbcType="BIT" />
+	<result column="change_password_time" property="changePasswordTime" jdbcType="TIMESTAMP" />
+    <result column="gender" property="gender" jdbcType="BIGINT" />
+      <result column="third_type" property="thirdType" jdbcType="BIGINT" />
+      <result column="third_id" property="thirdId" jdbcType="VARCHAR" />
+      <result column="del_status" property="delStatus" jdbcType="VARCHAR" />
+      <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,gid,  create_time,  email, password, telephone, name, default_user,
+    change_password_time,avatar,gender,update_time,third_type,third_id,del_status,nickname
+  </sql>
+  
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where id = #{id,jdbcType=BIGINT}
+      AND del_status = 0
+  </select>
+  
+  <!-- 获取用户信息 -->
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where id = #{id,jdbcType=BIGINT}
+        AND del_status = 0
+    </select>
+
+    <!-- 获取用户信息 -->
+    <select id="selectByGid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_user_user_info
+        where gid = #{gid}
+        AND del_status = 0
+    </select>
+  
+    <!-- 获取用户信息 -->
+    <select id="selectByGuid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where guid = #{guid}
+        AND del_status = 0
+    </select>
+  
+  
+    <!-- 根据用户名查找 -->
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where username = #{name,jdbcType=VARCHAR}
+  </select>
+   
+  
+  <!-- 根据手机号查找 -->
+  <select id="selectByTelephone" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where telephone = #{telephone,jdbcType=VARCHAR}
+  </select>
+  
+  
+	<!-- 根据手机号 密码查找，用于验证 -->
+  <select id="selectByTelephonePassword" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where 
+    	telephone = #{telephone,jdbcType=VARCHAR}
+    and 
+    password = #{password,jdbcType=VARCHAR}
+  </select>
+
+
+    <!-- 查找第三方用户 -->
+    <select id="selectThirdUser" resultMap="BaseResultMap" parameterType="UserInfo" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_user_user_info
+        where
+        third_id = #{thirdId,jdbcType=VARCHAR}
+        and
+        third_type = #{thirdType,jdbcType=BIGINT}
+    </select>
+
+
+    <!-- 查找所有用户 -->
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="UserInfo" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_user_user_info
+        where del_status = 0
+    </select>
+
+    <select id="selectNickname" resultType="java.lang.String" parameterType="java.lang.Long" >
+        select
+        nickname
+        from zhiyin_user_user_info
+        where del_status = 0 and id = #{id}
+    </select>
+
+  
+  <!-- 注销用户 -->
+    <delete id="deleteUserByTele" parameterType="java.util.Map" >
+   delete
+    from zhiyin_user_user_info
+    where 
+		phone = #{telephone,jdbcType=VARCHAR}
+    <!-- and 
+   		password = #{password,jdbcType=VARCHAR} -->
+  </delete>
+  
+  <!-- 更新用户密码 -->
+   <update id="updatePassword" parameterType="java.util.Map" >
+   update zhiyin_user_user_info set password = #{password},change_password_time = #{changePasswordTime} 
+   where id=#{id}
+  </update>
+  
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_user_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  
+  <!-- used -->
+    <insert id="insertSelective" parameterType="UserInfo" >
+        insert into zhiyin_user_user_info
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="name != null" >
+                name,
+            </if>
+            <if test="password != null" >
+                password,
+            </if>
+            <if test="avatar != null" >
+                avatar,
+            </if>
+            <if test="telephone != null" >
+                telephone,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+            <if test="email != null" >
+                email,
+            </if>
+            <if test="changePasswordTime != null" >
+                change_password_time,
+            </if>
+            <if test="isDel != null" >
+                is_del,
+            </if>
+            <if test="defaultUser != null" >
+                default_user,
+            </if>
+            <if test="gender != null" >
+                gender,
+            </if>
+            <if test="updateTime != null" >
+                update_time,
+            </if>
+            <if test="thirdType != null" >
+                third_type,
+            </if>
+            <if test="thirdId != null" >
+                third_id,
+            </if>
+            <if test="nickname != null" >
+                nickname,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="name != null" >
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="avatar != null" >
+                #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="telephone != null" >
+                #{telephone,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="email != null" >
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="changePasswordTime != null" >
+                #{changePasswordTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null" >
+                #{isDel,jdbcType=INTEGER},
+            </if>
+            <if test="defaultUser != null" >
+                #{defaultUser,jdbcType=INTEGER},
+            </if>
+            <if test="gender != null" >
+                #{gender,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null" >
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="thirdType != null" >
+                #{thirdType,jdbcType=INTEGER},
+            </if>
+            <if test="thirdId != null" >
+                #{thirdId,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null" >
+                #{nickname,jdbcType=VARCHAR},
+            </if>
+
+        </trim>
+    </insert>
+  
+  <!-- used -->
+    <update id="updateByPrimaryKeySelective" parameterType="UserInfo" >
+        update zhiyin_user_user_info
+        <set >
+            <if test="name != null" >
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="avatar != null" >
+                avatar = #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="telephone != null" >
+                telephone = #{telephone,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="email != null" >
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="changePasswordTime != null" >
+                change_password_time = #{changePasswordTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null" >
+                is_del = #{isDel,jdbcType=INTEGER},
+            </if>
+            <if test="defaultUser != null" >
+                default_user = #{defaultUser,jdbcType=INTEGER},
+            </if>
+            <if test="gender != null" >
+                gender = #{gender,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null" >
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="thirdType != null" >
+                third_type = #{thirdType,jdbcType=INTEGER},
+            </if>
+            <if test="thirdId != null" >
+                third_id = #{thirdId,jdbcType=VARCHAR},
+            </if>
+            <if test="delStatus != null" >
+                del_status = #{delStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null" >
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+
+
+<!--根据手机号更新用户信息-->
+  <update id="updateByTeleSelective" parameterType="UserInfo" >
+    update zhiyin_user_user_info
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultUser != null" >
+        default_user = #{defaultUser,jdbcType=BIT},
+      </if>
+        <if test="changePasswordTime != null" >
+            change_password_time = #{changePasswordTime },
+        </if>
+        <if test="updateTime != null" >
+            update_time = #{updateTime},
+        </if>
+        <if test="nickname != null" >
+            nickname = #{nickname,jdbcType=VARCHAR},
+        </if>
+    </set>
+    where telephone = #{telephone,jdbcType=BIGINT}
+  </update>
+
+
+    <update id="updateUserBasicInfo" parameterType="UserInfo" >
+        update zhiyin_user_user_info
+        <set >
+            <if test="gender != null" >
+                gender = #{gender,jdbcType=BIGINT},
+            </if>
+            <if test="name != null" >
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+          <if test="name != null" >
+            name = #{name,jdbcType=VARCHAR},
+          </if>
+            <if test="updateTime != null" >
+                update_time = #{updateTime},
+            </if>
+            <if test="nickname != null" >
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+
+
+</mapper>

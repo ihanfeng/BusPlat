@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.content.mapper.GroupContentMapper" >
+  <resultMap id="BaseResultMap" type="GroupContent" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+    <result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
+    <result column="source" property="source" jdbcType="INTEGER" />
+    <result column="admin_description" property="adminDescription" jdbcType="VARCHAR" />
+    <result column="update_user_id" property="updateUserId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="config_level" property="configLevel" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, role_id, keyword, create_user_id, source, admin_description, update_user_id, 
+    create_time, del_status, status, config_level
+  </sql>
+ 
+
+  
+     <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_content_group_content
+    where id = #{id,jdbcType=BIGINT} and del_status=0
+  </select>
+   
+   <select id="selectByConfigLevel" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_content_group_content
+    where config_level=#{configLevel} and del_status=0
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_content_group_content
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="GroupContent" >
+    insert into zhiyin_content_group_content (id, title, role_id, 
+      keyword, create_user_id, source, 
+      admin_description, update_user_id, create_time, 
+      del_status, status, config_level
+      )
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
+      #{keyword,jdbcType=VARCHAR}, #{createUserId,jdbcType=BIGINT}, #{source,jdbcType=INTEGER}, 
+      #{adminDescription,jdbcType=VARCHAR}, #{updateUserId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{delStatus,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{configLevel,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="GroupContent" >
+    insert into zhiyin_content_group_content
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="keyword != null" >
+        keyword,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="adminDescription != null" >
+        admin_description,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="configLevel != null" >
+        config_level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="keyword != null" >
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="adminDescription != null" >
+        #{adminDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="configLevel != null" >
+        #{configLevel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="GroupContent" >
+    update zhiyin_content_group_content
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="keyword != null" >
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="adminDescription != null" >
+        admin_description = #{adminDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="configLevel != null" >
+        config_level = #{configLevel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="GroupContent" >
+    update zhiyin_content_group_content
+    set title = #{title,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
+      keyword = #{keyword,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=BIGINT},
+      source = #{source,jdbcType=INTEGER},
+      admin_description = #{adminDescription,jdbcType=VARCHAR},
+      update_user_id = #{updateUserId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      del_status = #{delStatus,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      config_level = #{configLevel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

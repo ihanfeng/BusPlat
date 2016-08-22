@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.app.mapper.AppVersionMapper" >
+  <resultMap id="BaseResultMap" type="AppVersion" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="client_os" property="clientOs" jdbcType="VARCHAR" />
+    <result column="client_os_version" property="clientOsVersion" jdbcType="VARCHAR" />
+    <result column="force_upgrade" property="forceUpgrade" jdbcType="INTEGER" />
+    <result column="is_latest" property="isLatest" jdbcType="INTEGER" />
+    <result column="add_user" property="addUser" jdbcType="BIGINT" />
+    <result column="create_uid" property="createUid" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+      id, title, content, version, client_os, client_os_version, force_upgrade, is_latest,
+      add_user, create_uid, create_time, update_time, del_status
+    </sql>
+
+  <select id="selectByVersion" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_app_version
+    where del_status = 0 and version = #{version} and client_os = #{os}
+  </select>
+
+  <select id="selectLatest" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_app_version
+    where del_status = 0 and is_latest = 1 and client_os = #{os}
+  </select>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+      select
+      <include refid="Base_Column_List" />
+      from zhiyin_app_version
+      where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+      delete from zhiyin_app_version
+      where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="AppVersion" >
+      insert into zhiyin_app_version (id, title, content,
+      version, client_os, client_os_version,
+      force_upgrade, is_latest, add_user,
+      create_uid, create_time, update_time,
+      del_status)
+      values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR},
+      #{version,jdbcType=VARCHAR}, #{clientOs,jdbcType=VARCHAR}, #{clientOsVersion,jdbcType=VARCHAR},
+      #{forceUpgrade,jdbcType=INTEGER}, #{isLatest,jdbcType=INTEGER}, #{addUser,jdbcType=BIGINT},
+      #{createUid,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+      #{delStatus,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="AppVersion" >
+      insert into zhiyin_app_version
+      <trim prefix="(" suffix=")" suffixOverrides="," >
+        <if test="id != null" >
+          id,
+        </if>
+        <if test="title != null" >
+          title,
+        </if>
+        <if test="content != null" >
+          content,
+        </if>
+        <if test="version != null" >
+          version,
+        </if>
+        <if test="clientOs != null" >
+          client_os,
+        </if>
+        <if test="clientOsVersion != null" >
+          client_os_version,
+        </if>
+        <if test="forceUpgrade != null" >
+          force_upgrade,
+        </if>
+        <if test="isLatest != null" >
+          is_latest,
+        </if>
+        <if test="addUser != null" >
+          add_user,
+        </if>
+        <if test="createUid != null" >
+          create_uid,
+        </if>
+        <if test="createTime != null" >
+          create_time,
+        </if>
+        <if test="updateTime != null" >
+          update_time,
+        </if>
+        <if test="delStatus != null" >
+          del_status,
+        </if>
+      </trim>
+      <trim prefix="values (" suffix=")" suffixOverrides="," >
+        <if test="id != null" >
+          #{id,jdbcType=BIGINT},
+        </if>
+        <if test="title != null" >
+          #{title,jdbcType=VARCHAR},
+        </if>
+        <if test="content != null" >
+          #{content,jdbcType=VARCHAR},
+        </if>
+        <if test="version != null" >
+          #{version,jdbcType=VARCHAR},
+        </if>
+        <if test="clientOs != null" >
+          #{clientOs,jdbcType=VARCHAR},
+        </if>
+        <if test="clientOsVersion != null" >
+          #{clientOsVersion,jdbcType=VARCHAR},
+        </if>
+        <if test="forceUpgrade != null" >
+          #{forceUpgrade,jdbcType=INTEGER},
+        </if>
+        <if test="isLatest != null" >
+          #{isLatest,jdbcType=INTEGER},
+        </if>
+        <if test="addUser != null" >
+          #{addUser,jdbcType=BIGINT},
+        </if>
+        <if test="createUid != null" >
+          #{createUid,jdbcType=BIGINT},
+        </if>
+        <if test="createTime != null" >
+          #{createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="updateTime != null" >
+          #{updateTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="delStatus != null" >
+          #{delStatus,jdbcType=INTEGER},
+        </if>
+      </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="AppVersion" >
+      update zhiyin_app_version
+      <set >
+        <if test="title != null" >
+          title = #{title,jdbcType=VARCHAR},
+        </if>
+        <if test="content != null" >
+          content = #{content,jdbcType=VARCHAR},
+        </if>
+        <if test="version != null" >
+          version = #{version,jdbcType=VARCHAR},
+        </if>
+        <if test="clientOs != null" >
+          client_os = #{clientOs,jdbcType=VARCHAR},
+        </if>
+        <if test="clientOsVersion != null" >
+          client_os_version = #{clientOsVersion,jdbcType=VARCHAR},
+        </if>
+        <if test="forceUpgrade != null" >
+          force_upgrade = #{forceUpgrade,jdbcType=INTEGER},
+        </if>
+        <if test="isLatest != null" >
+          is_latest = #{isLatest,jdbcType=INTEGER},
+        </if>
+        <if test="addUser != null" >
+          add_user = #{addUser,jdbcType=BIGINT},
+        </if>
+        <if test="createUid != null" >
+          create_uid = #{createUid,jdbcType=BIGINT},
+        </if>
+        <if test="createTime != null" >
+          create_time = #{createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="updateTime != null" >
+          update_time = #{updateTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="delStatus != null" >
+          del_status = #{delStatus,jdbcType=INTEGER},
+        </if>
+      </set>
+      where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="AppVersion" >
+      update zhiyin_app_version
+      set title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      client_os = #{clientOs,jdbcType=VARCHAR},
+      client_os_version = #{clientOsVersion,jdbcType=VARCHAR},
+      force_upgrade = #{forceUpgrade,jdbcType=INTEGER},
+      is_latest = #{isLatest,jdbcType=INTEGER},
+      add_user = #{addUser,jdbcType=BIGINT},
+      create_uid = #{createUid,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_status = #{delStatus,jdbcType=INTEGER}
+      where id = #{id,jdbcType=BIGINT}
+    </update>
+  </mapper>

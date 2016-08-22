@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.content.mapper.AddrCgroupMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.dbs.module.content.entity.AddrCgroup" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cgroup_id" property="cgroupId" jdbcType="BIGINT" />
+    <result column="addr_id" property="addrId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="add_user_id" property="addUserId" jdbcType="BIGINT" />
+    <result column="update_user_id" property="updateUserId" jdbcType="BIGINT" />
+    <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cgroup_id, addr_id, create_time, update_time, add_user_id, update_user_id, del_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_content_addr_cgroup
+    where id = #{id,jdbcType=BIGINT}
+    and
+    del_status = 0
+  </select>
+
+    <!-- 联合主键-->
+  <select id="selectByAddrCgroup" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_content_addr_cgroup
+    where
+    addr_id = #{addrId,jdbcType=BIGINT}
+    and
+    cgroup_id = #{cgroupId,jdbcType=BIGINT}
+    and
+    del_status = 0
+  </select>
+
+
+  <select id="selectCgroupByAddr" resultType="java.lang.Long" parameterType="java.lang.Long" >
+    select
+    cgroup_id
+    from zhiyin_content_addr_cgroup
+    where
+    addr_id = #{addrId}
+    and
+    del_status = 0
+  </select>
+
+  <select id="selectAddrByCgroup" resultType="java.lang.Long" parameterType="java.lang.Long" >
+    select
+    addr_id
+    from zhiyin_content_addr_cgroup
+    where
+    cgroup_id = #{cgroupId}
+    and
+    del_status = 0
+  </select>
+
+
+  <update id="deleteByCgroupId" parameterType="java.lang.Long" >
+    update zhiyin_content_addr_cgroup
+    set del_status = 1 , update_time = now()
+    where
+    cgroup_id = #{cgroupId} and
+    del_status = 0
+  </update>
+
+  <delete id="deleteRealByCgroupId" parameterType="java.lang.Long" >
+    delete from zhiyin_content_addr_cgroup
+    where cgroup_id = #{cgroupId,jdbcType=BIGINT}
+  </delete>
+
+
+  <delete id="deleteByAddrId" parameterType="java.lang.Long" >
+    delete from zhiyin_content_addr_cgroup
+    where addr_id = #{addrId,jdbcType=BIGINT}
+  </delete>
+
+
+
+    <!-- 效果等同于 deleteByPrimaryKey -->
+    <!--<update id="deleteByAddrCgroup" parameterType="java.util.Map" >-->
+        <!--update zhiyin_content_addr_cgroup-->
+        <!--set del_status = 1-->
+        <!--where-->
+        <!--cgroup_id = #{cgroupId}-->
+        <!--AND addr_id = #{addrId}-->
+        <!--AND del_status = 0-->
+    <!--</update>-->
+
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_content_addr_cgroup
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhiyin.dbs.module.content.entity.AddrCgroup" >
+    insert into zhiyin_content_addr_cgroup (id, cgroup_id, addr_id, 
+      create_time, update_time, add_user_id, 
+      update_user_id, del_status)
+    values (#{id,jdbcType=BIGINT}, #{cgroupId,jdbcType=BIGINT}, #{addrId,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{addUserId,jdbcType=BIGINT}, 
+      #{updateUserId,jdbcType=BIGINT}, #{delStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiyin.dbs.module.content.entity.AddrCgroup" >
+    insert into zhiyin_content_addr_cgroup
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cgroupId != null" >
+        cgroup_id,
+      </if>
+      <if test="addrId != null" >
+        addr_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="addUserId != null" >
+        add_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cgroupId != null" >
+        #{cgroupId,jdbcType=BIGINT},
+      </if>
+      <if test="addrId != null" >
+        #{addrId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.dbs.module.content.entity.AddrCgroup" >
+    update zhiyin_content_addr_cgroup
+    <set >
+      <if test="cgroupId != null" >
+        cgroup_id = #{cgroupId,jdbcType=BIGINT},
+      </if>
+      <if test="addrId != null" >
+        addr_id = #{addrId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        add_user_id = #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.dbs.module.content.entity.AddrCgroup" >
+    update zhiyin_content_addr_cgroup
+    set cgroup_id = #{cgroupId,jdbcType=BIGINT},
+      addr_id = #{addrId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      add_user_id = #{addUserId,jdbcType=BIGINT},
+      update_user_id = #{updateUserId,jdbcType=BIGINT},
+      del_status = #{delStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

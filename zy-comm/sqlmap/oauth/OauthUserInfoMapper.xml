@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="OauthUserInfoMapper" >
+  <resultMap id="BaseResultMap" type="OauthUserInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+ 
+
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  
+	 <result column="default_user" property="defaultUser" jdbcType="INTEGER" />
+     <result column="change_password_time" property="changePasswordTime" jdbcType="TIMESTAMP" />
+     
+      <!--<collection property="privileges" column="id" select="selectPrivilegesByUserId" ofType="Privilege" />-->
+  </resultMap>
+  
+  
+  <sql id="Base_Column_List" >
+    id, create_time,  email, password, telephone, name,change_password_time,avatar
+  </sql>
+  
+ 	<!-- 返回枚举类型权限 -->
+	<select id="selectPrivilegesByUserId" parameterType="Long" resultType="Privilege">
+         select privilege from zhiyin_user_user_privilege where user_id = #{userId}
+	</select>
+  
+  <!-- 获取用户信息 -->
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+    <!-- 获取用户信息 -->
+    <select id="selectByGuid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where guid = #{guid}
+  </select>
+  
+  
+    <!-- 根据用户名查找 -->
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where username = #{name,jdbcType=VARCHAR}
+  </select>
+   
+  
+  <!-- 根据手机号查找 -->
+  <select id="selectByTelephone" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where telephone = #{telephone,jdbcType=VARCHAR}
+  </select>
+  
+  
+	<!-- 根据手机号 密码查找，用于验证 -->
+  <select id="selectByTelephonePassword" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_info
+    where 
+    	phone = #{telephone,jdbcType=VARCHAR}
+    and 
+    password = #{password,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 注销用户 -->
+    <delete id="deleteUserByTele" parameterType="java.util.Map" >
+   delete
+    from zhiyin_user_user_info
+    where 
+		phone = #{telephone,jdbcType=VARCHAR}
+    <!-- and 
+   		password = #{password,jdbcType=VARCHAR} -->
+  </delete>
+  
+  <!-- 更新用户密码 -->
+   <update id="updatePassword" parameterType="java.util.Map" >
+   update zhiyin_user_user_info set password = #{password},change_password_time = #{changePasswordTime} 
+   where id=#{id}
+  </update>
+  
+  <!-- 更新用户头像 -->
+  <update id="updateAvatar" parameterType="java.util.Map" >
+   update zhiyin_user_user_info set avatar = #{avatar} 
+   where id=#{id}
+  </update>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_user_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="UserInfo" >
+    insert into zhiyin_user_user_info (id, guid, create_time, 
+      archived, email, password, 
+      phone, username, default_user, 
+      last_login_time)
+    values (#{id,jdbcType=BIGINT}, #{guid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{archived,jdbcType=BIT}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{defaultUser,jdbcType=BIT}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  
+  
+  <!-- used -->
+  <insert id="insertSelective" parameterType="UserInfo" >
+    insert into zhiyin_user_user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="guid != null" >
+        guid,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="archived != null" >
+        archived,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="telephone != null" >
+        phone,
+      </if>
+      <if test="name != null" >
+        username,
+      </if>
+      <if test="defaultUser != null" >
+        default_user,
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time,
+      </if>
+      
+         <if test="changePasswordTime != null" >
+        change_password_time,
+      </if>
+      
+	<if test="avatar != null" >
+        avatar,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archived != null" >
+        #{archived,jdbcType=BIT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultUser != null" >
+        #{defaultUser,jdbcType=BIT},
+      </if>
+      <if test="lastLoginTime != null" >
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+            <if test="changePasswordTime != null" >
+        #{changePasswordTime,jdbcType=TIMESTAMP},
+      </if>
+                  <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  
+  <!-- used -->
+  <update id="updateByPrimaryKeySelective" parameterType="UserInfo" >
+    update zhiyin_user_user_info
+    <set >
+      <if test="guid != null" >
+        guid = #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archived != null" >
+        archived = #{archived,jdbcType=BIT},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        phone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        username = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultUser != null" >
+        default_user = #{defaultUser,jdbcType=BIT},
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+</mapper>

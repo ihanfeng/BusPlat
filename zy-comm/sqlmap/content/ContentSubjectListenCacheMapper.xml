@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.content.mapper.ContentSubjectListenCacheMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.dbs.module.content.entity.ContentSubjectListenCache" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="subject_id" property="subjectId" jdbcType="VARCHAR" />
+    <result column="subject_type" property="subjectType" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zhiyin.dbs.module.content.entity.ContentSubjectListenCache" extends="BaseResultMap" >
+    <result column="content_info" property="contentInfo" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, subject_id, subject_type, add_time, update_time, del_status, user_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    content_info
+  </sql>
+
+
+	<select id="selectById" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />,
+		<include refid="Blob_Column_List" />
+		from zhiyin_content_subject_listen_cache
+		where id = #{id,jdbcType=BIGINT}
+		and
+		del_status=0
+	</select>
+
+	<!-- 查询主题收听内容缓存 -->
+	<select id="selectBySubject" resultMap="ResultMapWithBLOBs"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />,
+		<include refid="Blob_Column_List" />
+		from zhiyin_content_subject_listen_cache
+		where subject_id = #{subjectId}
+		and subject_type= #{subjectType}
+		and del_status=0
+	</select>
+	
+	<!-- 假删除，更新删除状态 -->
+	<update id="deleteBySubject" parameterType="java.util.Map" >
+		update zhiyin_content_subject_listen_cache
+   			set content_info=''
+		where 
+			subject_id = #{subjectId}
+			and
+			subject_type = #{subjectType} 
+    </update>
+
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_content_subject_listen_cache
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+
+  <insert id="insert" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListenCache" >
+    insert into zhiyin_content_subject_listen_cache (id, subject_id, subject_type,
+    add_time, update_time, del_status,
+    user_id, content_info)
+    values (#{id,jdbcType=BIGINT}, #{subjectId,jdbcType=VARCHAR}, #{subjectType,jdbcType=INTEGER},
+    #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{delStatus,jdbcType=INTEGER},
+    #{userId,jdbcType=BIGINT}, #{contentInfo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListenCache" >
+    insert into zhiyin_content_subject_listen_cache
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="subjectType != null" >
+        subject_type,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="contentInfo != null" >
+        content_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectType != null" >
+        #{subjectType,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="contentInfo != null" >
+        #{contentInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListenCache" >
+    update zhiyin_content_subject_listen_cache
+    <set >
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectType != null" >
+        subject_type = #{subjectType,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="contentInfo != null" >
+        content_info = #{contentInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListenCache" >
+    update zhiyin_content_subject_listen_cache
+    set subject_id = #{subjectId,jdbcType=VARCHAR},
+    subject_type = #{subjectType,jdbcType=INTEGER},
+    add_time = #{addTime,jdbcType=TIMESTAMP},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    del_status = #{delStatus,jdbcType=INTEGER},
+    user_id = #{userId,jdbcType=BIGINT},
+    content_info = #{contentInfo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.dbs.module.content.entity.ContentSubjectListenCache" >
+    update zhiyin_content_subject_listen_cache
+    set subject_id = #{subjectId,jdbcType=VARCHAR},
+    subject_type = #{subjectType,jdbcType=INTEGER},
+    add_time = #{addTime,jdbcType=TIMESTAMP},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    del_status = #{delStatus,jdbcType=INTEGER},
+    user_id = #{userId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

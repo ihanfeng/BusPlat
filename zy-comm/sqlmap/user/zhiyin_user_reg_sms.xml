@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.user.mapper.UserRegSmsMapper">
+
+ <resultMap id="BaseResultMap" type="UserRegSms" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="telephone" property="telephone" jdbcType="CHAR" />
+    <result column="auth_code" property="authCode" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="expire_time" property="expireTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+	
+	<!-- 根据id获取详细信息 -->
+	<select id="selectAuthCodeById" parameterType="long" resultType="java.lang.String">
+		SELECT
+			auth_code
+		FROM
+			zhiyin_user_reg_sms
+		WHERE
+			id = #{id}
+	</select>
+
+  <sql id="Base_Column_List" >
+    id, telephone, auth_code, create_time, expire_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_reg_sms
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_user_reg_sms
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="UserRegSms" >
+    insert into zhiyin_user_reg_sms (id, telephone, auth_code, 
+      create_time, expire_time)
+    values (#{id,jdbcType=BIGINT}, #{telephone,jdbcType=CHAR}, #{authCode,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="UserRegSms" >
+    insert into zhiyin_user_reg_sms
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="authCode != null" >
+        auth_code,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="expireTime != null" >
+        expire_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=CHAR},
+      </if>
+      <if test="authCode != null" >
+        #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null" >
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="UserRegSms" >
+    update zhiyin_user_reg_sms
+    <set >
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=CHAR},
+      </if>
+      <if test="authCode != null" >
+        auth_code = #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null" >
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="UserRegSms" >
+    update zhiyin_user_reg_sms
+    set telephone = #{telephone,jdbcType=CHAR},
+      auth_code = #{authCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.content.mapper.UserContentSettingMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.dbs.module.content.entity.UserContentSetting" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="content_switch" property="contentSwitch" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+    <result column="subject_id" property="subjectId" jdbcType="VARCHAR" />
+    <result column="subject_type" property="subjectType" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, content_switch, user_id, create_time, update_time, del_status, subject_id, subject_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_content_user_content_setting
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+
+  <select id="selectByUid" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_content_user_content_setting
+    where user_id = #{userId,jdbcType=BIGINT} and del_status = 0
+  </select>
+
+  <select id="selectBySubject" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_content_user_content_setting
+    where subject_id = #{subjectId} and del_status = 0
+    and  subject_type = #{subjectType}
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_content_user_content_setting
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhiyin.dbs.module.content.entity.UserContentSetting" >
+    insert into zhiyin_content_user_content_setting (id, content_switch, user_id, 
+      create_time, update_time, del_status, 
+      subject_id, subject_type)
+    values (#{id,jdbcType=BIGINT}, #{contentSwitch,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{delStatus,jdbcType=INTEGER}, 
+      #{subjectId,jdbcType=VARCHAR}, #{subjectType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiyin.dbs.module.content.entity.UserContentSetting" >
+    insert into zhiyin_content_user_content_setting
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="contentSwitch != null" >
+        content_switch,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="subjectType != null" >
+        subject_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="contentSwitch != null" >
+        #{contentSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectType != null" >
+        #{subjectType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.dbs.module.content.entity.UserContentSetting" >
+    update zhiyin_content_user_content_setting
+    <set >
+      <if test="contentSwitch != null" >
+        content_switch = #{contentSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectType != null" >
+        subject_type = #{subjectType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.dbs.module.content.entity.UserContentSetting" >
+    update zhiyin_content_user_content_setting
+    set content_switch = #{contentSwitch,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_status = #{delStatus,jdbcType=INTEGER},
+      subject_id = #{subjectId,jdbcType=VARCHAR},
+      subject_type = #{subjectType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

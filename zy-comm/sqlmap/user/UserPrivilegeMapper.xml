@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.user.mapper.UserPrivilegeMapper" >
+  <resultMap id="BaseResultMap" type="UserPrivilege" >
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="privilege" property="privilege" jdbcType="VARCHAR" />
+  </resultMap>
+  
+   <sql id="Base_Column_List" >
+    user_id,privilege
+  </sql>
+  
+  
+  <!-- 查询用户权限 -->
+  <select id="selectByUserId"  resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_user_user_privilege
+    where 
+    	user_id=#{userId}
+  </select>
+  
+  <select id="selectPrivByUserId" resultType="java.lang.String" parameterType="java.lang.Long" >
+    select 
+   	privilege
+    from zhiyin_user_user_privilege
+    where 
+    	user_id=#{userId}
+  </select>
+
+  <insert id="insertSelective" parameterType="UserPrivilege" >
+    insert into zhiyin_user_user_privilege
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="privilege != null" >
+        privilege,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="privilege != null" >
+        #{privilege,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

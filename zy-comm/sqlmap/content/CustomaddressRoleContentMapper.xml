@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.content.mapper.CustomaddressRoleContentMapper" >
+  <resultMap id="BaseResultMap" type="CustomaddressRoleContent" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="content_id" property="contentId" jdbcType="BIGINT" />
+      <result column="content_gid" property="contentGid" jdbcType="BIGINT" />
+    <result column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="address_id" property="addressId" jdbcType="BIGINT" />
+    <result column="play_priority" property="playPriority" jdbcType="INTEGER" />
+    <result column="difficulty_degree" property="difficultyDegree" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="add_user_id" property="addUserId" jdbcType="BIGINT" />
+    <result column="update_user_id" property="updateUserId" jdbcType="BIGINT" />
+    <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+      <result column="cgroup_id" property="cgroupId" jdbcType="BIGINT" />
+    <result column="content_type" property="contentType" jdbcType="INTEGER" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, content_id, content_gid,role_id, address_id, play_priority, difficulty_degree, add_time, 
+    update_time, add_user_id, update_user_id, del_status,cgroup_id,content_type
+  </sql>
+
+
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_content_customaddress_role_content
+    where id = #{id,jdbcType=BIGINT}
+    and del_status = 0
+  </select>
+
+
+
+    <!-- 这个方法废弃 查找热点下的所有音频 -->
+  <select id="selectByAddress" resultType="java.lang.Long" parameterType="java.util.Map" >
+    select
+    content_id
+    from zhiyin_content_customaddress_role_content
+    where
+    address_id = #{addressId}
+    and del_status = 0
+  </select>
+
+  <select id="selectContentByAddress" resultType="java.lang.Long" parameterType="java.util.Map" >
+    select
+    content_id
+    from zhiyin_content_customaddress_role_content
+    where
+    address_id = #{addressId}
+    and del_status = 0
+  </select>
+
+  
+	<!-- 根据角色查找地理位置内容 -->
+   <select id="selectContentIdByAddressRole" resultType="java.lang.Long" parameterType="java.util.Map" >
+    select 
+     content_id 
+    from zhiyin_content_customaddress_role_content
+    where 
+	address_id = #{addressId}
+	and role_id= #{roleId}
+    and del_status = 0
+  </select>
+  
+  	<!-- 根据角色查找地理位置内容的gid -->
+   <select id="selectContentGidByRoleAddress" resultType="java.lang.Integer" parameterType="java.util.Map" >
+    select 
+     content_gid 
+    from zhiyin_content_customaddress_role_content
+    where 
+	address_id = #{addressId}
+	and role_id= #{roleId}
+    and del_status = 0
+  </select>
+  
+  <!-- 根据角色和位置查找 实体 -->
+     <select id="selectByRoleAddress" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+      <include refid="Base_Column_List" /> 
+    from zhiyin_content_customaddress_role_content
+    where 
+	address_id = #{addressId}
+	and role_id= #{roleId}
+    and del_status = 0
+  </select>
+  
+    <!-- 根据角色、位置、内容gid 查找实体 -->
+     <select id="selectByRoleAddressContentgid" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+      <include refid="Base_Column_List" /> 
+    from zhiyin_content_customaddress_role_content
+    where 
+	address_id = #{addressId}
+	and role_id= #{roleId}
+	and content_gid=#{contentGid}
+    and del_status = 0
+  </select>
+
+
+  <select id="selectNumStat" resultType="java.util.Map">
+   select address_id as addr_id, role_id,count(DISTINCT cgroup_id) as cgroup_num,count(DISTINCT content_id) as content_num from zhiyin_content_customaddress_role_content
+where del_status =0
+ group by address_id,role_id
+
+  </select>
+
+
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_content_customaddress_role_content
+    where id = #{id,jdbcType=BIGINT}
+      and  del_status = 0
+  </select>
+
+
+    <!-- 删除内容组和热点关联的内容 -->
+    <update id="deleteByAddrCgroup" parameterType="CustomaddressRoleContent" >
+    update zhiyin_content_customaddress_role_content set del_status = 1
+     where cgroup_id = #{cgroupId} and address_id = #{addrId}   and  del_status = 0
+    </update>
+  <update id="deleteByCgroupId" parameterType="CustomaddressRoleContent" >
+    update zhiyin_content_customaddress_role_content set del_status = 1
+    where cgroup_id = #{cgroupId} and  del_status = 0
+  </update>
+  <delete id="deleteRealByCgroupId" parameterType="java.lang.Long" >
+    delete from zhiyin_content_customaddress_role_content
+    where cgroup_id = #{cgroupId}
+  </delete>
+
+
+  <update id="deleteByContentId" parameterType="CustomaddressRoleContent" >
+    update zhiyin_content_customaddress_role_content set del_status = 1
+    where content_id = #{contentId} and  del_status = 0
+  </update>
+
+  <delete id="deleteRealByAddrId" parameterType="java.lang.Long" >
+    delete from zhiyin_content_customaddress_role_content
+    where address_id = #{addrId}
+  </delete>
+
+  <delete id="deleteRealByAddrCgroup" parameterType="java.util.Map" >
+    delete from zhiyin_content_customaddress_role_content
+     where cgroup_id = #{cgroupId} and address_id = #{addrId}
+  </delete>
+
+
+  <!-- 查询内容组、热点、内容编号关联关系 -->
+  <select id="selectByAddrCgroup"  resultMap="BaseResultMap" parameterType="java.util.Map" >
+      select
+      <include refid="Base_Column_List" />
+      from zhiyin_content_customaddress_role_content
+    where cgroup_id = #{cgroupId} and address_id = #{addrId} and del_status = 0
+      and content_id = #{contentId}
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_content_customaddress_role_content
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insertSelective" parameterType="CustomaddressRoleContent" >
+    insert into zhiyin_content_customaddress_role_content
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="contentId != null" >
+        content_id,
+      </if>
+       <if test="contentGid != null" >
+        content_gid,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="addressId != null" >
+        address_id,
+      </if>
+      <if test="playPriority != null" >
+        play_priority,
+      </if>
+      <if test="difficultyDegree != null" >
+        difficulty_degree,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="addUserId != null" >
+        add_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+        <if test="cgroupId != null" >
+            cgroup_id,
+        </if>
+      <if test="contentType != null" >
+        content_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="contentId != null" >
+        #{contentId,jdbcType=BIGINT},
+      </if>
+       <if test="contentGid != null" >
+         #{contentGid,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="addressId != null" >
+        #{addressId,jdbcType=BIGINT},
+      </if>
+      <if test="playPriority != null" >
+        #{playPriority,jdbcType=INTEGER},
+      </if>
+      <if test="difficultyDegree != null" >
+        #{difficultyDegree,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=INTEGER},
+      </if>
+        <if test="cgroupId != null" >
+            #{cgroupId,jdbcType=BIGINT},
+        </if>
+      <if test="contentType != null" >
+        #{contentType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="CustomaddressRoleContent" >
+    update zhiyin_content_customaddress_role_content
+    <set >
+      <if test="contentId != null" >
+        content_id = #{contentId,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="addressId != null" >
+        address_id = #{addressId,jdbcType=BIGINT},
+      </if>
+      <if test="playPriority != null" >
+        play_priority = #{playPriority,jdbcType=INTEGER},
+      </if>
+      <if test="difficultyDegree != null" >
+        difficulty_degree = #{difficultyDegree,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null" >
+        add_user_id = #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=INTEGER},
+      </if>
+        <if test="cgroupId != null" >
+            cgroup_id = #{cgroupId,jdbcType=BIGINT},
+        </if>
+      <if test="contentType != null" >
+        cgroup_id = #{contentType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>
+  
+  
+  
+    
