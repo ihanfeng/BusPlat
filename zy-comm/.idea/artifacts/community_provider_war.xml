@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="community-provider:war">
+    <output-path>$PROJECT_DIR$/community-provider/target</output-path>
+    <root id="archive" name="community-provider-loc.war">
+      <element id="artifact" artifact-name="community-provider:war exploded" />
+    </root>
+  </artifact>
+</component>

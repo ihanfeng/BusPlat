@@ -1,7 +1,10 @@
 
 spring:
   application:
-     name: zhiyin-chat  # Service registers under this name
+     name: zhiyin-ourchat  # Service registers under this name
+  boot:
+    admin:
+      period: 60000
 
   jmx:
     default-domain: ${spring.application.name}

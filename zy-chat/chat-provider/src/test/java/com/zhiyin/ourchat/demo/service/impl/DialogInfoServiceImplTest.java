@@ -46,7 +46,6 @@ public class DialogInfoServiceImplTest {
     @Test
     public void testInsertDialog() throws Exception {
 
-
         DialogInfo info = new DialogInfo();
 
         info.setContent("hello, user1 talk to user2.");

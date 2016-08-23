@@ -1,0 +1,1 @@
+alter table zhiyin_community_topic_info add column comment_num int default 0;

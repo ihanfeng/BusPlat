@@ -1,0 +1,17 @@
+package com.zhiyin.dbs.module.community.mapper;
+
+import com.zhiyin.dbs.module.community.entity.TopicInfo;
+
+public interface TopicInfoMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(TopicInfo record);
+
+    int insertSelective(TopicInfo record);
+
+    TopicInfo selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(TopicInfo record);
+
+    int updateByPrimaryKey(TopicInfo record);
+}
