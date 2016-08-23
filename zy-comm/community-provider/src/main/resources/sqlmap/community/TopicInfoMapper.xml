@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.dbs.module.community.mapper.TopicInfoMapper" >
+    <resultMap id="BaseResultMap" type="com.zhiyin.dbs.module.community.entity.TopicInfo" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+        <result column="media_type" property="mediaType" jdbcType="INTEGER" />
+        <result column="pics" property="pics" jdbcType="VARCHAR" />
+        <result column="addr_id" property="addrId" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="thumb_num" property="thumbNum" jdbcType="BIGINT" />
+        <result column="browse_num" property="browseNum" jdbcType="INTEGER" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+        <result column="comment_num" property="commentNum" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, title, content, media_type, pics, addr_id, user_id, thumb_num, browse_num, remark,
+        create_time, update_time, del_status, comment_num
+    </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhiyin_community_topic_info
+    where id = #{id,jdbcType=BIGINT}
+    AND del_status = 0
+  </select>
+
+  <select id="selectForUpdate" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_community_topic_info
+    where id = #{id,jdbcType=BIGINT}
+    AND del_status = 0
+    for update
+  </select>
+
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_community_topic_info
+    where del_status = 0 and user_id = #{userId}
+  </select>
+
+    <select id="selectByAddrId" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_community_topic_info
+        where del_status = 0 and addr_id = #{addrId}
+    </select>
+
+     <select id="selectAll" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_community_topic_info
+        where del_status = 0
+    </select>
+
+
+    <update id="deleteByIdOwner" parameterType="java.util.Map" >
+    update zhiyin_community_topic_info set del_status = 1 where id =#{id} and user_id = #{userId}
+    </update>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhiyin_community_topic_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+    <update id="updateIncBrowse" parameterType="java.lang.Long" >
+    update zhiyin_community_topic_info set browse_num = browse_num + 1 where id = #{id}
+    </update>
+
+
+    <update id="updateIncComment" parameterType="java.lang.Long" >
+        update zhiyin_community_topic_info set comment_num = comment_num + 1 where id = #{id}
+    </update>
+
+
+    <insert id="insertSelective" parameterType="com.zhiyin.dbs.module.community.entity.TopicInfo" >
+        insert into zhiyin_community_topic_info
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="title != null" >
+                title,
+            </if>
+            <if test="content != null" >
+                content,
+            </if>
+            <if test="mediaType != null" >
+                media_type,
+            </if>
+            <if test="pics != null" >
+                pics,
+            </if>
+            <if test="addrId != null" >
+                addr_id,
+            </if>
+            <if test="userId != null" >
+                user_id,
+            </if>
+            <if test="thumbNum != null" >
+                thumb_num,
+            </if>
+            <if test="browseNum != null" >
+                browse_num,
+            </if>
+            <if test="remark != null" >
+                remark,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+            <if test="updateTime != null" >
+                update_time,
+            </if>
+            <if test="delStatus != null" >
+                del_status,
+            </if>
+            <if test="commentNum != null" >
+                comment_num,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="title != null" >
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null" >
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="mediaType != null" >
+                #{mediaType,jdbcType=INTEGER},
+            </if>
+            <if test="pics != null" >
+                #{pics,jdbcType=VARCHAR},
+            </if>
+            <if test="addrId != null" >
+                #{addrId,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null" >
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="thumbNum != null" >
+                #{thumbNum,jdbcType=BIGINT},
+            </if>
+            <if test="browseNum != null" >
+                #{browseNum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null" >
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null" >
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delStatus != null" >
+                #{delStatus,jdbcType=INTEGER},
+            </if>
+            <if test="commentNum != null" >
+                #{commentNum,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.dbs.module.community.entity.TopicInfo" >
+        update zhiyin_community_topic_info
+        <set >
+            <if test="title != null" >
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null" >
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="mediaType != null" >
+                media_type = #{mediaType,jdbcType=INTEGER},
+            </if>
+            <if test="pics != null" >
+                pics = #{pics,jdbcType=VARCHAR},
+            </if>
+            <if test="addrId != null" >
+                addr_id = #{addrId,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="thumbNum != null" >
+                thumb_num = #{thumbNum,jdbcType=BIGINT},
+            </if>
+            <if test="browseNum != null" >
+                browse_num = #{browseNum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null" >
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null" >
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delStatus != null" >
+                del_status = #{delStatus,jdbcType=INTEGER},
+            </if>
+            <if test="commentNum != null" >
+                comment_num = #{commentNum,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zhiyin.dbs.module.community.entity.TopicInfo" >
+        update zhiyin_community_topic_info
+        set title = #{title,jdbcType=VARCHAR},
+        content = #{content,jdbcType=VARCHAR},
+        media_type = #{mediaType,jdbcType=INTEGER},
+        pics = #{pics,jdbcType=VARCHAR},
+        addr_id = #{addrId,jdbcType=BIGINT},
+        user_id = #{userId,jdbcType=BIGINT},
+        thumb_num = #{thumbNum,jdbcType=BIGINT},
+        browse_num = #{browseNum,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        del_status = #{delStatus,jdbcType=INTEGER},
+        comment_num = #{commentNum,jdbcType=INTEGER}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

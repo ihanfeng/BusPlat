@@ -18,6 +18,8 @@ public interface BaseMapper<E extends BaseEntity> {
     int insertSelective(E record);
 
     E selectByPrimaryKey(Long id);
+    E selectForUpdate(Long id);
+
 
     int updateByPrimaryKeySelective(E record);
 
@@ -29,4 +31,9 @@ public interface BaseMapper<E extends BaseEntity> {
 
     int deleteByIdOwner(@Param("id")Long id, @Param("userId") Long userId);
 
+//    / 查询并排序
+    List<E> selectAllAndOrder(String orderby);
+
+    // 需要将del_status设置为0
+    int insertOrUpdate(E record);
 }
