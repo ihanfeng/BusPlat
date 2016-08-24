@@ -6,7 +6,10 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface CommentInfoMapper  extends BaseMapper<CommentInfo> {
+public interface CommentInfoMapper extends BaseMapper<CommentInfo> {
 
+    List<CommentInfo> selectByTopic(@Param("topicId") Long topicId);
+
+    @Deprecated
     List<CommentInfo> selectByTopicAndOrder(@Param("topicId") Long topicId,@Param("orderby") String orderby);
 }

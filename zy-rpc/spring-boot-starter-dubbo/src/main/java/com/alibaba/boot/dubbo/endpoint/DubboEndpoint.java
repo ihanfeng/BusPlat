@@ -1,29 +1,23 @@
 package com.alibaba.boot.dubbo.endpoint;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.concurrent.ConcurrentMap;
-
+import com.alibaba.dubbo.config.ServiceConfig;
+import com.alibaba.dubbo.config.spring.AnnotationBean;
+import com.alibaba.dubbo.config.spring.ReferenceBean;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.actuate.endpoint.AbstractEndpoint;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.util.ReflectionUtils;
 
-import com.alibaba.dubbo.config.ServiceConfig;
-import com.alibaba.dubbo.config.spring.AnnotationBean;
-import com.alibaba.dubbo.config.spring.ReferenceBean;
+import java.lang.reflect.Field;
+import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentMap;
 
 public class DubboEndpoint extends AbstractEndpoint<List<Object>> implements ApplicationContextAware {
 
     private ApplicationContext context;
 
-    public DubboEndpoint(){
+    public DubboEndpoint() {
         super("dubbo");
     }
 

@@ -14,7 +14,7 @@ endpoints:
 
 # HTTP Server
 server:
-  port: 12331
+  port: 8081
   context-path: /${spring.application.name}
 
 

@@ -6,13 +6,18 @@ import com.google.common.base.Strings;
 import com.zhiyin.dbs.module.common.config.TableOrderBy;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
+import com.zhiyin.dbs.module.common.util.PageInfoUtil;
+import com.zhiyin.dbs.module.community.config.CommunityCacheKey;
 import com.zhiyin.dbs.module.community.entity.CommentInfo;
+import com.zhiyin.dbs.module.community.entity.TopicInfo;
 import com.zhiyin.dbs.module.community.mapper.CommentInfoMapper;
 import com.zhiyin.dbs.module.community.service.ICommentInfoService;
 import com.zhiyin.dbs.module.community.service.ITopicInfoService;
 import com.zhiyin.frame.idgen.IdGenFactory;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +26,7 @@ import java.util.List;
  * Created by hg on 2016/7/11.
  */
 @Service
+@CacheConfig(cacheNames = {CommunityCacheKey.CommentInfoKey})
 @com.alibaba.dubbo.config.annotation.Service(protocol = { "dubbo" })
 public class CommentInfoServiceImpl extends BaseService<CommentInfo> implements ICommentInfoService {
 
@@ -48,6 +54,13 @@ public class CommentInfoServiceImpl extends BaseService<CommentInfo> implements 
         return 1;
     }
 
+    @Cacheable
+    @Override
+    public CommentInfo selectById(Long id){
+        return super.selectById(id);
+    }
+
+    @Deprecated
     @Override
     public PageInfo<CommentInfo> selectByTopicAndOrder(Long topicId, int pageNum, int pageSize, String orderby) {
         if(Strings.isNullOrEmpty(orderby)){
@@ -60,17 +73,28 @@ public class CommentInfoServiceImpl extends BaseService<CommentInfo> implements 
         return page;
     }
 
+
+    @Cacheable
+    @Override
+    public PageInfo<CommentInfo> selectByTopicAndOrder(Long topicId, PageInfo pageInfo) {
+
+        PageInfoUtil.defaultOrderBy(pageInfo);
+        PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getOrderBy());
+        List<CommentInfo> list = commentInfoMapper.selectByTopic(topicId);
+        PageInfo<CommentInfo> page = new PageInfo(list);
+
+        return page;
+    }
+
+
     @Override
     public int deleteByIdOwner(Long id, Long userId ) {
-
         int re = commentInfoMapper.deleteByIdOwner(id,userId);
-
         return re;
     }
 
 
     @Override
-
     public Long insertSelectiveGet(CommentInfo bo) {
         this.getBaseMapper().setCharsetToUtf8mb4();
         bo.setId(Long.valueOf(IdGenFactory.genTableId()));

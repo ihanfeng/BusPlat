@@ -9,7 +9,7 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 //@EnableDiscoveryClient
 //@EnableEurekaClient
-@EnableAutoConfiguration(exclude={DubboAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {DubboAutoConfiguration.class})
 @SpringBootApplication
 public class OurChatDemoApplication extends SpringBootServletInitializer {
 
