@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.netflix.feign:feign-ribbon:8.1.1">
     <CLASSES>
-      <root url="jar://E:/MavenRepository/com/netflix/feign/feign-ribbon/8.1.1/feign-ribbon-8.1.1.jar!/" />
+      <root url="jar://E:/Software/MavenLocalRepository/com/netflix/feign/feign-ribbon/8.1.1/feign-ribbon-8.1.1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://E:/MavenRepository/com/netflix/feign/feign-ribbon/8.1.1/feign-ribbon-8.1.1-javadoc.jar!/" />
+      <root url="jar://E:/Software/MavenLocalRepository/com/netflix/feign/feign-ribbon/8.1.1/feign-ribbon-8.1.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://E:/MavenRepository/com/netflix/feign/feign-ribbon/8.1.1/feign-ribbon-8.1.1-sources.jar!/" />
+      <root url="jar://E:/Software/MavenLocalRepository/com/netflix/feign/feign-ribbon/8.1.1/feign-ribbon-8.1.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
