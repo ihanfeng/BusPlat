@@ -1,15 +1,13 @@
 package com.alibaba.boot.dubbo;
 
-import com.alibaba.dubbo.config.*;
+import com.alibaba.boot.dubbo.endpoint.DubboEndpoint;
+import com.alibaba.boot.dubbo.health.DubboHealthIndicator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.alibaba.boot.dubbo.endpoint.DubboEndpoint;
-import com.alibaba.boot.dubbo.health.DubboHealthIndicator;
 
 @Configuration
 @EnableConfigurationProperties(DubboProperties.class)

@@ -12,9 +12,11 @@
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="del_status" property="delStatus" jdbcType="INTEGER" />
   </resultMap>
+
   <sql id="Base_Column_List" >
     id, topic_id, user_id, comment, thumb_num, remark, create_time, update_time, del_status
   </sql>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
@@ -32,6 +34,18 @@
     for update
   </select>
 
+
+
+  <select id="selectByTopic" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_community_comment_info
+    where topic_id = #{topicId,jdbcType=BIGINT}
+    AND del_status = 0
+  </select>
+
+
+  <!-- 将要废除-->
   <select id="selectByTopicAndOrder" resultMap="BaseResultMap" parameterType="java.util.Map" >
     select
     <include refid="Base_Column_List" />

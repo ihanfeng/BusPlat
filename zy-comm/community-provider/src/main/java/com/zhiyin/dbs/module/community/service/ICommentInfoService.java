@@ -13,5 +13,7 @@ public interface ICommentInfoService extends IBaseService<CommentInfo> {
 
     PageInfo<CommentInfo> selectByTopicAndOrder(Long topicId, int pageNum, int pageSize, String sortby);
 
+    PageInfo<CommentInfo> selectByTopicAndOrder(Long topicId, PageInfo pageInfo);
+
     int deleteByIdOwner(Long id, Long userId);
 }

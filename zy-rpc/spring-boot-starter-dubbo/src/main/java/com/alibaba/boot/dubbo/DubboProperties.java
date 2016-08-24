@@ -1,18 +1,17 @@
 package com.alibaba.boot.dubbo;
 
-import com.alibaba.dubbo.config.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "spring.dubbo")
 public class DubboProperties {
 
-    private String            scan;
+    private String scan;
 
     private ApplicationConfig application;
 
-    private RegistryConfig    registry;
+    private RegistryConfig registry;
 
-    private ProtocolConfig    protocol;
+    private ProtocolConfig protocol;
 
     private ConsumerConfig consumerConfig;
 
@@ -24,6 +23,10 @@ public class DubboProperties {
 
     public String getScan() {
         return scan;
+    }
+
+    public void setScan(String scan) {
+        this.scan = scan;
     }
 
     public ApplicationConfig getApplication() {
@@ -48,10 +51,6 @@ public class DubboProperties {
 
     public void setProtocol(ProtocolConfig protocol) {
         this.protocol = protocol;
-    }
-
-    public void setScan(String scan) {
-        this.scan = scan;
     }
 
     public ConsumerConfig getConsumerConfig() {

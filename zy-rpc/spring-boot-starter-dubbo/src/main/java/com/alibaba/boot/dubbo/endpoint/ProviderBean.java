@@ -4,11 +4,11 @@ import java.util.List;
 
 public class ProviderBean {
 
-    private String       target;
-    private String       serviceInterface;
-    private String       serviceVersion;
-    private String       serviceGroup;
-    private Integer      clientTimeout;
+    private String target;
+    private String serviceInterface;
+    private String serviceVersion;
+    private String serviceGroup;
+    private Integer clientTimeout;
     private List<String> methodNames;
 
     public String getTarget() {

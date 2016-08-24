@@ -6,10 +6,14 @@ import com.zhiyin.dbs.module.common.exception.SelNotFoundException;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
 import com.zhiyin.dbs.module.common.util.PageInfoUtil;
+import com.zhiyin.dbs.module.community.config.CommunityCacheKey;
 import com.zhiyin.dbs.module.community.entity.TopicInfo;
 import com.zhiyin.dbs.module.community.mapper.TopicInfoMapper;
 import com.zhiyin.dbs.module.community.service.ITopicInfoService;
+import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +22,7 @@ import java.util.List;
  * Created by hg on 2016/7/11.
  */
 @Service
+@CacheConfig(cacheNames = {CommunityCacheKey.TopicInfoKey}) // 默认cache名称
 @com.alibaba.dubbo.config.annotation.Service(protocol = { "dubbo" })
 public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITopicInfoService {
 
@@ -27,6 +32,19 @@ public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITop
     @Override
     public BaseMapper<TopicInfo> getBaseMapper() {
         return topicInfoMapper;
+    }
+
+    @Override
+    public int deleteByIdOwner(Long id, Long userId) {
+        int re = topicInfoMapper.deleteByIdOwner(id,userId);
+
+        return re;
+    }
+
+    @Cacheable
+    @Override
+    public TopicInfo selectById(Long id){
+        return super.selectById(id);
     }
 
     @Deprecated
@@ -40,39 +58,30 @@ public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITop
         return page;
     }
 
+    @Cacheable
     @Override
     public PageInfo<TopicInfo> selectAllAndOrder(PageInfo pageInfo) {
-        PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getOrderBy() );
+        PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(), PageInfoUtil.defaultOrderBy(pageInfo)  );
         List<TopicInfo> info = getBaseMapper().selectAll();
         PageInfo<TopicInfo> page = new PageInfo(info);
         return page;
     }
 
-    @Override
-    public int deleteByIdOwner(Long id, Long userId) {
-
-        int re = topicInfoMapper.deleteByIdOwner(id,userId);
-
-        return re;
-    }
-
+    @Cacheable
     @Override
     public PageInfo<TopicInfo> selectByUserId(Long userId, PageInfo pageInfo) {
 
         PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(), PageInfoUtil.defaultOrderBy(pageInfo) );
-
         List<TopicInfo> info = topicInfoMapper.selectByUserId( userId );
-
         PageInfo<TopicInfo> page = new PageInfo(info);
 
         return page;
     }
 
+    @Cacheable
     @Override
     public PageInfo<TopicInfo> selectByAddrId(Long addrId, PageInfo pageInfo) {
-
         PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(), PageInfoUtil.defaultOrderBy(pageInfo) );
-
         List<TopicInfo> info = topicInfoMapper.selectByAddrId(addrId );
         PageInfo<TopicInfo> page = new PageInfo(info);
         return page;
@@ -110,6 +119,12 @@ public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITop
         return ret;
     }
 
+    /**
+     * 增加评论数量
+     * @param topicId
+     * @param userId
+     * @return
+     */
     @Override
     public Integer updateIncComment(Long topicId, Long userId) {
         Integer ret = topicInfoMapper.updateIncComment(topicId);

@@ -13,12 +13,13 @@
         <groupId>com.zhiyin</groupId>
         <artifactId>zhiyin-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <!--<relativePath>../../zhiyin-parent/pom.xml</relativePath>-->
     </parent>
 
     <modules>
         <module>community-core</module>
         <module>community-provider</module>
-        <module>demo-consumer</module>
+        <!--<module>demo-consumer</module>-->
     </modules>
 
 </project>

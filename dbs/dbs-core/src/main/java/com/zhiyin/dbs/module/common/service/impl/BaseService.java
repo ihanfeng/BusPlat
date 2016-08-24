@@ -7,6 +7,7 @@ import com.zhiyin.dbs.module.common.entity.BaseEntity;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.frame.idgen.IdGenFactory;
 import org.joda.time.DateTime;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 
@@ -74,10 +75,12 @@ public abstract class BaseService<V extends BaseEntity> {
 	}
 
 
+//    @Cacheable
     public V selectByPrimaryKey(Long id) {
         return getBaseMapper().selectByPrimaryKey(id);
     }
 
+//    @Cacheable
     public V selectById(Long id) {
         return getBaseMapper().selectByPrimaryKey(id);
     }
