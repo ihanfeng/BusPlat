@@ -17,7 +17,6 @@ public interface ContentInfoRepository extends ElasticsearchRepository<ContentIn
 //    @Query("{\"bool\": {\"must\": [  {\"match\": {\"title\": \"?1\"}}  ]}}")
     Page<ContentInfoMapping> findByRoleIdAndTitleUsingCustomQuery(Long roleId, String title,Pageable pageable);
 
-
     Page<ContentInfoMapping> findByDescription(String description, Pageable pageable);
 
     //	 List<ContentInfoMapping> findByName(String name);

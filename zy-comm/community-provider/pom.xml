@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhiyin.dbs</groupId>
     <artifactId>community-provider</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
@@ -20,11 +20,11 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.zhiyin.frame</groupId>
-            <artifactId>cache-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.zhiyin.frame</groupId>-->
+            <!--<artifactId>cache-core</artifactId>-->
+            <!--<version>0.0.1-SNAPSHOT</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.zhiyin.frame</groupId>
             <artifactId>rpc-dubbo</artifactId>
@@ -205,12 +205,15 @@
                 <version>2.6</version>
                 <configuration>
                     <excludes>
-                        <exclude>application*</exclude>
+                        <exclude>bootstrap.yml</exclude>
+                        <exclude>application.yml</exclude>
                         <exclude>logback.xml</exclude>
                         <exclude>config/**</exclude>
+                        <exclude>sqlmap/**</exclude>
                         <exclude>mapper/**</exclude>
                         <exclude>dubbo*</exclude>
-                        <exclude>com/zhiyin/ourchat/OurChatApplication.*</exclude>
+                        <exclude>redis.*</exclude>
+                        <exclude>com/zhiyin/dbs/module/community/CommunityApplication.*</exclude>
                     </excludes>
                 </configuration>
             </plugin>

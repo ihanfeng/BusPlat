@@ -22,7 +22,7 @@ import java.util.List;
  * Created by hg on 2016/7/11.
  */
 @Service
-@CacheConfig(cacheNames = {CommunityCacheKey.TopicInfoKey}) // 默认cache名称
+//@CacheConfig(cacheNames = {CommunityCacheKey.TopicInfoKey}) // 默认cache名称
 @com.alibaba.dubbo.config.annotation.Service(protocol = { "dubbo" })
 public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITopicInfoService {
 
@@ -41,7 +41,7 @@ public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITop
         return re;
     }
 
-    @Cacheable
+//    @Cacheable
     @Override
     public TopicInfo selectById(Long id){
         return super.selectById(id);
@@ -58,7 +58,7 @@ public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITop
         return page;
     }
 
-    @Cacheable
+//    @Cacheable
     @Override
     public PageInfo<TopicInfo> selectAllAndOrder(PageInfo pageInfo) {
         PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(), PageInfoUtil.defaultOrderBy(pageInfo)  );
@@ -67,7 +67,7 @@ public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITop
         return page;
     }
 
-    @Cacheable
+//    @Cacheable
     @Override
     public PageInfo<TopicInfo> selectByUserId(Long userId, PageInfo pageInfo) {
 
@@ -78,7 +78,7 @@ public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITop
         return page;
     }
 
-    @Cacheable
+//    @Cacheable
     @Override
     public PageInfo<TopicInfo> selectByAddrId(Long addrId, PageInfo pageInfo) {
         PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(), PageInfoUtil.defaultOrderBy(pageInfo) );

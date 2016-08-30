@@ -26,7 +26,7 @@ import java.util.List;
  * Created by hg on 2016/7/11.
  */
 @Service
-@CacheConfig(cacheNames = {CommunityCacheKey.CommentInfoKey})
+//@CacheConfig(cacheNames = {CommunityCacheKey.CommentInfoKey})
 @com.alibaba.dubbo.config.annotation.Service(protocol = { "dubbo" })
 public class CommentInfoServiceImpl extends BaseService<CommentInfo> implements ICommentInfoService {
 
@@ -54,7 +54,7 @@ public class CommentInfoServiceImpl extends BaseService<CommentInfo> implements 
         return 1;
     }
 
-    @Cacheable
+//    @Cacheable
     @Override
     public CommentInfo selectById(Long id){
         return super.selectById(id);
@@ -74,7 +74,7 @@ public class CommentInfoServiceImpl extends BaseService<CommentInfo> implements 
     }
 
 
-    @Cacheable
+//    @Cacheable
     @Override
     public PageInfo<CommentInfo> selectByTopicAndOrder(Long topicId, PageInfo pageInfo) {
 
