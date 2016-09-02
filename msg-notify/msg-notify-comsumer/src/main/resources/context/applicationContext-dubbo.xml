@@ -11,13 +11,14 @@
 
     <dubbo:registry address="zookeeper://101.200.185.137:2181"/>
 
-
     <!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->
     <dubbo:annotation package="com.hg.msg.controller"/>
-
-
+    
     <!--表示服务消费端对所有订阅的服务都添加缓存功能-->
-    <dubbo:consumer cache="mixcache"/>
+    <!--<dubbo:consumer cache="mixcache" check="false"/>-->
+
+    <dubbo:reference id="testCacheService1" interface="com.hg.msg.service.ITestCacheService1" cache="mixcache"/>
+
 
     <!--<dubbo:reference id="msgNotifyService" interface="com.hg.msg.service.IMsgNotifyService"   />-->
 </beans>

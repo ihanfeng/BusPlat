@@ -29,7 +29,6 @@ server:
   port: 8088   # HTTP (Tomcat) port
 #  context-path: /msg-comsumer
 
-
 ## acutor 设置
 management:
   port: 18081

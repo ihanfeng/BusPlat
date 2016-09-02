@@ -14,7 +14,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,11 +24,13 @@ import java.util.List;
  * Created by hg on 2016/3/29.
  */
 
+@Transactional
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {ProviderApplication.class})
 @WebAppConfiguration
 @EnableAuthorizationServer
+@TransactionConfiguration( defaultRollback = true)
 @EnableResourceServer
 public class MsgNotifyServiceTest {
 
