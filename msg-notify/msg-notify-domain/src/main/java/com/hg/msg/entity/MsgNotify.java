@@ -1,8 +1,14 @@
 package com.hg.msg.entity;
 
+import com.zhiyin.dbs.module.common.entity.*;
+
 import java.util.Date;
 
-public class MsgNotify {
+public class MsgNotify extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
+
     private Long id;
 
     private String content;

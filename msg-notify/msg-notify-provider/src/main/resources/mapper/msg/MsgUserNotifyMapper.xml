@@ -49,6 +49,17 @@
     </select>
 
 
+    <select id="selectByUserAndType" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from msg_user_notify
+        where
+        user_id = #{userId}
+        AND
+        notify_type = #{notifyType}
+    </select>
+
+
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>

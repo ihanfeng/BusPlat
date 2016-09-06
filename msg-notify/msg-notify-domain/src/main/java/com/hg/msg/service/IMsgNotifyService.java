@@ -1,5 +1,6 @@
 package com.hg.msg.service;
 
+import com.github.pagehelper.PageInfo;
 import com.hg.msg.entity.MsgSubscriptionConfig;
 import com.hg.msg.entity.MsgUserNotify;
 
@@ -99,6 +100,8 @@ public interface IMsgNotifyService {
      */
     public List<MsgUserNotify> getUserNotify(Long uid);
 
+
+    PageInfo<MsgUserNotify> selectAnnounce(Long uId, PageInfo pageInfo);
 
     /**
      * 更新指定的notify，把isRead属性设置为true

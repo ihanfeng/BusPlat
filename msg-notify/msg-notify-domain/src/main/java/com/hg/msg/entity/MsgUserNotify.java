@@ -1,5 +1,7 @@
 package com.hg.msg.entity;
 
+import com.zhiyin.dbs.module.common.entity.BaseEntity;
+
 import java.util.Date;
 
 

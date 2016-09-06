@@ -1,6 +1,9 @@
 package com.hg.msg.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.google.common.base.Optional;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.hg.msg.common.NotifyType;
@@ -15,7 +18,10 @@ import com.hg.msg.service.IMsgNotifyInfoService;
 import com.hg.msg.service.IMsgNotifyService;
 import com.hg.msg.service.IMsgSubService;
 import com.hg.msg.service.IMsgUserNotifyService;
+import com.zhiyin.dbs.module.common.mapper.BaseMapper2;
+import com.zhiyin.dbs.module.common.service.impl.BaseService2;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.zookeeper.Op;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +36,7 @@ import java.util.List;
 @Slf4j
 @Service
 @com.alibaba.dubbo.config.annotation.Service(protocol = {"dubbo"})
-public class MsgNotifyServiceImpl implements IMsgNotifyService {
+public class MsgNotifyServiceImpl extends BaseService2<Long,MsgNotify> implements IMsgNotifyService {
 
     @Autowired
     private IMsgUserNotifyService msgUserNotifyService;
@@ -81,6 +87,11 @@ public class MsgNotifyServiceImpl implements IMsgNotifyService {
         return msgNotifyInfoService.insertSelective(msgNotify);
 
     }
+
+//    @Override
+//    public List<MsgUserNotify> selectAnnounce(Long userId) {
+//
+//    }
 
     @Override
     public List<MsgUserNotify> pullAnnounce(Long userId) {
@@ -268,18 +279,36 @@ public class MsgNotifyServiceImpl implements IMsgNotifyService {
 
         List<MsgUserNotify> list = msgUserNotifyService.selectByUid(uid);
 
-        log.info(JSON.toJSONString(list));
+        log.debug(JSON.toJSONString(list));
         return list;
 
     }
 
-//    @Override
-//    public List<MsgNotify> getUserNotify(Long uid) {
-//        return msgUserNotifyMapper
-//    }
+    @Override
+    public PageInfo<MsgUserNotify> selectAnnounce(Long uId, PageInfo pageInfo) {
+
+        PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize());
+        List<MsgUserNotify> list = msgUserNotifyService.selectByUserAndType(uId,NotifyType.Announce);
+
+        if( list == null || list.size() ==0){
+            list = Lists.newArrayList();
+        }
+        List<MsgNotify> msgNotifyList = Lists.newArrayList();
+        for(MsgUserNotify tmp : list){
+            msgNotifyInfoService.sele
+        }
+        msgNotifyInfoService
+        PageInfo<MsgUserNotify> page = new PageInfo(list);
+        return page;
+    }
 
     @Override
     public Integer read(Long uid, Long notifyId) {
         return 0;
+    }
+
+    @Override
+    public BaseMapper2<Long, MsgNotify> getBaseMapper() {
+        return msgUserNotifyMapper;
     }
 }

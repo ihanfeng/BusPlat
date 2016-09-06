@@ -15,4 +15,8 @@ public interface IMsgUserNotifyService {
     Long insertSelective(Long userId, Long notifyId, Date notifyTime);
 
     List<MsgUserNotify> selectByUid(Long userId);
+
+    List<MsgUserNotify> selectByUserAndType(Long userId,Integer notifyType);
+
+
 }

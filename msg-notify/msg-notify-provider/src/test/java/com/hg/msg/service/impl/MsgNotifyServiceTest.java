@@ -1,6 +1,7 @@
 package com.hg.msg.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
 import com.hg.msg.ProviderApplication;
 import com.hg.msg.entity.MsgUserNotify;
@@ -24,13 +25,13 @@ import java.util.List;
  * Created by hg on 2016/3/29.
  */
 
-@Transactional
+//@Transactional
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {ProviderApplication.class})
 @WebAppConfiguration
 @EnableAuthorizationServer
-@TransactionConfiguration( defaultRollback = true)
+//@TransactionConfiguration( defaultRollback = true)
 @EnableResourceServer
 public class MsgNotifyServiceTest {
 
@@ -63,9 +64,7 @@ public class MsgNotifyServiceTest {
         userNotifyList = msgNotifyService.getUserNotify(testUserId);
         Assert.assertTrue(userNotifyList.size() == 0);
 
-
         // 创建公告
-
         msgNotifyService.createAnnounce("anno1", adminId);
         msgNotifyService.createAnnounce("anno2", adminId);
 
@@ -75,15 +74,16 @@ public class MsgNotifyServiceTest {
         userNotifyList = msgNotifyService.getUserNotify(testUserId);
         Assert.assertTrue(userNotifyList.size() == 2);
 
+//        msgNotifyService.createAnnounce("anno3", adminId);
+//        msgNotifyService.pullAnnounce(testUserId);
+//        userNotifyList = msgNotifyService.getUserNotify(testUserId);
+//        Assert.assertTrue(userNotifyList.size() == 3);
 
-        msgNotifyService.createAnnounce("anno3", adminId);
-        msgNotifyService.pullAnnounce(testUserId);
-        userNotifyList = msgNotifyService.getUserNotify(testUserId);
-        Assert.assertTrue(userNotifyList.size() == 3);
-
-
+        PageInfo pageInfo = new PageInfo();
+        pageInfo.setPageNum(1);
+        pageInfo.setPageSize(20);
+        msgNotifyService.selectAnnounce(testUserId,pageInfo);
         log.info(JSON.toJSONString(userNotifyList));
-
     }
 
     @Test

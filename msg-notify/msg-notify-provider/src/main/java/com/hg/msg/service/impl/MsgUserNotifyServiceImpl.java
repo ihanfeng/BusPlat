@@ -57,8 +57,12 @@ public class MsgUserNotifyServiceImpl implements IMsgUserNotifyService {
 
     @Override
     public List<MsgUserNotify> selectByUid(Long userId) {
-
         return msgUserNotifyMapper.selectByUid(userId);
+    }
+
+    @Override
+    public List<MsgUserNotify> selectByUserAndType(Long userId, Integer notifyType) {
+        return msgUserNotifyMapper.selectByUserAndType(userId,notifyType);
     }
 
 
