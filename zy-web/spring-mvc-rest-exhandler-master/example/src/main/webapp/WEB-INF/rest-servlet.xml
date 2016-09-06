@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.stormpath.blog.spring.mvc.rest.exhandler"/>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="com.stormpath.blog.spring.http.converter.json.DefaultJacksonHttpMessageConverter">
+                <!-- True only for the blog article - a production system would set this to false to reduce
+                     the number of bytes sent across the wire: -->
+                <property name="prettyPrint" value="true"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <mvc:interceptors>
+        <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="lang"/>
+        </bean>
+    </mvc:interceptors>
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"/>
+
+    <!-- Unfortunately we have to repeat an instance of this class here because the mvc:message-converters element above
+         does not support <ref/> elements: -->
+    <bean id="jacksonHttpMessageConverter" class="com.stormpath.blog.spring.http.converter.json.DefaultJacksonHttpMessageConverter">
+        <property name="prettyPrint" value="true"/>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1"/>
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json"/>
+            </map>
+        </property>
+        <property name="defaultContentType" value="#{T(org.springframework.http.MediaType).APPLICATION_JSON}"/>
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Allow Exceptions to be handled in annotated methods if desired.  Otherwise fallback to the
+         'restExceptionResolver' below: -->
+    <bean id="annotationMethodHandlerExceptionResolver"
+          class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerExceptionResolver">
+        <property name="order" value="0"/>
+    </bean>
+    <bean id="restExceptionResolver" class="com.stormpath.spring.web.servlet.handler.RestExceptionHandler">
+        <property name="order" value="100"/>
+        <property name="messageConverters">
+            <list>
+                <ref bean="jacksonHttpMessageConverter"/>
+            </list>
+        </property>
+        <property name="errorResolver">
+            <bean class="com.stormpath.spring.web.servlet.handler.DefaultRestErrorResolver">
+                <property name="localeResolver" ref="localeResolver"/>
+                <property name="defaultMoreInfoUrl" value="mailto:support@mycompany.com"/>
+                <property name="exceptionMappingDefinitions">
+                    <map>
+                        <!-- 404 -->
+                        <entry key="com.stormpath.blog.spring.mvc.rest.exhandler.UnknownResourceException" value="404, _exmsg"/>
+
+                        <!-- 500 (catch all): -->
+                        <entry key="Throwable" value="500"/>
+                    </map>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
