@@ -1,6 +1,7 @@
 package com.zhiyin.search.es.module;
 
-import org.elasticsearch.common.collect.Lists;
+
+import com.google.common.collect.Lists;
 
 import java.util.List;
 

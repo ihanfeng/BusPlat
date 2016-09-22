@@ -3,9 +3,9 @@ spring:
   profiles:
     active: product
 #    active: test
-  boot:
-    admin:
-      url: http://101.200.185.137:10008
+#  boot:
+#    admin:
+#      url: http://101.200.185.137:10008
 
 # Discovery Server Access
 eureka:

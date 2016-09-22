@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.node.NodeClient;
 import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.common.transport.TransportAddress;
@@ -19,6 +18,8 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -38,12 +39,21 @@ public class ElasticsearchConfig {
     @Bean
     @Profile({"product"})
     public Client client() {
-        Settings settings = ImmutableSettings.settingsBuilder()
+        Settings settings = Settings.builder()
                 .put("cluster.name", "elasticsearch")
                 .build();
-        TransportClient client = new TransportClient(settings);
-        TransportAddress address = new InetSocketTransportAddress(environment.getProperty("elasticsearch.host"), Integer.parseInt(environment.getProperty("elasticsearch.port")));
-        client.addTransportAddress(address);
+        Client client = null;
+        try {
+            client = TransportClient.builder().build().addTransportAddress(new InetSocketTransportAddress(
+                    InetAddress.getByName(environment.getProperty("elasticsearch.host")),
+                    Integer.parseInt(environment.getProperty("elasticsearch.port")) ));
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
+//        TransportClient client = new TransportClient(settings);
+//        TransportAddress address = new InetSocketTransportAddress(environment.getProperty("elasticsearch.host"), Integer.parseInt(environment.getProperty("elasticsearch.port")));
+//        client.addTransportAddress(address);
 
         return client;
     }
@@ -67,7 +77,7 @@ public class ElasticsearchConfig {
         try {
             final Path tmpDir = Files.createTempDirectory(Paths.get(System.getProperty("java.io.tmpdir")), "elasticsearch_data");
 
-            Settings settings = ImmutableSettings.settingsBuilder()
+            Settings settings = Settings.builder()
                     .put("cluster.name", "elasticsearch")
                     .put("http.enabled", "true") // 可以通过 http://localhost:9200/_search 访问ES
                     .put("path.data", tmpDir.toAbsolutePath().toString()) // 2

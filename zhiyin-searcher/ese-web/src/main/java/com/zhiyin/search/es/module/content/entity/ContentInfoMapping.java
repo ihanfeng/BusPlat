@@ -16,7 +16,7 @@ public class ContentInfoMapping {
     @Id
     private Long id;
 
-    @Field(type = FieldType.String, indexAnalyzer="ik", searchAnalyzer="ik", store = true)
+//    @Field(type = FieldType.String, indexAnalyzer="ik", searchAnalyzer="ik", store = true)
     private String title;
     private Float duration;//时长
     private String document;
@@ -24,7 +24,7 @@ public class ContentInfoMapping {
     private String tag;//内容标签
     private String savePath;//保存路径
 
-    @Field(type = FieldType.Integer, index = FieldIndex.not_analyzed, store = true)
+//    @Field(type = FieldType.Long, index = FieldIndex.not_analyzed, store = true)
     private Long roleId;
 
 
