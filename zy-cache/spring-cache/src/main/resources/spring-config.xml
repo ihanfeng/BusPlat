@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:context='http://www.springframework.org/schema/context'
+       xsi:schemaLocation="
+
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 属性文件读入 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:config.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+		
+	<import resource="spring-config/spring-config-datasource-dbcp.xml" />
+	<import resource="spring-config/spring-config-dao.xml" />
+	<import resource="spring-config/spring-config-service.xml" />
+	<!-- 设置使用注解的类所在的jar包 -->
+	<context:component-scan base-package="com.travelsky.msky.family">
+		<!-- 不扫描带有@Controller注解的类 这些类已经随容器启动时扫描过-->
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />   
+	</context:component-scan>
+
+
+<!-- 	<import resource="spring-config/spring-config-shiro.xml" /> -->
+	
+	<bean class="com.hg.awesome.springfox.SwaggerConfig"></bean>
+	<bean class="com.hg.awesome.springfox.SwaggerUiConfiguration"></bean>
+	
+<!-- 	<import resource="spring-config/spring-cache.xml" /> -->
+
+<import resource="spring-config/metrics-spring.xml" /> 
+</beans>

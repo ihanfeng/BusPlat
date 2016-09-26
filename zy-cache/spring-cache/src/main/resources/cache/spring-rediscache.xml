@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:cache='http://www.springframework.org/schema/cache'
+	   xsi:schemaLocation="
+	        http://www.springframework.org/schema/cache
+            http://www.springframework.org/schema/cache/spring-cache.xsd
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd"
+	   default-autowire="byName">
+
+	<!--Jedis连接池配置 http://my.oschina.net/damihui/blog/173490 -->
+
+	<bean id="propertyConfigurerRedis"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="1" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:redis.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- jedis pool配置 -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<!--最大连接数 -->
+		<!-- <property name="maxActive" value="${redis.pool.maxActive}" /> -->
+		<!--最大空闲连接数 -->
+		<property name="maxIdle" value="${redis.pool.maxIdle}" />
+
+		<!--初始化连接数 -->
+		<property name="minIdle" value="${redis.pool.minIdle}" />
+		<!--最大等待时间 -->
+		<!-- <property name="maxWait" value="${redis.pool.maxWait}" /> -->
+		<!--对拿到的connection进行validateObject校验 -->
+		<property name="testOnBorrow" value="${redis.pool.testOnBorrow}" />
+		<!--在进行returnObject对返回的connection进行validateObject校验 -->
+		<property name="testOnReturn" value="${redis.pool.testOnReturn}" />
+		<!--定时对线程池中空闲的链接进行validateObject校验 -->
+		<property name="testWhileIdle" value="true" />
+
+	</bean>
+
+	<!-- spring data redis -->
+	<bean id="jedisConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="usePool" value="true"></property>
+		<property name="hostName" value="${redis.host}" />
+		<property name="port" value="${redis.port}" />
+		<!-- <property name="password" value="${redis.password" /> -->
+		<!-- <property name="timeout" value="${redis.timeout}" /> -->
+		<!-- <property name="database" value="${redis.default.db}"></property> -->
+		<constructor-arg index="0" ref="jedisPoolConfig" />
+	</bean>
+
+
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnectionFactory" />
+		<!-- 如果不配置Serializer，那么存储的时候智能使用String，如果用User类型存储，那么会提示错误User can't cast 
+			to String！！！ -->
+		<property name="keySerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
+		<property name="valueSerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+			<!-- <bean class="org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer" 
+				/> -->
+			<!-- <bean class="org.springframework.data.redis.serializer.JacksonJsonRedisSerializer" /> -->
+		</property>
+	</bean>
+
+	<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+
+		<constructor-arg index="0" ref="redisTemplate" />
+	</bean>
+
+	<bean id="keyGen"
+		class="org.springframework.cache.interceptor.SimpleKeyGenerator" />
+
+	<!-- 启用Cache注解 -->
+	<cache:annotation-driven cache-manager="cacheManager" />	
+	
+</beans>

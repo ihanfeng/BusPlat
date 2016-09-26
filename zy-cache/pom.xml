@@ -13,6 +13,7 @@
 
     <modules>
         <module>cache-core</module>
+        <module>guava-demo</module>
         <module>mybatis-redis-demo</module>
     </modules>
 

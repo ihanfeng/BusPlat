@@ -30,6 +30,7 @@
 
     <modules>
         <module>dbs-core</module>
+        <!--<module>re</module>-->
         <!--<module>dbs-demo</module>-->
     </modules>
 

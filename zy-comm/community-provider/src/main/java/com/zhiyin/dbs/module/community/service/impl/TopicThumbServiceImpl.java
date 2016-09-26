@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by hg on 2016/7/11.
@@ -69,4 +70,15 @@ public class TopicThumbServiceImpl extends BaseService<TopicThumb> implements IT
         }
         return false;
     }
+
+    @Override
+    public List<Long> selectThumbers(Long topicId) {
+        return topicThumbMapper.selectThumbers(topicId);
+    }
+
+    @Override
+    public List<Long> selectLatestThumbers(Long topicId) {
+        return topicThumbMapper.selectLatestThumbers(topicId);
+    }
+
 }

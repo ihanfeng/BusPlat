@@ -4,7 +4,7 @@ import com.zhiyin.dbs.module.common.entity.BaseEntity;
 
 import java.util.Date;
 
-public class TopicThumb   extends BaseEntity {
+public class TopicThumb extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     private Long id;

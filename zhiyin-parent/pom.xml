@@ -138,6 +138,8 @@
     </pluginRepositories> -->
 
 
+
+
     <!-- 预定义依赖项的version,scope与exclusions,子项目中只需定义groupId 与  artifactId 即可 -->
     <dependencyManagement>
         <dependencies>

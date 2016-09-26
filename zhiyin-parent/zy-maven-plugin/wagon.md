@@ -1,0 +1,1 @@
+http://xxgblog.com/2015/10/23/wagon-maven-plugin/
