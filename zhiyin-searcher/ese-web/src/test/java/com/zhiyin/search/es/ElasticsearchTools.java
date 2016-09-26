@@ -42,7 +42,7 @@ import org.elasticsearch.search.sort.SortOrder;
  */
 public class ElasticsearchTools {
 
-    private static String ip = "localhost";
+    private static String ip = "112.126.92.1";
     private static int port = 9300;
 
 
@@ -56,16 +56,16 @@ public class ElasticsearchTools {
      *@return void
      *@throws
      */
-    public static void addDocument(JSONObject object, String index, String type, String id) {
-        try {
-            Client client = TransportClient.builder().build().addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(ip), port));
-            IndexResponse response = client.prepareIndex(index, type, id).setSource(object).get();
-        } catch (UnknownHostException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }
+//    public static void addDocument(JSONObject object, String index, String type, String id) {
+//        try {
+//            Client client = TransportClient.builder().build().addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(ip), port));
+//            IndexResponse response = client.prepareIndex(index, type, id).setSource(object).get();
+//        } catch (UnknownHostException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//
+//    }
 
     /**
      *@Title: getIndex 
@@ -273,7 +273,7 @@ public class ElasticsearchTools {
 
                 for (Map<Object, Object> map : rangeLists) {
                     if (map != null && (!map.isEmpty())) {
-                        qb = QueryBuilders.rangeQuery(Strings.trim(map.get("field"))).from(StringUtil.trim(map.get("from"))).to(StringUtil.trim(map.get("to")));
+                        qb = QueryBuilders.rangeQuery( String.valueOf(map.get("field")) ).from(  String.valueOf(map.get("from")) ).to( String.valueOf(map.get("to")));
                     }
                 }
             }
@@ -281,7 +281,7 @@ public class ElasticsearchTools {
             SortBuilder sortBuilder = null;
             if (sortMaps != null) {
                 for (Object key : sortMaps.keySet()) {
-                    sortBuilder = SortBuilders.fieldSort((String) key).order(StringUtil.trim(sortMaps.get(key)).equals("ASC") ? SortOrder.ASC : SortOrder.DESC);
+                    sortBuilder = SortBuilders.fieldSort((String) key).order(String.valueOf(sortMaps.get(key)).equals("ASC") ? SortOrder.ASC : SortOrder.DESC);
                 }
             }
 
