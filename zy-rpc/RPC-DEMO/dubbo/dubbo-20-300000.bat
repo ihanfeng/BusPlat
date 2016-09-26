@@ -1,0 +1,2 @@
+java -Xms2G -Xmx2G -classpath ./dubbo-demo-consumer/target/classes  -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc20.log -Dwrite.statistics=true -Djava.ext.dirs="./dubbo-demo-provider/target/dubbo-demo-provider-2.8.4/WEB-INF/lib" com.alibaba.dubbo.demo.consumer.DubboTest 20 300000 > benchmark20.log
+pause

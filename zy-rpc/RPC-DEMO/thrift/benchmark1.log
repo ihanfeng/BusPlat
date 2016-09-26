@@ -1,0 +1,3 @@
+Order(orderId:1437110892894, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 12857.32653323619
+thrift:client num:1,execute per client:300000,total execute:300000,total time:23s, tps:12832.028743744386

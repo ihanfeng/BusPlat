@@ -1,9 +1,13 @@
 package com.zhiyin.ranker.api;
 
+import com.google.common.base.Optional;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.Signature;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.aspectj.lang.reflect.SourceLocation;
 
 public class JoinPointToStringHelper {
- 
+
     public static String toString(JoinPoint jp) {
         StringBuilder sb = new StringBuilder();
         appendType(sb, getType(jp));
@@ -18,13 +22,19 @@ public class JoinPointToStringHelper {
         }
         return sb.toString();
     }
- 
+
     private static Class<?> getType(JoinPoint jp) {
-        return Optional.ofNullable(jp.getSourceLocation())
-                .map(SourceLocation::getWithinType)
-                .orElse(jp.getSignature().getDeclaringType());
+
+        if(jp.getSourceLocation() != null){
+            return jp.getSourceLocation().getWithinType();
+        }else{
+            return jp.getSignature().getDeclaringType();
+        }
+//        return Optional.ofNullable(jp.getSourceLocation())
+//                .map(SourceLocation::getWithinType)
+//                .orElse(jp.getSignature().getDeclaringType());
     }
- 
+
     private static void appendTypes(StringBuilder sb, Class<?>[] types) {
         for (int size = types.length, i = 0; i < size; i++) {
             appendType(sb, types[i]);
@@ -33,7 +43,7 @@ public class JoinPointToStringHelper {
             }
         }
     }
- 
+
     private static void appendType(StringBuilder sb, Class<?> type) {
         if (type.isArray()) {
             appendType(sb, type.getComponentType());

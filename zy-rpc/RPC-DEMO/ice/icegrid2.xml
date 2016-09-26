@@ -1,0 +1,42 @@
+<icegrid>
+	<application name="MyPowerICE2">
+        <properties id="MultiThreaded">
+            <property name="Ice.ThreadPool.Server.Size" value="50"/>
+            <property name="Ice.ThreadPool.Server.SizeWarn" value="150"/>
+            <property name="Ice.ThreadPool.Server.SizeMax" value="200"/>
+
+            <!--<property name="Ice.ThreadPool.Client.Size" value="2"/>-->
+            <!--<property name="Ice.ThreadPool.Client.SizeWarn" value="40"/>-->
+            <!--<property name="Ice.ThreadPool.Client.SizeMax" value="100"/>-->
+
+            <property name="IceBox.InheritProperties" value="1"/>
+            <property name="Ice.Override.ConnectTimeout" value="5000" />
+            <property name="Ice.Override.Timeout" value="10000" />
+            <property name="Ice.Default.LocatorCacheTimeout" value="300" />
+            <property name="Ice.BackgroundLocatorCacheUpdates" value="1" />
+
+        </properties>
+		<server-template id="HelloServerTemp">
+			<parameter name="name" />
+			<icebox id="${name}" exe="java" activation="on-demand">
+                <properties>
+                    <properties refid="MultiThreaded" />
+                </properties>
+                <option>-Xms2G</option>
+				<option>-Xmx2G</option>
+				<option>IceBox.Server</option>
+			<env>CLASSPATH=e:\ZeroC\Ice-3.6.0\lib\*;e:\rpc\ice\out\production\ice</env>
+				<service name="OnlineBook" entry="com.xxx.demo.imp.HelloImp">
+					<adapter name="OnlineBook" id="OnlineBook" endpoints="default"
+						replica-group="ReplicatedAdapter" />
+				</service>
+			</icebox>
+		</server-template>
+		<replica-group id="ReplicatedAdapter">
+			<object identity="OnlineBook" type="::book::OnlineBook" />
+		</replica-group>
+		<node name="node1" >
+		   <server-instance template="HelloServerTemp"  name="hellowserver2" />
+		</node>
+	</application>
+</icegrid>

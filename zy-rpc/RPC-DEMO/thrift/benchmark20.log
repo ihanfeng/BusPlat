@@ -1,0 +1,41 @@
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3213.4708698865643
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3210.9944449796103
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3206.2243502051983
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3204.6146450889282
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3192.3383878691143
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3191.9987232005105
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3191.794959091828
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3191.3535594230034
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3190.7765286478552
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3190.0640139512134
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3189.9961720045935
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3189.9961720045935
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3189.690918949954
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3189.3179112093894
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3189.284005740711
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3189.01278794128
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3188.7416162668337
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3188.4366032522053
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3187.8606267333994
+Order(orderId:1437111151681, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 3186.94626808592
+thrift:client num:20,execute per client:300000,total execute:6000000,total time:94s, tps:63708.47004109196

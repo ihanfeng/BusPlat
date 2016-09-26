@@ -1,0 +1,21 @@
+# Configuration file (07/17/15 18:10:26.098)
+
+# Server configuration
+Ice.Admin.ServerId=hellowserver2
+Ice.Admin.Endpoints=tcp -h localhost
+Ice.ProgramName=hellowserver2
+IceBox.Service.OnlineBook=com.xxx.demo.imp.HelloImp --Ice.Config='E:\rpc\ice/.\node\data/servers/hellowserver2/config/config_OnlineBook'
+IceBox.LoadOrder=OnlineBook
+# Server descriptor properties
+Ice.ThreadPool.Server.Size=50
+Ice.ThreadPool.Server.SizeWarn=150
+Ice.ThreadPool.Server.SizeMax=200
+Ice.ThreadPool.Client.Size=2
+Ice.ThreadPool.Client.SizeWarn=40
+Ice.ThreadPool.Client.SizeMax=100
+IceBox.InheritProperties=1
+Ice.Override.ConnectTimeout=5000
+Ice.Override.Timeout=10000
+Ice.Default.LocatorCacheTimeout=300
+Ice.BackgroundLocatorCacheUpdates=1
+Ice.Default.Locator=IceGrid/Locator:tcp -h 127.0.0.1 -p 7061

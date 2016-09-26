@@ -1,0 +1,11 @@
+Order(orderId:1437111088446, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 9460.439595093185
+Order(orderId:1437111088446, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 9452.987143937484
+Order(orderId:1437111088446, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 9447.33112895607
+Order(orderId:1437111088446, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 9428.625306430322
+Order(orderId:1437111088446, phone:1358299999, name:null, orderNum:299999, orderDate:300000, ticketType:299999, amount:299999.0, orderStatus:299999)
+tps 9421.22287472914
+thrift:client num:5,execute per client:300000,total execute:1500000,total time:31s, tps:47041.113933577944

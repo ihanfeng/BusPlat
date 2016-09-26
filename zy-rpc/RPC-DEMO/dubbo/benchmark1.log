@@ -1,0 +1,4 @@
+com.alibaba.dubbo.demo.hello.Order@7516aae5
+tps 5863.956215793589
+dubbo:client num:1,execute per client:300000,total execute:300000,total time:52s, tps:5675.154175021755
+[2015-07-16 23:07:31] Dubbo service server started!

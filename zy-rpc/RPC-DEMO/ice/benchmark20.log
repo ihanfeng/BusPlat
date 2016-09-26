@@ -1,0 +1,41 @@
+com.xxx.demo.demo.Order@a836c6e2
+tps 5842.941726394515
+com.xxx.demo.demo.Order@a836c6e2
+tps 5624.929688378896
+com.xxx.demo.demo.Order@a836c6e2
+tps 5389.770216129786
+com.xxx.demo.demo.Order@a836c6e2
+tps 5300.727966640752
+com.xxx.demo.demo.Order@a836c6e2
+tps 5276.395166822027
+com.xxx.demo.demo.Order@a836c6e2
+tps 4780.038558977709
+com.xxx.demo.demo.Order@a836c6e2
+tps 4726.568038946921
+com.xxx.demo.demo.Order@a836c6e2
+tps 4583.231483744806
+com.xxx.demo.demo.Order@a836c6e2
+tps 4568.991775814804
+com.xxx.demo.demo.Order@a836c6e2
+tps 4546.970202188609
+com.xxx.demo.demo.Order@a836c6e2
+tps 4521.204448865177
+com.xxx.demo.demo.Order@a836c6e2
+tps 4489.67375037414
+com.xxx.demo.demo.Order@a836c6e2
+tps 4484.707148623195
+com.xxx.demo.demo.Order@a836c6e2
+tps 4455.9970293353135
+com.xxx.demo.demo.Order@a836c6e2
+tps 4452.954535334195
+com.xxx.demo.demo.Order@a836c6e2
+tps 4431.380079469416
+com.xxx.demo.demo.Order@a836c6e2
+tps 4426.019090895678
+com.xxx.demo.demo.Order@a836c6e2
+tps 4411.375466870571
+com.xxx.demo.demo.Order@a836c6e2
+tps 4396.3129588651655
+com.xxx.demo.demo.Order@a836c6e2
+tps 4381.097026695485
+ice:client num:20,execute per client:300000,total execute:6000000,total time:68s, tps:87375.6717004762

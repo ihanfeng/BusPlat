@@ -1,0 +1,1 @@
+mvn dependencycopy-dependencies

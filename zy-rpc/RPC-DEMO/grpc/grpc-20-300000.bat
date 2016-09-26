@@ -1,0 +1,2 @@
+java -Xms2G -Xmx2G -classpath ./target/classes  -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc20.log -Dwrite.statistics=true -Djava.ext.dirs="./lib" io.grpc.examples.test.GRPCTest 20 300000 > benchmark20.log
+pause

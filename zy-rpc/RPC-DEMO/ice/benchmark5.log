@@ -1,0 +1,11 @@
+com.xxx.demo.demo.Order@5eb35c16
+tps 14909.79573579842
+com.xxx.demo.demo.Order@5eb35c16
+tps 14769.594328475778
+com.xxx.demo.demo.Order@5eb35c16
+tps 14689.320863732068
+com.xxx.demo.demo.Order@5eb35c16
+tps 14558.866349606911
+com.xxx.demo.demo.Order@5eb35c16
+tps 14433.485686793361
+ice:client num:5,execute per client:300000,total execute:1500000,total time:20s, tps:71575.13002815288

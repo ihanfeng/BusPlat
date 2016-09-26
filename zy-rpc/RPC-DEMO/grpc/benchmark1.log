@@ -1,0 +1,2 @@
+tps 3906.4534611177664
+grpc:client num:1,execute per client:300000,total execute:300000,total time:77s, tps:3896.0532980091166

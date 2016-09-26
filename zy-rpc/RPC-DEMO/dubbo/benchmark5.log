@@ -1,0 +1,16 @@
+com.alibaba.dubbo.demo.hello.Order@26da62d5
+tps 4388.788109310082
+[2015-07-17 13:02:58] Dubbo service server started!
+com.alibaba.dubbo.demo.hello.Order@1021c667
+tps 4386.413814279239
+[2015-07-17 13:02:58] Dubbo service server started!
+com.alibaba.dubbo.demo.hello.Order@22a35609
+tps 4381.992930384739
+[2015-07-17 13:02:58] Dubbo service server started!
+com.alibaba.dubbo.demo.hello.Order@283e739
+tps 4376.303773832621
+[2015-07-17 13:02:58] Dubbo service server started!
+com.alibaba.dubbo.demo.hello.Order@38bd89c
+dubbo:client num:5,execute per client:300000,total execute:1500000,total time:77s, tps:19371.335589017744
+tps 4374.3256247995105
+[2015-07-17 13:02:58] Dubbo service server started!

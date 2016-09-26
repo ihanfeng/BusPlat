@@ -1,0 +1,2 @@
+java -Xms2G -Xmx2G   -classpath ".;./dubbo-demo-provider/target/dubbo-demo-provider-2.8.4/WEB-INF/classes;./dubbo-demo-provider/target/dubbo-demo-provider-2.8.4/WEB-INF/lib/*" com.alibaba.dubbo.container.Main
+pause

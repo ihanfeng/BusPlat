@@ -1,0 +1,2 @@
+java -Xms2G -Xmx2G -classpath ./out/production/ice  -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc20.log -Dwrite.statistics=true -Djava.ext.dirs="./lib" com.xxx.demo.test.IceTest 20 300000 > benchmark20.log
+pause

@@ -13,13 +13,13 @@ public class FactoryTest {
                 ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
 
 
-        Protocol protocolExten = ExtensionLoader.getExtensionLoader(Protocol.class).getExtension("registry");
+//        Protocol protocolExten = ExtensionLoader.getExtensionLoader(Protocol.class).getExtension("registry");
 
 
-//        Protocol protocolExten = ExtensionLoader.getExtensionLoader(Protocol.class).getExtension("dubbo");
+        Protocol protocolExten = ExtensionLoader.getExtensionLoader(Protocol.class).getExtension("dubbo");
 
-        log.info( protocolExten.getDefaultPort() +"");
-        log.info("name: {}.",protocol.getClass().getName());
-        log.info(protocol.getDefaultPort() + "");
+//        log.info( protocolExten.getDefaultPort() +"");
+//        log.info("name: {}.",protocol.getClass().getName());
+//        log.info(protocol.getDefaultPort() + "");
     }
 }
