@@ -6,93 +6,124 @@ import java.util.Date;
 
 public class CommentInfo extends BaseEntity {
     private static final long serialVersionUID = 1L;
-    private Long id;
 
-    private Long topicId;
+        private Long id;
 
-    private Long userId;
+        private Long topicId;
 
-    private String comment;
+        private Long userId;
 
-    private Integer thumbNum;
+        private String comment;
 
-    private String remark;
+        private Integer thumbNum;
 
-    private Date createTime;
+        private String remark;
 
-    private Date updateTime;
+        private Date createTime;
 
-    private Integer delStatus;
+        private Date updateTime;
 
-    public Long getId() {
-        return id;
+        private Integer delStatus;
+
+        private Long targetUserId;
+
+        private Long parentId;
+
+        private Integer type;
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public Long getTopicId() {
+            return topicId;
+        }
+
+        public void setTopicId(Long topicId) {
+            this.topicId = topicId;
+        }
+
+        public Long getUserId() {
+            return userId;
+        }
+
+        public void setUserId(Long userId) {
+            this.userId = userId;
+        }
+
+        public String getComment() {
+            return comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment == null ? null : comment.trim();
+        }
+
+        public Integer getThumbNum() {
+            return thumbNum;
+        }
+
+        public void setThumbNum(Integer thumbNum) {
+            this.thumbNum = thumbNum;
+        }
+
+        public String getRemark() {
+            return remark;
+        }
+
+        public void setRemark(String remark) {
+            this.remark = remark == null ? null : remark.trim();
+        }
+
+        public Date getCreateTime() {
+            return createTime;
+        }
+
+        public void setCreateTime(Date createTime) {
+            this.createTime = createTime;
+        }
+
+        public Date getUpdateTime() {
+            return updateTime;
+        }
+
+        public void setUpdateTime(Date updateTime) {
+            this.updateTime = updateTime;
+        }
+
+        public Integer getDelStatus() {
+            return delStatus;
+        }
+
+        public void setDelStatus(Integer delStatus) {
+            this.delStatus = delStatus;
+        }
+
+        public Long getTargetUserId() {
+            return targetUserId;
+        }
+
+        public void setTargetUserId(Long targetUserId) {
+            this.targetUserId = targetUserId;
+        }
+
+        public Long getParentId() {
+            return parentId;
+        }
+
+        public void setParentId(Long parentId) {
+            this.parentId = parentId;
+        }
+
+        public Integer getType() {
+            return type;
+        }
+
+        public void setType(Integer type) {
+            this.type = type;
+        }
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(Long topicId) {
-        this.topicId = topicId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment == null ? null : comment.trim();
-    }
-
-    public Integer getThumbNum() {
-        return thumbNum;
-    }
-
-    public void setThumbNum(Integer thumbNum) {
-        this.thumbNum = thumbNum;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Integer getDelStatus() {
-        return delStatus;
-    }
-
-    public void setDelStatus(Integer delStatus) {
-        this.delStatus = delStatus;
-    }
-}

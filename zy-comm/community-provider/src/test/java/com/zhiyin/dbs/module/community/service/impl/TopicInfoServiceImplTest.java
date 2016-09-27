@@ -1,3 +1,5 @@
+package com.zhiyin.dbs.module.community.service.impl;
+
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
