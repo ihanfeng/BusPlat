@@ -40,10 +40,8 @@ import org.elasticsearch.search.highlight.HighlightField;
 import org.elasticsearch.search.sort.SortBuilder;
 import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
-import org.utils.StringUtil;
 
-import net.sf.json.JSONObject;
-import utils.ElasticsearchTools;
+
 
 /**
  * 测试类

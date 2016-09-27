@@ -10,8 +10,8 @@ public interface TopicThumbMapper  extends BaseMapper<TopicThumb> {
     TopicThumb selectByTopicUser(@Param("topicId") Long topicId,@Param("userId") Long userId);
 
 
-    public List<Long> selectThumbers(@Param("topicId") Long topicId);
+    public List<TopicThumb> selectThumbers(@Param("topicId") Long topicId);
 
-    public List<Long> selectLatestThumbers(@Param("topicId") Long topicId);
+//    public List<Long> selectLatestThumbers(@Param("topicId") Long topicId);
 
 }

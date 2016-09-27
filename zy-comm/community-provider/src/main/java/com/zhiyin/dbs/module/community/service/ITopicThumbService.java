@@ -1,6 +1,8 @@
 package com.zhiyin.dbs.module.community.service;
 
+import com.github.pagehelper.PageInfo;
 import com.zhiyin.dbs.module.common.service.IBaseService;
+import com.zhiyin.dbs.module.community.entity.TopicInfo;
 import com.zhiyin.dbs.module.community.entity.TopicThumb;
 
 import java.util.List;
@@ -17,7 +19,7 @@ public interface ITopicThumbService extends IBaseService<TopicThumb> {
 
     Boolean selectIsThumb(Long topicId, Long userId);
 
-    public List<Long> selectThumbers(Long topicId);
-    public List<Long> selectLatestThumbers(Long topicId);
+    public PageInfo<TopicThumb> selectThumbers(Long topicId, PageInfo pageInfo);
+//    public List<Long> selectLatestThumbers(Long topicId);
 
 }

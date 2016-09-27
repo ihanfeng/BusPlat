@@ -1,7 +1,9 @@
 package com.zhiyin.dbs.module.community.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageInfo;
 import com.zhiyin.dbs.module.community.CommunityApplication;
+import com.zhiyin.dbs.module.community.entity.TopicThumb;
 import com.zhiyin.dbs.module.community.service.ITopicInfoService;
 import com.zhiyin.dbs.module.community.service.ITopicThumbService;
 import lombok.extern.slf4j.Slf4j;
@@ -34,13 +36,13 @@ public class TopicThumbServiceImplTest  {
     @Test
     public void testSelectThumbers() throws Exception {
 
-        List<Long> users = topicThumbService.selectLatestThumbers(52042922905600L);
+        PageInfo pageInfo = new PageInfo();
+        pageInfo.setPageNum(1);
+        pageInfo.setPageSize(10);
+        PageInfo<TopicThumb> pageResult = topicThumbService.selectThumbers(52042922905600L, pageInfo);
 
-        log.info(JSON.toJSONString(users));
+        log.info(JSON.toJSONString(pageResult));
     }
 
-    @Test
-    public void testSelectLatestThumbers() throws Exception {
 
-    }
 }

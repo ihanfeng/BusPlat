@@ -32,16 +32,12 @@
 
   <!-- 查询最近的点赞用户 -->
   <select id="selectThumbers" resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select user_id from zhiyin_community_topic_thumb
+    select
+    <include refid="Base_Column_List" />
+    from zhiyin_community_topic_thumb
     where topic_id = #{topicId,jdbcType=BIGINT}
     AND  del_status = 0
   </select>
-  <select id="selectLatestThumbers" resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select user_id from zhiyin_community_topic_thumb
-    where topic_id = #{topicId,jdbcType=BIGINT}
-    AND  del_status = 0 limit 20
-  </select>
-
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from zhiyin_community_topic_thumb

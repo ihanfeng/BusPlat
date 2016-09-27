@@ -1,7 +1,11 @@
 package com.zhiyin.dbs.module.community.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
+import com.zhiyin.dbs.module.common.util.PageInfoUtil;
+import com.zhiyin.dbs.module.community.entity.TopicInfo;
 import com.zhiyin.dbs.module.community.entity.TopicThumb;
 import com.zhiyin.dbs.module.community.mapper.TopicThumbMapper;
 import com.zhiyin.dbs.module.community.service.ITopicInfoService;
@@ -72,13 +76,12 @@ public class TopicThumbServiceImpl extends BaseService<TopicThumb> implements IT
     }
 
     @Override
-    public List<Long> selectThumbers(Long topicId) {
-        return topicThumbMapper.selectThumbers(topicId);
+    public PageInfo<TopicThumb> selectThumbers(Long topicId, PageInfo pageInfo) {
+        PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(), PageInfoUtil.defaultOrderBy(pageInfo)  );
+        List<TopicThumb> info = topicThumbMapper.selectThumbers(topicId);
+        PageInfo<TopicThumb> page = new PageInfo(info);
+        return page;
     }
 
-    @Override
-    public List<Long> selectLatestThumbers(Long topicId) {
-        return topicThumbMapper.selectLatestThumbers(topicId);
-    }
 
 }
