@@ -105,16 +105,29 @@ AJPÊÇÎª Tomcat Óë HTTP ·þÎñÆ÷Ö®¼äÍ¨ÐÅ¶ø¶¨ÖÆµÄÐ­Òé£¬ÄÜÌá¹©½Ï¸ßµÄÍ¨ÐÅËÙ¶ÈºÍÐ§ÂÊ¡£È
 ## Jvm
 
 
-»ú×ÓÄÚ´æÈç¹ûÊÇ 8G£¬Ò»°ã PermSize ÅäÖÃÊÇÖ÷Òª±£Ö¤ÏµÍ³ÄÜÎÈ¶¨ÆðÀ´¾ÍÐÐ£º
+»ú×ÓÄÚ´æÈç¹ûÊÇ  
+
+```
 JAVA_OPTS="-Dfile.encoding=UTF-8 -server -Xms6144m -Xmx6144m -XX:NewSize=1024m -XX:MaxNewSize=2048m -XX:PermSize=512m -XX:MaxPermSize=512m -XX:MaxTenuringThreshold=10 -XX:NewRatio=2 -XX:+DisableExplicitGC"
-»ú×ÓÄÚ´æÈç¹ûÊÇ 16G£¬Ò»°ã PermSize ÅäÖÃÊÇÖ÷Òª±£Ö¤ÏµÍ³ÄÜÎÈ¶¨ÆðÀ´¾ÍÐÐ£º
+```
+
+»ú×ÓÄÚ´æÈç¹ûÊÇ 16G 
 JAVA_OPTS="-Dfile.encoding=UTF-8 -server -Xms13312m -Xmx13312m -XX:NewSize=3072m -XX:MaxNewSize=4096m -XX:PermSize=512m -XX:MaxPermSize=512m -XX:MaxTenuringThreshold=10 -XX:NewRatio=2 -XX:+DisableExplicitGC"
 »ú×ÓÄÚ´æÈç¹ûÊÇ 32G£¬Ò»°ã PermSize ÅäÖÃÊÇÖ÷Òª±£Ö¤ÏµÍ³ÄÜÎÈ¶¨ÆðÀ´¾ÍÐÐ£º
 JAVA_OPTS="-Dfile.encoding=UTF-8 -server -Xms29696m -Xmx29696m -XX:NewSize=6144m -XX:MaxNewSize=9216m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:MaxTenuringThreshold=10 -XX:NewRatio=2 -XX:+DisableExplicitGC"
 
-ÎÄ£¯¹Ô¹ÔÐ¡ºãºã£¨¼òÊé×÷Õß£©
-Ô­ÎÄÁ´½Ó£ºhttp://www.jianshu.com/p/c8613d17e5fe
-Öø×÷È¨¹é×÷ÕßËùÓÐ£¬×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬²¢±ê×¢¡°¼òÊé×÷Õß¡±¡£
+
+-Dfile.encoding£ºÄ¬ÈÏÎÄ¼þ±àÂë
+-server£º±íÊ¾ÕâÊÇÓ¦ÓÃÓÚ·þÎñÆ÷µÄÅäÖÃ£¬JVM ÄÚ²¿»áÓÐÌØÊâ´¦ÀíµÄ
+-Xmx1024m£ºÉèÖÃJVM×î´ó¿ÉÓÃÄÚ´æÎª1024MB
+-Xms1024m£ºÉèÖÃJVM×îÐ¡ÄÚ´æÎª1024m¡£´ËÖµ¿ÉÒÔÉèÖÃÓë-XmxÏàÍ¬£¬ÒÔ±ÜÃâÃ¿´ÎÀ¬»ø»ØÊÕÍê³ÉºóJVMÖØÐÂ·ÖÅäÄÚ´æ¡£
+-XX:NewSize£ºÉèÖÃÄêÇá´ú´óÐ¡
+-XX:MaxNewSize£ºÉèÖÃ×î´óµÄÄêÇá´ú´óÐ¡
+-XX:PermSize£ºÉèÖÃÓÀ¾Ã´ú´óÐ¡
+-XX:MaxPermSize£ºÉèÖÃ×î´óÓÀ¾Ã´ú´óÐ¡
+-XX:NewRatio=4£ºÉèÖÃÄêÇá´ú£¨°üÀ¨ Eden ºÍÁ½¸ö Survivor Çø£©ÓëÖÕÉí´úµÄ±ÈÖµ£¨³ýÈ¥ÓÀ¾Ã´ú£©¡£ÉèÖÃÎª 4£¬ÔòÄêÇá´úÓëÖÕÉí´úËùÕ¼±ÈÖµÎª 1£º4£¬ÄêÇá´úÕ¼Õû¸ö¶ÑÕ»µÄ 1/5
+-XX:MaxTenuringThreshold=10£ºÉèÖÃÀ¬»ø×î´óÄêÁä£¬Ä¬ÈÏÎª£º15¡£Èç¹ûÉèÖÃÎª 0 µÄ»°£¬ÔòÄêÇá´ú¶ÔÏó²»¾­¹ý Survivor Çø£¬Ö±½Ó½øÈëÄêÀÏ´ú¡£¶ÔÓÚÄêÀÏ´ú±È½Ï¶àµÄÓ¦ÓÃ£¬¿ÉÒÔÌá¸ßÐ§ÂÊ¡£Èç¹û½«´ËÖµÉèÖÃÎªÒ»¸ö½Ï´óÖµ£¬ÔòÄêÇá´ú¶ÔÏó»áÔÚ Survivor Çø½øÐÐ¶à´Î¸´ÖÆ£¬ÕâÑù¿ÉÒÔÔö¼Ó¶ÔÏóÔÙÄêÇá´úµÄ´æ»îÊ±¼ä£¬Ôö¼ÓÔÚÄêÇá´ú¼´±»»ØÊÕµÄ¸ÅÂÛ¡£
+-XX:+DisableExplicitGC£ºÕâ¸ö½«»áºöÂÔÊÖ¶¯µ÷ÓÃ GC µÄ´úÂëÊ¹µÃ System.gc() µÄµ÷ÓÃ¾Í»á±ä³ÉÒ»¸ö¿Õµ÷ÓÃ£¬ÍêÈ«²»»á´¥·¢ÈÎºÎ GC
 
 ## ²Î¿¼
 http://www.blogjava.net/Alpha/archive/2016/04/29/430290.
