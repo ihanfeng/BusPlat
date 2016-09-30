@@ -2,14 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhiyin.dbs</groupId>
-    <artifactId>device-provider</artifactId>
+    <artifactId>common-count</artifactId>
     <packaging>war</packaging>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <parent>
-        <groupId>com.zhiyin.dbs</groupId>
-        <artifactId>dbs-device</artifactId>
+        <groupId>com.zhiyin.frame</groupId>
+        <artifactId>dbs-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 

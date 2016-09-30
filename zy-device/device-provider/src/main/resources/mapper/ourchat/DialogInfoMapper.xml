@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhiyin.ourchat.mapper.DialogInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.zhiyin.ourchat.entity.DialogInfo" >
+<mapper namespace="com.zhiyin.device.dbs.mapper.DialogInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.device.dbs.entity.DialogInfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="sender" property="sender" jdbcType="BIGINT" />
     <result column="receiver" property="receiver" jdbcType="BIGINT" />
@@ -24,7 +24,7 @@
     delete from zy_ourchat_dialog_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.zhiyin.ourchat.entity.DialogInfo" >
+  <insert id="insert" parameterType="com.zhiyin.device.dbs.entity.DialogInfo" >
     insert into zy_ourchat_dialog_info (id, sender, receiver, 
       content, send_time, create_time, 
       update_time, del_status)
@@ -32,7 +32,7 @@
       #{content,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{delStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.zhiyin.ourchat.entity.DialogInfo" >
+  <insert id="insertSelective" parameterType="com.zhiyin.device.dbs.entity.DialogInfo" >
     insert into zy_ourchat_dialog_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.ourchat.entity.DialogInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.device.dbs.entity.DialogInfo" >
     update zy_ourchat_dialog_info
     <set >
       <if test="sender != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhiyin.ourchat.entity.DialogInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.device.dbs.entity.DialogInfo" >
     update zy_ourchat_dialog_info
     set sender = #{sender,jdbcType=BIGINT},
       receiver = #{receiver,jdbcType=BIGINT},

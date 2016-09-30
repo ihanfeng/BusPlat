@@ -1,0 +1,474 @@
+http://tech.meituan.com/ | 首页 - 美团点评技术团队
+http://weibo.com/ttarticle/p/show?id=2309403950706871642869 | 美团线上真实流量压测工具构建
+http://blog.chinaunix.net/uid-26443921-id-3327924.html | 高质量server 之深刻体验--单元测试+接口测试+压力测试-qq2000zhong-ChinaUnix博客
+https://github.com/moonbingbing/openresty-best-practices/blob/master/test/performance_test.md | openresty-best-practices/performance_test.md at master · moonbingbing/openresty-best-practices · GitHub
+http://www.cnblogs.com/dimmacro/p/4849729.html | 互联网常见架构接口压测性能分析及调优手段建议 - Dimmacro - 博客园
+http://wiki.17shihui.com/pages/viewpage.action?pageId=721057 | 活动接口压测报告 - Java团队 - Confluence
+http://github.tiankonguse.com/blog/2015/10/10/performance-think.html | 服务性能记录
+http://github.tiankonguse.com/blog/2015/10/10/performance-think.html | 服务性能记录
+https://blog.eood.cn/web-performance-testing-gor | 终极 Web 应用性能和压力测试工具 Gor - 互联网技术和架构
+http://www.voidcn.com/blog/huazhongkejidaxuezpp/article/p-6166564.html | 接口自动化测试的“能“与”不能“ - 程序园
+https://my.oschina.net/feichexia/blog/477523 | 业务系统压测实践建议 - 优雅先生 - 开源中国社区
+http://ju.outofmemory.cn/entry/205412 | 一次接口压力测试qps极低原因分析及解决过程 - 为程序员服务
+http://www.fblinux.com/?p=339 | www.fblinux.com/?p=339
+https://testerhome.com/topics/5687 | Http 接口测试框架 (更新重试机制、清理测试数据、response 字段校验) ? 社区 ? TesterHome
+https://github.com/qNone/ApiTests | GitHub - qNone/ApiTests: Http接口测试框架
+http://coolshell.cn/articles/7490.html | 性能调优攻略 | 酷 壳 - CoolShell.cn
+https://my.oschina.net/feichexia/blog/477523 | 业务系统压测实践建议 - 优雅先生 - 开源中国社区
+https://www.google.co.jp/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=%E5%A2%9E%E5%8A%A0+%E4%BF%AE%E6%94%B9+%E4%B8%9A%E5%8A%A1%E6%B5%8B%E8%AF%95&start=20 | 增加 修改 业务测试 - Google 搜索
+
+https://www.google.co.jp/search?biw=1366&bih=638&q=linux+%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7&oq=linux+%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7&gs_l=serp.12...984.5269.0.18785.8.7.1.0.0.0.741.2469.3-2j1j1j1.5.0....0...1c.1j4.64.serp..3.0.0.rPOQcMprAB0 | linux 性能监控 - Google 搜索
+http://guozengxin.me/2015/05/14/linux-performance-tools-1/ | Linux性能分析工具(一) - top命令 - Xiaoxin's Blog
+http://jaminzhang.github.io/linux/linux-perf-learning/ | Linux系统性能监测分析相关资料学习 - Jamin Zhang
+http://mingxinglai.com/cn/2013/06/linux-performance-analysis-and-tools/ | Linux Performance Analysis and Tools(Linux性能分析和工具) | 赖明星
+http://tshare365.com/archives/845.html | Linux性能分析之一（Vmstat） | Tshare365
+http://os.51cto.com/art/201412/460698_all.htm | 你值得拥有：25个Linux性能监控工具 - 51CTO.COM
+http://www.ha97.com/837.html | 13个强大的Linux性能监测工具（图）
+http://www.vpsee.com/2014/09/linux-performance-tools/ | Linux 性能监控、测试、优化工具 | vpsee.com
+http://www.cnblogs.com/Anker/p/3462378.html | linux下性能分析命令[总结] - Anker's Blog - 博客园
+https://lxf1992521.gitbooks.io/linux-performance-analysis/content/ | 前言 | Linux系统性能分析与调优
+https://dearhwj.gitbooks.io/itbook/content/test/linux_performance.html | Linux性能分析 · 寒庭的学习笔记分享站
+https://github.com/CNSRE/ABTestingGateway | GitHub - CNSRE/ABTestingGateway
+https://www.google.co.jp/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=sar | sar - Google 搜索
+http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/sar.html | 12. sar 找出系统瓶颈的利器 — Linux Tools Quick Tutorial
+http://www.cnblogs.com/peida/tag/%E6%AF%8F%E6%97%A5%E4%B8%80linux%E5%91%BD%E4%BB%A4/default.html?page=2 | 每日一linux命令 - 标签 - peida - 博客园
+http://www.itshouce.com.cn/manual/mockito-shouce.html | mockito 手册
+http://www.aloo.me/2016/08/01/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B3%E9%94%AE%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%E6%B5%85%E6%9E%90/ | 性能测试中服务器关键性能指标浅析 | Luo's Blog
+http://os.51cto.com/art/201609/517527.htm?utm_source=tuicool&utm_medium=referral | 用十条命令在一分钟内检查Linux服务器性能 - 51CTO.COM
+http://blog.brucefeng.info/post/high-qps-service | 当服务QPS增高时我们做什么
+
+file:///C:/Users/wangqinghui/Downloads/Reinforcement%20Learning%20-%20An%20Introduction%2528Second%20edition%252C%20Draft%2529.pdf | Reinforcement Learning - An Introduction%28Second edition%2C Draft%29.pdf
+https://www.reddit.com/r/MachineLearning/comments/545uk6/new_draft_of_reinforcement_learning_an/ | New draft of "Reinforcement Learning: An Introduction, Second Edition"：MachineLearning
+https://webdocs.cs.ualberta.ca/~sutton/book/bookdraft2016sep.pdf | bookdraft2016sep.pdf
+http://www.52cs.org/?p=1157 | TensorFlow深度学习，一篇文章就够了 – 我爱计算机
+
+http://blog.csdn.net/app_12062011/article/details/50673060 | 系统学习机器学习之增强学习(未完待续) - 工作笔记 - 博客频道 - CSDN.NET
+http://blog.csdn.net/zz_1215/article/details/44138843 | 增强学习（三）----- MDP的动态规划解法 - 量子流逝 - 博客频道 - CSDN.NET
+http://www.cnblogs.com/jerrylead/archive/2011/05/13/2045309.html | 增强学习（Reinforcement Learning and Control） - JerryLead - 博客园
+https://www.google.co.jp/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=netflix+zuul+performance&start=10 | netflix zuul performance - Google 搜索
+https://github.com/Netflix/zuul/issues/186 | Zuul 2.x : Netty sample for performance testing · Issue #186 · Netflix/zuul · GitHub
+https://my.oschina.net/douxingxiang/blog/358173 | [译]API网关(API Gateway) - douxingxiang的个人页面 - 开源中国社区
+
+https://www.baidu.com/s?wd=%E5%9B%9B%E5%8F%89%E6%A0%91&pn=70&oq=%E5%9B%9B%E5%8F%89%E6%A0%91&tn=baiduhome_pg&ie=utf-8&rsv_idx=2&rsv_pq=81533a100001b18e&rsv_t=746d1do49wIs%2FWeDiBZ2EwSaYci1%2FPHOdEDpB1MpwiAm1y6zlRI%2B%2BXCATiVx79eNYVyq&rsv_page=1 | 四叉树_百度搜索
+http://blog.jobbole.com/81106/ | 超酷算法：用四叉树和希尔伯特曲线做空间索引 - 文章 - 伯乐在线
+http://www.cnblogs.com/vegetable/p/4113936.html | 四叉树算法原理与实现 - gongchao1212 - 博客园
+http://www.cnblogs.com/huansky/p/5578641.html | js实现四叉树算法 - huansky - 博客园
+https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374 | Quick Tip: Use Quadtrees to Detect Likely Collisions in 2D Space
+https://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169 | Collision Detection Using the Separating Axis Theorem
+http://m.blog.csdn.net/article/details?id=12751271 | 瓦片算法
+http://blog.csdn.net/zhanghefu/article/details/26044967 | 四叉树空间索引原理及其实现 - 水上漂的专栏 - 博客频道 - CSDN.NET
+http://blog.csdn.net/zhanxinhang/article/details/6706217 | 四叉树与八叉树 - 花心龟 cabin - 博客频道 - CSDN.NET
+http://blog.csdn.net/major_/article/details/7412818 | 四叉树原理 - 专注页游三十年 - 博客频道 - CSDN.NET
+http://bbs.9ria.com/thread-148625-1-1.html | 快速教程：在2D空间中使用四叉树实现碰撞检测 - 新闻资讯 - 游戏开发者社区
+http://malagis.com/gis-quad-tree-indexes-classification.html?utm_source=tuicool&utm_medium=referral | GIS中四叉树索引及其分类介绍 | 麻辣GIS
+http://blog.csdn.net/coolwxb/article/details/50807529 | 四叉树算法 - 小小程序猿 - 博客频道 - CSDN.NET
+http://git.oschina.net/lbs/iOS_3D_ClusterAnnotation | lbs/iOS_3D_ClusterAnnotation - 码云 - 开源中国
+http://blog.codingnow.com/2006/10/quadtree.html | 云风的 BLOG: 用四叉树管理散布在平面上的对象
+https://segmentfault.com/a/1190000007040144 | 使用Prometheus和Grafana监控Mysql服务器性能 - icyfire - SegmentFault
+https://people.eecs.berkeley.edu/~demmel/cs267/lecture26/lecture26.html | CS267: Notes for Lecture 24, Apr 11 1996
+http://blog.notdot.net/2009/11/Damn-Cool-Algorithms-Spatial-indexing-with-Quadtrees-and-Hilbert-Curves | Damn Cool Algorithms: Spatial indexing with Quadtrees and Hilbert Curves - Nick's Blog
+https://en.wikipedia.org/wiki/Quadtree | Quadtree - Wikipedia, the free encyclopedia
+https://github.com/varunpant/Quadtree/ | varunpant/Quadtree: Quadtree implementation
+http://javaprogrammernotes.blogspot.jp/2015/01/why-algorithms-matter-quad-tree-example.html | Programmer notes: Why algorithms matter. Quad tree example
+https://github.com/s0nicyouth/quadtree/blob/master/QuadTree.java | quadtree/QuadTree.java at master · s0nicyouth/quadtree
+
+http://bohr.me/posts/ | All Posts – Bohr.Qiu's Life
+http://bohr.me/jdk7-exception/ | 使用jdk7新增异常构造器提高异常性能 – Bohr.Qiu's Life
+https://github.com/roirrow/exception | GitHub - roirrow/exception: unified exception framework(统一异常处理框架:统一的异常日志记录、异常通知,etc)
+https://github.com/jirutka/spring-rest-exception-handler | GitHub - jirutka/spring-rest-exception-handler: A convenient Spring MVC exception handler for RESTful APIs.
+https://github.com/Codearte/catch-exception | GitHub - Codearte/catch-exception
+https://github.com/stormpath/spring-mvc-rest-exhandler | GitHub - stormpath/spring-mvc-rest-exhandler: Spring MVC ReST Exception Handler
+https://www.google.co.jp/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=quad+tree+algorithm&start=10 | quad tree algorithm - Google 搜索
+https://github.com/phishman3579/java-algorithms-implementation | GitHub - phishman3579/java-algorithms-implementation: Algorithms and Data Structures implemented in Java
+http://jimkang.com/quadtreevis/ | An interactive explanation of quadtrees.
+https://github.com/choefele/CCHMapClusterController | GitHub - choefele/CCHMapClusterController: High-performance map clustering with MapKit for iOS and OS X. Integrate with 4 lines of code.
+https://github.com/colriot | colriot (Sergey Ryabov) · GitHub
+https://applidium.com/en/news/too_many_pins_on_your_map/ | Too many pins on your map? — Applidium
+https://github.com/search?l=Java&q=cluster+pins&type=Repositories&utf8=%E2%9C%93 | Search · cluster pins · GitHub
+https://github.com/inderjeetuiet/ClusteringPins/blob/master/app/src/main/java/inderjeet/test/servicelabs/sclabs/MapsActivity.java | ClusteringPins/MapsActivity.java at master · inderjeetuiet/ClusteringPins · GitHub
+https://stonetingxin.gitbooks.io/hystrix/content/prerequisites_for_this_tutorial/request_context_setup.html | 请求上下文设置 | 弹性应用的开发利器Hystrix
+https://github.com/search?l=Java&q=quad+tree+&type=Repositories&utf8=%E2%9C%93 | Search · quad tree · GitHub
+https://github.com/Jotschi/JavaQuadTree | GitHub - Jotschi/JavaQuadTree: Simple QuadTree implementation in java
+https://github.com/roma98/QuadTree | GitHub - roma98/QuadTree: quadTree implementation
+https://www.google.co.jp/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=quad+tree+cluster | quad tree cluster - Google 搜索
+https://github.com/varunpant/Quadtree | GitHub - varunpant/Quadtree: Quadtree implementation
+
+http://tmq.qq.com/2016/07/it-is-necessary-to-know-the-background-performance-test/ | 后台性能测试不可不知的二三事
+
+https://github.com/vmayoral/basic_reinforcement_learning | GitHub - vmayoral/basic_reinforcement_learning: An introduction series to Reinforcement Learning (RL) with comprehensive step-by-step tutorials.
+https://github.com/vmayoral/basic_reinforcement_learning/blob/master/tutorial1/README.md | basic_reinforcement_learning/README.md at master · vmayoral/basic_reinforcement_learning · GitHub
+https://sg-first.gitbooks.io/soccer-robot-training-method-base-on-reinforcemen/content/shou_ci_dui_ju.html | 从准备到首次模拟对局 · Soccer robot training method base on Reinforcement learning
+https://github.com/algorithmdog/Reinforcement_Learning_Blog/blob/master/1.%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%80:%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/mdp_value.py | Reinforcement_Learning_Blog/mdp_value.py at master · algorithmdog/Reinforcement_Learning_Blog · GitHub
+http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html | Teaching
+http://outlace.com/ | Δ ?uantitative √ourney – ∑ My experiences in learning quantitative applications
+https://github.com/aikorea/awesome-rl#lectures | GitHub - aikorea/awesome-rl: Reinforcement learning resources curated
+http://old.nbu.bg/cogs/events/2000/Readings/Petrov/rltutorial.pdf | old.nbu.bg/cogs/events/2000/Readings/Petrov/rltutorial.pdf
+http://xrds.acm.org/blog/2016/06/convolutional-neural-networks-cnns-illustrated-explanation/ | Convolutional Neural Networks (CNNs): An Illustrated Explanation - XRDSXRDS
+http://www.tuicool.com/articles/yYBRRnU | 使用Anemometer基于pt-query-digest将MySQL慢查询日志可视化 - 推酷
+https://segmentfault.com/a/1190000004309169 | 生产环境使用 pt-table-checksum 检查MySQL数据一致性 - Sean's Notes - SegmentFault
+https://segmentfault.com/a/1190000004452276?utm_source=tuicool&utm_medium=referral | 使用 Xtrabackup 在线对MySQL做主从复制 - Sean's Notes - SegmentFault
+http://www.jianshu.com/p/20c49717b969 | 增强学习（一） ----- 基本概念 - 简书
+http://www.cnblogs.com/jinxulin/p/3517377.html | 增强学习（二）----- 马尔可夫决策过程MDP - 金溆林 - 博客园
+
+https://chendi.me/2016/08/20/how-to-create-a-pokemon-map/ | How to create a pokemon map? - 陈迪的博客 | Di' Blog
+
+https://github.com/YouBenshan/jVisualVM | GitHub - YouBenshan/jVisualVM
+
+https://github.com/sqshq/PiggyMetrics#monitor-dashboard | GitHub - sqshq/PiggyMetrics: Microservice Architecture with Spring Boot, Spring Cloud and Docker
+
+https://zhuanlan.zhihu.com/p/22604627?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | 最前沿：围棋之后，AI玩FPS游戏也能秀人类一脸了！ - 智能单元 - 知乎专栏
+https://www.zhihu.com/question/50916351?from=profile_question_card | 如何评价基于游戏毁灭战士（Doom）的AI死亡竞赛大赛结果？ - 人工智能 - 知乎
+
+http://www.aloo.me/categories/%E6%8A%80%E8%83%BD%E9%94%BB%E9%80%A0%E5%AE%A4/ | Category: 技能锻造室 | Luo's Blog
+http://www.aloo.me/2016/07/05/JMeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%953-0%E6%97%B6%E4%BB%A3%E4%B9%8B-%E5%85%A8%E6%96%B0JMeter%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/ | JMeter性能测试3.0时代之-全新JMeter插件管理 | Luo's Blog
+
+http://emacsist.github.io/archives/ | 归档 | Java工匠
+http://www.dengshenyu.com/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/2016/09/05/cat.html?utm_source=tuicool&utm_medium=referral | 大众点评的实时监控系统分析（一）
+http://chenrudan.github.io/blog/2016/06/12/reinforcementlearninglesssion2.html | 【David Silver强化学习公开课之二】马尔可夫决策过程MDP | 听见下雨的声音
+http://keenwon.com/1576.html | 告别Postman&ARC&DHC，拥抱curl - KeenWon | 做有趣的事
+http://mp.weixin.qq.com/s?__biz=MzIxMjAzMDA1MQ==&mid=2648945568&idx=1&sn=7eff16ee9dd40e6f9f90073c0ef90a9e&chksm=8f5b54acb82cddbaf80a1afd16d3222fed631d1ca1d78d84e9fce32bbed1fdcbecbd5d099c9d#rd | 彻底找到Tomcat启动速度慢的元凶
+
+http://www.algorithmdog.com/ | AlgorithmDog | freedom
+http://www.algorithmdog.com/%e5%bc%ba%e5%8c%96%e5%ad%a6%e4%b9%a0%e7%b3%bb%e5%88%97%e4%b9%8b%e4%ba%8c-%e6%a8%a1%e5%9e%8b%e7%9b%b8%e5%85%b3%e7%9a%84%e5%bc%ba%e5%8c%96%e5%ad%a6%e4%b9%a0 | 强化学习系列之二:模型相关的强化学习 | AlgorithmDog
+http://www.algorithmdog.com/reinforcement-learning-model-free-evalution | 强化学习系列之三:模型无关的策略评价 | AlgorithmDog
+https://www.google.com.sg/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=reinforcement%20learning%20book | reinforcement learning book - Google 搜索
+https://github.com/aikorea/awesome-rl#books | aikorea/awesome-rl: Reinforcement learning resources curated
+https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf | RLAlgsInMDPs.pdf
+http://webdocs.cs.ualberta.ca/~sutton/book/ebook/the-book.html | Book
+https://webdocs.cs.ualberta.ca/~sutton/book/code/code.html | Code for Sutton & Barto Book: Reinforcement Learning: An Introduction
+
+https://segmentfault.com/a/1190000006922500 | 抽奖大转盘设计演化 - zhuguowei - SegmentFault
+
+https://my.oschina.net/ywbrj042/blog/684718 | dubbo源码分析系列——dubbo-rpc-default模块源码分析 - 杨武兵 - 开源中国社区
+http://m635674608.iteye.com/blog/2240128 | dubbo学习过程、使用经验分享及实现原理简单介绍 - zzm - ITeye技术网站
+http://songwie.com/attached/dubbo/dubbo2.0.pdf | dubbo2.0.pdf
+http://blog.saymagic.cn/2016/09/17/understand-mockito.html?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io#post__title | Mockito源码解析 | saymagic's blog
+https://www.google.com.sg/search?biw=1366&bih=643&q=mockito+book&oq=mockito+book&gs_l=serp.12..0j0i30k1l2j0i8i30k1j0i5i30k1l4.1208.2673.0.8358.2.2.0.0.0.0.484.842.3-1j1.2.0....0...1c.1.64.serp..0.2.840.AYKJ6v-G240 | mockito book - Google 搜索
+http://blog.csdn.net/zhangxin09/article/details/42422643 | JUnit + Mockito 单元测试（二） - zhangxin09的专栏 - 博客频道 - CSDN.NET
+http://www.jianshu.com/p/972cd6b93206 | Spring Boot应用的测试——Mockito - 简书
+http://javaarm.com/file/opensource/mockito/Practical-Unit-Testing-with-JUnit-and-Mockito_2013-04_Tomek.Kaczanowsk.pdf | Practical Unit Testing with JUnit and Mockito
+http://calvin1978.blogcn.com/articles/btrace1.html?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | Btrace入门到熟练小工完全指南 | 江南白衣
+https://my.oschina.net/pingpangkuangmo/blog/508963 | dubbo源码分析系列（1）扩展机制的实现 - 乒乓狂魔 - 开源中国社区
+https://github.com/heavenghost/zhiyin/blob/master/project/modules/utils/src/main/java/com/zhiyin/utils/bean/BeanMapper.java | zhiyin/BeanMapper.java at master · heavenghost/zhiyin
+https://github.com/search?utf8=%E2%9C%93&q=beancopy+util&type=Repositories&ref=searchresults | Search · beancopy util
+http://ysj5125094.iteye.com/blog/2260885 | 使用Cglib的BeanCopier实现Bean的拷贝 - NaOH - ITeye技术网站
+https://github.com/celandro/CGLIB-Utilities/blob/master/src/test/java/com/eharmony/lightning/ZipCodeLookupCglibTest.java | CGLIB-Utilities/ZipCodeLookupCglibTest.java at master · celandro/CGLIB-Utilities
+https://github.com/davidmoten/cglib-util/blob/master/src/main/java/com/github/davidmoten/cglib/CglibUtil.java | cglib-util/CglibUtil.java at master · davidmoten/cglib-util
+https://github.com/chenjw/beanCopyUtils/wiki | Home · chenjw/beanCopyUtils Wiki
+
+http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650719170&idx=1&sn=68b6b7f87677f5287b6e5a306409653b&chksm=871b07bcb06c8eaa0a649d7d3fd7963423dd4ea51b6e7711bc63653a528fbf196566345ae064&scene=0#wechat_redirect | 重磅 | 图文并茂的神经网络架构大盘点：从基本原理到衍生关系
+
+http://blog.csdn.net/column/details/learningdubbo.html | 专栏：Dubbo原理解析 - 博客频道 - CSDN.NET
+
+http://www.tuicool.com/articles/myiaYzN | 第一二回 韦达破敌魔法助阵，解题阿兰公式立功 - 推酷
+http://mp.weixin.qq.com/s?__biz=MzI0MjI2OTc5Mg==&mid=2650470514&idx=1&sn=f4e84d679771c24827c22ae7616bbe5e&scene=0#wechat_redirect | 从Trie到Double Array Trie
+http://www.cnblogs.com/simoncook/category/737556.html | 开源代码解读 - 随笔分类 - 陈霞光的博客 - 博客园
+http://blog.kazaff.me/tags/dubbo/ | Tag: dubbo | kazaff's blog
+http://blog.kazaff.me/2015/01/31/dubbo%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E7%BB%86%E8%8A%82/ | Dubbo的服务发现细节 | kazaff's blog
+
+http://deeplearning.net/tutorial/deeplearning.pdf | deeplearning.pdf
+http://haohaoxuexi.iteye.com/blog/2154299 | Spring Security（01）——初体验 - 好好学习，天天向上 - ITeye技术网站
+http://www.mossle.com/docs/auth/html/ch208-extenduser.html | 第?40?章?扩展UserDetails
+http://blog.kazaff.me/2015/01/26/dubbo%E5%A6%82%E4%BD%95%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%8B%BF%E5%88%B0bean/ | Dubbo如何一步一步拿到bean | kazaff's blog
+http://www.cnblogs.com/simoncook/p/4831481.html | dubbo源码分析2-reference bean发起服务方法调用 - 陈霞光的博客 - 博客园
+http://wenku.baidu.com/view/03bc4877f61fb7360b4c65f8.html?re=view### | dubbo源码解析2.0_百度文库
+https://yq.aliyun.com/articles/39067 | dubbo源码分析系列（1）扩展机制的实现-博客-云栖社区-阿里云
+
+http://www.cnblogs.com/zhanjindong/p/3472804.html | MySQL优化—工欲善其事，必先利其器（2） - zhanjindong - 博客园
+
+https://github.com/aikorea/awesome-rl | GitHub - aikorea/awesome-rl: Reinforcement learning resources curated
+http://webee.technion.ac.il/people/shimkin/LCS11/LCS11index.html | LCS10index
+http://neoremind.com/2016/02/%e5%9f%ba%e4%ba%8eprotobuf%e7%9a%84%e5%88%86%e5%b8%83%e5%bc%8f%e9%ab%98%e6%80%a7%e8%83%bdrpc%e6%a1%86%e6%9e%b6-navi-pbrpc/ | 基于Protobuf的分布式高性能RPC框架——Navi-Pbrpc | neo时刻准备着
+http://neoremind.com/2016/02/%e5%9f%ba%e4%ba%8eprotobuf%e7%9a%84%e5%88%86%e5%b8%83%e5%bc%8f%e9%ab%98%e6%80%a7%e8%83%bdrpc%e6%a1%86%e6%9e%b6-navi-pbrpc/ | 基于Protobuf的分布式高性能RPC框架——Navi-Pbrpc | neo时刻准备着
+https://github.com/neoremind/navi-pbrpc/tree/master/navi-pbrpc-spring | navi-pbrpc/navi-pbrpc-spring at master · neoremind/navi-pbrpc · GitHub
+https://github.com/neoremind?tab=repositories | neoremind (neoReMinD) · GitHub
+
+http://www.jointforce.com/jfperiodical/article/2959?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | 杰微刊-[译]互联网实时应用解决方案(上)- 文章 - 解放号
+https://github.com/commaai/research | GitHub - commaai/research: comma.ai for the people to experiment with
+
+https://dzone.com/articles/spring-boot-secured-by-lets-encrypt | Spring Boot Secured By Let's Encrypt - DZone Java
+
+https://yq.aliyun.com/users/1978728473568801/own?spm=5176.100239.blogrightarea20172.12.9ifoRI | 楚岩的个人博客-云栖社区-阿里云
+http://www.tuicool.com/articles/iAZrue | 白话火焰图 - 推酷
+
+https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava | How To Use RxJava · ReactiveX/RxJava Wiki · GitHub
+https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Start.html | Start · ReactiveX文档中文翻译
+http://rxjava.yuxingxin.com/chapter3/our_first_observable.html | 我们的第一个Observable · RxJava Essentials CN
+https://github.com/Froussios/Intro-To-RxJava/blob/master/tests/java/itrx/chapter1/AsyncSubjectExample.java | Intro-To-RxJava/AsyncSubjectExample.java at master · Froussios/Intro-To-RxJava · GitHub
+
+http://blog.xiaohansong.com/2016/08/09/ThreadLocal-leak-analyze/ | ThreadLocal 内存泄露的实例分析 | ShareHub
+
+https://github.com/sjchoi86/dl_tutorials | GitHub - sjchoi86/dl_tutorials: Deep learning tutorials (2nd ed.)
+https://openai.com/blog/introducing-openai/ | Introducing OpenAI
+http://www.cnblogs.com/mo-wang/category/618585.html | #机器学习 - 随笔分类 - mo_wang - 博客园
+http://chenrudan.github.io/categories/project-experience/page/2/ | 分类: project experience | 听见下雨的声音
+https://github.com/algorithmdog/Reinforcement_Learning_Blog/tree/master/1.%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%80:%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B | Reinforcement_Learning_Blog/1.强化学习系列之一:马尔科夫决策过程 at master · algorithmdog/Reinforcement_Learning_Blog · GitHub
+http://weibo.com/1646706835/E2BjjaFLk?from=page_1005051646706835_profile&wvr=6&mod=weibotime&type=comment | 转发微博【转发】@视觉机器人：五分钟构建... 来自hbyido - 微博
+http://arxiv.org/pdf/1602.01580v1.pdf | 1602.01580v1.pdf
+https://github.com/llSourcell/Self-Driving-Car-Demo/ | GitHub - llSourcell/Self-Driving-Car-Demo: Self Driving Car Demo for Fresh Machine Learning #6
+https://www.google.com.sg/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=keras | keras - Google 搜索
+https://keras.io/ | Keras Documentation
+http://blog.csdn.net/u012162613/article/details/45397033 | DeepLearning tutorial（6）易用的深度学习框架Keras简介 - wepon的专栏 - 博客频道 - CSDN.NET
+http://blog.csdn.net/u012162613/article/category/2760005 | Machine Learning - wepon的专栏 - 博客频道 - CSDN.NET
+http://www.shareditor.com/ | SharEDITor - 关注大数据技术
+http://www.shareditor.com/blogshow/?blogId=54 | 机器学习教程 四-用scikit-learn求解多元线性回归问题 - SharEDITor - 关注大数据技术
+
+https://www.google.com.sg/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=fastjson+%E5%88%86%E6%9E%90&start=10 | fastjson 分析 - Google 搜索
+https://www.iflym.com/index.php/code/alibaba-fastjson-json-serializer-chapter-source-analyse-one-global-analyse.html | alibaba fastjson(json序列化器)序列化部分源码解析-1-总体分析 | i flym
+https://www.iflym.com/index.php/page/2 | i flym | 欢迎来到Flym的程序之家
+https://www.iflym.com/index.php/java-network/201607040001.html | 服务端推送websocket和sse场景及应用 | i flym
+https://www.iflym.com/index.php/code/alibaba-fastjson-serializer-source-analyse-2-performence-optimize-a.html | alibaba fastjson(json序列化器)序列化部分源码解析-2-性能优化A | i flym
+http://www.iteye.com/topic/1098058 | alibaba fastjson(json序列化器)序列化部分源码解析 - Java综合 - Java - ITeye论坛
+https://www.zhihu.com/question/40002316 | fastjson是怎么实现JSON的序列化和反序列化的？ - Java - 知乎
+https://github.com/alibaba/fastjson | GitHub - alibaba/fastjson: A fast JSON parser/generator for Java
+https://github.com/alibaba/fastjson/wiki | Home · alibaba/fastjson Wiki · GitHub
+
+http://edu.csdn.net/course/detail/2540 | 基于MyCat的MySQL高可用读写分离集群 - CSDN学院 - CSDN.NET
+http://www.yangguo.info/2016/05/23/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%AC%94%E8%AE%B0/ | 分布式事务笔记 | 城的灯
+https://www.zhihu.com/question/29483490 | 分布式服务的事务如何处理？比如dubbo，服务与服务之间的事务怎么处理比较好，现在有没有开源的解决方案？ - 面向服务的架构（SOA） - 知乎
+http://javatar.iteye.com/blog/981787 | 分布式事务 - 梁飞的博客 - ITeye技术网站
+https://libraries.io/github/bingyufight/distributed-flexible-transaction | bingyufight/distributed-flexible-transaction on GitHub - Libraries
+https://github.com/bingyufight/distributed-flexible-transaction/issues/1 | 请问这个项目和tcc-transaction相比有什么优势吗？ · Issue #1 · bingyufight/distributed-flexible-transaction · GitHub
+https://github.com/changmingxie/tcc-transaction/wiki/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97 | 使用指南 · changmingxie/tcc-transaction Wiki · GitHub
+https://github.com/bingyufight/distributed-flexible-transaction/ | GitHub - bingyufight/distributed-flexible-transaction: 采用Best effort 1pc + 回滚补偿机制实现的一个distributed transaction (分布式事务框架).基于dubbo rpc服务上实现。
+https://yq.aliyun.com/articles/10 | 如何用消息系统避免分布式事务？-博客-云栖社区-阿里云
+
+http://blog.csdn.net/szwandcj/article/details/51025669#t1 | 大众点评Cat--架构分析 - 小白菜的博客 - 博客频道 - CSDN.NET
+http://blog.csdn.net/szwandcj/article/details/50992580 | 大众点评Cat--Server模块架构分析 - 小白菜的博客 - 博客频道 - CSDN.NET
+http://blog.csdn.net/linxcool/article/details/7771952 | 反应器(Reactor)模式 - 倚风语的专栏 - 博客频道 - CSDN.NET
+
+http://rongmayisheng.com/post/java-jit%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | java JIT
+http://mp.weixin.qq.com/s?__biz=MzAwNjY4NTQ4MA==&mid=2651174290&idx=1&sn=288518f030801f4d90878e806546487c&scene=1&srcid=0721NBPW2U9bCAlMyD6IR9uY&from=singlemessage&isappinstalled=0#wechat_redirect | 性能不好怎么办？对着清单撸一遍
+http://mp.weixin.qq.com/s?__biz=MzAxOTg2NDUyOA==&mid=2657554861&idx=1&sn=5de35bd5f46608505eaa4b1a0dc724a3&scene=0#wechat_redirect | 一次性能优化，tps从400+到4k+
+
+http://my.oschina.net/longyuan/blog/714355 | spring aop内部调用、 自调用不生效问题与解决方案 - 筱龙缘的个人页面 - 开源中国社区
+
+http://blog.csdn.net/column/details/deeprl.html | 专栏：深度增强学习DRL - 博客频道 - CSDN.NET
+
+http://git.oschina.net/503718696/GreenBamboo-CAPTCHA | 503718696/GreenBamboo-CAPTCHA - 码云 - 开源中国
+https://www.google.com.hk/search?safe=strict&site=&source=hp&q=spring+%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90&oq=spring+%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90&gs_l=hp.3..0.1901.6993.0.7202.10.9.0.0.0.0.386.1077.2-3j1.4.0....0...1c.1j4.64.hp..6.3.827.0..35i39j0i12j0i30.T8-kLo4Z0Nc&bav=on.2,or.r_cp.&bvm=bv.127178174,d.dGo&biw=1366&bih=643&dpr=1&ech=1&psi=wYmIV-LlAoLO0AT44YvQDw.1468565921510.3&ei=wYmIV-LlAoLO0AT44YvQDw&emsg=NCSR&noj=1 | spring 代码分析 - Google 搜索
+http://my.oschina.net/kaywu123/blog/614325 | Spring 源码分析(二) —— 核心容器 - 水门-kay的个人页面 - 开源中国社区
+http://blog.csdn.net/zhyh1986/article/details/8813982 | Spring源码阅读之IoC容器初始化2 -- BeanDefinition载入与解析 - 竹叶青的专栏 - 博客频道 - CSDN.NET
+http://songuooo.com/2015/1/6/Spring-AOP-principle-second | Spring AOP 实现原理与源码分析2 | 宋国的博客
+
+https://segmentfault.com/blog/suemi | Suemi的博客 - SegmentFault
+https://segmentfault.com/a/1190000004405533 | Junit源码阅读(一) - Suemi的博客 - SegmentFault
+https://segmentfault.com/a/1190000004411028 | Junit源码阅读(二)之样例运行的机制 - Suemi的博客 - SegmentFault
+https://segmentfault.com/a/1190000004818762 | [深入JUnit] 测试运行的入口 - 阅读源代码 - SegmentFault
+https://segmentfault.com/a/1190000004697537 | [深入JUnit] @Before, @After, @Test的秘密 - 阅读源代码 - SegmentFault
+http://www.cnblogs.com/yunna/archive/2012/08/22/Yunna.html | JUnit4源代码分析---1 - 云 娜Blog - 博客园
+http://www.cnblogs.com/yunna/archive/2012/08/23/2652268.html | JUnit4源代码分析---2 - 云 娜Blog - 博客园
+http://www.cnblogs.com/yunna/archive/2012/08/23/2652268.html | JUnit4源代码分析---2 - 云 娜Blog - 博客园
+http://www.blogjava.net/aprilyun/archive/2012/07/13/383031.html | （转载）Junit源码分析之整合目录 - JavaCareer - BlogJava
+http://www.cnblogs.com/simoncook/category/737556.html | 开源代码解读 - 随笔分类 - 陈霞光的博客 - 博客园
+
+https://www.centos.bz/tag/openresty/ | OpenResty - Linux运维日志
+https://moonbingbing.gitbooks.io/openresty-best-practices/content/ngx/pitfalls_and_common_mistakes.html | 陷阱和常见错误 · OpenResty最佳实践
+https://classroom.udacity.com/courses/ud600/lessons/4100878601/concepts/6512308680923 | More About Rewards - 1 - Udacity
+http://git.oschina.net/explore/recommend | 最新推荐 - 码云 - 开源中国
+http://git.oschina.net/guoy1206/goshop/tree/master/goshop-wechat/src/main/webapp/WEB-INF?dir=1&filepath=goshop-wechat%2Fsrc%2Fmain%2Fwebapp%2FWEB-INF&oid=97f7b6fd462cab85789c96964fbc7ffdbe15b7fc&sha=60ac21dc291cbbe7398cebdb5c3a640ef5d2e719 | goshop-wechat/src/main/webapp/WEB-INF · 星·夜 / goshop - 码云 - 开源中国
+http://www.bkjia.com/Javabc/1130165.html | 附4 springboot源码解析-run()，springboot-run_Java编程 | 帮客之家
+https://www.amazon.cn/SpringBoot%E6%8F%AD%E7%A7%98-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%93%E7%B3%BB-%E7%8E%8B%E7%A6%8F%E5%BC%BA/dp/B01FSA1140 | 《SpringBoot揭秘：快速构建微服务体系》 王福强 书评 简介 电子书下载 Kindle电子书
+http://blog.csdn.net/chszs/article/details/50737925 | Spring Boot的日志管理 - chszs的专栏 - 博客频道 - CSDN.NET
+http://www.cnblogs.com/java-zhao/category/806019.html | 微服务 - 随笔分类 - 赵计刚 - 博客园
+http://zhaox.github.io/java/2016/03/22/spring-boot-start-flow | Spring Boot启动流程详解
+http://www.cnblogs.com/java-zhao/p/5541967.html | 附4 springboot源码解析-run() - 赵计刚 - 博客园
+
+http://blog.mofeiwo.com/category/mysql/ | MySQL Archives - 莫飞 | 忠诚于梦想的人才可能胜利
+http://www.scienjus.com/wekan/ | 使用wekan作为看板工具 | Science & Justice
+http://wekan.scienjus.com/b/DSek7Qe2GjqkbGaoZ/scienjus | ScienJus - Wekan
+https://wekan.io/b/MeSsFJaSqeuo9M6bs/wekan-roadmap | Wekan Roadmap - Wekan
+https://github.com/wekan/wekan | wekan/wekan: The open-source Trello-like kanban (build with Meteor)
+
+https://github.com/wg/wrk/blob/master/scripts/report.lua | wrk/report.lua at master · wg/wrk
+https://github.com/facebook/augmented-traffic-control | facebook/augmented-traffic-control: Augmented Traffic Control: A tool to simulate network conditions
+
+http://my.oschina.net/u/1246890/blog/693658 | JMX in action第一篇 - Six_Penny 的个人空间 - 开源中国社区
+http://my.oschina.net/serverx/blog/693628 | JVM GC一次调优实战 - fua - 开源中国社区
+https://zhuanlan.zhihu.com/p/21371103?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | 白帽子分享之代码审计的艺术系列—第五季 - 301在路上 - 知乎专栏
+http://www.tuicool.com/articles/feUJZbI | PyCharm远程调试Tensorflow - 推酷
+http://git.oschina.net/rpgmakervx/codecat?utm_source=tuicool&utm_medium=referral | rpgmakervx/codecat - 码云 - 开源中国
+https://github.com/andilyliao?tab=repositories | andilyliao (LiAo)
+https://docs.docker.com/machine/overview/ | Machine Overview
+https://yeasy.gitbooks.io/docker_practice/content/machine/ | Docker Machine 项目 · Docker —— 从入门到实践
+https://www.google.com.hk/search?newwindow=1&safe=strict&q=reinforcement+learning+&oq=reinforcement+learning+&gs_l=serp.3...3878162.3891881.0.3892249.17.17.0.0.0.0.768.2498.5-2j2.4.0....0...1c.1j4.64.serp..13.3.1795.0..0.yTc-o9MVx-0 | reinforcement learning - Google 搜索
+http://reinforcementlearning.ai-depot.com/Tutorials.html | Tutorials - Reinforcement Learning Warehouse
+https://www.udacity.com/course/thanks-for-enrolling?course=ud820 | Home - Udacity
+https://www.udacity.com/course/viewer#!/c-ud820/l-684808907/m-651230853 | Classroom - Udacity
+https://www.nervanasys.com/demystifying-deep-reinforcement-learning/ | Guest Post (Part I): Demystifying Deep Reinforcement Learning - Nervana
+http://www.jianshu.com/p/b73e305363dc | 2016.06.15 爱可可老师24小时热门分享 - 简书
+http://www.jeyzhang.com/tensorflow-learning-notes-2.html | TensorFlow学习笔记2：构建CNN模型 | Jey Zhang
+http://hunch.net/~jl/projects/RL/RLTheoryTutorial.pdf | 500 Internal Privoxy Error
+
+http://www.cnblogs.com/ivictor/p/5111495.html | MyCAT简易入门 - iVictor - 博客园
+https://github.com/MyCATApache/Mycat-doc/blob/master/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/mycat%E5%AE%89%E8%A3%85%E5%85%A5%E9%97%A8(%E4%B8%A4%E8%8A%82%E7%82%B9).md | Mycat-doc/mycat安装入门(两节点).md at master · MyCATApache/Mycat-doc
+http://blog.csdn.net/column/details/mycat.html | 专栏：Mycat分布式数据库中间件 - 博客频道 - CSDN.NET
+
+http://www.jianshu.com/p/69c246db6213 | Git之不明觉厉6－远程分支和标签 - 简书
+
+https://blog.coding.net/blog/principle-of-Git?utm_source=tuicool&utm_medium=referral | 使用原理视角看 Git - Coding 博客
+
+https://github.com/chewiebug/GCViewer | chewiebug/GCViewer: Fork of tagtraum industries' GCViewer. Tagtraum stopped development in 2008, I aim to improve support for Sun's / Oracle's java 1.6+ garbage collector logs (including G1 collector)
+https://github.com/marcingrzejszczak/mockito-cookbook/blob/master/chapter01/src/test/java/com/blogspot/toomuchcoding/book/chapter1/_2_MockitoAnnotationsJunit/assertj/MeanTaxFactorCalculatorTest.java | mockito-cookbook/MeanTaxFactorCalculatorTest.java at master · marcingrzejszczak/mockito-cookbook
+
+https://github.com/me115/linuxtools_rst/blob/master/index.rst | linuxtools_rst/index.rst at master · me115/linuxtools_rst
+https://github.com/mimiczo?tab=repositories | mimiczo (zhoon cho)
+https://github.com/lucasysfeng/lucasOS | lucasysfeng/lucasOS: A Mini Operating System
+
+https://github.com/yenchenlin/DeepLearningFlappyBird | yenchenlin/DeepLearningFlappyBird: Flappy Bird hack using Deep Reinforcement Learning (Deep Q-learning).
+
+http://www.cnblogs.com/fangyuan303687320/category/768916.html | mysql - 随笔分类 - yuan.net - 博客园
+http://www.cnblogs.com/fangyuan303687320/p/5436852.html | mysql技术调优资料整理 - yuan.net - 博客园
+http://www.tuicool.com/articles/UBB3Ab | MySQL Performance-Schema(二) 理论篇 - 推酷
+https://www.zhihu.com/question/22463820 | 写一个操作系统内核有多难？大概的内容、步骤是什么？ - 计算机 - 知乎
+file:///C:/Users/wangqinghui/Downloads/Linux%200.11%E5%86%85%E6%A0%B8%E5%AE%8C%E5%85%A8%E6%B3%A8%E9%87%8A.pdf | clk011c-3.0.0.pdf
+https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System | SamyPesse/How-to-Make-a-Computer-Operating-System: How to Make a Computer Operating System in C++
+https://samypesse.gitbooks.io/how-to-create-an-operating-system/content/chapter9/index.html | Memory management: physical and virtual · How to make an Operating System
+https://github.com/hurley25?tab=repositories | hurley25 (hurley)
+https://github.com/hurley25/redis-3.0-annotated | hurley25/redis-3.0-annotated: 带有详细注释的 Redis 3.0 代码（annotated Redis 3.0 source code）。
+http://wiki.0xffffff.org/ | x86架构操作系统内核的实现
+http://wiki.0xffffff.org/posts/hurlex-4.html | x86架构操作系统内核的实现 / hurlex <四> 字符模式下的显卡驱动
+
+http://www.dexcoder.com/dexcoder/series/51 | 跟我学Nginx+Lua开发 - 文章 - 码农的士
+
+https://github.com/btraceio/btrace | btraceio/btrace: BTrace - a safe, dynamic tracing tool for the Java platform
+http://www.jianshu.com/p/26f19095d396 | Java应用调试利器——BTrace教程 - 简书
+http://blog.csdn.net/chaofanwei/article/details/20224339 | 利用btrace在线监控java程序状态 - 星空的专栏 - 博客频道 - CSDN.NET
+
+http://blog.csdn.net/ygh_0912/article/details/7749522 | Tomcat优化及压力测试实例 . - Way - 博客频道 - CSDN.NET
+http://blog.csdn.net/shuzui1985/article/details/8577233 | Tomcat服务器-并发压力测试下调优注意点小结 - shuzui1985的专栏 - 博客频道 - CSDN.NET
+http://blog.csdn.net/shuzui1985/article/details/8577281 | tomcat JVM GC详解配置 - shuzui1985的专栏 - 博客频道 - CSDN.NET
+
+http://my.oschina.net/yilian/blog/664632?fromerr=Qi6qlz7m#OSC_h2_1 | TensorFlow人工智能引擎入门教程所有目录 - zhuyuping的个人空间 - 开源中国社区
+http://my.oschina.net/yilian/blog?catalog=3359391 | 博客 - zhuyuping的个人空间 - 开源中国社区
+https://uqer.io/community/share/5514fc98f9f06c8f33904449 | 量化分析师的Python日记【第7天：Q Quant 之初出江湖】 - 社区 - 优矿
+
+https://xinqiu.gitbooks.io/linux-insides-cn/content/Booting/linux-bootstrap-1.html | 从引导加载程序内核 · Linux -Insides-中文
+
+http://www.barretlee.com/blog/categories/%E7%BD%91%E7%BB%9C%E4%BA%A4%E4%BA%92/ | Category: 网络交互 | 小胡子哥的个人网站
+http://www.barretlee.com/blog/2016/04/24/detail-about-ca-and-certs/ | 细说 CA 和证书 | 小胡子哥的个人网站
+
+http://www.hollischuang.com/archives/1580?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | 深入理解分布式系统的2PC和3PC-HollisChuang's Blog
+http://blog.luoyuanhang.com/categories/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%B3%BB%E5%88%97/ | 系列: 从头开始写操作系统系列 | 远航 1.1
+https://segmentfault.com/u/cherishsir/articles?page=2 | 米油 的文章 - SegmentFault
+https://github.com/cherishsir/ubuntu230os | cherishsir/ubuntu230os: ubuntu下操作系统开发学习
+http://vdisk.weibo.com/s/uteK1dCJUrvUL?sudaref=www.google.com.hk&retcode=6102 | 30天自制操作系统.pdf_微盘下载
+https://github.com/search?l=C&q=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&type=Repositories&utf8=%E2%9C%93 | Search · 操作系统
+https://github.com/free2000fly/haribote | free2000fly/haribote: Haribote OS Implement -- code for book "30天自制操作系统"
+https://github.com/lengly/myOS | lengly/myOS: 《30天自制操作系统》 linux version
+http://lengly.top/archives/85 | 30天自制操作系统 Linux版本 | 零度空间
+https://github.com/free2000fly/haribote | free2000fly/haribote: Haribote OS Implement -- code for book "30天自制操作系统"
+https://github.com/yourtion/30dayMakeOS/blob/master/LICENSE.txt | 30dayMakeOS/LICENSE.txt at master · yourtion/30dayMakeOS
+https://www.google.com.hk/search?q=30%E5%A4%A9%E8%87%AA%E5%88%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&oq=30%E5%A4%A9%E8%87%AA%E5%88%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&aqs=chrome..69i57j69i61l3&sourceid=chrome&ie=UTF-8 | 30天自制操作系统 - Google 搜索
+http://www.cnblogs.com/bitzhuwei/p/OS-in-30-days-01-hello-bitzhuwei-OS.html#_label0 | 《30天自制操作系统》笔记(01)——hello bitzhuwei’s OS! - BIT祝威 - 博客园
+http://pan.baidu.com/s/1c0f8Cus | 30天自制操作系统光盘.rar_免费高速下载|百度云 网盘-分享无限制
+https://github.com/yourtion/30dayMakeOS/blob/Day01/01_day/!cons_9x.bat | 30dayMakeOS/!cons_9x.bat at Day01 · yourtion/30dayMakeOS
+http://www.jianshu.com/p/84b8de919b4f | 三十天自制操作系统（4） - 简书
+http://www.cnblogs.com/lucasysfeng/category/738062.html | 跟我一起写操作系统 - 随笔分类 - lucasysfeng - 博客园
+
+https://www.zhihu.com/question/22463820 | 写一个操作系统内核有多难？大概的内容、步骤是什么？ - 计算机 - 知乎
+https://github.com/hurley25/Hurlex-II | hurley25/Hurlex-II: 第二版重新设计和构思，参考一些优秀的实现进行补充设计和编码。
+http://hurlex.0xffffff.org/ | Hurlex-doc by hurley25
+http://wiki.0xffffff.org/posts/hurlex-kernel.html | x86架构操作系统内核的实现 / hurlex — x86架构的内核Demo实现
+
+https://github.com/me115/linuxtools_rst | me115/linuxtools_rst: Linux工具快速教程
+
+http://unixboy.iteye.com/blog/174173 | JVM调优总结 -Xms -Xmx -Xmn -Xss - unixboy - ITeye技术网站
+
+http://my.oschina.net/u/129971/blog/688371 | CAT 使用小结 - 白菜土豆的个人空间 - 开源中国社区
+
+http://www.tuicool.com/articles/Bjme6nb | SQL优化（六） MVCC PostgreSQL实现事务和多版本并发控制的精华 - 推酷
+
+https://github.com/aikorea/awesome-rl | aikorea/awesome-rl: Reinforcement learning resources curated
+https://github.com/aleju/mario-ai | aleju/mario-ai: Playing Mario with Deep Reinforcement Learning
+http://www.algorithmdog.com/ml/rl | 强化学习系列 | AlgorithmDog
+
+http://karpathy.github.io/2016/05/31/rl/ | Deep Reinforcement Learning: Pong from Pixels
+http://www.jeremydjacksonphd.com/category/deep-learning/ | Deep Learning | Jeremy D. Jackson, PhD
+https://www.nervanasys.com/demystifying-deep-reinforcement-learning/ | Guest Post (Part I): Demystifying Deep Reinforcement Learning - Nervana
+http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Teaching.html | Advanced Topics: RL
+https://gym.openai.com/docs | OpenAI Gym
+https://zhuanlan.zhihu.com/p/20885568?refer=intelligentunit | Deep Reinforcement Learning 深度增强学习资源 (持续更新） - 智能单元 - 知乎专栏
+http://mil.engr.utk.edu/nmil/member/2 | Machine Intelligence Lab & Networking Research Group
+https://www.zhihu.com/people/flood-sung | Flood Sung - 知乎
+
+https://ai.berkeley.edu/ | EECS Instructional Support Group Home Page
+http://webdocs.cs.ualberta.ca/~sutton/book/the-book.html | Sutton & Barto Book: Reinforcement Learning: An Introduction
+http://blog.csdn.net/songrotek/article/details/50951537 | 用Tensorflow基于Deep Q Learning DQN 玩Flappy Bird - songrotek的专栏 - 博客频道 - CSDN.NET
+https://github.com/yenchenlin/DeepLearningFlappyBird | yenchenlin/DeepLearningFlappyBird: Flappy Bird hack using Deep Reinforcement Learning (Deep Q-learning).
+http://sarvagyavaish.github.io/FlappyBirdRL/ | Flappy Bird RL by SarvagyaVaish
+http://blog.csdn.net/songrotek/article/details/50580904 | Deep Reinforcement Learning 基础知识（DQN方面） - songrotek的专栏 - 博客频道 - CSDN.NET
+http://blog.csdn.net/column/details/deeprl.html | 专栏：深度增强学习DRL - 博客频道 - CSDN.NET
+
+http://tyrion.iteye.com/category/285081 | Tyrion的博客 - Tomcat7源码分析分类文章列表 - ITeye技术网站
+http://tyrion.iteye.com/blog/1934027 | Tomcat7中一次请求处理的前世今生（三）请求与容器中具体组件的匹配 - 预流 - ITeye技术网站
+http://sqtds.github.io/archives/ | Archives | 蜻蜓点水
+https://github.com/sqtds/tomcat8 | sqtds/tomcat8: tomcat8源码分析
+
+http://www.jianshu.com/p/64fec3fd90f5 | 单表60亿记录等大数据场景的MySQL优化和运维之道 | 高可用架构 - 简书
+http://www.jianshu.com/p/230b3882688c | 理解MySQL复制(Replication) - 简书
+
+https://wrfly.gitbooks.io/linux-101-hacks/content/hack-8_grep_regx.html | Hack-8 Grep与正则表达式 | Linux 101 hacks
+
+http://my.oschina.net/u/873167/blog/656199?fromerr=omHKKjCn | Netflix的Hystrix使用教程 - 李景枫的个人空间 - 开源中国社区
+http://my.oschina.net/u/873167/blog/656391?fromerr=xbd8GcZl | Netflix开源技术介绍 - 李景枫的个人空间 - 开源中国社区
+
+https://github.com/y123456yz/reading-code-of-nginx-1.9.2?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | y123456yz/reading-code-of-nginx-1.9.2: nginx-1.9.2源码通读分析注释，带详尽函数中文分析注释以及相关函数流程调用注释，最全面的nginx源码阅读分析中文注释，持续更新
+
+http://www.jianshu.com/p/7c2948f64b1c | 深入Spring:自定义注解加载和使用 - 简书
+
+http://www.jianshu.com/p/82c6337581db?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | 自己动手写垃圾收集器[译] - 简书
+
+http://tengine.taobao.org/book/chapter_02.html#id1 | nginx平台初探(100%) — Nginx开发从入门到精通
+
+https://github.com/0xAX/linux-insides | 0xAX/linux-insides: A little bit about a linux kernel
+
+http://www.tuicool.com/articles/FJfqYby | Deep-Q learning Pong with Tensorflow and PyGame - 推酷
+
+http://www.cnblogs.com/wickedpriest/p/4471429.html | 《Linux内核分析》课程总结 - 不良神父 - 博客园
+http://www.cnblogs.com/wickedpriest/p/4315189.html | 从一段代码的汇编看计算机的工作原理 - 不良神父 - 博客园
+https://segmentfault.com/a/1190000002595198 | Linux内核分析-week 2 - binta - SegmentFault
+https://www.google.com.sg/search?q=movl+instruction&oq=movl+&gs_l=serp.3.2.0l10.202445.212654.0.216064.12.9.3.0.0.0.380.1246.0j7j0j1.8.0....0...1c.1.64.serp..1.11.1251.ZHPcGraFahw | movl instruction - Google 搜索
+http://www.hep.wisc.edu/~pinghc/x86AssmTutorial.htm | Assembly Language Tutorial
+http://blog.sina.com.cn/s/blog_4ba5b45e0102dugy.html | (4)EIP、ESP、EBP_雨儿_新浪博客
+https://www.baidu.com/s?wd=linux%20at%26t&rsv_spt=1&rsv_iqid=0xa9d185be0000291a&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&oq=linux%20at&inputT=18376&rsv_t=af9cu2tpmnnGd1ltS25Rn04uRT4HuzbHJkMynB4uEFllojeWebFb4F92OBnjB7hnA7Fd&rsv_pq=88813ec500013414&rsv_sug3=19&rsv_sug2=0&rsv_sug4=19589 | linux at&t_百度搜索
+http://blog.chinaunix.net/uid-22788794-id-1769239.html | Linux下的AT&T语法(即GNU as 汇编语法)入门-agensy-ChinaUnix博客
+http://blog.csdn.net/guzhou_diaoke/article/details/8318244 | Linux 下 AT&T汇编 - Hello World - 孤舟钓客 - 博客频道 - CSDN.NET
+http://blog.csdn.net/a363344923/article/details/44276715 | 从一个精简Linux内核分析操作系统的基本运行过程 - a363344923的专栏 - 博客频道 - CSDN.NET
+http://blog.chinaunix.net/uid-20778440-id-1846271.html | mov和movl 的区别-tryandy-ChinaUnix博客
+http://blog.sina.com.cn/s/blog_4cd4942f0100butl.html | Linux中的汇编语言_雪竹_新浪博客
+http://blog.chinaunix.net/uid-28458801-id-3558498.html | 汇编中的movl,movw,movb的作用-andyhzw-ChinaUnix博客
+http://www.360doc.com/content/11/1209/18/3688062_171080026.shtml | 汇编指令 mov和movl
+
+https://www.google.com.sg/search?q=Linux%E5%86%85%E6%A0%B8%E5%88%86%E6%9E%90&biw=1242&bih=585&ei=Q9fOVvTSM-XTmAW556ToBQ&start=0&sa=N | Linux内核分析 - Google 搜索
+https://www.shiyanlou.com/courses/195 | Linux - Linux内核分析 - 实验楼
+http://www.wowotech.net/sort/linux_kenrel/page/6 | Linux内核分析 - 蜗窝科技
+http://www.kerneltravel.net/?page_id=18 | 新手上路 | Linux内核之旅
+http://www.ahlinux.com/start/kernel/ | Linux入门,Linux入门教程,linux入门书籍, - 爱好Linux技术网
+https://www.zhihu.com/question/19606660 | Linux 内核学习的经典书籍及途径？ - 学习方法 - 知乎
+https://github.com/shihyu/linux_kernel_driver/blob/master/%E5%9B%BE%E8%A7%A3ARM-Linux%E7%9A%84%E5%90%AF%E5%8A%A8%E5%85%A8%E8%BF%87%E7%A8%8B_%E4%BF%AE%E6%AD%A3%E7%89%88.jpg | linux_kernel_driver/图解ARM-Linux的启动全过程_修正版.jpg at master · shihyu/linux_kernel_driver
+http://www.kerneltravel.net/?page_id=21 | 走进内核 | Linux内核之旅
+http://mooc.study.163.com/course/USTC-1000072000#/info | 庖丁解牛Linux内核 - 网易云课堂
+
+http://blog.csdn.net/wilsonpeng3/article/details/18464699 | Spring的事务管理实现原理初探 - Rocky的博客 - 博客频道 - CSDN.NET
+https://github.com/dangdangdotcom/sharding-jdbc | dangdangdotcom/sharding-jdbc: A JDBC driver for shard databases and tables
+http://www.cnblogs.com/fernandolee24/p/5196332.html | MyCat源码分析系列之——前后端验证 - Aπoλλων - 博客园
+http://blog.2baxb.me/archives/1563 | 记一次集群内无可用http服务问题排查 - Axb的自我修养
+
+https://www.zybuluo.com/ty4z2008/note/284222?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | 高可用架构:Nginx源码分析与实战笔记 - 作业部落 Cmd Markdown 编辑阅读器
+
+http://my.oschina.net/u/561986/blog/524175 | Spring 事务管理探究 - 源程序的个人空间 - 开源中国社区
+
+https://github.com/google/seesaw?f=tt&hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io | google/seesaw: Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform.
+http://www.cnblogs.com/dreamroute/p/5173896.html?utm_source=tuicool&utm_medium=referral | 【原创】纯干货，Spring-data-jpa详解，全方位介绍。 - 神一样的存在 - 博客园
+http://www.innomysql.net/article/25314.html?utm_source=tuicool&utm_medium=referral | MySQL 5.7 完美的分布式事务支持 – Inside MySQL Group
+
+http://my.oschina.net/u/2329222/blog/607559 | 找了篇乐观锁悲观锁的文章学习一下 - _liucui_的个人空间 - 开源中国社区
+http://my.oschina.net/frankies/blog/607785 | Linux 命令工具集 - 收藏与分享 - 开源中国社区
+
+http://nesta2001zhang.iteye.com/blog/1146509 | JAVA分布式事务原理及应用 - 涣熊的仓库 - ITeye技术网站
+
+http://my.oschina.net/pwd/blog/423468?fromerr=5PdUEetY | MYSQL数据库常用知识整理 - 运维技术的个人空间 - 开源中国社区
+
+http://coolshell.cn/articles/10739.html | Lua简明教程 | 酷 壳 - CoolShell.cn
+http://geek.csdn.net/news/detail/37345 | OpenResty 学习资源整理 - 极客头条 - CSDN.NET

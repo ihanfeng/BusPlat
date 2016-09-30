@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhiyin.device.dbs.mapper.DialogStatusMapper" >
-  <resultMap id="BaseResultMap" type="com.zhiyin.device.dbs.entity.DialogStatus" >
+<mapper namespace="com.zhiyin.dbs.common.mapper.DialogStatusMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.dbs.common.entity.DialogStatus" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="partner_id" property="partnerId" jdbcType="BIGINT" />
@@ -36,7 +36,7 @@
   </delete>
 
 
-  <insert id="updateReadNum" parameterType="com.zhiyin.device.dbs.entity.DialogStatus" >
+  <insert id="updateReadNum" parameterType="com.zhiyin.dbs.common.entity.DialogStatus" >
     insert into zy_ourchat_dialog_status
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -97,7 +97,7 @@
 
 
 
-  <insert id="insertSelective" parameterType="com.zhiyin.device.dbs.entity.DialogStatus" >
+  <insert id="insertSelective" parameterType="com.zhiyin.dbs.common.entity.DialogStatus" >
     insert into zy_ourchat_dialog_status
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -155,12 +155,12 @@
 
 
   <!-- 设置已读-->
-  <update id="updateReaded" parameterType="com.zhiyin.device.dbs.entity.DialogStatus" >
+  <update id="updateReaded" parameterType="com.zhiyin.dbs.common.entity.DialogStatus" >
           update zy_ourchat_dialog_status set         read_time = #{readTime,jdbcType=TIMESTAMP},         unread_num = 0
           where user_id = #{userId,jdbcType=BIGINT} and  partner_id = #{partnerId,jdbcType=BIGINT} and del_status = 0
    </update>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.device.dbs.entity.DialogStatus" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.dbs.common.entity.DialogStatus" >
     update zy_ourchat_dialog_status
     <set >
       <if test="userId != null" >
@@ -187,7 +187,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhiyin.device.dbs.entity.DialogStatus" >
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.dbs.common.entity.DialogStatus" >
     update zy_ourchat_dialog_status
     set user_id = #{userId,jdbcType=BIGINT},
       partner_id = #{partnerId,jdbcType=BIGINT},
