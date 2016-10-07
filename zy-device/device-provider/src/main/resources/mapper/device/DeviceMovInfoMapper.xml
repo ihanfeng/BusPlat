@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.device.dbs.mapper.DeviceMovInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.device.dbs.entity.DeviceMovInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="device_id" property="deviceId" jdbcType="BIGINT" />
+    <result column="loc_lat" property="locLat" jdbcType="VARCHAR" />
+    <result column="loc_lon" property="locLon" jdbcType="VARCHAR" />
+    <result column="loc_coord" property="locCoord" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, device_id, loc_lat, loc_lon, loc_coord
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zy_device_mov_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zy_device_mov_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhiyin.device.dbs.entity.DeviceMovInfo" >
+    insert into zy_device_mov_info (id, device_id, loc_lat, 
+      loc_lon, loc_coord)
+    values (#{id,jdbcType=BIGINT}, #{deviceId,jdbcType=BIGINT}, #{locLat,jdbcType=VARCHAR}, 
+      #{locLon,jdbcType=VARCHAR}, #{locCoord,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiyin.device.dbs.entity.DeviceMovInfo" >
+    insert into zy_device_mov_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deviceId != null" >
+        device_id,
+      </if>
+      <if test="locLat != null" >
+        loc_lat,
+      </if>
+      <if test="locLon != null" >
+        loc_lon,
+      </if>
+      <if test="locCoord != null" >
+        loc_coord,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deviceId != null" >
+        #{deviceId,jdbcType=BIGINT},
+      </if>
+      <if test="locLat != null" >
+        #{locLat,jdbcType=VARCHAR},
+      </if>
+      <if test="locLon != null" >
+        #{locLon,jdbcType=VARCHAR},
+      </if>
+      <if test="locCoord != null" >
+        #{locCoord,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.device.dbs.entity.DeviceMovInfo" >
+    update zy_device_mov_info
+    <set >
+      <if test="deviceId != null" >
+        device_id = #{deviceId,jdbcType=BIGINT},
+      </if>
+      <if test="locLat != null" >
+        loc_lat = #{locLat,jdbcType=VARCHAR},
+      </if>
+      <if test="locLon != null" >
+        loc_lon = #{locLon,jdbcType=VARCHAR},
+      </if>
+      <if test="locCoord != null" >
+        loc_coord = #{locCoord,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.device.dbs.entity.DeviceMovInfo" >
+    update zy_device_mov_info
+    set device_id = #{deviceId,jdbcType=BIGINT},
+      loc_lat = #{locLat,jdbcType=VARCHAR},
+      loc_lon = #{locLon,jdbcType=VARCHAR},
+      loc_coord = #{locCoord,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

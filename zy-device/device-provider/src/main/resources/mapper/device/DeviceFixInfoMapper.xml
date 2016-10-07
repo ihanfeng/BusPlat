@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.device.dbs.mapper.DeviceFixInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="serialno" property="serialno" jdbcType="VARCHAR" />
+    <result column="imei" property="imei" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="idfa" property="idfa" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, serialno, imei, uuid, model, idfa
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zy_device_fix_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zy_device_fix_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
+    insert into zy_device_fix_info (id, serialno, imei, 
+      uuid, model, idfa)
+    values (#{id,jdbcType=BIGINT}, #{serialno,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, 
+      #{uuid,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{idfa,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
+    insert into zy_device_fix_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="serialno != null" >
+        serialno,
+      </if>
+      <if test="imei != null" >
+        imei,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="idfa != null" >
+        idfa,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="serialno != null" >
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null" >
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="idfa != null" >
+        #{idfa,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
+    update zy_device_fix_info
+    <set >
+      <if test="serialno != null" >
+        serialno = #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null" >
+        imei = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="idfa != null" >
+        idfa = #{idfa,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
+    update zy_device_fix_info
+    set serialno = #{serialno,jdbcType=VARCHAR},
+      imei = #{imei,jdbcType=VARCHAR},
+      uuid = #{uuid,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      idfa = #{idfa,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
