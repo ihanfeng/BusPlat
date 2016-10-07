@@ -2,14 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhiyin.dbs</groupId>
-    <artifactId>chat-core</artifactId>
+    <artifactId>device-core</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <parent>
         <groupId>com.zhiyin.dbs</groupId>
-        <artifactId>dbs-chat</artifactId>
+        <artifactId>dbs-device</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
