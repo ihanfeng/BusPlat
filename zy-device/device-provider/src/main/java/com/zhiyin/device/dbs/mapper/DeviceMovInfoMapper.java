@@ -1,17 +1,8 @@
 package com.zhiyin.device.dbs.mapper;
 
+import com.zhiyin.dbs.module.common.mapper.BaseMapper;
+import com.zhiyin.device.dbs.entity.DeviceFixInfo;
 import com.zhiyin.device.dbs.entity.DeviceMovInfo;
 
-public interface DeviceMovInfoMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(DeviceMovInfo record);
-
-    int insertSelective(DeviceMovInfo record);
-
-    DeviceMovInfo selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(DeviceMovInfo record);
-
-    int updateByPrimaryKey(DeviceMovInfo record);
+public interface DeviceMovInfoMapper extends BaseMapper<DeviceMovInfo> {
 }

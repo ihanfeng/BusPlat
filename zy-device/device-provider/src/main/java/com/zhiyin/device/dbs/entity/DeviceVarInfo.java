@@ -1,6 +1,11 @@
 package com.zhiyin.device.dbs.entity;
 
-public class DeviceVarInfo {
+import com.zhiyin.dbs.module.common.entity.BaseEntity;
+
+public class DeviceVarInfo extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
     private Long id;
 
     private String systemName;
