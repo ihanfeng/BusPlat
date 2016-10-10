@@ -30,7 +30,7 @@
         </javaModelGenerator>
 
         <!-- 生成映射文件的包名和位置 -->
-        <sqlMapGenerator targetPackage="device" targetProject="device-provider/src/main/resources/mapper">
+        <sqlMapGenerator targetPackage="device" targetProject="device-provider/src/main/resources/mapper2">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 

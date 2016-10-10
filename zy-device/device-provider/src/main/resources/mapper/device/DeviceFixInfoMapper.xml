@@ -18,6 +18,18 @@
     from zy_device_fix_info
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+
+  <select id="selectByUk" resultMap="BaseResultMap" parameterType="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
+    select
+    <include refid="Base_Column_List" />
+    from zy_device_fix_info
+    where serialno = #{serialno} and imei = #{imei}
+    and uuid = #{uuid} and model = #{model} and idfa = #{idfa}
+  </select>
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from zy_device_fix_info
     where id = #{id,jdbcType=BIGINT}

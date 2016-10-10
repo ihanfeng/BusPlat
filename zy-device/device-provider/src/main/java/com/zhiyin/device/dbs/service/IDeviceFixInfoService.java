@@ -7,4 +7,5 @@ import com.zhiyin.device.dbs.entity.DeviceFixInfo;
  * Created by hg on 2016/10/8.
  */
 public interface IDeviceFixInfoService extends IBaseService<DeviceFixInfo> {
+    DeviceFixInfo selectByUk(DeviceFixInfo fixInfo);
 }

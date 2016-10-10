@@ -6,4 +6,5 @@ import com.zhiyin.device.dbs.entity.DeviceFixInfo;
 public interface DeviceFixInfoMapper extends BaseMapper<DeviceFixInfo> {
 
 
+    DeviceFixInfo selectByUk(DeviceFixInfo fixInfo);
 }
