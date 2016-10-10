@@ -18,6 +18,8 @@ public class DeviceVarInfo extends BaseEntity {
 
     private String appBuildVersion;
 
+    private Integer delStatus;
+
     public Long getId() {
         return id;
     }
@@ -64,5 +66,13 @@ public class DeviceVarInfo extends BaseEntity {
 
     public void setAppBuildVersion(String appBuildVersion) {
         this.appBuildVersion = appBuildVersion == null ? null : appBuildVersion.trim();
+    }
+
+    public Integer getDelStatus() {
+        return delStatus;
+    }
+
+    public void setDelStatus(Integer delStatus) {
+        this.delStatus = delStatus;
     }
 }
