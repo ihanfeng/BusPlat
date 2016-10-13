@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.consumer.controller;
+package com.zhiyin.device.dbs.consumer.controller;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;

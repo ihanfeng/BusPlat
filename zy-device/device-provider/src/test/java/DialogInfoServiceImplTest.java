@@ -38,6 +38,8 @@ public class DialogInfoServiceImplTest {
         fixInfo.setModel("Iphone");
         fixInfo.setUuid("1");
 
+        log.info(JSON.toJSONString(fixInfo));
+
         deviceInfoService.insertFix(fixInfo);
 
         DeviceFixInfo sel = deviceInfoService.selectDevice(fixInfo);

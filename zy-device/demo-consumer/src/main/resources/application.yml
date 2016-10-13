@@ -5,18 +5,18 @@ spring:
     name: chat-comsumer  # Identify this application
 
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    statusPageUrl: https://${eureka.hostname}/info
-    healthCheckUrl: https://${eureka.hostname}/health
-    homePageUrl: https://${eureka.hostname}/
-
-ribbon:
-  eureka:
-    enabled: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    statusPageUrl: https://${eureka.hostname}/info
+#    healthCheckUrl: https://${eureka.hostname}/health
+#    homePageUrl: https://${eureka.hostname}/
+#
+#ribbon:
+#  eureka:
+#    enabled: true
 
 # HTTP Server
 server:
@@ -34,3 +34,7 @@ security:
   user:
     name: admin
     password: admin
+
+dbs:
+  service:
+    url: http://localhost:8080/zy-device-dbs
