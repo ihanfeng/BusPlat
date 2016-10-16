@@ -35,6 +35,7 @@
     <modules>
         <module>lbs-core</module>
         <module>lbs-web</module>
+        <module>quadtree</module>
     </modules>
 
     <repositories>
