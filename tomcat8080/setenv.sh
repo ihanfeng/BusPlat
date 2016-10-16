@@ -51,4 +51,11 @@ export CATALINA_OPTS="$CATALINA_OPTS
 -Djava.rmi.server.hostname=127.0.0.1"
 
 
+## newrelic enable
+## https://docs.newrelic.com/docs/agents/java-agent/installation/java-agent-manual-installation
+export JAVA_OPTS="$JAVA_OPTS
+  -javaagent:/opt/data/newrelic/newrelic.jar"
+
+
+
 

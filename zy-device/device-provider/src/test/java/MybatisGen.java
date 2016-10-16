@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wangqinghui on 2016/3/4.
+ * Created by hg on 2016/3/4.
  */
 public class MybatisGen {
 

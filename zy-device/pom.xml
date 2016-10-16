@@ -15,13 +15,23 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Camden.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
     <modules>
         <module>device-core</module>
         <module>device-provider</module>
         <module>demo-consumer</module>
-        <module>demo-http</module>
-        <!--<module>chat-demo</module>-->
     </modules>
 
 </project>

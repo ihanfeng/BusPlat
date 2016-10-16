@@ -25,4 +25,11 @@ public class DeviceFixInfoServiceImpl extends BaseService<DeviceFixInfo> impleme
     public BaseMapper<DeviceFixInfo> getBaseMapper() {
         return deviceFixInfoMapper;
     }
+
+    @Override
+    public DeviceFixInfo selectByUk(DeviceFixInfo fixInfo){
+
+        return deviceFixInfoMapper.selectByUk(fixInfo);
+
+    }
 }

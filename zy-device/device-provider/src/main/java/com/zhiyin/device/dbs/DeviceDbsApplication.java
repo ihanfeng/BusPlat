@@ -6,8 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-//@EnableDiscoveryClient
-@EnableEurekaClient
+//@EnableEurekaClient
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude={DubboAutoConfiguration.class})
 public class DeviceDbsApplication extends SpringBootServletInitializer {

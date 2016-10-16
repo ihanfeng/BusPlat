@@ -80,6 +80,11 @@ acceptCount£¬Ö¸¶¨µ±ËùÓĞ¿ÉÒÔÊ¹ÓÃµÄ´¦ÀíÇëÇóµÄÏß³ÌÊı¶¼±»Ê¹ÓÃÊ±£¬¿ÉÒÔ·Åµ½´¦Àí¶ÓÁĞÖĞµ
 maxPostSize£¬ÒÔ FORM URL ²ÎÊı·½Ê½µÄ POST Ìá½»·½Ê½£¬ÏŞÖÆÌá½»×î´óµÄ´óĞ¡£¬Ä¬ÈÏÊÇ 2097152(2Õ×)£¬ËüÊ¹ÓÃµÄµ¥Î»ÊÇ×Ö½Ú¡£10485760 Îª 10M¡£Èç¹ûÒª½ûÓÃÏŞÖÆ£¬Ôò¿ÉÒÔÉèÖÃÎª -1¡£
 acceptorThreadCount£¬ÓÃÓÚ½ÓÊÕÁ¬½ÓµÄÏß³ÌµÄÊıÁ¿£¬Ä¬ÈÏÖµÊÇ1¡£Ò»°ãÕâ¸öÖ¸ĞèÒª¸Ä¶¯µÄÊ±ºòÊÇÒòÎª¸Ã·şÎñÆ÷ÊÇÒ»¸ö¶àºËCPU£¬Èç¹ûÊÇ¶àºË CPU Ò»°ãÅäÖÃÎª 2.
 
+Ñ¹ËõÏà¹Ø²ÎÊı
+compression="on" ´ò¿ªÑ¹Ëõ¹¦ÄÜ
+compressionMinSize="50" ÆôÓÃÑ¹ËõµÄÊä³öÄÚÈİ´óĞ¡£¬Ä¬ÈÏÎª2KB
+noCompressionUserAgents="gozilla, traviata" ¶ÔÓÚÒÔÏÂµÄä¯ÀÀÆ÷£¬²»ÆôÓÃÑ¹Ëõ
+compressableMimeType="text/html,text/xml,text/javascript,text/css,text/plain"¡¡ÄÄĞ©×ÊÔ´ÀàĞÍĞèÒªÑ¹Ëõ²âÊÔ·½·¨
 
 
 
@@ -105,7 +110,7 @@ AJPÊÇÎª Tomcat Óë HTTP ·şÎñÆ÷Ö®¼äÍ¨ĞÅ¶ø¶¨ÖÆµÄĞ­Òé£¬ÄÜÌá¹©½Ï¸ßµÄÍ¨ĞÅËÙ¶ÈºÍĞ§ÂÊ¡£È
 ## Jvm
 
 
-»ú×ÓÄÚ´æÈç¹ûÊÇ  
+»ú×ÓÄÚ´æÈç¹ûÊÇ8G
 
 ```
 JAVA_OPTS="-Dfile.encoding=UTF-8 -server -Xms6144m -Xmx6144m -XX:NewSize=1024m -XX:MaxNewSize=2048m -XX:PermSize=512m -XX:MaxPermSize=512m -XX:MaxTenuringThreshold=10 -XX:NewRatio=2 -XX:+DisableExplicitGC"
@@ -130,6 +135,7 @@ JAVA_OPTS="-Dfile.encoding=UTF-8 -server -Xms29696m -Xmx29696m -XX:NewSize=6144m
 -XX:+DisableExplicitGC£ºÕâ¸ö½«»áºöÂÔÊÖ¶¯µ÷ÓÃ GC µÄ´úÂëÊ¹µÃ System.gc() µÄµ÷ÓÃ¾Í»á±ä³ÉÒ»¸ö¿Õµ÷ÓÃ£¬ÍêÈ«²»»á´¥·¢ÈÎºÎ GC
 
 ## ²Î¿¼
+
 http://www.blogjava.net/Alpha/archive/2016/04/29/430290.
 
 http://www.jianshu.com/p/c8613d17e5fe

@@ -6,6 +6,8 @@ public class DeviceMovInfo extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
+
+
     private Long id;
 
     private Long deviceId;
@@ -15,6 +17,8 @@ public class DeviceMovInfo extends BaseEntity {
     private String locLon;
 
     private String locCoord;
+
+    private Integer delStatus;
 
     public Long getId() {
         return id;
@@ -55,4 +59,13 @@ public class DeviceMovInfo extends BaseEntity {
     public void setLocCoord(String locCoord) {
         this.locCoord = locCoord == null ? null : locCoord.trim();
     }
+
+    public Integer getDelStatus() {
+        return delStatus;
+    }
+
+    public void setDelStatus(Integer delStatus) {
+        this.delStatus = delStatus;
+    }
+
 }

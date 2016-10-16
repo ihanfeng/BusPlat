@@ -18,6 +18,10 @@ public class DeviceFixInfo extends BaseEntity {
 
     private String idfa;
 
+    private String ukVersion;
+
+    private Integer delStatus;
+
     public Long getId() {
         return id;
     }
@@ -64,5 +68,21 @@ public class DeviceFixInfo extends BaseEntity {
 
     public void setIdfa(String idfa) {
         this.idfa = idfa == null ? null : idfa.trim();
+    }
+
+    public String getUkVersion() {
+        return ukVersion;
+    }
+
+    public void setUkVersion(String ukVersion) {
+        this.ukVersion = ukVersion == null ? null : ukVersion.trim();
+    }
+
+    public Integer getDelStatus() {
+        return delStatus;
+    }
+
+    public void setDelStatus(Integer delStatus) {
+        this.delStatus = delStatus;
     }
 }

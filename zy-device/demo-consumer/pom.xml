@@ -8,7 +8,7 @@
 
     <parent>
         <groupId>com.zhiyin.dbs</groupId>
-        <artifactId>dbs-chat</artifactId>
+        <artifactId>dbs-device</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -21,17 +21,6 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.zhiyin.dbs</groupId>
-            <artifactId>chat-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zhiyin.dbs</groupId>
-            <artifactId>chat-provider</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>net.dubboclub</groupId>

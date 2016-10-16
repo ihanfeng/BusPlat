@@ -1,7 +1,7 @@
 
 spring:
   application:
-     name: zhiyin-ourchat  # Service registers under this name
+     name: zy-device-dbs  # Service registers under this name
   boot:
     admin:
       period: 60000
@@ -15,7 +15,7 @@ endpoints:
 
 # HTTP Server
 server:
-  port: 8081
+  port: 8080
   context-path: /${spring.application.name}
 
 
