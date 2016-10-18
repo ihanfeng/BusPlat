@@ -2,7 +2,7 @@ package com.zhiyin.dbs.module.community.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
-import com.zhiyin.dbs.module.community.CommunityApplication;
+import com.zhiyin.dbs.module.community.CommunityProviderApplication;
 import com.zhiyin.dbs.module.community.entity.TopicThumb;
 import com.zhiyin.dbs.module.community.service.ITopicInfoService;
 import com.zhiyin.dbs.module.community.service.ITopicThumbService;
@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
  */
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {CommunityApplication.class})
+@SpringApplicationConfiguration(classes = {CommunityProviderApplication.class})
 @WebAppConfiguration
 public class TopicThumbServiceImplTest  {
 

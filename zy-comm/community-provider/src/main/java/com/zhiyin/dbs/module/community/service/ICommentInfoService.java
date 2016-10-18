@@ -11,6 +11,7 @@ public interface ICommentInfoService extends IBaseService<CommentInfo> {
 
     Integer updateThumb(Long commentId, int i);
 
+    @Deprecated
     PageInfo<CommentInfo> selectByTopicAndOrder(Long topicId, int pageNum, int pageSize, String sortby);
 
     PageInfo<CommentInfo> selectByTopicAndOrder(Long topicId, PageInfo pageInfo);

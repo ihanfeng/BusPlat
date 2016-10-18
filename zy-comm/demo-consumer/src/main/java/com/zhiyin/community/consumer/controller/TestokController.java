@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.consumer.controller;
+package com.zhiyin.community.consumer.controller;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
@@ -27,13 +27,13 @@ public class TestokController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @RequestMapping(method = RequestMethod.GET, path = "/testok", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.GET, path = "/testok" )
     public String greeting() {
         HelloWorldCommand helloWorldCommand = new HelloWorldCommand("admin2");
         return helloWorldCommand.execute();
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/test2", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.GET, path = "/test2" )
     public String doDiscoveryService() {
         StringBuilder buf = new StringBuilder();
         List<String> serviceIds = discoveryClient.getServices();

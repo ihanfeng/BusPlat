@@ -7,8 +7,8 @@
     <url>http://maven.apache.org</url>
 
     <parent>
-        <groupId>com.zhiyin.dbs</groupId>
-        <artifactId>dbs-chat</artifactId>
+        <groupId>com.zhiyin</groupId>
+        <artifactId>zhiyin-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -29,15 +29,15 @@
 
         <dependency>
             <groupId>com.zhiyin.dbs</groupId>
-            <artifactId>chat-provider</artifactId>
+            <artifactId>community-provider</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-            <groupId>net.dubboclub</groupId>
-            <artifactId>dubbo-hystrix</artifactId>
-            <version>0.0.6</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>net.dubboclub</groupId>-->
+            <!--<artifactId>dubbo-hystrix</artifactId>-->
+            <!--<version>0.0.6</version>-->
+        <!--</dependency>-->
         <!-- end biz -->
 
         <!-- dubbo cache -->

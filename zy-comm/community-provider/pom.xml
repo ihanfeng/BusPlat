@@ -210,9 +210,11 @@
                         <exclude>logback.xml</exclude>
                         <exclude>config/**</exclude>
                         <exclude>sqlmap/**</exclude>
+                        <exclude>sqlmap2/**</exclude>
                         <exclude>mapper/**</exclude>
                         <exclude>dubbo*</exclude>
                         <exclude>redis.*</exclude>
+                        <exclude>applicationContext-dubbo.xml</exclude>
                         <exclude>com/zhiyin/dbs/module/community/CommunityApplication.*</exclude>
                     </excludes>
                 </configuration>

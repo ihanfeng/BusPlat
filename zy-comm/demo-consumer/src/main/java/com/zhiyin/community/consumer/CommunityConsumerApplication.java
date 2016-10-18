@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.consumer;
+package com.zhiyin.community.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,16 +10,15 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @EnableCircuitBreaker
 @SpringBootApplication
 @EnableFeignClients
-//@ComponentScan({"com.zhiyin.ourchat.consumer"})
-public class ConsumerApplication extends SpringBootServletInitializer {
+public class  CommunityConsumerApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
+        SpringApplication.run(CommunityConsumerApplication.class, args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(ConsumerApplication.class);
+        return application.sources(CommunityConsumerApplication.class);
     }
 
 }
