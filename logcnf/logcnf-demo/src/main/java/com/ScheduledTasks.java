@@ -15,8 +15,9 @@ public class ScheduledTasks {
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
-        log.info("当前时间：" + dateFormat.format(new Date()));
-        log.error("demo error log.");
+        log.info("info:" + dateFormat.format(new Date()));
+        log.error("error:demo error log.");
+        log.debug("debug info.");
     }
 
 }

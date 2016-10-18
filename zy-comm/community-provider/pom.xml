@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhiyin.dbs</groupId>
     <artifactId>community-provider</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
@@ -207,7 +207,7 @@
                     <excludes>
                         <exclude>bootstrap.yml</exclude>
                         <exclude>application.yml</exclude>
-                        <exclude>logback.xml</exclude>
+                        <exclude>logback.*</exclude>
                         <exclude>config/**</exclude>
                         <exclude>sqlmap/**</exclude>
                         <exclude>sqlmap2/**</exclude>
@@ -215,7 +215,7 @@
                         <exclude>dubbo*</exclude>
                         <exclude>redis.*</exclude>
                         <exclude>applicationContext-dubbo.xml</exclude>
-                        <exclude>com/zhiyin/dbs/module/community/CommunityApplication.*</exclude>
+                        <exclude>com/zhiyin/dbs/module/community/CommunityProviderApplication.*</exclude>
                     </excludes>
                 </configuration>
             </plugin>

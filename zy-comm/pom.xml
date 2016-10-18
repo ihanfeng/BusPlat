@@ -8,7 +8,6 @@
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
-
     <parent>
         <groupId>com.zhiyin</groupId>
         <artifactId>zhiyin-parent</artifactId>
@@ -22,4 +21,11 @@
         <module>demo-consumer</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zhiyin.frame</groupId>
+            <artifactId>logcnf-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -9,17 +9,18 @@
     <result column="pics" property="pics" jdbcType="VARCHAR" />
     <result column="addr_id" property="addrId" jdbcType="BIGINT" />
     <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="comment_num" property="commentNum" jdbcType="INTEGER" />
     <result column="thumb_num" property="thumbNum" jdbcType="BIGINT" />
     <result column="browse_num" property="browseNum" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="del_status" property="delStatus" jdbcType="INTEGER" />
-    <result column="comment_num" property="commentNum" jdbcType="INTEGER" />
+    <result column="area_id" property="areaId" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, content, media_type, pics, addr_id, user_id, thumb_num, browse_num, remark, 
-    create_time, update_time, del_status, comment_num
+    id, title, content, media_type, pics, addr_id, user_id, comment_num, thumb_num, browse_num, 
+    remark, create_time, update_time, del_status, area_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -34,14 +35,16 @@
   <insert id="insert" parameterType="com.zhiyin.dbs.module.community.entity.TopicInfo" >
     insert into zhiyin_community_topic_info (id, title, content, 
       media_type, pics, addr_id, 
-      user_id, thumb_num, browse_num, 
-      remark, create_time, update_time, 
-      del_status, comment_num)
+      user_id, comment_num, thumb_num, 
+      browse_num, remark, create_time, 
+      update_time, del_status, area_id
+      )
     values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
       #{mediaType,jdbcType=INTEGER}, #{pics,jdbcType=VARCHAR}, #{addrId,jdbcType=BIGINT}, 
-      #{userId,jdbcType=BIGINT}, #{thumbNum,jdbcType=BIGINT}, #{browseNum,jdbcType=INTEGER}, 
-      #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{delStatus,jdbcType=INTEGER}, #{commentNum,jdbcType=INTEGER})
+      #{userId,jdbcType=BIGINT}, #{commentNum,jdbcType=INTEGER}, #{thumbNum,jdbcType=BIGINT}, 
+      #{browseNum,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{delStatus,jdbcType=INTEGER}, #{areaId,jdbcType=BIGINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.zhiyin.dbs.module.community.entity.TopicInfo" >
     insert into zhiyin_community_topic_info
@@ -67,6 +70,9 @@
       <if test="userId != null" >
         user_id,
       </if>
+      <if test="commentNum != null" >
+        comment_num,
+      </if>
       <if test="thumbNum != null" >
         thumb_num,
       </if>
@@ -85,8 +91,8 @@
       <if test="delStatus != null" >
         del_status,
       </if>
-      <if test="commentNum != null" >
-        comment_num,
+      <if test="areaId != null" >
+        area_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -111,6 +117,9 @@
       <if test="userId != null" >
         #{userId,jdbcType=BIGINT},
       </if>
+      <if test="commentNum != null" >
+        #{commentNum,jdbcType=INTEGER},
+      </if>
       <if test="thumbNum != null" >
         #{thumbNum,jdbcType=BIGINT},
       </if>
@@ -129,8 +138,8 @@
       <if test="delStatus != null" >
         #{delStatus,jdbcType=INTEGER},
       </if>
-      <if test="commentNum != null" >
-        #{commentNum,jdbcType=INTEGER},
+      <if test="areaId != null" >
+        #{areaId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -155,6 +164,9 @@
       <if test="userId != null" >
         user_id = #{userId,jdbcType=BIGINT},
       </if>
+      <if test="commentNum != null" >
+        comment_num = #{commentNum,jdbcType=INTEGER},
+      </if>
       <if test="thumbNum != null" >
         thumb_num = #{thumbNum,jdbcType=BIGINT},
       </if>
@@ -173,8 +185,8 @@
       <if test="delStatus != null" >
         del_status = #{delStatus,jdbcType=INTEGER},
       </if>
-      <if test="commentNum != null" >
-        comment_num = #{commentNum,jdbcType=INTEGER},
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=BIGINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -187,13 +199,14 @@
       pics = #{pics,jdbcType=VARCHAR},
       addr_id = #{addrId,jdbcType=BIGINT},
       user_id = #{userId,jdbcType=BIGINT},
+      comment_num = #{commentNum,jdbcType=INTEGER},
       thumb_num = #{thumbNum,jdbcType=BIGINT},
       browse_num = #{browseNum,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       del_status = #{delStatus,jdbcType=INTEGER},
-      comment_num = #{commentNum,jdbcType=INTEGER}
+      area_id = #{areaId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

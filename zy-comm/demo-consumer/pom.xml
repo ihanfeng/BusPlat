@@ -14,6 +14,13 @@
 
     <dependencies>
 
+        <!-- zy frame -->
+        <dependency>
+            <groupId>com.zhiyin.frame</groupId>
+            <artifactId>logcnf-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- biz -->
         <dependency>
             <groupId>com.zhiyin.frame</groupId>

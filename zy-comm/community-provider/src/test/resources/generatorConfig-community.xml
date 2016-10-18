@@ -10,7 +10,7 @@
         </commentGenerator>
 
         <!-- 数据库连接的信息 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test" userId="root" password="root">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/zhiyin" userId="root" password="root">
         </jdbcConnection>
 
         <!-- false：JDBC DECIMAL、NUMERIC类型解析为Integer，默认方式 -->

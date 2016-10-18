@@ -7,13 +7,10 @@ spring:
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-#    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-#    url: jdbc:mysql://127.0.0.1:3306/zhiyin?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-#    username: root
-#    password: root
-    url: jdbc:mysql://112.126.92.1:3306/zhiyin?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-    username: zhiyin
-    password: zhiyin3306
+    url: jdbc:mysql://127.0.0.1:3306/zhiyin?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+
     driver-class-name: com.mysql.jdbc.Driver
 # 下面为连接池的补充设置，应用到上面所有数据源中
 # 初始化大小，最小，最大

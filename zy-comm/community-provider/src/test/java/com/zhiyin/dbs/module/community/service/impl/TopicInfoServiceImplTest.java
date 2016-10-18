@@ -50,6 +50,7 @@ public class TopicInfoServiceImplTest  {
     public void setUp() throws Exception {
         entity.setTitle("test topic" + Character.toChars(127467) );
         entity.setUserId(1L);
+        entity.setAreaId(11L);
     }
 
     @Test
