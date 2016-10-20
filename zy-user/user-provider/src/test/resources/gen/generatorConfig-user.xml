@@ -35,7 +35,7 @@
         </sqlMapGenerator>
 
         <!-- 生成DAO的包名和位置 -->
-        <javaClientGenerator targetPackage="com.zhiyin.device.dbs.mapper" type="XMLMAPPER" targetProject="user-provider/src/main/java">
+        <javaClientGenerator targetPackage="com.zhiyin.user.dbs.mapper" type="XMLMAPPER" targetProject="user-provider/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 

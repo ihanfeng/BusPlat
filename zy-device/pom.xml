@@ -29,7 +29,7 @@
 
 
     <modules>
-        <module>device-core</module>
+        <!--<module>device-core</module>-->
         <module>device-provider</module>
         <module>demo-consumer</module>
     </modules>

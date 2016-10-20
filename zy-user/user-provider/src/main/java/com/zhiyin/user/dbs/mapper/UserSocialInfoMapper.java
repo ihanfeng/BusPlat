@@ -1,15 +1,15 @@
-package com.zhiyin.device.dbs.mapper;
+package com.zhiyin.user.dbs.mapper;
 
 import com.zhiyin.user.dbs.entity.UserSocialInfo;
 
 public interface UserSocialInfoMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(UserSocialInfo record);
 
     int insertSelective(UserSocialInfo record);
 
-    UserSocialInfo selectByPrimaryKey(Integer id);
+    UserSocialInfo selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(UserSocialInfo record);
 

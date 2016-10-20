@@ -3,7 +3,7 @@ package com.zhiyin.user.dbs.entity;
 import java.util.Date;
 
 public class UserInfo {
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -17,11 +17,11 @@ public class UserInfo {
 
     private Integer delStatus;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

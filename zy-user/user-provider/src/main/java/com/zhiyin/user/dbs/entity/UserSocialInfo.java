@@ -3,9 +3,9 @@ package com.zhiyin.user.dbs.entity;
 import java.util.Date;
 
 public class UserSocialInfo {
-    private Integer id;
+    private Long id;
 
-    private Integer userId;
+    private Long userId;
 
     private String openId;
 
@@ -19,19 +19,19 @@ public class UserSocialInfo {
 
     private Integer delStatus;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
