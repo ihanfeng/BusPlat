@@ -19,6 +19,8 @@ public class TopicInfo extends BaseEntity {
 
     private Long addrId;
 
+    private Long areaId;
+
     private Long userId;
 
     private Long thumbNum;
@@ -144,5 +146,13 @@ public class TopicInfo extends BaseEntity {
 
     public void setCommentNum(Integer commentNum) {
         this.commentNum = commentNum;
+    }
+
+    public Long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
     }
 }

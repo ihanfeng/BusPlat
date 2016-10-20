@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package com.zhiyin.ourchat.consumer.config.web;
+package com.zhiyin.community.consumer.config.web;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

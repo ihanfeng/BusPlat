@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.consumer.config;
+package com.zhiyin.community.consumer.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;

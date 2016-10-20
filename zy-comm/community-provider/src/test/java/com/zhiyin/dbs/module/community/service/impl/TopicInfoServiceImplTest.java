@@ -5,7 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
 import com.vdurmont.emoji.Emoji;
 import com.vdurmont.emoji.EmojiManager;
-import com.zhiyin.dbs.module.community.CommunityApplication;
+import com.zhiyin.dbs.module.community.CommunityProviderApplication;
 import com.zhiyin.dbs.module.community.entity.CommentInfo;
 import com.zhiyin.dbs.module.community.entity.TopicInfo;
 import com.zhiyin.dbs.module.community.service.ICommentInfoService;
@@ -30,7 +30,7 @@ import java.util.List;
  */
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {CommunityApplication.class})
+@SpringApplicationConfiguration(classes = {CommunityProviderApplication.class})
 @WebAppConfiguration
 public class TopicInfoServiceImplTest  {
 
@@ -50,14 +50,34 @@ public class TopicInfoServiceImplTest  {
     public void setUp() throws Exception {
         entity.setTitle("test topic" + Character.toChars(127467) );
         entity.setUserId(1L);
+        entity.setAreaId(11L);
     }
 
     @Test
     public void em(){
         Emoji emoji = EmojiManager.getForAlias("fr");
         System.out.println("HEY: " + emoji.getUnicode());
+
+
     }
 
+    @Test
+    public void test3(){
+        // 插入
+//        Long topicId = topicInfoService.insertSelectiveGet(entity);
+//
+//        for(int i=0; i<20;i++){
+//            commentInfoService.insertSelectiveGet(comment(topicId));
+//
+//        }
+
+        PageInfo pageInfo = new PageInfo();
+        pageInfo.setPageNum(1);
+        pageInfo.setPageSize(20);
+
+        PageInfo<CommentInfo> comments = commentInfoService.selectByTopicAndOrder(39564258963456L, pageInfo);
+        log.info(JSON.toJSONString(comments));
+    }
     /**
      * 插入一个话题，模仿用户点赞
      * @throws Exception

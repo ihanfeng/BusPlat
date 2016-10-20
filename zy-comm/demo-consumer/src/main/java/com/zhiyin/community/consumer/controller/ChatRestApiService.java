@@ -1,4 +1,4 @@
-package com.zhiyin.ourchat.consumer.controller;
+package com.zhiyin.community.consumer.controller;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.MediaType;

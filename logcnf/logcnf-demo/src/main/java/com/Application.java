@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Slf4j
 @EnableScheduling
-
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 

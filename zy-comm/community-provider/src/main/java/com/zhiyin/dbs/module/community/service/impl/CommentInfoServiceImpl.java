@@ -1,5 +1,6 @@
 package com.zhiyin.dbs.module.community.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.common.base.Strings;
@@ -14,6 +15,7 @@ import com.zhiyin.dbs.module.community.mapper.CommentInfoMapper;
 import com.zhiyin.dbs.module.community.service.ICommentInfoService;
 import com.zhiyin.dbs.module.community.service.ITopicInfoService;
 import com.zhiyin.frame.idgen.IdGenFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -25,6 +27,7 @@ import java.util.List;
 /**
  * Created by hg on 2016/7/11.
  */
+@Slf4j
 @Service
 //@CacheConfig(cacheNames = {CommunityCacheKey.CommentInfoKey})
 @com.alibaba.dubbo.config.annotation.Service(protocol = { "dubbo" })
@@ -63,6 +66,9 @@ public class CommentInfoServiceImpl extends BaseService<CommentInfo> implements 
     @Deprecated
     @Override
     public PageInfo<CommentInfo> selectByTopicAndOrder(Long topicId, int pageNum, int pageSize, String orderby) {
+
+        log.info("sssss");
+
         if(Strings.isNullOrEmpty(orderby)){
             orderby = TableOrderBy.Default;
         }
@@ -81,6 +87,10 @@ public class CommentInfoServiceImpl extends BaseService<CommentInfo> implements 
         PageInfoUtil.defaultOrderBy(pageInfo);
         PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getOrderBy());
         List<CommentInfo> list = commentInfoMapper.selectByTopic(topicId);
+
+        log.info("selectByTopicAndOrder, topicId:{}",topicId);
+        log.info("selectByTopicAndOrder, pageInfo:{}", JSON.toJSONString(list));
+
         PageInfo<CommentInfo> page = new PageInfo(list);
 
         return page;

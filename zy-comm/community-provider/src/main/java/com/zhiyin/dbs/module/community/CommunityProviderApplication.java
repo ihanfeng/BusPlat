@@ -10,15 +10,15 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude={DubboAutoConfiguration.class})
-public class CommunityApplication extends SpringBootServletInitializer {
+public class CommunityProviderApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(CommunityApplication.class);
+        return application.sources(CommunityProviderApplication.class);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(CommunityApplication.class, args);
+        SpringApplication.run(CommunityProviderApplication.class, args);
     }
 
 }
