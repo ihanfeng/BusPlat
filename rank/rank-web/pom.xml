@@ -54,7 +54,7 @@
         <dependency>
             <groupId>com.zhiyin</groupId>
             <artifactId>zhiyin-dbs</artifactId>
-            <version>0.0.4-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
             <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
 

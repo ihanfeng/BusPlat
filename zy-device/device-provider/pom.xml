@@ -315,8 +315,9 @@
                         <exclude>logback.*</exclude>
                         <exclude>config/**</exclude>
                         <exclude>mapper/**</exclude>
+                        <exclude>mapper2/**</exclude>
                         <exclude>dubbo*</exclude>
-                        <exclude>com/zhiyin/device/dbs/OurChatApplication.*</exclude>
+                        <exclude>com/zhiyin/device/dbs/DeviceDbsProviderApplication.*</exclude>
                     </excludes>
                 </configuration>
             </plugin>

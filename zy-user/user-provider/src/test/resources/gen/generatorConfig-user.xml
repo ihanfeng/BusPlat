@@ -2,7 +2,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!-- 数据库的JDBC驱动的jar包地址 -->
-    <classPathEntry location="device-provider\data\jar\mysql-connector-java-5.1.22.jar"/>
+    <classPathEntry location="user-provider\data\jar\mysql-connector-java-5.1.22.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <!-- 是否去除自动生成的注释 -->
@@ -22,7 +22,7 @@
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置 -->
-        <javaModelGenerator targetPackage="com.zhiyin.device.dbs.entity" targetProject="device-provider/src/main/java">
+        <javaModelGenerator targetPackage="com.zhiyin.user.dbs.entity" targetProject="user-provider/src/main/java">
             <!-- 是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="true"/>
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -30,7 +30,7 @@
         </javaModelGenerator>
 
         <!-- 生成映射文件的包名和位置 -->
-        <sqlMapGenerator targetPackage="device" targetProject="user-provider/src/main/resources/mapper2">
+        <sqlMapGenerator targetPackage="user" targetProject="user-provider/src/main/resources/mapper2">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
@@ -43,11 +43,11 @@
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 
-        <table tableName="zy_user_2" domainObjectName="UserInfo" enableCountByExample="false"
+        <table tableName="zy_user_login_log" domainObjectName="UserLoginLog" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 
-        <table tableName="zy_user_2" domainObjectName="UserInfo" enableCountByExample="false"
+        <table tableName="zy_user_social" domainObjectName="UserSocialInfo" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 

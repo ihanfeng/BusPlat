@@ -19,8 +19,8 @@ public class ReloadDataTask {
     @Autowired
     private ILoadRankDataService loadRankDataService;
 
-//    @Scheduled(fixedRate=1000 * 60 * 60 * 3 ,initialDelay=1000 * 20)
-    @Scheduled(fixedRate=1000 * 60 ,initialDelay=1000 * 20)
+    @Scheduled(fixedRate=1000 * 60 * 60 * 3 ,initialDelay=1000 * 20)
+//    @Scheduled(fixedRate=1000 * 60 ,initialDelay=1000 * 20)
     public void timer() {
         loadRankDataService.loadContentStat();
     }
