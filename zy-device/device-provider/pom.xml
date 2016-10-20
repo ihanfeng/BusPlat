@@ -310,13 +310,13 @@
                 <version>2.6</version>
                 <configuration>
                     <excludes>
-                        <exclude>application*</exclude>
-                        <exclude>bootstrap.yml</exclude>
-                        <exclude>logback.xml</exclude>
+                        <exclude>application.*</exclude>
+                        <exclude>bootstrap.*</exclude>
+                        <exclude>logback.*</exclude>
                         <exclude>config/**</exclude>
                         <exclude>mapper/**</exclude>
                         <exclude>dubbo*</exclude>
-                        <exclude>com/zhiyin/ourchat/OurChatApplication.*</exclude>
+                        <exclude>com/zhiyin/device/dbs/OurChatApplication.*</exclude>
                     </excludes>
                 </configuration>
             </plugin>

@@ -18,7 +18,11 @@
     <modules>
         <module>logcnf-base</module>
         <module>logcnf-demo</module>
+        <module>log-aspect</module>
     </modules>
+
+
+
 
 
     <dependencyManagement>

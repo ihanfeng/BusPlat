@@ -1,23 +1,22 @@
-package com.zhiyin.device.dbs;
+package com.zhiyin.user.dbs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 //@EnableEurekaClient
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude={DubboAutoConfiguration.class})
-public class DeviceDbsApplication extends SpringBootServletInitializer {
+public class UserDbsProviderApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(DeviceDbsApplication.class);
+        return application.sources(UserDbsProviderApplication.class);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(DeviceDbsApplication.class, args);
+        SpringApplication.run(UserDbsProviderApplication.class, args);
     }
 
 }

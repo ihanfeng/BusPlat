@@ -1,6 +1,6 @@
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
-import com.zhiyin.device.dbs.DeviceDbsApplication;
+import com.zhiyin.device.dbs.DeviceDbsProviderApplication;
 import com.zhiyin.device.dbs.entity.DeviceFixInfo;
 import com.zhiyin.device.dbs.service.IDeviceInfoService;
 
@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {DeviceDbsApplication.class})
+@SpringApplicationConfiguration(classes = {DeviceDbsProviderApplication.class})
 @WebAppConfiguration
 public class DialogInfoServiceImplTest {
 

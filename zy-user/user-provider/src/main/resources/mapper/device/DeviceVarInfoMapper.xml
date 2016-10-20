@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyin.user.dbs.mapper.DeviceVarInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiyin.user.dbs.entity.DeviceVarInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="system_name" property="systemName" jdbcType="VARCHAR" />
+    <result column="system_version" property="systemVersion" jdbcType="VARCHAR" />
+    <result column="app_name" property="appName" jdbcType="VARCHAR" />
+    <result column="app_version" property="appVersion" jdbcType="VARCHAR" />
+    <result column="app_build_version" property="appBuildVersion" jdbcType="VARCHAR" />
+    <result column="del_status" property="delStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, system_name, system_version, app_name, app_version, app_build_version, del_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zy_device_var_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zy_device_var_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhiyin.user.dbs.entity.DeviceVarInfo" >
+    insert into zy_device_var_info (id, system_name, system_version, 
+      app_name, app_version, app_build_version, 
+      del_status)
+    values (#{id,jdbcType=BIGINT}, #{systemName,jdbcType=VARCHAR}, #{systemVersion,jdbcType=VARCHAR}, 
+      #{appName,jdbcType=VARCHAR}, #{appVersion,jdbcType=VARCHAR}, #{appBuildVersion,jdbcType=VARCHAR}, 
+      #{delStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiyin.user.dbs.entity.DeviceVarInfo" >
+    insert into zy_device_var_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="systemName != null" >
+        system_name,
+      </if>
+      <if test="systemVersion != null" >
+        system_version,
+      </if>
+      <if test="appName != null" >
+        app_name,
+      </if>
+      <if test="appVersion != null" >
+        app_version,
+      </if>
+      <if test="appBuildVersion != null" >
+        app_build_version,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="systemName != null" >
+        #{systemName,jdbcType=VARCHAR},
+      </if>
+      <if test="systemVersion != null" >
+        #{systemVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null" >
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="appVersion != null" >
+        #{appVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="appBuildVersion != null" >
+        #{appBuildVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.user.dbs.entity.DeviceVarInfo" >
+    update zy_device_var_info
+    <set >
+      <if test="systemName != null" >
+        system_name = #{systemName,jdbcType=VARCHAR},
+      </if>
+      <if test="systemVersion != null" >
+        system_version = #{systemVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null" >
+        app_name = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="appVersion != null" >
+        app_version = #{appVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="appBuildVersion != null" >
+        app_build_version = #{appBuildVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiyin.user.dbs.entity.DeviceVarInfo" >
+    update zy_device_var_info
+    set system_name = #{systemName,jdbcType=VARCHAR},
+      system_version = #{systemVersion,jdbcType=VARCHAR},
+      app_name = #{appName,jdbcType=VARCHAR},
+      app_version = #{appVersion,jdbcType=VARCHAR},
+      app_build_version = #{appBuildVersion,jdbcType=VARCHAR},
+      del_status = #{delStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
