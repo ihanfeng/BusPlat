@@ -28,8 +28,16 @@
     <include refid="Base_Column_List" />
     from zy_device_fix_info
     where serialno = #{serialno} and imei = #{imei}
-    and uuid = #{uuid} and model = #{model} and idfa = #{idfa}
+    and uuid = #{uuid} and model = #{model} and idfa = #{idfa} and  del_status = 0
     limit 1
+  </select>
+
+
+  <select id="selectAll" resultMap="BaseResultMap"   >
+    select
+    <include refid="Base_Column_List" />
+    from zy_device_fix_info
+    where del_status = 0
   </select>
 
 

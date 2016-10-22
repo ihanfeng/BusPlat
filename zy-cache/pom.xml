@@ -8,13 +8,11 @@
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
-    <properties>
-    </properties>
-
     <modules>
         <module>cache-core</module>
         <module>guava-demo</module>
         <module>mybatis-redis-demo</module>
+        <module>cache-demo</module>
     </modules>
 
     <parent>
