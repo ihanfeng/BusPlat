@@ -20,6 +20,8 @@ public interface ITopicInfoService  extends IBaseService<TopicInfo> {
 
     PageInfo<TopicInfo> selectByAddrId(Long addrId, PageInfo pageInfo);
 
+    PageInfo<TopicInfo> selectByAreaId(Long areaId, PageInfo pageInfo);
+
     // TODO 并发处理
     Integer updateThumb(Long topicId, Integer num);
 

@@ -55,6 +55,13 @@
         where del_status = 0 and addr_id = #{addrId}
     </select>
 
+    <select id="selectByAreaId" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select
+        <include refid="Base_Column_List" />
+        from zhiyin_community_topic_info
+        where del_status = 0 and area_id = #{areaId}
+    </select>
+
      <select id="selectAll" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />

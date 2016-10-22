@@ -19,4 +19,6 @@ public interface TopicInfoMapper  extends BaseMapper<TopicInfo> {
     Integer updateIncBrowse(Long id);
 
     Integer updateIncComment(Long id);
+
+    List<TopicInfo> selectByAreaId(Long areaId);
 }

@@ -87,6 +87,14 @@ public class TopicInfoServiceImpl extends BaseService<TopicInfo> implements ITop
         return page;
     }
 
+    @Override
+    public PageInfo<TopicInfo> selectByAreaId(Long areaId, PageInfo pageInfo) {
+        PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize(), PageInfoUtil.defaultOrderBy(pageInfo) );
+        List<TopicInfo> info = topicInfoMapper.selectByAreaId(areaId );
+        PageInfo<TopicInfo> page = new PageInfo(info);
+        return page;
+    }
+
     /**
      * 更新点赞数目时有并发问题
      */
