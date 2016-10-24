@@ -13,4 +13,12 @@ public class PageInfoUtil {
         }
         return Optional.fromNullable(pageInfo.getOrderBy()).or(defaultOrderBy);
     }
+
+
+    public static PageInfo firstPage(){
+        PageInfo p = new PageInfo();
+        p.setPageSize(10);
+        p.setPageNum(1);
+        return p;
+    }
 }

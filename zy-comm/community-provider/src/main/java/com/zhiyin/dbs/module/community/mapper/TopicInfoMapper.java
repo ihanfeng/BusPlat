@@ -15,10 +15,10 @@ public interface TopicInfoMapper  extends BaseMapper<TopicInfo> {
 
     List<TopicInfo> selectByAddrId(@Param("addrId") Long addrId);
 
+    List<TopicInfo> selectByAreaId(@Param("areaId") Long areaId);
 
     Integer updateIncBrowse(Long id);
 
     Integer updateIncComment(Long id);
 
-    List<TopicInfo> selectByAreaId(Long areaId);
 }

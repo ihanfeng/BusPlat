@@ -3,6 +3,7 @@ package com.zhiyin.device.dbs.config;
 import com.google.common.collect.Maps;
 import com.zhiyin.cache.redis.LoggingRedisTemplate;
 import com.zhiyin.cache.redis.RedisCacheErrorHandler;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -18,10 +19,12 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.JacksonJsonRedisSerializer;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.lang.reflect.Method;
 import java.util.Map;
 
+@Slf4j
 @Configuration
 @PropertySource("classpath:/redis.properties")
 @EnableCaching(proxyTargetClass = true)
@@ -43,6 +46,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 		factory.setHostName(redisHostName);
 		factory.setPort(redisPort);
 		factory.setUsePool(true);
+		factory.setPassword("zhiyin8080");
 //		factory.setTimeout(1000);
 		
 		return factory;
@@ -64,12 +68,12 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 		LoggingRedisTemplate<String,String> redisTemplate = new LoggingRedisTemplate<String,String>();
 
 		redisTemplate.setConnectionFactory(jedisConnectionFactory());
-		
+
+		redisTemplate.setKeySerializer(new StringRedisSerializer());
 //		JDK序列化，不方便查看
-//		redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-		
+		redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
 		// json序列化，方便查看
-		redisTemplate.setValueSerializer(new JacksonJsonRedisSerializer(Object.class));
+//		redisTemplate.setValueSerializer(new JacksonJsonRedisSerializer(Object.class));
 
 		return redisTemplate;
 	}
@@ -88,9 +92,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 	public CacheManager cacheManager() {
 
 		RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate());
-		cacheManager.setDefaultExpiration( 60 * 2L ); // Sets the default expire time
-													// (in seconds)
-
+		cacheManager.setDefaultExpiration( 60 * 5L ); // Sets the default expire time (in seconds)
 
         // 可以对每个cache的超时时间进行设置
         Map<String,Long> expire = Maps.newHashMap();
@@ -105,8 +107,6 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 	@Bean
 	public KeyGenerator keyGenerator() {
 
-
-		
 		// 使用参数对象的toString方法作为key，对象必须重写toString方法，否则问题很严重
 		//如果对象没有重写toString方法，每次生成的对象都不一样，cachekey也不一样，起不到缓存的作用。
 		KeyGenerator tmp =  new KeyGenerator() {
@@ -123,6 +123,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 					sb.append(obj);
 //					sb.append(JSON.toJSONString(obj));
 				}
+				log.info(sb.toString());
 				return sb.toString();
 			}
 		};

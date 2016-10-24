@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
 import com.vdurmont.emoji.Emoji;
 import com.vdurmont.emoji.EmojiManager;
+import com.zhiyin.dbs.module.common.util.PageInfoUtil;
 import com.zhiyin.dbs.module.community.CommunityProviderApplication;
 import com.zhiyin.dbs.module.community.entity.CommentInfo;
 import com.zhiyin.dbs.module.community.entity.TopicInfo;
@@ -24,6 +25,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by hg on 2016/7/12.
@@ -193,12 +195,26 @@ public class TopicInfoServiceImplTest  {
 
     @Test
     public void selectByAddrId() throws Exception {
-        PageInfo p = new PageInfo();
-        p.setSize(10);
-        p.setPageNum(1);
-        PageInfo<TopicInfo> res = topicInfoService.selectByAddrId(1L,p);
+
+        TopicInfo tp = getTopic();
+        topicInfoService.insertSelectiveGet(tp);
+
+        PageInfo<TopicInfo> res = topicInfoService.selectByAddrId(tp.getAddrId() ,PageInfoUtil.firstPage());
         log.info(JSON.toJSONString(res));
     }
+
+    @Test
+    public void selectByAreaId() throws Exception {
+        TopicInfo tp = getTopic();
+        for(int i=0;i < 15;i++){
+            topicInfoService.insertSelectiveGet(tp);
+        }
+        PageInfo<TopicInfo> res = topicInfoService.selectByAreaId( tp.getAreaId(), PageInfoUtil.firstPage());
+        log.info(JSON.toJSONString(res));
+        Assert.assertTrue( res.getSize() >= 1);
+
+    }
+
 
     public static Long genUid(){
         return RandomUtils.nextLong(1,10000);
@@ -211,5 +227,15 @@ public class TopicInfoServiceImplTest  {
 
         commentInfo.setComment("tttt");
         return commentInfo;
+    }
+
+
+    public static TopicInfo getTopic(){
+        TopicInfo ti = new TopicInfo();
+        ti.setUserId(RandomUtils.nextLong(1,110000));
+        ti.setAddrId(RandomUtils.nextLong(1,110000));
+        ti.setAreaId(RandomUtils.nextLong(1,10000));
+        ti.setContent(UUID.randomUUID().toString());
+        return ti;
     }
 }
