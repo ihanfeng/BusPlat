@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
 import com.vdurmont.emoji.Emoji;
 import com.vdurmont.emoji.EmojiManager;
+import com.zhiyin.community.config.CommentType;
 import com.zhiyin.dbs.module.common.util.PageInfoUtil;
 import com.zhiyin.dbs.module.community.CommunityProviderApplication;
 import com.zhiyin.dbs.module.community.entity.CommentInfo;
@@ -226,6 +227,25 @@ public class TopicInfoServiceImplTest  {
         commentInfo.setUserId(RandomUtils.nextLong(1,10000));
 
         commentInfo.setComment("tttt");
+        return commentInfo;
+    }
+
+
+
+    @Test
+    public void testComment(){
+
+        Long commentId = commentInfoService.insertSelectiveGet(comment2(111L));
+
+        CommentInfo info = commentInfoService.selectById(commentId);
+        System.out.println(JSON.toJSONString(info));
+        log.info(JSON.toJSONString(info));
+    }
+
+    public static CommentInfo comment2(Long topicId){
+        CommentInfo commentInfo = comment(topicId);
+        commentInfo.setType(CommentType.ReplyComment.getCode());
+        commentInfo.setTargetUserId(RandomUtils.nextLong(1,1000));
         return commentInfo;
     }
 
