@@ -4,7 +4,6 @@ spring:
   application:
     name: chat-comsumer  # Identify this application
 
-
 #eureka:
 #  client:
 #    serviceUrl:
@@ -20,7 +19,7 @@ spring:
 
 # HTTP Server
 server:
-  port: 8099   # HTTP (Tomcat) port
+  port: 8082   # HTTP (Tomcat) port
 
 ## acutor 设置
 management:
