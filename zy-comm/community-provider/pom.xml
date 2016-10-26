@@ -20,6 +20,11 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.zhiyin.dbs</groupId>
+            <artifactId>community-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!--<dependency>-->
             <!--<groupId>com.zhiyin.frame</groupId>-->
             <!--<artifactId>cache-core</artifactId>-->

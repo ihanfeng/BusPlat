@@ -45,21 +45,22 @@
     select
     <include refid="Base_Column_List" />
     from zhiyin_community_topic_info
-    where del_status = 0 and user_id = #{userId}
+    where del_status = 0 and user_id = #{userId,jdbcType=BIGINT}
   </select>
 
     <select id="selectByAddrId" resultMap="BaseResultMap" parameterType="java.util.Map" >
         select
         <include refid="Base_Column_List" />
         from zhiyin_community_topic_info
-        where del_status = 0 and addr_id = #{addrId}
+        where del_status = 0 and addr_id = #{addrId,jdbcType=BIGINT}
     </select>
 
     <select id="selectByAreaId" resultMap="BaseResultMap" parameterType="java.util.Map" >
         select
         <include refid="Base_Column_List" />
         from zhiyin_community_topic_info
-        where del_status = 0 and area_id = #{areaId}
+        where del_status = 0
+        and area_id = #{areaId,jdbcType=BIGINT}
     </select>
 
      <select id="selectAll" resultMap="BaseResultMap" >

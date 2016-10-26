@@ -1,5 +1,6 @@
 package com.zhiyin.dbs.module.community.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zhiyin.dbs.module.common.exception.SelNotFoundException;
@@ -10,6 +11,7 @@ import com.zhiyin.dbs.module.community.config.CommunityCacheKey;
 import com.zhiyin.dbs.module.community.entity.TopicInfo;
 import com.zhiyin.dbs.module.community.mapper.TopicInfoMapper;
 import com.zhiyin.dbs.module.community.service.ITopicInfoService;
+import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -21,6 +23,7 @@ import java.util.List;
 /**
  * Created by hg on 2016/7/11.
  */
+@Slf4j
 @Service
 //@CacheConfig(cacheNames = {CommunityCacheKey.TopicInfoKey}) // 默认cache名称
 @com.alibaba.dubbo.config.annotation.Service(protocol = { "dubbo" })

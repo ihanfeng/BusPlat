@@ -39,14 +39,14 @@
 
         <!-- tableName：数据库表 -->
         <!-- domainObjectName：对应于数据库表的javaBean类名 -->
-        <table tableName="zhiyin_community_topic_info" domainObjectName="TopicInfo" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+        <!--<table tableName="zhiyin_community_topic_info" domainObjectName="TopicInfo" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
 
         <!--<table tableName="zhiyin_community_topic_thumb" domainObjectName="TopicThumb" enableCountByExample="false"-->
                <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
 
-        <!--<table tableName="zhiyin_community_comment_info" domainObjectName="CommentInfo" enableCountByExample="false"-->
-               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
+        <table tableName="zhiyin_community_comment_info" domainObjectName="CommentInfo" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 
         <!--<table tableName="zhiyin_community_comment_thumb" domainObjectName="CommentThumb" enableCountByExample="false"-->
         <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->

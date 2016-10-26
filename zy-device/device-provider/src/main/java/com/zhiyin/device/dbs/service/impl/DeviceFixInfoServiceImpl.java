@@ -11,6 +11,7 @@ import com.zhiyin.device.dbs.service.IDeviceFixInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -39,14 +40,12 @@ public class DeviceFixInfoServiceImpl extends BaseService<DeviceFixInfo> impleme
     @Override
     public DeviceFixInfo selectByUk(DeviceFixInfo fixInfo){
         return deviceFixInfoMapper.selectByUk(fixInfo);
-
     }
 
-    @Cacheable
+    @Cacheable()
     public DeviceFixInfo selectById(Long id) {
         return this.getBaseMapper().selectByPrimaryKey(id);
     }
-
 
     @Cacheable
     public PageInfo selectByPage(int pageNum, int pageSize) {
@@ -56,6 +55,12 @@ public class DeviceFixInfoServiceImpl extends BaseService<DeviceFixInfo> impleme
         return page;
     }
 
+    @Cacheable
+    public List<DeviceFixInfo> selectAll() {
+        return this.getBaseMapper().selectAll();
+    }
+
+//    @CacheEvict(allEntries = true)
     public int deleteByPrimaryKey(Long id) {
         return this.getBaseMapper().deleteByPrimaryKey(id);
     }

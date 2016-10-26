@@ -32,19 +32,17 @@ public class RedisCachableTest {
 
     @Test
     public void testError() {
-
         DeviceFixInfo selFromService = deviceFixInfoService.selectById(2L);
         assertThat(selFromService).isNotNull();
-
     }
 
     @Test
     public void testSel(){
         Long newId = deviceFixInfoService.insertSelectiveGet(newInfo());
         deviceFixInfoService.selectById(newId);
+        DeviceFixInfo sel2 = deviceFixInfoService.selectById(newId);
+        log.info(JSON.toJSONString(sel2));
     }
-
-
 
     @Test
     public void testFind() {
@@ -65,16 +63,19 @@ public class RedisCachableTest {
 
         Long newId = deviceFixInfoService.insertSelectiveGet(newInfo());
 
+        log.info("insert one:{}",newId);
 
+        deviceFixInfoService.selectById(newId);
 
+        deviceFixInfoService.selectAll();
 
-        deviceFixInfoService.deleteByPrimaryKey(2L);
-        Cache cache = cacheManager.getCache(RedisCacheName.UserCacheName);
-        assertThat(cache).isNotNull();
-
-        Cache.ValueWrapper selFromCache = cache.get(RedisCacheName.UserCacheName + ".id.2");
-
-        assertThat(selFromCache == null);
+        deviceFixInfoService.deleteByPrimaryKey(newId);
+//        Cache cache = cacheManager.getCache(RedisCacheName.UserCacheName);
+//        assertThat(cache).isNotNull();
+//
+//        Cache.ValueWrapper selFromCache = cache.get(RedisCacheName.UserCacheName + ".id.2");
+//
+//        assertThat(selFromCache == null);
 
     }
 
