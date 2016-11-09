@@ -1,6 +1,8 @@
 
 ## logback 引入配置文件
 
+http://www.importnew.com/22290.html
+
 http://logback.qos.ch/manual/configuration.html#configFileProperty
 http://blog.arganzheng.me/posts/logback-study.html
 
