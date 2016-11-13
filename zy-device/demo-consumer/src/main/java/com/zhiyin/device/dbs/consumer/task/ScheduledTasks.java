@@ -25,7 +25,7 @@ public class ScheduledTasks {
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
 
-        log.info( deviceServerStatusService.info() );
+//        log.info( deviceServerStatusService.info() );
 
     }
 
