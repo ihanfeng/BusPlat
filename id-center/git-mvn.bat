@@ -1,0 +1,2 @@
+
+mvn -DaltDeploymentRepository=zhiyin-mvn-repo::default::file:E:/Github/MavenRepository/repository/ -Dmaven.home=E:\Software\apache-maven-3.3.1 -s E:\Software\apache-maven-3.3.1\conf\settings.xml -Dmaven.repo.local=E:\Software\MavenLocalRepository -DskipTests=true clean source:jar javadoc:jar deploy 

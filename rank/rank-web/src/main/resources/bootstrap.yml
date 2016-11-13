@@ -1,6 +1,5 @@
 
 spring:
-
   jmx:
     default-domain: ${spring.application.name}
 
