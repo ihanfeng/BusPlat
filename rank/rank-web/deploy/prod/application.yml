@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: zy-ranker-dev
+    name: zhiyin-ranker
     version: 0.0.1
 
 eureka:

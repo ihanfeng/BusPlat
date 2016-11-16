@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="log.project" value="searcher"/>
+    <property name="log.base" value="/opt/data/zhiyin_searcher"/>
+    <property name="log.history.maxday" value="3"/>
+
+    <property name="log.pattern"
+              value="%X{ip} %X{request_id} %d{HH:mm:ss.SSS} %-5level %logger{80} - %msg%n"></property>
+    <!-- 控制台日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="all_error"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <File>${log.base}/all_error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${log.base}/all_error.%i.log
+            </FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>5</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>5MB</MaxFileSize>
+        </triggeringPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%date [%thread] %-5level %logger{80} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <!-- 所有info日志 -->
+    <appender name="all_info"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <File>${log.base}/all_info.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${log.base}/all_info.%i.log</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>5</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>5MB</MaxFileSize>
+        </triggeringPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%date [%thread] %-5level %logger{80} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <logger name="org.dozer" level="WARN"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" level="INFO"/>
+        <appender-ref ref="all_info" level="INFO"/>
+        <appender-ref ref="all_error"/>
+    </root>
+
+</configuration>

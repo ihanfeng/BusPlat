@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.zhiyin.frame</groupId>
+    <artifactId>fake-data</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+
+    <properties>
+
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>io.codearte.jfairy</groupId>
+            <artifactId>jfairy</artifactId>
+            <version>0.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.benas</groupId>
+            <artifactId>random-beans</artifactId>
+            <version>2.0.0</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>0.10</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.mockito</groupId>-->
+            <!--<artifactId>mockito-core</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+    <!--<dependencyManagement>-->
+    <!--<dependencies>-->
+    <!--<dependency>-->
+    <!--<groupId>com.hg.maven</groupId>-->
+    <!--<artifactId>maven-common-jar</artifactId>-->
+    <!--<version>0.0.1</version>-->
+    <!--<type>pom</type>-->
+    <!--<scope>import</scope>-->
+    <!--</dependency>-->
+    <!--</dependencies>-->
+    <!--</dependencyManagement>-->
+
+
+    <build>
+        <!--<finalName>${project.artifactId}</finalName>-->
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                    <!-- 忽略错误继续编译 -->
+                    <failOnError>false</failOnError>
+                </configuration>
+            </plugin>
+
+
+
+        </plugins>
+    </build>
+
+
+</project>
