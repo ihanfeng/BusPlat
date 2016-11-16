@@ -9,6 +9,9 @@ spring:
   jmx:
     default-domain: ${spring.application.name}
 
+  druid:
+    url-mappings: /druid/*
+
 endpoints:
   jmx:
     unique-names: true
@@ -32,3 +35,4 @@ security:
   user:
     name: admin
     password: admin
+

@@ -1,14 +1,7 @@
 package com.zhiyin.app.dbs.controller;
 
-import com.zhiyin.app.dbs.entity.DeviceFixInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * Created by hg on 2016/10/10.

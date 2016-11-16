@@ -27,7 +27,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan("com.zhiyin.device.dbs.mapper")
+@MapperScan("com.zhiyin.app.dbs.mapper")
 public class MyBatisConfig implements TransactionManagementConfigurer {
 
     @Autowired
@@ -38,7 +38,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
 
-        bean.setTypeAliasesPackage("com.zhiyin.device.dbs.entity");
+        bean.setTypeAliasesPackage("com.zhiyin.app.dbs.entity");
 
         //分页插件
         PageHelper pageHelper = new PageHelper();

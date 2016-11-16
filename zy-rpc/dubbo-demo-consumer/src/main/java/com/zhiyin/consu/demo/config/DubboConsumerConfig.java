@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 
-@Configuration
-@ComponentScan
-@PropertySource("classpath:config/dubbo-consumer-config.properties")
-@ImportResource("classpath:applicationContext-dubbo-consumer.xml")
+//@Configuration
+//@ComponentScan
+//@PropertySource("classpath:config/dubbo-consumer-config.properties")
+//@ImportResource("classpath:applicationContext-dubbo-consumer.xml")
 public class DubboConsumerConfig {
 
     @Value("${dubbo.application.name}")
