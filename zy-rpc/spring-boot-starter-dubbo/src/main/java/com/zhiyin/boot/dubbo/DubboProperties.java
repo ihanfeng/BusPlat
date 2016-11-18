@@ -1,8 +1,9 @@
-package com.alibaba.boot.dubbo;
+package com.zhiyin.boot.dubbo;
 
+import com.alibaba.dubbo.config.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "spring.dubbo")
+@ConfigurationProperties(prefix = "dubbo")
 public class DubboProperties {
 
     private String scan;

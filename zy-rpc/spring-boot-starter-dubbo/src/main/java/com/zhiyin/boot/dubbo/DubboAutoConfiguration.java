@@ -1,7 +1,10 @@
-package com.alibaba.boot.dubbo;
+package com.zhiyin.boot.dubbo;
 
-import com.alibaba.boot.dubbo.endpoint.DubboEndpoint;
-import com.alibaba.boot.dubbo.health.DubboHealthIndicator;
+import com.zhiyin.boot.dubbo.endpoint.DubboEndpoint;
+import com.zhiyin.boot.dubbo.health.DubboHealthIndicator;
+import com.alibaba.dubbo.config.ApplicationConfig;
+import com.alibaba.dubbo.config.ProtocolConfig;
+import com.alibaba.dubbo.config.RegistryConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,4 +1,4 @@
-package com.alibaba.boot.dubbo.endpoint;
+package com.zhiyin.boot.dubbo.endpoint;
 
 import java.util.List;
 

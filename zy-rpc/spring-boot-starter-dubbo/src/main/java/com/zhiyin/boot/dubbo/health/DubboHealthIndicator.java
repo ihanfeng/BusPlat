@@ -1,4 +1,4 @@
-package com.alibaba.boot.dubbo.health;
+package com.zhiyin.boot.dubbo.health;
 
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;
 import org.springframework.boot.actuate.health.Health.Builder;

@@ -1,4 +1,4 @@
-package com.alibaba.boot.dubbo;
+package com.zhiyin.boot.dubbo;
 
 import com.alibaba.dubbo.config.spring.AnnotationBean;
 import org.springframework.beans.BeanUtils;
@@ -16,7 +16,7 @@ public class DubboConfigurationApplicationContextInitializer implements Applicat
     public void initialize(ConfigurableApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
         Environment env = applicationContext.getEnvironment();
-        String scan = env.getProperty("spring.dubbo.scan");
+        String scan = env.getProperty("dubbo.scan");
         if (scan != null) {
             AnnotationBean scanner = (AnnotationBean) registerAndInstance(scan);
             scanner.setPackage(scan);

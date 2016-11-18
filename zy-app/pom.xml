@@ -31,7 +31,7 @@
     <modules>
         <!--<module>device-core</module>-->
         <module>app-provider</module>
-        <module>demo-consumer</module>
+        <!--<module>demo-consumer</module>-->
     </modules>
 
 </project>
