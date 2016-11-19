@@ -1,8 +1,13 @@
 package com.zhiyin.app.dbs.entity;
 
+import com.zhiyin.dbs.module.common.entity.BaseEntity;
+
 import java.util.Date;
 
-public class AppVersion {
+public class AppVersion  extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
     private Long id;
 
     private Long appId;

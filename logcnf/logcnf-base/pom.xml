@@ -12,6 +12,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <properties>
+        <logback.json>0.1.5</logback.json>
+            </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -21,7 +25,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <scope>runtime</scope>
+            <!--<scope>runtime</scope>-->
         </dependency>
 
         <dependency>
@@ -30,6 +34,22 @@
             <version>2.7.8</version>
         </dependency>
 
+
+        <!-- json log -->
+        <dependency>
+            <groupId>ch.qos.logback.contrib</groupId>
+            <artifactId>logback-json-classic</artifactId>
+            <version>${logback.json}</version>
+            <!--<optional>true</optional>-->
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback.contrib</groupId>
+            <artifactId>logback-jackson</artifactId>
+            <version>${logback.json}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+                <!-- json log -->
 
     </dependencies>
 

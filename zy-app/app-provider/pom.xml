@@ -54,7 +54,27 @@
     </properties>
 
 
+
+
     <dependencies>
+
+        <dependency>
+            <groupId>com.zhiyin.rpc</groupId>
+        <artifactId>spring-boot-starter-dubbo</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.patterncat</groupId>
+            <artifactId>spring-boot-starter-actuator-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zhiyin.boot</groupId>
+            <artifactId>spring-boot-starter-dbs</artifactId>
+            <version>0.0.1</version>
+        </dependency>
 
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>

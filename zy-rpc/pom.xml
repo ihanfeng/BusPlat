@@ -1,8 +1,8 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.zhiyin.frame</groupId>
-    <artifactId>zy-rpc</artifactId>
+    <groupId>com.zhiyin.rpc</groupId>
+    <artifactId>rpc-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -10,7 +10,11 @@
     <url>http://maven.apache.org</url>
 
     <properties>
+        <java-version>1.7</java-version>
         <java.version>1.7</java.version>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+
         <mybatis.version>3.3.0</mybatis.version>
         <mapper.version>3.3.4</mapper.version>
         <pagehelper.version>4.1.1</pagehelper.version>
@@ -32,30 +36,13 @@
     <modules>
         <!--<module>rpc-dubbo</module>-->
         <!--<module>dubbo-study</module>-->
-        <!--<module>dubbo-demo-provider</module>-->
+        <module>dubbo-demo-provider</module>
         <!--<module>dubbo-demo-consumer</module>-->
         <module>spring-boot-starter-dubbo</module>
     </modules>
 
 
     <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>http://repo.spring.io/libs-milestone-local</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>http://repo.spring.io/release</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-
         <repository>
             <id>zhiyin-maven-repo</id>
             <url>https://raw.githubusercontent.com/huiwq1990/MavenRepository/master/repository</url>
@@ -142,14 +129,6 @@
         </dependencies>
     </dependencyManagement>
 
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-plugin-releases</id>
-            <url>https://repo.spring.io/plugins-release</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <build>
         <plugins>
 
@@ -185,10 +164,12 @@
                 <artifactId>maven-source-plugin</artifactId>
                 <version>${maven-source-plugin.version}</version>
             </plugin>
+
+
             <plugin>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-maven-plugin</artifactId>
-                <version>1.16.10.0</version>
+                <version>1.16.8.0</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>

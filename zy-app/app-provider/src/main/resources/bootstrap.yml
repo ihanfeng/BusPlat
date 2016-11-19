@@ -9,6 +9,9 @@ spring:
   jmx:
     default-domain: ${spring.application.name}
 
+  druid:
+    url-mappings: /druid/*
+
 endpoints:
   jmx:
     unique-names: true
@@ -32,3 +35,17 @@ security:
   user:
     name: admin
     password: admin
+
+
+dubbo:
+  application:
+    name : ${spring.application.name}
+  registry:
+    address : zookeeper://101.200.185.137:2181
+  scan: com.zhiyin.app.dbs
+  protocol:
+    name: dubbo
+    port: 20880
+    serialization: kryo
+  provider-config:
+    version: RELEASE

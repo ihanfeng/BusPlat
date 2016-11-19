@@ -43,19 +43,20 @@ spring:
 # 合并多个DruidDataSource的监控数据
 ##    useGlobalDataSourceStat: true
 
-#  dubbo:
-#    application:
-#      name : ${spring.application.name}
-#    registry:
-#      address : zookeeper://101.200.185.137:2181
+
+#dubbo:
+#  application:
+#    name : ${spring.application.name}
+#  registry:
+#    address : zookeeper://101.200.185.137:2181
 #
-#    scan: com.zhiyin.ourchat
-#    protocol:
-#      name: dubbo
-#      port: 20880
-#      serialization: kryo
-#    provider-config:
-#      version: RELEASE
+#  scan: com.zhiyin.ourchat
+#  protocol:
+#    name: dubbo
+#    port: 20880
+#    serialization: kryo
+#  provider-config:
+#    version: RELEASE
 
 
 
