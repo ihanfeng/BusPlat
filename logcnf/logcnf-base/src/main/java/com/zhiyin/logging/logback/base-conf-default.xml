@@ -30,10 +30,22 @@
 
     <property name="log.project" value="${appName}"/>
 
+    <!-- 日志等级 -->
+    <property scope="system" name="level" value="INFO"/>
+
     <property scope="system" name="log.base" value="${log.base.path}/${log.project}/log"/>
 
     <include resource="com/zhiyin/logging/logback/base-appender.xml"/>
-    <include resource="com/zhiyin/logging/logback/logback-warn-level.xml"/>
+
+    <!-- 调试环境下，打印所有日志 -->
+    <if condition='property("mode").equals("debug")'>
+        <then>
+            <property scope="system" name="level" value="DEBUG"/>
+        </then>
+        <else>
+            <include resource="com/zhiyin/logging/logback/logback-warn-level.xml"/>
+        </else>
+    </if>
 
     <if condition='property("env").equals("prod")'>
         <then>
@@ -45,14 +57,12 @@
     </if>
     <if condition='property("env").equals("dev")'>
         <then>
-            <root level="INFO">
+            <root level="${level}">
                 <appender-ref ref="STDOUT"/>
                 <appender-ref ref="all_info" level="INFO"/>
                 <appender-ref ref="all_error"/>
             </root>
         </then>
     </if>
-    
-
 
 </included>

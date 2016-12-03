@@ -14,6 +14,10 @@ public class DubboConfigurationApplicationContextInitializer implements Applicat
 
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
+        String[] beans = applicationContext.getBeanDefinitionNames();
+        for (String bean : beans) {
+            System.out.println(bean);
+        }
         this.applicationContext = applicationContext;
         Environment env = applicationContext.getEnvironment();
         String scan = env.getProperty("dubbo.scan");

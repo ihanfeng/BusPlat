@@ -1,4 +1,7 @@
 org.springframework.context.ApplicationContextInitializer=\
 com.zhiyin.boot.dubbo.DubboConfigurationApplicationContextInitializer
+
+
+# Ê¹ÓÃ @EnableDubboAutoConfiguration ´úÌæ
 #org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 #com.zhiyin.boot.dubbo.DubboAutoConfiguration
