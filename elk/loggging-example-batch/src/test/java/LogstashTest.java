@@ -9,7 +9,7 @@ public class LogstashTest {
     private static final org.slf4j.Logger LGR = LoggerFactory.getLogger(LogstashTest.class);
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
         while(true) {
             LogstashTest obj = new LogstashTest();
             try {
@@ -17,6 +17,7 @@ public class LogstashTest {
             } catch (ArithmeticException ex) {
                 LGR.error("ddddddddddddddddddddddddddddddddd大家好111!", ex);
             }
+            Thread.sleep(200);
         }
     }
     private void divide(){
