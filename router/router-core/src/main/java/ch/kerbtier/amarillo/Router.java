@@ -18,7 +18,30 @@ public class Router {
     if (calls.size() > 0) {
       return calls.get(0);
     }
+
     throw new NoMatchException("path " + path + " with verb " + verb + " has no match");
+  }
+
+
+  public Object getResult(String path,Verb verb){
+
+    try {
+      Call call = find(path, verb);
+      if (call != null) {
+        return call.execute();
+      }
+    }catch (Exception e){
+
+    }
+
+    for (ClassWrapper classWrapper : classWrappers) {
+      if(classWrapper.defaultVal != null){
+        return classWrapper.defaultVal;
+      }
+    }
+
+    return null;
+
   }
 
   /**

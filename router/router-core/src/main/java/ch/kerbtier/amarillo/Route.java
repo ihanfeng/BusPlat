@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.TYPE})
 public @interface Route {
   String pattern() default NULL;
+  String patterns() default NULL;
   Verb verb() default Verb.UNDEFINED;
   public static final String NULL = "NULL_oZShvXLv0RMTBhe61cN7";
 }
