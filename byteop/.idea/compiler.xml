@@ -17,16 +17,17 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for abc" enabled="true">
+      <profile default="false" name="Annotation profile for byte-buddy-examples" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="abc" />
+        <module name="byte-buddy-examples" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="abc" target="1.6" />
+      <module name="byte-buddy-examples" target="1.8" />
+      <module name="byteop-parent" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,3 +1,4 @@
+import com.zhiyin.dbs.generator.GenMybatisFlie;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
@@ -13,17 +14,11 @@ import java.util.List;
 public class MybatisGen {
 
     public static void main(String[] args) {
-        try {
-            List<String> warnings = new ArrayList<String>();
-            boolean overwrite = false;
-            File configFile = new File(MybatisGen.class.getResource("/").getPath() + "gen/generatorConfig-app.xml");
-            ConfigurationParser cp = new ConfigurationParser(warnings);
-            Configuration config = cp.parseConfiguration(configFile);
-            DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-            MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-            myBatisGenerator.generate(null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        String path = GenMybatisFlie.genGeneratorConfig();
+
+//        path = "generator-config-app-provider.xml";
+        GenMybatisFlie.genMybatis(path);
+
     }
 }

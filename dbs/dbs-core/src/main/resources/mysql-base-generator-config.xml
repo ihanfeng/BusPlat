@@ -57,7 +57,7 @@
         </javaClientGenerator>
 
         <!--对应数据库表名 -->
-        <table tableName="zy_app_suggest_feedback" domainObjectName="SuggestFeedback"/>
+        <!--<table tableName="zy_app_suggest_feedback" domainObjectName="SuggestFeedback"/>-->
 
     </context>
 </generatorConfiguration>

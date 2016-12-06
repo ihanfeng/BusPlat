@@ -47,7 +47,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.zhiyin.frame</groupId>
+            <groupId>com.zhiyin.dbs</groupId>
             <artifactId>dbs-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

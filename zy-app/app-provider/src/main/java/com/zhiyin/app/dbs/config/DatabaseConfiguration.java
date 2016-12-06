@@ -40,7 +40,8 @@ public class DatabaseConfiguration implements EnvironmentAware {
     }
 
     //注册dataSource
-    @Bean(initMethod = "init", destroyMethod = "close")
+//    @Bean(initMethod = "init", destroyMethod = "close")
+    @Bean
     public DruidDataSource dataSource() throws SQLException {
         if (StringUtils.isEmpty(propertyResolver.getProperty("url"))) {
             System.out.println("Your database connection pool configuration is incorrect!"

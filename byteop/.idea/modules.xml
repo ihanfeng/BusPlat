@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/abc.iml" filepath="$PROJECT_DIR$/abc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/byte_buddy_examples/byte-buddy-examples.iml" filepath="$PROJECT_DIR$/byte_buddy_examples/byte-buddy-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/byteop-parent.iml" filepath="$PROJECT_DIR$/byteop-parent.iml" />
     </modules>
   </component>
 </project>

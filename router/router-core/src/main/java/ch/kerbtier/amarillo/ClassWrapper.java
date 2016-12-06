@@ -1,12 +1,10 @@
 package ch.kerbtier.amarillo;
 
-import com.zhiyin.router.BaseAction;
-import com.zhiyin.router.BinaryValueAction;
+import com.zhiyin.router.action.BaseAction;
 import org.apache.commons.lang3.ClassUtils;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

@@ -1,0 +1,3 @@
+
+GenConfigFlie 生产mybatis-generator的配置文件
+MybatisFileGen mybatis的mapper entity配置文件生成
