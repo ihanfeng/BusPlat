@@ -6,7 +6,7 @@ import net.bytebuddy.implementation.bind.annotation.This;
 public class RunInterceptor {
 	@RuntimeType
 	public static void intercept(@This Object obj) {
-		System.out.println(Thread.currentThread().getId());
+		System.out.println( "sss"  + Thread.currentThread().getId());
 		System.out.println(obj);
 	}
 }

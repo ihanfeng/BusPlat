@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
+ * 测试类属性的注解
  * Created by wangqinghui on 2016/12/5.
  */
 public class ClassFieldAnnotationExample {
