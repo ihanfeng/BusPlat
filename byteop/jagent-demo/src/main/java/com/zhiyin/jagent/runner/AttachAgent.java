@@ -13,7 +13,7 @@ public class AttachAgent {
 
         // server id
         int pid = PidUitl.getProcess(DemoServer.class);
-
+        System.out.println(pid);
 
         VirtualMachine vm = VirtualMachine.attach( pid + "");
 

@@ -15,27 +15,31 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 @EnableDruidAutoConfiguration
 @EnableDubboAutoConfiguration
-//public class AppDbsProviderApplication extends SpringBootServletInitializer {
-//
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//
-//        return application.sources(AppDbsProviderApplication.class).initializers( new DubboConfigurationApplicationContextInitializer() );
-//    }
-//
-//    public static void main(String[] args) {
-//        SpringApplication.run(AppDbsProviderApplication.class, args);
-//    }
-//
-//}
-//
-public class AppDbsProviderApplication {
-    public static void main( String[] args ) {
+public class AppDbsProviderApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(AppDbsProviderApplication.class).initializers( new DubboConfigurationApplicationContextInitializer() );
+    }
+
+    public static void main(String[] args) {
 
         SpringApplication.run(AppDbsProviderApplication.class, args);
 
-//        new SpringApplicationBuilder(AppDbsProviderApplication.class)
-//                .initializers( new DubboConfigurationApplicationContextInitializer() )
-//        .run(args);
+    }
+
+}
+
+
+/**
+public class AppDbsProviderApplication {
+    public static void main( String[] args ) {
+
+       // SpringApplication.run(AppDbsProviderApplication.class, args);
+
+        new SpringApplicationBuilder(AppDbsProviderApplication.class)
+                .initializers( new DubboConfigurationApplicationContextInitializer() )
+        .run(args);
     }
 }
+ **/

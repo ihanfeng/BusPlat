@@ -21,9 +21,9 @@
     where id = #{id,jdbcType=BIGINT}
   </select>
 
-  <select id="selectAll"  resultMap="BaseResultMap" >
-
-    select     <include refid="Base_Column_List" />
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
     from zy_app_info
   </select>
 

@@ -5,6 +5,8 @@ import com.hg.awesome.java.agent.PrintBeforeMethodTransformer;
 import com.zhiyin.jagent.agent.example.PerfMonXformer;
 import com.zhiyin.jagent.agent.example.SleepingClassFileTransformer;
 import com.zhiyin.jagent.agent.example.buddy.AopMethodAgent;
+import com.zhiyin.jagent.transformer.ClassPathTransformer;
+import com.zhiyin.jagent.util.ClassPathUtil;
 import javassist.CannotCompileException;
 
 import java.lang.instrument.Instrumentation;
@@ -25,15 +27,24 @@ public class AgentInstaller {
 //			System.err.println(AgentConfig.AGENT_NAME_NOT_PROVIDED);
 //		}
 
-		System.out.println("process was attached agent:" + AgentmainAgentInstaller.class.getName());
+		System.out.println("process was attached by agentmain:" + AgentInstaller.class.getName());
 
 		doIns(instrumentation);
 	}
 
 	public static void doIns(Instrumentation instrumentation){
+		instrumentation.addTransformer(new ClassPathTransformer());
 //		instrumentation.addTransformer(new SleepingClassFileTransformer(),true);
 
-		new AopMethodAgent().createAgent(null).installOn(instrumentation);
+//		new AopMethodAgent().createAgent(null).installOn(instrumentation);
+
+		Class[] classes = instrumentation.getAllLoadedClasses();
+		for (Class cls : classes) {
+			boolean modify = ClazzUtil.classCouldModify(cls.getName());
+			if(modify){
+				System.out.println(ClassPathUtil.getClassAbsPath(cls));
+			}
+		}
 	}
 	
 }

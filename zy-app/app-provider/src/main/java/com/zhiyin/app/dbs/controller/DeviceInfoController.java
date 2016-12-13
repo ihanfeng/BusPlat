@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 @RestController
 public class DeviceInfoController {
 
-//    @Resource
+    @Resource
     private IAppInfoService appInfoService;
 
     @RequestMapping(value = "/app/infoall", method = RequestMethod.GET  )

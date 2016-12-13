@@ -1,6 +1,5 @@
 package com.hg.db.mysql.binlog;
 
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.otter.canal.protocol.CanalEntry.Column;
 import com.alibaba.otter.canal.protocol.CanalEntry.EventType;

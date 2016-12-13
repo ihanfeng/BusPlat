@@ -16,7 +16,6 @@
     <properties>
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     </properties>
 
 
@@ -25,7 +24,8 @@
         <dependency>
             <groupId>com.zhiyin.rpc</groupId>
             <artifactId>spring-boot-starter-dubbo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <!--<version>0.0.1-SNAPSHOT</version>-->
+            <version>0.0.2-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -39,12 +39,6 @@
         <!--<artifactId>json-simple</artifactId>-->
         <!--<optional>false</optional>-->
         <!--</dependency>-->
-
-        <dependency>
-            <groupId>com.zhiyin.frame</groupId>
-            <artifactId>rpc-dubbo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>com.zhiyin.dbs</groupId>
@@ -177,6 +171,19 @@
     </dependencies>
 
     <build>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
 
         <plugins>
 

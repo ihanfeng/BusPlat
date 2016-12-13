@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 //@CacheConfig(cacheNames = {RedisCacheName.UserCacheName}) // 默认cache名称
 public class AppInfoServiceImpl extends BaseService<AppInfo> implements IAppInfoService {
 
-//    @Autowired
+    @Autowired
     AppInfoMapper appInfoMapper;
 
     @Override
