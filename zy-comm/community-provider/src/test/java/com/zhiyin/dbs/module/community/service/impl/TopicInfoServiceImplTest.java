@@ -65,6 +65,16 @@ public class TopicInfoServiceImplTest  {
     }
 
     @Test
+    public void selAll(){
+        PageInfo pageInfo = new PageInfo();
+        pageInfo.setPageNum(1);
+        pageInfo.setPageSize(2);
+        PageInfo<TopicInfo> list = topicInfoService.selectAllAndOrder(pageInfo);
+        System.out.println(JSON.toJSONString(list));
+        System.out.println(list.getList().size());
+    }
+
+    @Test
     public void test3(){
         // 插入
 //        Long topicId = topicInfoService.insertSelectiveGet(entity);
