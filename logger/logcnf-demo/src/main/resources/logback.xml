@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--<include resource="org/springframework/boot/logging/logback/base.xml" />-->
+
+    <include resource="com/zhiyin/logging/logback/base-conf-default.xml"/>
+    <!--<include resource="com/zhiyin/logcnf/logback/base-default.xml"/>-->
+    <!--<root level="INFO">-->
+    <!--<appender-ref ref="STDOUT"/>-->
+    <!--<appender-ref ref="all_info" level="INFO"/>-->
+    <!--<appender-ref ref="all_error"/>-->
+    <!--</root>-->
+
+
+    <appender name="DEBUG_APPENDER"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <File>${log.base}/debug.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>debug.%d{yyyy-MM-dd}.log.gz</FileNamePattern>
+            <MaxHistory>${log.history.maxday}</MaxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${log.pattern}</Pattern>
+        </layout>
+    </appender>
+
+
+    <!-- json -->
+    <appender name="JSON" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="com.zhiyin.logging.logback.JsonLayout">
+                <!--<layout class="ch.qos.logback.contrib.json.classic.JsonLayout">-->
+                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                    <!-- <prettyPrint>true</prettyPrint> -->
+                </jsonFormatter>
+                <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSXXX</timestampFormat>
+                <includeContextName>false</includeContextName>
+                <appendLineSeparator>true</appendLineSeparator>
+            </layout>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="JsonFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.base}/json.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>debug.%d{yyyy-MM-dd}.log.gz</FileNamePattern>
+            <MaxHistory>${log.history.maxday}</MaxHistory>
+        </rollingPolicy>
+
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="com.zhiyin.logging.logback.JsonLayout">
+                <!--<layout class="ch.qos.logback.contrib.json.classic.JsonLayout">-->
+                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                    <!-- <prettyPrint>true</prettyPrint> -->
+                </jsonFormatter>
+                <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSXXX</timestampFormat>
+                <includeContextName>false</includeContextName>
+                <appendLineSeparator>true</appendLineSeparator>
+            </layout>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+
+    <logger name="com" level="DEBUG" additivity="true">
+        <!--<appender-ref ref="DEBUG_APPENDER" />-->
+        <appender-ref ref="JSON"/>
+        <appender-ref ref="JsonFile"/>
+    </logger>
+
+</configuration>

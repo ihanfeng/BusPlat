@@ -60,17 +60,6 @@ public class BaseEntityPlugin extends PluginAdapter {
             topLevelClass.addImportedType(baseEntity);
             topLevelClass.addSuperInterface(baseEntity);
 
-            Field field = new Field();
-            field.setFinal(true);
-            field.setInitializationString("1L"); //$NON-NLS-1$
-            field.setName("serialVersionUID"); //$NON-NLS-1$
-            field.setStatic(true);
-            field.setType(new FullyQualifiedJavaType("long")); //$NON-NLS-1$
-            field.setVisibility(JavaVisibility.PRIVATE);
-            context.getCommentGenerator().addFieldComment(field, introspectedTable);
-
-            topLevelClass.addField(field);
-
     }
 
     public static void main(String[] args) {
