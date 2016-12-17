@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 根据工程信息生成mybatis的配置文件
  * 配置信息在：generator-config.properties
- * Created by wangqinghui on 2016/11/11.
+ * Created by hg on 2016/11/11.
  */
 @Slf4j
 public class GenMybatisFlie {
@@ -55,7 +55,7 @@ public class GenMybatisFlie {
             List<String> mapperList = config.getList(String.class, "table.entity.mapper");
             mapperList = Optional.fromNullable(mapperList).or(new ArrayList<String>());
 
-            log.info("table entity mapper size:",mapperList.size());
+            log.info("table entity mapper size:{}",mapperList.size());
 
             if(mapperList.size() <= 0){
                 return null;
@@ -75,7 +75,7 @@ public class GenMybatisFlie {
             List<String> lines = IOUtils.readLines( GenMybatisFlie.class.getResourceAsStream("/" + fileName) );
             lines.addAll(lines.size()-3,appendList);
             File saveFile = new File(config.getString("project.name") + "/generator-config-" + config.getString("project.name") + ".xml");
-            log.info(saveFile.getAbsolutePath());
+            log.info("project mybatis config file path is:{}",saveFile.getAbsolutePath());
             FileUtils.writeLines(saveFile,lines);
             return saveFile.getAbsolutePath();
         } catch (ConfigurationException cex) {

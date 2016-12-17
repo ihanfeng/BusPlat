@@ -47,7 +47,7 @@
         </javaModelGenerator>
 
         <!--生成xml mapper文件 路径 -->
-        <sqlMapGenerator targetPackage="${mapper.package}" targetProject="${mapper.target}">
+        <sqlMapGenerator targetPackage="${mapper.package}" targetProject="${target.project}">
             <property name="enableSubPackages" value="ture"/>
         </sqlMapGenerator>
 

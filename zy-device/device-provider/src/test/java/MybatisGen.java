@@ -7,10 +7,10 @@ public class MybatisGen {
 
     public static void main(String[] args) {
 
-        String path = GenMybatisFlie.genGeneratorConfig();
+        String path = GenMybatisFlie.genGeneratorConfig2();
 
 //        path = "generator-config-app-provider.xml";
-//        GenMybatisFlie.genMybatis(path);
+        GenMybatisFlie.genMybatis(path);
 
     }
 }

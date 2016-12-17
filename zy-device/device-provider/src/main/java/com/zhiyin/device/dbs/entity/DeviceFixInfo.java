@@ -1,11 +1,10 @@
 package com.zhiyin.device.dbs.entity;
 
-import com.zhiyin.dbs.module.common.entity.BaseEntity;
+import com.zhiyin.dbs.common.base.BaseEntity;
+import java.io.Serializable;
+import java.util.Date;
 
-public class DeviceFixInfo extends BaseEntity {
-
-    private static final long serialVersionUID = 1L;
-
+public class DeviceFixInfo implements BaseEntity, Serializable {
     private Long id;
 
     private String serialno;
@@ -20,7 +19,13 @@ public class DeviceFixInfo extends BaseEntity {
 
     private String ukVersion;
 
+    private Date createTime;
+
+    private Date updateTime;
+
     private Integer delStatus;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;
@@ -76,6 +81,22 @@ public class DeviceFixInfo extends BaseEntity {
 
     public void setUkVersion(String ukVersion) {
         this.ukVersion = ukVersion == null ? null : ukVersion.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public Integer getDelStatus() {
