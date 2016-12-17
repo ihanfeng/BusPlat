@@ -48,11 +48,11 @@
 
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>zhiyin-maven-repo</id>
-            <url>https://raw.githubusercontent.com/huiwq1990/MavenRepository/master/repository</url>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>zhiyin-maven-repo</id>-->
+            <!--<url>https://raw.githubusercontent.com/huiwq1990/MavenRepository/master/repository</url>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 
 </project>

@@ -10,7 +10,7 @@
 
     <modules>
         <module>canal-core</module>
-        <module>canal-router</module>
+        <module>canal-processor</module>
     </modules>
 
     <properties>

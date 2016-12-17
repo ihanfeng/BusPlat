@@ -1,15 +1,21 @@
 package com.zhiyin.jagent;
 
-import com.hg.awesome.java.agent.GetAllMethodTransformer;
-import com.hg.awesome.java.agent.PrintBeforeMethodTransformer;
-import com.zhiyin.jagent.agent.example.PerfMonXformer;
-import com.zhiyin.jagent.agent.example.SleepingClassFileTransformer;
-import com.zhiyin.jagent.agent.example.buddy.AopMethodAgent;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.google.common.collect.Maps;
 import com.zhiyin.jagent.transformer.ClassPathTransformer;
+import com.zhiyin.jagent.transformer.TelemetryTransformer;
+import com.zhiyin.jagent.transformer.handler.LogbackTraceLoggerHandler;
+import com.zhiyin.jagent.transformer.handler.config.TelemetryConfiguration;
 import com.zhiyin.jagent.util.ClassPathUtil;
 import javassist.CannotCompileException;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.instrument.Instrumentation;
+import java.util.Map;
 
 public class AgentInstaller {
 
@@ -33,6 +39,10 @@ public class AgentInstaller {
 	}
 
 	public static void doIns(Instrumentation instrumentation){
+
+
+		handlerTrans(instrumentation);
+
 		instrumentation.addTransformer(new ClassPathTransformer());
 //		instrumentation.addTransformer(new SleepingClassFileTransformer(),true);
 
@@ -46,5 +56,26 @@ public class AgentInstaller {
 			}
 		}
 	}
-	
+
+
+
+	private static void handlerTrans(Instrumentation instrumentation ) {
+
+		try {
+			InputStream schemaIS = AgentInstaller.class.getClassLoader().getResourceAsStream("META-INF/agent/config-default.yml");
+			ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+			TelemetryConfiguration config = mapper.readValue(schemaIS, TelemetryConfiguration.class);
+			if(config == null){
+				return ;
+			}
+			final TelemetryTransformer transformer = new TelemetryTransformer();
+			transformer.setHandlers( config.getHandlers() );
+
+			instrumentation.addTransformer(transformer);
+		}catch (Exception e){
+			System.out.println("handler error.");
+		}
+
+	}
+
 }

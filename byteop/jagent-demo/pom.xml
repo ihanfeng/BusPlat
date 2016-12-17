@@ -35,10 +35,31 @@
 			<systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
 		</dependency>
 
+
+		<!-- slf4j -->
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.1.7</version>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>${slf4j.version}</version>
+		</dependency>
+
+
+		<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-core</artifactId>
+		<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		<version>${logback.version}</version>
+		</dependency>
+
+
+		<dependency>
+		<groupId>com.google.guava</groupId>
+		<artifactId>guava</artifactId>
+		<version>19.0</version>
 		</dependency>
 
 
@@ -60,7 +81,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.19</version>
 				<configuration>
-					<argLine>-javaagent:E:\Github\BusPlat\byteop\jagent\target\jagent-0.0.1-full.jar</argLine>
+					<argLine>-javaagent:E:\Github\BusPlat\byteop\jagent\target\jagent-0.0.1-shaded.jar</argLine>
 				</configuration>
 			</plugin>
 

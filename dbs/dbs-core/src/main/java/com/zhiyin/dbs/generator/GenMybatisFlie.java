@@ -28,7 +28,22 @@ import java.util.List;
 @Slf4j
 public class GenMybatisFlie {
 
-    public static String genGeneratorConfig() {
+
+
+    // xml配置文件在resources下面.
+    public static String genGeneratorConfig( ) {
+        return genGeneratorConfig("mysql-base-generator-config.xml");
+    }
+
+
+    // xml配置文件在resources下面.
+    public static String genGeneratorConfig2( ) {
+        return genGeneratorConfig("mysql-base-generator-config2.xml");
+    }
+
+
+
+    public static String genGeneratorConfig(String fileName) {
         Parameters params = new Parameters();
 
         FileBasedConfigurationBuilder<FileBasedConfiguration> builder =
@@ -57,7 +72,7 @@ public class GenMybatisFlie {
             }
 //            List<String> lines = FileUtils.readLines( new File("/mysql-base-generator-config.xml") );
 
-            List<String> lines = IOUtils.readLines( GenMybatisFlie.class.getResourceAsStream("/mysql-base-generator-config.xml") );
+            List<String> lines = IOUtils.readLines( GenMybatisFlie.class.getResourceAsStream("/" + fileName) );
             lines.addAll(lines.size()-3,appendList);
             File saveFile = new File(config.getString("project.name") + "/generator-config-" + config.getString("project.name") + ".xml");
             log.info(saveFile.getAbsolutePath());

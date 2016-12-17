@@ -24,6 +24,33 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!-- canal jars -->
+        <dependency>
+            <groupId>com.alibaba.otter</groupId>
+            <artifactId>canal.common</artifactId>
+            <version>${canal.version}</version>
+            <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.otter</groupId>
+            <artifactId>canal.protocol</artifactId>
+            <version>${canal.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.otter</groupId>
+            <artifactId>canal.client</artifactId>
+            <version>${canal.version}</version>
+            <type>jar</type>
+        </dependency>
+        <!-- end canal jars -->
+
 
 
     </dependencies>

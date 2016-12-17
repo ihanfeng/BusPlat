@@ -23,11 +23,11 @@ public class LoggingRedisTemplate<K, V> extends RedisTemplate<K, V> {
     @Override
     public <T> T execute(final RedisCallback<T> action, final boolean exposeConnection, final boolean pipeline) {
         try {
-            logger.info("call ex");
+//            logger.debug("call ex");
             return super.execute(action, exposeConnection, pipeline);
         }
         catch(final Throwable t) {
-            logger.warn("Error executing cache operation: {}", t.getMessage());
+            logger.error("Error executing cache operation: {}", t);
             return null;
         }
     }
@@ -39,7 +39,7 @@ public class LoggingRedisTemplate<K, V> extends RedisTemplate<K, V> {
             return super.execute(script, keys, args);
         }
         catch(final Throwable t) {
-            logger.warn("Error executing cache operation: {}", t.getMessage());
+            logger.error("Error executing cache operation: {}",t );
             return null;
         }
     }
@@ -51,13 +51,13 @@ public class LoggingRedisTemplate<K, V> extends RedisTemplate<K, V> {
             return super.execute(script, argsSerializer, resultSerializer, keys, args);
         }
         catch(final Throwable t) {
-            logger.warn("Error executing cache operation: {}", t.getMessage());
+            logger.error("Error executing cache operation: {}", t.getMessage());
             return null;
         }
     }
 
     public <T> T execute(RedisCallback<T> action) {
-        logger.info("call");
+//        logger.info("call");
         return execute(action, isExposeConnection());
     }
 
@@ -67,7 +67,7 @@ public class LoggingRedisTemplate<K, V> extends RedisTemplate<K, V> {
             return super.execute(session);
         }
         catch(final Throwable t) {
-            logger.warn("Error executing cache operation: {}", t.getMessage());
+            logger.error("Error executing cache operation: {}", t.getMessage());
             return null;
         }
     }

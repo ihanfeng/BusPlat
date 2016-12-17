@@ -2,6 +2,7 @@ package com.zhiyin.device.dbs.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.common.base.Strings;
 import com.zhiyin.dbs.module.common.mapper.BaseMapper;
 import com.zhiyin.dbs.module.common.service.impl.BaseService;
 import com.zhiyin.device.dbs.config.RedisCacheName;
@@ -40,6 +41,20 @@ public class DeviceFixInfoServiceImpl extends BaseService<DeviceFixInfo> impleme
     @Override
     public DeviceFixInfo selectByUk(DeviceFixInfo fixInfo){
         return deviceFixInfoMapper.selectByUk(fixInfo);
+    }
+
+    @Override
+    public DeviceFixInfo selectByKey(DeviceFixInfo fixInfo){
+
+        if(fixInfo == null){
+            throw new RuntimeException("查询数据为空");
+        }
+
+        if(Strings.isNullOrEmpty(fixInfo.getImei()) && Strings.isNullOrEmpty(fixInfo.getUuid()) && Strings.isNullOrEmpty(fixInfo.getSerialno())){
+            throw new RuntimeException("查询数据不规范");
+        }
+
+        return deviceFixInfoMapper.selectByKey(fixInfo);
     }
 
     @Cacheable()

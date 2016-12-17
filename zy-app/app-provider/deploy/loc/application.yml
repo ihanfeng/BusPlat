@@ -63,3 +63,18 @@ spring:
 #    statusPageUrlPath: ${server.contextPath}/info
 #    healthCheckUrlPath: ${server.contextPath}/health
 
+
+
+
+dubbo:
+  application:
+    name : ${spring.application.name}
+  registry:
+    address : N/A
+  scan: com.zhiyin.app.dbs
+  protocol:
+    name: dubbo
+    port: 20880
+    serialization: kryo
+  provider-config:
+    version: RELEASE

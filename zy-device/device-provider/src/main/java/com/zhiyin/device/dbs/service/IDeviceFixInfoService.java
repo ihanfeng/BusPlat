@@ -8,4 +8,6 @@ import com.zhiyin.device.dbs.entity.DeviceFixInfo;
  */
 public interface IDeviceFixInfoService extends IBaseService<DeviceFixInfo> {
     DeviceFixInfo selectByUk(DeviceFixInfo fixInfo);
+
+    DeviceFixInfo selectByKey(DeviceFixInfo fixInfo);
 }

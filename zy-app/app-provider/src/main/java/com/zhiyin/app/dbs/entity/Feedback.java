@@ -1,6 +1,7 @@
 package com.zhiyin.app.dbs.entity;
 
 import com.zhiyin.dbs.common.base.BaseEntity;
+
 import java.io.Serializable;
 import java.util.Date;
 

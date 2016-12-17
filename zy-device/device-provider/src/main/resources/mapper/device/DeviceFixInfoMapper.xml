@@ -32,6 +32,36 @@
     limit 1
   </select>
 
+  <select id="selectByKey" resultMap="BaseResultMap" parameterType="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
+    select
+    <include refid="Base_Column_List" />
+    from zy_device_fix_info
+    where
+    <trim prefix="" suffix="" suffixOverrides="AND" >
+
+      <if test="serialno != null" >
+        serialno = ${serialno} AND
+      </if>
+      <if test="imei != null" >
+        imei = ${imei} AND
+      </if>
+      <if test="uuid != null" >
+        uuid = ${uuid} AND
+      </if>
+      <if test="model != null" >
+        model = ${model} AND
+      </if>
+      <if test="idfa != null" >
+        idfa = ${idfa} AND
+      </if>
+    </trim>
+
+    del_status = 0
+    limit 1
+  </select>
+
+
+
 
   <select id="selectAll" resultMap="BaseResultMap"   >
     select
@@ -108,6 +138,67 @@
       </if>
     </trim>
   </insert>
+
+  <insert id="insertSelectiveOrUpdate" parameterType="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
+    insert into zy_device_fix_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="serialno != null" >
+        serialno,
+      </if>
+      <if test="imei != null" >
+        imei,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="idfa != null" >
+        idfa,
+      </if>
+      <if test="ukVersion != null" >
+        uk_version,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="serialno != null" >
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null" >
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="idfa != null" >
+        #{idfa,jdbcType=VARCHAR},
+      </if>
+      <if test="ukVersion != null" >
+        #{ukVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+
+    ON DUPLICATE KEY UPDATE =follow_count+1
+
+  </insert>
+
+
   <update id="updateByPrimaryKeySelective" parameterType="com.zhiyin.device.dbs.entity.DeviceFixInfo" >
     update zy_device_fix_info
     <set >

@@ -7,4 +7,6 @@ public interface DeviceFixInfoMapper extends BaseMapper<DeviceFixInfo> {
 
     DeviceFixInfo selectByUk(DeviceFixInfo fixInfo);
 
+    DeviceFixInfo selectByKey(DeviceFixInfo fixInfo);
+
 }
