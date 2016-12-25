@@ -2,7 +2,7 @@ package com.zhiyin.dbs.generator;
 
 import java.util.List;
 
-import com.zhiyin.dbs.common.base.BaseMapper;
+import com.zhiyin.dbs.common.mapper.BaseMapper;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;

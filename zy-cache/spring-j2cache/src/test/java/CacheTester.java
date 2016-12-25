@@ -1,5 +1,3 @@
-package com.hg.spring.cache.j2cache;
-
 import net.oschina.j2cache.CacheChannel;
 import net.oschina.j2cache.CacheObject;
 import net.oschina.j2cache.J2Cache;

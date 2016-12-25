@@ -13,6 +13,7 @@
         <module>guava-demo</module>
         <module>mybatis-redis-demo</module>
         <module>cache-demo</module>
+        <module>spring-j2cache</module>
     </modules>
 
     <parent>
