@@ -28,7 +28,7 @@
 		<!-- Methode 2 -->
 		<appender-ref ref="JSON" />
 		<!-- Methode 3-->
-		<appender-ref ref="TCP" />
+		<!--<appender-ref ref="TCP" />-->
 	</root>
 	<logger name="org.springframework" level="INFO"/>
 </configuration>

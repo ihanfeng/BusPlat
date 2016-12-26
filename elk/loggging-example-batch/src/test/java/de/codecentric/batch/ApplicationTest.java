@@ -18,6 +18,8 @@ public class ApplicationTest {
 		assertEquals(0, SpringApplication.exit(SpringApplication
 				.run(Application.class,"duration=1")));
 		String output = this.outputCapture.toString();
+		System.out.println("outputCapture" + output + "outputCaptureENd");
+//		System.out.println("");
 		assertTrue("Wrong output: " + output,
 				output.contains("completed with the following parameters"));
 	}

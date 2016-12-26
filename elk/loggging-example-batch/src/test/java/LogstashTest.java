@@ -1,7 +1,6 @@
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
 
-
 /**
  * Created by colinsu on 2016/4/14.
  */
