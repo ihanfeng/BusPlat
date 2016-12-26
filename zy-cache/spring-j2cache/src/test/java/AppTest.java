@@ -1,5 +1,3 @@
-package com.hg.spring.cache.j2cache;
-
 import net.oschina.j2cache.util.SerializationUtils;
 
 import java.io.IOException;

@@ -55,6 +55,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.zhiyin.frame</groupId>
+            <artifactId>spring-j2cache</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- common -->
         <dependency>
             <groupId>org.projectlombok</groupId>

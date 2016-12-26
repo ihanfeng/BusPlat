@@ -31,6 +31,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Override
     @Cacheable(key = "#root.caches[0].name+'.id.'+#id")
     public User findById(Long id) {
+        log.info("enter method: {}, id:{}","findById",id);
         User user = userRepository.findOne(id);
         log.info(JSON.toJSONString(user));
         return user;

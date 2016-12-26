@@ -1,11 +1,11 @@
-package com.zhiyin.dbs.module.common.service;
+package com.zhiyin.dbs.common.service;
 
-import com.github.pagehelper.PageInfo;
-import com.zhiyin.dbs.module.common.entity.BaseEntity;
+import com.zhiyin.dbs.common.base.BaseEntity;
+import com.zhiyin.dbs.module.common.entity.PageInfo;
 
 import java.util.List;
 
-public interface IBaseService3<KEY,V implements BaseEntity> {
+public interface IBaseService<KEY,V extends BaseEntity> {
 
     public V selectById(KEY id);
 

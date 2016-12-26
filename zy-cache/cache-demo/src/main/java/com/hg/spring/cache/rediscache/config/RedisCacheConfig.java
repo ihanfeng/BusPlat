@@ -22,10 +22,9 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import java.lang.reflect.Method;
 import java.util.Map;
 
-@Configuration
-@PropertySource("classpath:/redis.properties")
-@EnableCaching(proxyTargetClass = true)
-//public class RedisCacheConfig implements CachingConfigurer {
+//@Configuration
+//@PropertySource("classpath:/redis.properties")
+//@EnableCaching(proxyTargetClass = true)
 public class RedisCacheConfig extends CachingConfigurerSupport {
 
 	private @Value("${redis.host}") String redisHostName;
