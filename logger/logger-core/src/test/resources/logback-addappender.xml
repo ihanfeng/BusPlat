@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="fileAppender"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/file.log</file>
+         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+                  <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="fileAppender" />
+    </root>
+
+</configuration>

@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
-    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <!--<include resource="org/springframework/boot/logging/logback/base.xml" />-->
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{ISO8601} %level{5} %c{3} - %message%n</pattern>
+        </encoder>
+    </appender>
+    <!---->
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/opt/log/elk-file.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./log/elk-file.log.%d{yyyyMMdd}-%i
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>256MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{ISO8601} [%thread] %level{5} %c{3} - %message%n</pattern>
+        </encoder>
+    </appender>
+
     <!-- Methode 2 -->
     <appender name="JSON" class="ch.qos.logback.core.FileAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
         </filter>
-        <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
-        <file>${LOG_FILE}.json</file>
+        <file>log.json</file>
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
             <includeCallerInfo>true</includeCallerInfo>
-            <customFields>{"appname":"${pom.artifactId}","version":"${pom.version}"}</customFields>
         </encoder>
     </appender>
     <!-- Methode 3 -->
@@ -22,9 +41,9 @@
         <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
     </appender>
     <root level="INFO">
-        <appender-ref ref="CONSOLE" />
+        <!--<appender-ref ref="CONSOLE" />-->
         <!-- Methode 1-->
-        <appender-ref ref="FILE" />
+        <!--<appender-ref ref="FILE" />-->
         <!-- Methode 2 -->
         <appender-ref ref="JSON" />
         <!-- Methode 3-->
